@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="transportaccident" mode="on" history="on">
-	<description>Транспортные аварии (катастрофы)</description>
+<rule type="page" id="poisonanimal" mode="on" history="on">
+	<description>Массовое отравление сельскохозяйственных животных</description>
 	<caching>NO_CACHING</caching>
 	<xsltfile>pages/transportaccident.xsl</xsltfile>
 	<element mode="ON" type="INCLUDED_PAGE">
@@ -10,17 +10,17 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.transportaccident</doscript>
+			<doscript source="file">page.actionbar.poisonanimal</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="SCRIPT">
 		<name>view_content</name>
 		<events>
-			<doscript source="file">page.DocsList.transportaccident</doscript>
+			<doscript source="file">page.DocsList.poisonanimal</doscript>
 		</events>
 	</element>
-	<caption name="category" source="KEYWORD">Техногенные ЧС</caption>
-	<caption name="view" source="KEYWORD">Транспортные аварии (катастрофы)</caption>
+	<caption name="category" source="KEYWORD">Природные ЧС</caption>
+	<caption name="view" source="KEYWORD">Массовое отравление сельскохозяйственных животных</caption>
 	<caption name="briefcontent" source="KEYWORD">Описание документа</caption>
 	<caption name="page" source="KEYWORD">Страница</caption>
 	<caption name="documents" source="KEYWORD">Документов</caption>
