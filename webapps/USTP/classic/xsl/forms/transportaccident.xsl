@@ -965,7 +965,8 @@
 											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:600px;" value="{document/fields/carddate}"/>
 										</td>
 									</tr>
-									<!-- Госпитализировано людей  -->
+
+									<!-- Госпитализировано людей  111-->
 									<tr>
 										<td class="fc">
 											Госпитализировано людей :
