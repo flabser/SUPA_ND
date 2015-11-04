@@ -16,7 +16,7 @@
 		<html>
 			<head>
 				<title>
-					<xsl:value-of select="concat('Workflow документооборот - ',document/fields/title)"/>
+					<xsl:value-of select="concat('Надзорная деятельность - Учет сведений о ЧС техногенного и природного характера - ',document/fields/title)"/>
 				</title>
 				<xsl:call-template name="cssandjs"/>
 				<script type="text/javascript">
