@@ -266,9 +266,8 @@
 		<html>
 			<head>
 				<title>
-					Workflow документооборот - <xsl:value-of select="page/captions/viewnamecaption/@caption"/>
+					Надзорная деятельность - Учет сведений о ЧС техногенного и природного характера - <xsl:value-of select="page/captions/viewnamecaption/@caption"/>
 				</title>
-				
 				<link type="text/css" rel="stylesheet" href="classic/css/outline.css"/>
 				<link type="text/css" rel="stylesheet" href="classic/css/main.css"/>
 				<link type="text/css" rel="stylesheet" href="/SharedResources/jquery/css/smoothness/jquery-ui-1.8.20.custom.css"/>

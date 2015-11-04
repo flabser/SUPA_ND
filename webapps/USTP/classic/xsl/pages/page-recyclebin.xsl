@@ -36,7 +36,7 @@
 		<html>
 			<head>
 				<title>
-					<xsl:value-of select="concat('Workflow документооборот - ', page/captions/recyclebin/@caption)"/>
+					<xsl:value-of select="concat('Надзорная деятельность - Учет сведений о ЧС техногенного и природного характера - ', page/captions/recyclebin/@caption)"/>
 				</title>
 				<link type="text/css" rel="stylesheet" href="classic/css/outline.css"/>
 				<link type="text/css" rel="stylesheet" href="classic/css/main.css"/>
