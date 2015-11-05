@@ -999,7 +999,79 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="carddate" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Повреждено -->
+									<tr>
+										<td class="fc">
+											Повреждено :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Техники транспорт (ед.) -->
+									<tr>
+										<td class="fc">
+											Техники транспорт (ед.) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Уничтожено -->
+									<tr>
+										<td class="fc">
+											Уничтожено :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Техники транспорт (ед.) -->
+									<tr>
+										<td class="fc">
+											Техники транспорт (ед.) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Спасено материальных ценностей тенге всего -->
+									<tr>
+										<td class="fc">
+											Спасено материальных ценностей тенге всего :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Имущества -->
+									<tr>
+										<td class="fc">
+											Имущества :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Техники -->
+									<tr>
+										<td class="fc">
+											Техники :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Материальный ущерб (предварительный) тенге -->
+									<tr>
+										<td class="fc">
+											Материальный ущерб (предварительный) тенге :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
 										</td>
 									</tr>
 								</table>
@@ -1007,245 +1079,431 @@
 							<div id="tabs-3">
 								<br/>
 								<table width="100%" border="0">
-									<tr>
-										<td class="fc" >
-											<xsl:value-of select="document/captions/controltype/@caption"/> :
-										</td>
-										<td>
-											<xsl:variable name="controltype" select="document/fields/controltype"/>
-											<select size="1" name="controltype" style="width:300px;" class="select_editable" autocomplete="off">
-												<xsl:if test="$editmode !='edit'">
-													<xsl:attribute name="disabled"/>
-													<xsl:attribute name="class">select_noteditable</xsl:attribute>
-													<option value="">
-														<xsl:attribute name="selected">selected</xsl:attribute>
-														<xsl:value-of select="document/fields/controltype"/>
-													</option>
-												</xsl:if>
-												<xsl:for-each select="document/glossaries/controltype/query/entry">
-													<option value="{@docid}">
-														<xsl:if test="$controltype = @docid">
-															<xsl:attribute name="selected">selected</xsl:attribute>
-														</xsl:if>
-														<xsl:value-of select="viewcontent/viewtext1"/>
-													</option>
-												</xsl:for-each>
-											</select>
-											<xsl:if test="$editmode != 'edit'">
-												<input type="hidden" name="controltype" value="document/fields/controltype"/>
-											</xsl:if>
-										</td>
-									</tr>
-									<tr>
-										<td class="fc" style="padding-top:5px;position:relative;top:0px;">
-											<xsl:value-of select="document/captions/ctrldate/@caption"/> :
-										</td>
-										<td style="padding-top:5px">
-											<input type="text" name="primaryctrldate" maxlength="10" autocomplete="off" class="td_editable" style="width:80px; vertical-align:top" value="{substring(document/fields/control/primaryctrldate,1,10)}">
-												<xsl:if test="$editmode = 'edit'">
-													<xsl:attribute name="id">ctrldate</xsl:attribute>
-												</xsl:if>
-												<xsl:if test="$editmode != 'edit'">
-													<xsl:attribute name="class">td_noteditable</xsl:attribute>
-												</xsl:if>
-											</input>
-											<xsl:variable name="cd" select="concat(current-date(),' ')"/>
-											<font class="diffdate" style="margin-left:10px; font-size:13px; font-family:Verdana,Arial,Helvetica,sans-serif; vertical-align:3px">
-												<xsl:if test="document/fields/control/diff &lt; 0 ">
-													<xsl:attribute name="color">red</xsl:attribute>
-												</xsl:if>
-												(<xsl:if test="document/fields/control/diff &gt; 0 or document/fields/control/diff = 0">
-													<xsl:value-of select="document/captions/remaineddays/@caption"/>
-												</xsl:if>
-												<xsl:if test="document/fields/control/diff &lt; 0 ">
-													<xsl:value-of select="document/captions/delayeddays/@caption"/>
-												</xsl:if>
-												: <xsl:value-of select="replace(document/fields/control/diff,'-','')"/>)
-											</font>
-										</td>
-									</tr>
+									<!-- Время -->
 									<tr>
 										<td class="fc">
-											<xsl:value-of select="document/captions/cyclecontrol/@caption" /> :
+											Время :
 										</td>
 										<td>
-											<table>
-												<tr>
-													<td>
-														<input type="radio" name="cyclecontrol" value="1" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '1'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="$status  = 'new'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/onceonly/@caption"/>
-														</input>
-														<xsl:if test="$editmode !='edit'">
-															<input type="hidden" name="cyclecontrol" value="{document/fields/control/cyclecontrol}"/>
-														</xsl:if>
-													</td>
-													<td>
-														<input type="radio" name="cyclecontrol" value="3" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '3'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/weekly/@caption"/>
-														</input>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<input type="radio" name="cyclecontrol" value="4" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '4'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/monthly/@caption"/>
-														</input>
-													</td>
-													<td>
-														<input type="radio" name="cyclecontrol" value="5" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '5'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/quarterly/@caption"/>
-														</input>
-													</td>
-													<td>
-														<input type="radio" name="cyclecontrol" value="6" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '6'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/semiannual/@caption"/>
-														</input>
-													</td>
-													<td>
-														<input type="radio" name="cyclecontrol" value="7" autocomplete="off">
-															<xsl:if test="$editmode !='edit'">
-																<xsl:attribute name="disabled">disabled</xsl:attribute>
-															</xsl:if>
-															<xsl:if test="document/fields/control/cyclecontrol = '7'">
-																<xsl:attribute name="checked">checked</xsl:attribute>
-															</xsl:if>
-															<xsl:value-of select="document/captions/annually/@caption"/>
-														</input>
-													</td>
-												</tr>
-											</table>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
 										</td>
 									</tr>
+									<!--Расстояние от места аварии до близлежащих населенных пунктов-->
 									<tr>
-										<td class="fc"><xsl:value-of select="document/captions/removcontrol/@caption"/> :</td>
+										<td class="fc">
+											Расстояние от места аварии до близлежащих населенных пунктов :
+										</td>
 										<td>
-											<table id="intexectable" class="table-border-gray">
-												<tr>
-													<td style="text-align:center; width:29%">
-														<xsl:value-of select="document/captions/performer/@caption"/>
-													</td>
-													<td style="text-align:center; width:17%">
-														<xsl:value-of select="document/captions/date/@caption"/>
-													</td>
-													<td style="text-align:center; width:27%">
-														<xsl:value-of select="document/captions/removedby/@caption"/>
-													</td>
-													<td style="text-align:center; width:3%"></td>
-													<!-- <td style="text-align:center; width:22%">Исполненено</td> -->
-												</tr>
-												<xsl:for-each select="document/fields/execblock/executors/entry">
-													<tr class="{type}">
-														<td>
-															<xsl:value-of select="shortname"/>
-															<input type="hidden" class="idContrExec" value="{shortname/@attrval}"/>
-															<xsl:variable name="type" select="if (type = 'INTERNAL') then '1' else '2'"/>
-															<xsl:variable name="fieldname" select="if (type = 'INTERNAL') then 'executor' else 'extexecutor'"/>
-															<input autocomplete="off" type="hidden" name="{$fieldname}" class="controlres" value="{$type}`{shortname/@attrval}`{responsible}`{resetdate}`{resetauthorid}"/>
-															<input type="hidden" id="executorid" value="{shortname/@attrval}"/>
-															<input type="hidden" id="controlOffDate" value="{resetdate}"/>
-															<input type="hidden" class="responsible" value="{responsible}"/>
-															<input type="hidden" id="resetauthor" value="{resetauthorid}"/>
-														</td>
-														<td class="controlOffDate">
-															<xsl:value-of select="resetdate"/>
-														</td>
-														<td class="idCorrControlOff">
-															<xsl:value-of select="resetauthorname"/>
-														</td>
-														<td style="text-align:center" class="switchControl">
-															<xsl:variable name="pos" select="position()"/>
-															<xsl:if test="/request/document/actionbar/action[@id='reset']/@mode = 'ON'">
-																<xsl:choose>
-																	<xsl:when test="string-length(resetauthorname) != 0">
-																		<img style="cursor:pointer" src="/SharedResources/img/classic/icons/accept.png">
-																			<xsl:attribute name="onclick">javascript:controlOn(this)</xsl:attribute>
-																			<xsl:attribute name="title"><xsl:value-of select="/request/document/captions/putundercontrol/@caption"/></xsl:attribute>
-																		</img>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<img style="cursor:pointer" src="/SharedResources/img/classic/icons/eye.png">
-																			<xsl:attribute name="onclick">javascript:controlOff(this)</xsl:attribute>
-																			<xsl:attribute name="title"><xsl:value-of select="/request/document/captions/removcontrol/@caption"/></xsl:attribute>
-																		</img>
-																	</xsl:otherwise>
-																</xsl:choose>
-															</xsl:if>
-															<xsl:if test="not(/request/document/actionbar/action[@id='reset'])">
-																<xsl:attribute name="style">background:#dfdfdf; text-align:center</xsl:attribute>
-																<xsl:choose>
-																	<xsl:when test="string-length(resetauthorname) != 0">
-																		<img  src="/SharedResources/img/classic/icons/accept.png"/>
-																	</xsl:when>
-																	<xsl:otherwise>
-																		<img src="/SharedResources/img/classic/icons/eye.png"/>
-																	</xsl:otherwise>
-																</xsl:choose>
-															</xsl:if>
-														</td>
-													</tr>
-												</xsl:for-each>
-											</table>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!--Охват населения своевременным оповещением об угрозе и возникновении ЧС (%)-->
+									<tr>
+										<td class="fc">
+											Охват населения своевременным оповещением об угрозе и возникновении ЧС (%) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!--Время оповещения -->
+									<tr>
+										<td class="fc">
+											Время оповещения :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Дежурный дежурно-диспетчерских служб области, города, района (ФИО, телефон, факс) -->
+									<tr>
+										<td class="fc">
+											Дежурный дежурно-диспетчерских служб области, города, района (ФИО, телефон, факс) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
 										</td>
 									</tr>
 								</table>
 							</div>
-							<xsl:if test="$status !='new'">
-								<div id="tabs-4" style="height:500px">
-									<div display="block" style="display:block; width:90%; margin-left:25px; font-size:14px" id="execution">
-										<br/>
-										<div id="progressDiv" style="width:99%; overflow:hidden">
-											<table>
-												<tr>
-													<td>
-														<xsl:if test="document/fields/progress/entry[1]/viewtext !=''">
-									 						<a href="{document/fields/progress/entry/@url}" class="doclink" style="color:blue; margin-left:3px; vertical-align:7px">
-									 							<xsl:value-of select="document/fields/progress/entry[1]/viewtext"/>
-									  						</a>
-									  					</xsl:if>
-														<xsl:if test="document/fields/progress/entry/viewtext ='' and $status = 'new'">
-									  						<xsl:value-of select="document/fields/title"/>
-									  					</xsl:if>
-							  						</td>
-							  					</tr>
-					  							<xsl:apply-templates select="document/fields/progress/entry/responses[entry]"/>
-					  						</table>
-										</div>
-									</div>
+							<div id="tabs-4">
+								<br/>
+								<table width="100%" border="0">
+									<!-- Дата и время локализации ЧС -->
+									<tr>
+										<td class="fc">
+											Дата и время локализации ЧС :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!--Дата и время ликвидации ЧС-->
+									<tr>
+										<td class="fc">
+											Дата и время ликвидации ЧС :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!--Было задействовано в ликвидации-->
+									<tr>
+										<td class="fc">
+											Было задействовано в ликвидации :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!--Время оповещения -->
+									<tr>
+										<td class="fc">
+											Время оповещения :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- в том числе -->
+									<tr>
+										<td class="fc">
+											в том числе :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Штаб ликвидации аварии -->
+									<tr>
+										<td class="fc">
+											Штаб ликвидации аварии :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Руководитель ликвидации ЧС (ФИО, должность, место работы) -->
+									<tr>
+										<td class="fc">
+											Руководитель ликвидации ЧС (ФИО, должность, место работы) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Виновное лицо (ФИО, возраст) -->
+									<tr>
+										<td class="fc">
+											Виновное лицо (ФИО, возраст) :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Затраты на ликвидацию ЧС, тенге -->
+									<tr>
+										<td class="fc">
+											Затраты на ликвидацию ЧС, тенге :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Сведения о создании Правительственной комиссии по расследованию аварии -->
+									<tr>
+										<td class="fc">
+											Сведения о создании Правительственной комиссии по расследованию аварии :
+										</td>
+										<td>
+											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+								</table>
+							</div>
+								<div id="tabs-5">
+									<br/>
+									<table width="100%" border="0">
+										<!-- Характеристика автомобильного транспорта -->
+										<tr>
+											<td class="fc">
+												Характеристика автомобильного транспорта :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Марка транспортного средства -->
+										<tr>
+											<td class="fc">
+												Марка транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!--Государственный номер автомобиля-(ей) -->
+										<tr>
+											<td class="fc">
+												Государственный номер автомобиля-(ей) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Характеристика железнодорожного транспорта -->
+										<tr>
+											<td class="fc">
+												Характеристика железнодорожного транспорта :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- № поезда-(ов) -->
+										<tr>
+											<td class="fc">
+												№ поезда-(ов) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Характеристика морского транспорта -->
+										<tr>
+											<td class="fc">
+												Характеристика морского транспорта :
+											</td>
+											<td>
+											</td>
+										</tr>
+										<!-- Вид транспорта -->
+										<tr>
+											<td class="fc">
+												Вид транспорта :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Модель транспортного средства -->
+										<tr>
+											<td class="fc">
+												Модель транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Характеристика авиатранспорта -->
+										<tr>
+											<td class="fc">
+												Характеристика авиатранспорта :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- марка -->
+										<tr>
+											<td class="fc">
+												марка :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- № рейса -->
+										<tr>
+											<td class="fc">
+												№ рейса :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Общие характеристики -->
+										<tr>
+											<td class="fc">
+												Общие характеристики :
+											</td>
+											<td>
+											</td>
+										</tr>
+										<!-- год выпуска транспортного средства -->
+										<tr>
+											<td class="fc">
+												год выпуска транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- вместительность каждого транспортного средства -->
+										<tr>
+											<td class="fc">
+												вместительность каждого транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- грузоподъемность каждого транспортного средства -->
+										<tr>
+											<td class="fc">
+												грузоподъемность каждого транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- дата последнего технического обслуживания (освидетельствования, ремонта) -->
+										<tr>
+											<td class="fc">
+												дата последнего технического обслуживания (освидетельствования, ремонта) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- срок службы транспортного средства -->
+										<tr>
+											<td class="fc">
+												срок службы транспортного средства :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- эксплуатационный ресурс -->
+										<tr>
+											<td class="fc">
+												эксплуатационный ресурс :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- ресурс для списания -->
+										<tr>
+											<td class="fc">
+												ресурс для списания :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- рабочий ресурс -->
+										<tr>
+											<td class="fc">
+												рабочий ресурс :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Форма собственности -->
+										<tr>
+											<td class="fc">
+												Форма собственности :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Принадлежность каждого транспорта -->
+										<tr>
+											<td class="fc">
+												Принадлежность каждого транспорта :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Информация о владельце (полный почтовый адрес, телефон, факс и e-mail организации, ФИО руководителей) -->
+										<tr>
+											<td class="fc">
+												Информация о владельце (полный почтовый адрес, телефон, факс и e-mail организации, ФИО руководителей) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Наличие системы -->
+										<tr>
+											<td class="fc">
+												Наличие системы :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Наличие аварийно-спасательных служб и формирований -->
+										<tr>
+											<td class="fc">
+												Наличие аварийно-спасательных служб и формирований :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Наличие финансовых и материальных ресурсов для ликвидации аварии -->
+										<tr>
+											<td class="fc">
+												Наличие финансовых и материальных ресурсов для ликвидации аварии :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Характер происшествия -->
+										<tr>
+											<td class="fc">
+												Характер происшествия :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Обстоятельства и причины, приведшие к ЧС (описание) -->
+										<tr>
+											<td class="fc">
+												Обстоятельства и причины, приведшие к ЧС (описание) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Количество транспорта, попавшего в аварию -->
+										<tr>
+											<td class="fc">
+												Количество транспорта, попавшего в аварию :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Скорость движения транспортных средств -->
+										<tr>
+											<td class="fc">
+												Скорость движения транспортных средств :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Описание состояния транспортных магистралей, железнодорожного полотна, взлетной полосы и т.д. -->
+										<tr>
+											<td class="fc">
+												Описание состояния транспортных магистралей, железнодорожного полотна, взлетной полосы и т.д. :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+									</table>
 								</div>
-							</xsl:if>
+
 							<input type="hidden" name="parentdocid" value="{document/@parentdocid}"/>
 							<input type="hidden" name="parentdoctype" value="{document/@parentdoctype}"/>
 							<xsl:for-each select="extexecid/item">
