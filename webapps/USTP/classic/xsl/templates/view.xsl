@@ -26,8 +26,8 @@
 		<div id="header-view">
 			<span style="float:left">
 				<img alt="" src ="/SharedResources/logos/workflow_small.png" style="margin:5px 5px 0px 10px"/>
-				<font style="font-size:1.5em; vertical-align:20px; color:#555555; margin-left:5px">Workflow</font>
-				<font style="font-size:1em; vertical-align:20px; color:#555555; margin-left:5px"> документооборот </font>
+				<font style="font-size:1.5em; vertical-align:20px; color:#555555; margin-left:5px">Надзорная деятельность</font>
+				<font style="font-size:1em; vertical-align:20px; color:#555555; margin-left:5px"> Учет сведений о ЧС техногенного и природного характера </font>
 			</span>
 			<span style="float:right; padding:5px 5px 5px 0px">
 				<a id="currentuser" target="_parent" href="Provider?type=edit&amp;element=userprofile&amp;id=userprofile" class="no_underline" style="color: #555555; font:11px Tahoma; font-weight:bold">

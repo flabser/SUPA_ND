@@ -275,8 +275,8 @@
 		<div style="position:absolute; top:0px; left:0px; width:100%; background:url(classic/img/yellow_background.jpg); height:70px; border-bottom:1px solid #fcdd76; z-index:2">
 			<span style="float:left">
 				<img src="/SharedResources/logos/workflow_small.png" style="margin:5px 5px 0px 10px"/>
-				<font style="font-size:1.5em; vertical-align:20px; color:#555555; margin-left:5px">Workflow</font>
-				<font style="font-size:1em; vertical-align:20px; color:#555555; margin-left:5px"> документооборот </font>
+				<font style="font-size:1.5em; vertical-align:20px; color:#555555; margin-left:5px">Надзорная деятельность</font>
+				<font style="font-size:1em; vertical-align:20px; color:#555555; margin-left:5px"> Учет сведений о ЧС техногенного и природного характера </font>
 			</span>
 			<span style="float:right; padding:5px 5px 5px 0px">
 				<a id="currentuser" title="{document/captions/view_userprofile/@caption}" href=" Provider?type=edit&amp;element=userprofile&amp;id=userprofile" style="text-decoration:none;color: #555555 ; font: 11px Tahoma; font-weight:bold">
