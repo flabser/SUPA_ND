@@ -38,30 +38,15 @@
 									     	e.preventDefault();
 									     	$("#canceldoc").click();
 									      	break;
-									   case 69:
-									   		<!-- клавиша e -->
-									     	e.preventDefault();
-									     	$("#btnexecution").click();
-									      	break;
 									   case 71:
 									  		<!-- клавиша g -->
 									     	e.preventDefault();
 									     	$("#btngrantaccess").click();
 									      	break;
-									   case 87:
-									  		<!-- клавиша w -->
-									     	e.preventDefault();
-									     	$("#btnremind").click();
-									      	break;
 									   case 83:
 									   		<!-- клавиша s -->
 									     	e.preventDefault();
 									     	$("#btnsavedoc").click();
-									      	break;
-									   case 84:
-									   		<!-- клавиша t -->
-									     	e.preventDefault();
-									     	$("#btnnewkr").click();
 									      	break;
 									   case 85:
 									   		<!-- клавиша u -->
@@ -89,12 +74,8 @@
 			   					}
 							});
 							$("#canceldoc").hotnav({keysource:function(e){ return "b"; }});
-							$("#btncoordyes").hotnav({keysource:function(e){ return "y"; }});
 							$("#btngrantaccess").hotnav({keysource:function(e){ return "g"; }});
-							$("#btnremind").hotnav({keysource:function(e){ return "w"; }});
 							$("#btnsavedoc").hotnav({keysource:function(e){ return "s"; }});
-							$("#btnexecution").hotnav({keysource:function(e){ return "e"; }});
-							$("#btnnewkr").hotnav({keysource:function(e){ return "t"; }});
 							$("#currentuser").hotnav({ keysource:function(e){ return "u"; }});
 							$("#logout").hotnav({keysource:function(e){ return "q"; }});
 							$("#helpbtn").hotnav({keysource:function(e){ return "h"; }});
@@ -152,13 +133,6 @@
 		                  		<li class="ui-state-default ui-corner-top">
 									<a href="#tabs-6">Итоговая справка по результатам расследования, ликвидации ЧС</a>
 								</li>
-	                  			<li class="ui-state-default ui-corner-top">
-	                  				<a href="#tabs-7"><xsl:value-of select="document/captions/attachments/@caption"/></a>
-	                  				<img id="loading_attach_img" style="vertical-align:-8px; margin-left:-10px; padding-right:3px; visibility:hidden" src="/SharedResources/img/classic/ajax-loader-small.gif"/>
-	                  			</li>
-	                 			<li class="ui-state-default ui-corner-top">
-	                 				<a href="#tabs-8"><xsl:value-of select="document/captions/additional/@caption"/></a>
-	                 			</li>
 		                 		<span style="float:right; font-size:11px; font-weight:normal;">
 									<b class="text"><xsl:value-of select="document/captions/author/@caption"/>: </b> 
 									<font class="text" style="padding-right:7px;"><xsl:value-of select="document/fields/author"/> </font>
@@ -1501,107 +1475,257 @@
 												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
 											</td>
 										</tr>
+										<!-- Количество объектов попавших в зону ЧС -->
+										<tr>
+											<td class="fc">
+												Количество объектов попавших в зону ЧС :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!--населенных пунктов -->
+										<tr>
+											<td class="fc">
+												населенных пунктов (ед.) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!--водных акваторий (площадь, км) -->
+										<tr>
+											<td class="fc">
+												водных акваторий (площадь, км) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- дорог (км) -->
+										<tr>
+											<td class="fc">
+												дорог (км) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- ЛЭП (км) -->
+										<tr>
+											<td class="fc">
+												ЛЭП (км) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Природные и климатические условия (описание) -->
+										<tr>
+											<td class="fc">
+												Природные и климатические условия (описание) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- скорость ветра, м/с -->
+										<tr>
+											<td class="fc">
+												скорость ветра, м/с :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- направление ветра -->
+										<tr>
+											<td class="fc">
+												направление ветра :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- температура воздуха, С -->
+										<tr>
+											<td class="fc">
+												температура воздуха, С :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- атмосферное давление, р.с.-->
+										<tr>
+											<td class="fc">
+												атмосферное давление, р.с. :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- влажность воздуха-->
+										<tr>
+											<td class="fc">
+												влажность воздуха :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- количество осадков -->
+										<tr>
+											<td class="fc">
+												количество осадков :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Наличие и характер разрушений, загрязнения окружающей среды (характеристики, описание) -->
+										<tr>
+											<td class="fc">
+												Наличие и характер разрушений, загрязнения окружающей среды (характеристики, описание) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Площадь распространения ЧС, км -->
+										<tr>
+											<td class="fc">
+												Площадь распространения ЧС, км :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div id="tabs-6">
+									<br/>
+									<table width="100%" border="0">
+										<!-- Описание происшедшего ЧС-->
+										<tr>
+											<td class="fc">
+												Описание происшедшего ЧС :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Условия, способствовавшие развитию происшествия -->
+										<tr>
+											<td class="fc">
+												Условия, способствовавшие развитию происшествия :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Обстоятельства возникновения происшествия -->
+										<tr>
+											<td class="fc">
+												Обстоятельства возникновения происшествия :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Особенности происшествия -->
+										<tr>
+											<td class="fc">
+												Особенности происшествия :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Анализ возможных причин возникновения ЧС -->
+										<tr>
+											<td class="fc">
+												Анализ возможных причин возникновения ЧС :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Принятые меры по обеспечению техники безопасности -->
+										<tr>
+											<td class="fc">
+												Принятые меры по обеспечению техники безопасности :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Условия, способствовавшие получению травм и гибели людей -->
+										<tr>
+											<td class="fc">
+												Условия, способствовавшие получению травм и гибели людей :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из -->
+										<tr>
+											<td class="fc">
+												Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС -->
+										<tr>
+											<td class="fc">
+												О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Положительные стороны и недостатки при ликвидации ЧС -->
+										<tr>
+											<td class="fc">
+												Положительные стороны и недостатки при ликвидации ЧС :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Выводы, предложения, меры -->
+										<tr>
+											<td class="fc">
+												Выводы, предложения, меры :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
+										<!-- Ответственный по заполнению (ФИО, должность, тел.) -->
+										<tr>
+											<td class="fc">
+												Ответственный по заполнению (ФИО, должность, тел.) :
+											</td>
+											<td>
+												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											</td>
+										</tr>
 									</table>
 								</div>
 
-							<input type="hidden" name="parentdocid" value="{document/@parentdocid}"/>
-							<input type="hidden" name="parentdoctype" value="{document/@parentdoctype}"/>
-							<xsl:for-each select="extexecid/item">
-								<input type="hidden" name="extexecid" id="extexecid" value="{.}"/>
-							</xsl:for-each>
 							<!-- Скрытые поля -->
-							<input type="hidden" name="isresol" value="{isresol}"/>
 							<input type="hidden" name="type" value="save"/>
-							<input type="hidden" name="id" value="task"/>
-							<input type="hidden" name="taskauthor" value="{document/fields/taskauthor/@attrval}"/>
-							<input type="hidden" name="allcontrol" value="{document/fields/control/allcontrol}"/>
-							<input type="hidden" name="dbd" value="{document/fields/dbd}">
-								<xsl:if test="document/@status = 'new'">
-									<xsl:attribute name="value">30</xsl:attribute>
-								</xsl:if>
-							</input>
-							<input type="hidden" name="tasktype">
-								<xsl:choose>
-									<xsl:when test="document/fields/tasktype = 'RESOLUTION'">
-										<xsl:attribute name="value">RESOLUTION</xsl:attribute>
-									</xsl:when>
-									<xsl:when test="document/fields/parenttasktype=''">
-										<xsl:attribute name="value">RESOLUTION</xsl:attribute>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:attribute name="value">CONSIGN</xsl:attribute>
-									</xsl:otherwise>
-								</xsl:choose>
-							</input>
+							<input type="hidden" name="id" value="{/request/@id}"/>
+							<input type="hidden" name="author" value="{document/fields/author/@attrval}"/>
 							<input type="hidden" name="doctype" value="{document/@doctype}"/>
 							<input type="hidden" name="key" value="{document/@docid}"/>
-							<div id="executers" style="display:none">
-								<table style="width:100%">
-									<xsl:for-each select="document/fields/executors/entry">
-										<tr>
-											<td>
-												<input type="checkbox" name="chbox" value="{user}" id="{user/@attrval}">
-													<xsl:if test="user/@attrval =''">
-														<xsl:attribute name="disabled">disabled</xsl:attribute>
-													</xsl:if>
-												</input>
-											</td>
-											<td>
-												<font class="font" style="font-family:verdana; font-size:13px; margin-left:2px">
-													<xsl:if test="user/@attrval =''">
-														<xsl:attribute name="color">gray</xsl:attribute>
-													</xsl:if>
-													<xsl:value-of select="user"/>
-												</font>
-											</td>
-										</tr>
-									</xsl:for-each>
-								</table>
-							</div>
 							<input type="hidden" id="currentuserid" value="{@userid}"/>
 							<input type="hidden" id="localusername" value="{@username}"/>
-<!-- 							<xsl:call-template name="ECPsignFields"/> -->
 						</form>
-						<div id="tabs-5">
-							<br/>
-							<form action="Uploader" name="upload" id="upload" method="post" enctype="multipart/form-data">
-								<input type="hidden" name="type" value="rtfcontent"/>
-								
-								<input type="hidden" name="formsesid" value="{formsesid}"/>
-								<xsl:call-template name="attach"/>
-							</form>
-						</div>
-						<xsl:if test="document/@parentdocid !='0'">
-							<div id="tabs-7">
-								<br/>
-								<table width="100%" border="0">
-									<!-- поле "Текст резолюции" -->
-										<tr>
-											<td class="fc"><xsl:value-of select="document/captions/content/@caption"/> :</td>
-											<td>
-												<div id="parentdoccontent">
-													<xsl:attribute name="style">width:815px; height:450px; background:#EEEEEE; padding: 3px 5px; overflow-x:auto</xsl:attribute>
-													<script>
-														$("#parentdoccontent").html("<xsl:value-of select='document/fields/pdoccontent'/>")
-													</script>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="2">
-											<div id="textprintpreview" style="display:none; overflow:visible">
-												</div>
-												<script>
-													$("#textprintpreview").html("<xsl:value-of select='document/fields/content'/>");
-												</script>
-											</td>
-										</tr>
-								</table>
-							</div>
-						</xsl:if>
-						<div id="tabs-6">
-							<xsl:call-template name="docinfo"/>
-						</div>
 					</div>
 					<div style="height:10px"/>
 				</div>
@@ -1610,58 +1734,4 @@
 		</body>
 	</html>
 	</xsl:template>
-
-<xsl:template match="responses">
-	<tr class="response{../@docid}">
-		<xsl:attribute name="bgcolor">#FFFFFF</xsl:attribute>
-		<td nowrap="true">
-			<xsl:apply-templates mode="line"/>
-		</td>
-	</tr>
-</xsl:template>
-	
-<xsl:template match="entry" mode="line">
-	<div class="Node" style="overflow:hidden; height:22px" id="{@docid}{@doctype}">
-		<xsl:call-template name="graft"/>
-		<xsl:apply-templates select="." mode="item"/>
-	</div>
-	<xsl:apply-templates mode="line"/>
-</xsl:template>
-	
-<xsl:template match="viewtext" mode="line"/>
-	
-<xsl:template match="entry" mode="item">
-	<a href="{@url}" title="{viewtext}" class="doclink" style="font-style:Verdana,​Arial,​Helvetica,​sans-serif; width:100%; font-size:97%; margin-left:2px">
-		<xsl:variable name='simbol'>'</xsl:variable>
-		<font id="font{@docid}{@doctype}" style="line-height:19px">
-			<xsl:value-of select="replace(viewtext, '&amp;gt;', '->')"/>
-		</font>
-	</a>
-</xsl:template>
-
-<xsl:template name="graft">
-	<xsl:apply-templates select="ancestor::entry" mode="tree"/>
-	<xsl:choose>
-		<xsl:when test="following-sibling::entry">
-			<img style="vertical-align:top;" src="/SharedResources/img/classic/tree_tee.gif"/>
-		</xsl:when>
-		<xsl:otherwise>
-			<img style="vertical-align:top;" src="/SharedResources/img/classic/tree_corner.gif"/>
-		</xsl:otherwise>
-	</xsl:choose>
-</xsl:template>
-	
-<xsl:template match="responses" mode="tree"/>
-<xsl:template match="*" mode="tree">
-	<xsl:choose>
-		<xsl:when test="following-sibling::*">
-			<img style="vertical-align:top;" src="/SharedResources/img/classic/tree_bar.gif"/>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:if test="parent::responses or parent::entry">
-				<img style="vertical-align:top;" src="/SharedResources/img/classic/tree_spacer.gif"/>
-			</xsl:if>
-		</xsl:otherwise>
-	</xsl:choose>
-</xsl:template>
 </xsl:stylesheet>
