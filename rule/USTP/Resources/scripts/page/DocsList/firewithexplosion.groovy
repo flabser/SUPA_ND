@@ -1,4 +1,4 @@
-package page.DocsList.transportaccident
+package page.DocsList
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 /**
  * Created by Bekzat on 2/12/14.
  */
-class transportaccident extends _DoScript {
+class firewithexplosion extends _DoScript {
 
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
@@ -21,9 +21,6 @@ class transportaccident extends _DoScript {
         def formid = formData.getValue("formid");
         def projectid = formData.getValue("projectid")
         def formula = "form='$formid' and project#number=$projectid";
-
-        if(formid == "IN")
-            formula = "form='IN' and project#glossary=$projectid";
 
         def db = session.getCurrentDatabase()
         def col = db.getCollectionOfDocuments(formula, page, true, true, new SimpleDateFormat("dd.MM.yyyy"))
