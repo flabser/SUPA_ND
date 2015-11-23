@@ -97,7 +97,7 @@
 					<div class="formwrapper">
 						<div class="formtitle">
 							<div style="float:left" class="title">
-								<xsl:call-template name="isresol"/><span id="whichreadblock">Прочтен</span>
+								<xsl:value-of select="document/fields/title"/> <span id="whichreadblock">Прочтен</span>
 							</div>
 						</div>
 						<div class="button_panel">
@@ -138,17 +138,6 @@
 									<font class="text" style="padding-right:7px;"><xsl:value-of select="document/fields/author"/> </font>
 									<xsl:if test="$status != 'new'">
 										<img id="edsimg" style="max-width:14px; margin-right:5px; margin-left:2px; visibility:hidden" title="Документ подписан ЭЦП - Подпись верна"/>
-										<font class="text">
-											<xsl:choose>
-												<xsl:when test="document/fields/control/allcontrol = '1'">
-													<xsl:attribute name="style">color:red;</xsl:attribute>
-													<xsl:value-of select="document/captions/incontrol/@caption"/>
-												</xsl:when>
-												<xsl:when test="document/fields/control/allcontrol = '0'">
-													<xsl:value-of select="document/captions/removedofcontrol/@caption"/>
-												</xsl:when>
-											</xsl:choose>
-										</font>
 									</xsl:if>
 									<xsl:if test="document/fields/isold = '1'">
 										<font class="text">
