@@ -84,10 +84,26 @@
 					]]>
 				</script>
 
-			
-
 				 <xsl:if test="$editmode = 'edit'">
-					<xsl:call-template name="htmlareaeditor"/>
+					 <script>
+						 var _calendarLang = "<xsl:value-of select="/request/@lang" />";
+						 $(function() {
+						 $('#f1n5, #f1n16, #f1n18').datepicker({
+						 showOn: 'button',
+						 buttonImage: '/SharedResources/img/iconset/calendar.png',
+						 buttonImageOnly: true,
+						 regional:['ru'],
+						 showAnim: '',
+						 monthNames: calendarStrings[_calendarLang].monthNames,
+						 monthNamesShort: calendarStrings[_calendarLang].monthNamesShort,
+						 dayNames: calendarStrings[_calendarLang].dayNames,
+						 dayNamesShort: calendarStrings[_calendarLang].dayNamesShort,
+						 dayNamesMin: calendarStrings[_calendarLang].dayNamesMin,
+						 weekHeader: calendarStrings[_calendarLang].weekHeader,
+						 yearSuffix: calendarStrings[_calendarLang].yearSuffix,
+						 });
+						 });
+					 </script>
 				</xsl:if>
 				<xsl:call-template name="markisread"/>
 			</head>
@@ -131,7 +147,7 @@
 									<a href="#tabs-5">Характеристика объекта</a>
 								</li>
 		                  		<li class="ui-state-default ui-corner-top">
-									<a href="#tabs-6">Итоговая справка по результатам расследования, ликвидации ЧС</a>
+									<a href="#tabs-6">Итоговая справка</a>
 								</li>
 		                 		<span style="float:right; font-size:11px; font-weight:normal;">
 									<b class="text"><xsl:value-of select="document/captions/author/@caption"/>: </b> 
@@ -172,7 +188,7 @@
 												Дата карточки :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="carddate" id="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
 											</td>
 										</tr>
 										<!-- Код ЧС -->
@@ -243,7 +259,7 @@
 												Дата возникновения ЧС :
 											</td>
 											<td>
-												<input type="text" name="f1n5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n5}"/>
+												<input type="text" name="f1n5" id="f1n5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n5}"/>
 											</td>
 										</tr>
 										<!-- Наименование области -->
@@ -604,7 +620,7 @@
 												 Дата отправления :
 											</td>
 											<td>
-												<input type="text" name="f1n16" class="td_editable" style="width:160px;" value="{document/fields/f1n16}"/>
+												<input type="text" name="f1n16" id="f1n16" class="td_editable" style="width:160px;" value="{document/fields/f1n16}"/>
 											</td>
 										</tr>
 										<!-- Время отправления   -->
@@ -622,7 +638,7 @@
 												 Дата прибытия :
 											</td>
 											<td>
-												<input type="text" name="f1n18" class="td_editable" style="width:160px;" value="{document/fields/f1n18}"/>
+												<input type="text" name="f1n18" id="f1n18" class="td_editable" style="width:160px;" value="{document/fields/f1n18}"/>
 											</td>
 										</tr>
 										<!-- Время прибытия    -->
@@ -1078,7 +1094,7 @@
 											Возникновения ЧС :
 										</td>
 										<td>
-											<input type="text" name="f1n37_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_2}"/>
+											<input type="text" name="f1n37_2"  id="f1n37_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_2}"/>
 										</td>
 									</tr>
 									<!-- Время обнаружения  ЧС-->
@@ -1087,7 +1103,7 @@
 											обнаружения ЧС :
 										</td>
 										<td>
-											<input type="text" name="f1n37_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_3}"/>
+											<input type="text" name="f1n37_3" id="f1n37_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_3}"/>
 										</td>
 									</tr>
 									<!-- Время сообщения о ЧС-->
@@ -1096,7 +1112,7 @@
 											сообщения о ЧС :
 										</td>
 										<td>
-											<input type="text" name="f1n37_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_4}"/>
+											<input type="text" name="f1n37_4"  id="f1n37_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_4}"/>
 										</td>
 									</tr>
 									<!-- Время выезда подразделений -->
@@ -1105,7 +1121,7 @@
 											Выезда подразделений :
 										</td>
 										<td>
-											<input type="text" name="f1n37_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_5}"/>
+											<input type="text" name="f1n37_5" id="f1n37_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_5}"/>
 										</td>
 									</tr>
 									<!-- Время прибытия первых подразделений -->
@@ -1114,7 +1130,7 @@
 											Время прибытия первых подразделений :
 										</td>
 										<td>
-											<input type="text" name="f1n37_6" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_6}"/>
+											<input type="text" name="f1n37_6" id="f1n37_6" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_6}"/>
 										</td>
 									</tr>
 									<!--Расстояние от места аварии до близлежащих населенных пунктов-->
