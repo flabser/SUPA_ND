@@ -1,0 +1,28 @@
+# Compiled source #
+###################
+*.class
+
+# Application resources #
+#########################
+/system_data/
+/backup/
+/indicators/
+/tmp/
+# /rule/*/global.xml
+/rule/*/global.dat
+
+# Idea resources #
+##################
+.idea
+# cfg.xml
+*.iml
+/out/
+/.svn/
+# Logs #
+########
+*.log
+/logs/
+/bin/
+/.settings/
+/.classpath
+/.project
