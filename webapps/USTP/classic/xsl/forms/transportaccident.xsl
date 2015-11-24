@@ -160,7 +160,7 @@
 												<table>
 													<tr>
 														<td>
-															<input type="text" name="cardnum" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/cardnum}"/>
+															<input type="text" name="f1n1" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n1}"/>
 														</td>
 													</tr>
 												</table>
@@ -181,7 +181,7 @@
 												Код ЧС :
 											</td>
 											<td>
-												<input type="text" name="code" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/code}"/>
+												<input type="text" name="f1n2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n2}"/>
 											</td>
 										</tr>
 										<!-- Вид  ЧС -->
@@ -190,8 +190,8 @@
 												Вид ЧС :
 											</td>
 											<td>
-												<select size="1" name="type" style="width:612px;" class="select_editable" autocomplete="off">
-													<xsl:variable name="type" select="document/fields/type"/>
+												<select size="1" name="f1n3" style="width:612px;" class="select_editable" autocomplete="off">
+													<xsl:variable name="type" select="document/fields/f1n3"/>
 													<xsl:if test="$editmode ='edit'">
 														<option value=" ">
 															<xsl:attribute name="selected">selected</xsl:attribute>
@@ -224,7 +224,7 @@
 											</td>
 											<td style="padding-top:5px">
 												<div>
-													<textarea name="briefcontent" rows="3"  tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+													<textarea name="f1n4" rows="3"  tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
 														<xsl:if test="$editmode !='edit'">
 															<xsl:attribute name="readonly">readonly</xsl:attribute>
 															<xsl:attribute name="class">textarea_noteditable</xsl:attribute>
@@ -243,7 +243,7 @@
 												Дата возникновения ЧС :
 											</td>
 											<td>
-												<input type="text" name="esdate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/esdate}"/>
+												<input type="text" name="f1n5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n5}"/>
 											</td>
 										</tr>
 										<!-- Наименование области -->
@@ -402,7 +402,7 @@
 												Видимые ориентиры :
 											</td>
 											<td style="padding-left:5px">
-												Ориентир : <input type="text" name="orientirs" class="td_editable" style="width:160px; margin-left:5px; margin-right:5px" value="{document/fields/orientirs}"/> Расстояние : <input type="text" name="distance" class="td_editable" style="width:60px; margin-left:5px;" value="{document/fields/distance}"/> км
+												Ориентир : <input type="text" name="f1n7" class="td_editable" style="width:160px; margin-left:5px; margin-right:5px" value="{document/fields/f1n7}"/> Расстояние : <input type="text" name="distance" class="td_editable" style="width:60px; margin-left:5px;" value="{document/fields/distance}"/> км
 											</td>
 										</tr>
 										<!-- Географические координаты   -->
@@ -411,7 +411,7 @@
 												Географические координаты :
 											</td>
 											<td>
-												<input type="text" name="coordinats" class="td_editable" style="width:200px;" value="{document/fields/coordinats}"/>
+												<input type="text" name="f1n8" class="td_editable" style="width:200px;" value="{document/fields/f1n8}"/>
 											</td>
 										</tr>
 										<!-- дороги (значение) -->
@@ -585,7 +585,7 @@
 												Маршрут передвижения (направление, сообщение):
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n14" class="td_editable" style="width:160px;" value="{document/fields/f1n14}"/>
 											</td>
 										</tr>
 										<!-- Пункт направления (назначения)  -->
@@ -594,8 +594,8 @@
 												Пункт направления (назначения):
 											</td>
 											<td>
-												  <input type="text" name="housing" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/housing}"/> Отправления<br/>
-												  <input type="text" name="housing" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/housing}"/> Прибытия
+												  <input type="text" name="f1n15" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n15}"/> Отправления<br/>
+												  <input type="text" name="f1n15_2" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n15_2}"/> Прибытия
 											</td>
 										</tr>
 										<!-- Дата отправления   -->
@@ -604,7 +604,7 @@
 												 Дата отправления :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n16" class="td_editable" style="width:160px;" value="{document/fields/f1n16}"/>
 											</td>
 										</tr>
 										<!-- Время отправления   -->
@@ -613,7 +613,7 @@
 												 Время отправления :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n17" class="td_editable" style="width:160px;" value="{document/fields/f1n17}"/>
 											</td>
 										</tr>
 										<!-- Дата прибытия    -->
@@ -622,7 +622,7 @@
 												 Дата прибытия :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n18" class="td_editable" style="width:160px;" value="{document/fields/f1n18}"/>
 											</td>
 										</tr>
 										<!-- Время прибытия    -->
@@ -631,7 +631,7 @@
 												 Время прибытия :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n19" class="td_editable" style="width:160px;" value="{document/fields/f1n19}"/>
 											</td>
 										</tr>
 										<!-- Задержка движения транспорта  -->
@@ -640,7 +640,7 @@
 												 Задержка движения транспорта :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+												<input type="text" name="f1n20" class="td_editable" style="width:160px;" value="{document/fields/f1n20}"/>
 											</td>
 										</tr>
 										<!-- Количество пассажиров  -->
@@ -649,8 +649,8 @@
 												 Количество пассажиров (человек) :
 											</td>
 											<td>
-												<input type="text" name="housing" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/housing}"/> Взрослых <br/>
-												<input type="text" name="housing" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/housing}"/> Детей
+												<input type="text" name="f1n21" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n21}"/> Взрослых <br/>
+												<input type="text" name="f1n21_2" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n21_2}"/> Детей
 											</td>
 										</tr>
 								</table>
@@ -664,7 +664,7 @@
 											Общее количество людей находившихся в зоне ЧС :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n22" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n22}"/>
 										</td>
 									</tr>
 									<!-- Количество пострадавших (чел.) -->
@@ -673,7 +673,7 @@
 											Количество пострадавших (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n23" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n23}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -682,7 +682,7 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n23_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n23_2}"/> Пол : <input type="text" name="f1n23_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n23_3}"/> Возраст : <input type="text" name="f1n23_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n23_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -691,7 +691,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n23_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n213_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -700,7 +700,7 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n23_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n23_6}"/> Пол : <input type="text" name="f1n23_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n23_7}"/> Возраст : <input type="text" name="f1n23_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n23_8}"/>
 										</td>
 									</tr>
 									<!-- Количество Погибших (чел.) -->
@@ -709,7 +709,7 @@
 											Количество погибших (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n24" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n24}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -718,7 +718,7 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n24_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n24_2}"/> Пол : <input type="text" name="f1n24_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n24_3}"/> Возраст : <input type="text" name="f1n24_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n24_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -727,7 +727,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n24_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n24_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -736,7 +736,7 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n24_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n24_6}"/> Пол : <input type="text" name="f1n24_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n24_7}"/> Возраст : <input type="text" name="f1n24_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n24_8}"/>
 										</td>
 									</tr>
 									<!-- Количество людей пропавших без вести (чел.) -->
@@ -745,7 +745,7 @@
 											Количество пропавших без вести (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n25" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n25}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -754,7 +754,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n25_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n25_2}"/>
+											Пол : <input type="text" name="f1n25_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n25_3}"/>
+											Возраст : <input type="text" name="f1n25_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n25_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -763,7 +765,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n25_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n25_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -772,7 +774,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n25_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n25_6}"/>
+											Пол : <input type="text" name="f1n25_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n25_7}"/>
+											Возраст : <input type="text" name="f1n25_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n25_8}"/>
 										</td>
 									</tr>
 									<!-- Количество спасенных (чел.) -->
@@ -781,7 +785,7 @@
 											Количество спасенных (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n26" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n26}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -790,7 +794,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n26_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n26_2}"/>
+											Пол : <input type="text" name="f1n26_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n26_3}"/>
+											Возраст : <input type="text" name="f1n26_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n26_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -799,7 +805,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n26_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n26_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -808,7 +814,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n26_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n26_6}"/>
+											Пол : <input type="text" name="f1n26_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n26_7}"/>
+											Возраст : <input type="text" name="f1n26_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n26_8}"/>
 										</td>
 									</tr>
 									<!-- Обнаруженно людей в ходе проведения поисково - спасательных работ -->
@@ -817,7 +825,7 @@
 											Обнаруженно людей в ходе проведения поисково - спасательных работ :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n27" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n27}"/>
 										</td>
 									</tr>
 									<!-- Спасены и доставлены в мед. учреждения -->
@@ -826,7 +834,7 @@
 											Спасены и доставлены в мед. учреждения :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n27_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n27_2}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -835,7 +843,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n27_3" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n27_3}"/>
+											Пол : <input type="text" name="f1n27_4" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n27_4}"/>
+											Возраст : <input type="text" name="f1n27_5" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n27_5}"/>
 										</td>
 									</tr>
 									<!-- Общее количество людей требующих эвакуации (чел.) -->
@@ -844,7 +854,7 @@
 											Общее количество людей требующих эвакуации :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n28" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n28}"/>
 										</td>
 									</tr>
 									<!-- Количество эвакуированных  -->
@@ -853,7 +863,7 @@
 											Количество эвакуированных :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n29" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n29}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -862,7 +872,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n29_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n29_2}"/>
+											Пол : <input type="text" name="f1n29_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n29_3}"/>
+											Возраст : <input type="text" name="f1n29_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n29_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -871,7 +883,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n29_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n29_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -880,7 +892,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n29_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n29_6}"/>
+											Пол : <input type="text" name="f1n29_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n29_7}"/>
+											Возраст : <input type="text" name="f1n29_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n29_8}"/>
 										</td>
 									</tr>
 									<!-- Оказана первая медицинская помощь  -->
@@ -889,7 +903,7 @@
 											Оказана первая медицинская помощь :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n30" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n30}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -898,7 +912,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n30_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n30_2}"/>
+											Пол : <input type="text" name="f1n30_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n30_3}"/>
+											Возраст : <input type="text" name="f1n30_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n30_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -907,7 +923,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n30_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n30_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -916,7 +932,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n30_6" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n30_6}"/>
+											Пол : <input type="text" name="f1n30_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n30_7}"/>
+											Возраст : <input type="text" name="f1n30_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n30_8}"/>
 										</td>
 									</tr>
 									<!-- Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь  -->
@@ -925,7 +943,7 @@
 											Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:600px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n31" maxlength="10" class="td_editable" style="width:600px;" value="{document/fields/f1n31}"/>
 										</td>
 									</tr>
 
@@ -935,7 +953,7 @@
 											Госпитализировано людей :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n32" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n32}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -944,7 +962,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n32_2" maxlength="10" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n32_2}"/>
+											Пол : <input type="text" name="f1n32_3" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n32_3}"/>
+											Возраст : <input type="text" name="f1n32_4" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n32_4}"/>
 										</td>
 									</tr>
 									<!-- В том числе детей (чел.) -->
@@ -953,7 +973,7 @@
 											В том числе детей (чел.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n32_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n32_5}"/>
 										</td>
 									</tr>
 									<!-- ФИО, Пол, Возраст -->
@@ -962,7 +982,9 @@
 
 										</td>
 										<td>
-											ФИО : <input type="text" name="carddate" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Пол : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/carddate}"/> Возраст : <input type="text" name="carddate" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/carddate}"/>
+											ФИО : <input type="text" name="f1n32_6" class="td_editable" style="width:200px; margin-left:5px; margin-right:5px" value="{document/fields/f1n32_6}"/>
+											Пол : <input type="text" name="f1n32_7" maxlength="10" class="td_editable" style="width:100px; ; margin-left:5px; margin-right:5px" value="{document/fields/f1n32_7}"/>
+											Возраст : <input type="text" name="f1n32_8" maxlength="10" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n32_8}"/>
 										</td>
 									</tr>
 									<!-- Повреждено -->
@@ -971,7 +993,7 @@
 											Повреждено :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n33" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n33}"/>
 										</td>
 									</tr>
 									<!-- Техники транспорт (ед.) -->
@@ -980,7 +1002,7 @@
 											Техники транспорт (ед.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n33_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n33_2}"/>
 										</td>
 									</tr>
 									<!-- Уничтожено -->
@@ -989,7 +1011,7 @@
 											Уничтожено :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n34" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n34}"/>
 										</td>
 									</tr>
 									<!-- Техники транспорт (ед.) -->
@@ -998,7 +1020,7 @@
 											Техники транспорт (ед.) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n34_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n34_2}"/>
 										</td>
 									</tr>
 									<!-- Спасено материальных ценностей тенге всего -->
@@ -1007,7 +1029,7 @@
 											Спасено материальных ценностей тенге всего :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n35" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n35}"/>
 										</td>
 									</tr>
 									<!-- Имущества -->
@@ -1016,7 +1038,7 @@
 											Имущества :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n35_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n35_2}"/>
 										</td>
 									</tr>
 									<!-- Техники -->
@@ -1025,7 +1047,7 @@
 											Техники :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n35_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n35_3}"/>
 										</td>
 									</tr>
 									<!-- Материальный ущерб (предварительный) тенге -->
@@ -1034,7 +1056,7 @@
 											Материальный ущерб (предварительный) тенге :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n36" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n36}"/>
 										</td>
 									</tr>
 								</table>
@@ -1048,7 +1070,51 @@
 											Время :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+										</td>
+									</tr>
+									<!-- Время возникновения ЧС-->
+									<tr>
+										<td class="fc">
+											Возникновения ЧС :
+										</td>
+										<td>
+											<input type="text" name="f1n37_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_2}"/>
+										</td>
+									</tr>
+									<!-- Время обнаружения  ЧС-->
+									<tr>
+										<td class="fc">
+											обнаружения ЧС :
+										</td>
+										<td>
+											<input type="text" name="f1n37_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_3}"/>
+										</td>
+									</tr>
+									<!-- Время сообщения о ЧС-->
+									<tr>
+										<td class="fc">
+											сообщения о ЧС :
+										</td>
+										<td>
+											<input type="text" name="f1n37_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_4}"/>
+										</td>
+									</tr>
+									<!-- Время выезда подразделений -->
+									<tr>
+										<td class="fc">
+											Выезда подразделений :
+										</td>
+										<td>
+											<input type="text" name="f1n37_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_5}"/>
+										</td>
+									</tr>
+									<!-- Время прибытия первых подразделений -->
+									<tr>
+										<td class="fc">
+											Время прибытия первых подразделений :
+										</td>
+										<td>
+											<input type="text" name="f1n37_6" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n37_6}"/>
 										</td>
 									</tr>
 									<!--Расстояние от места аварии до близлежащих населенных пунктов-->
@@ -1057,7 +1123,7 @@
 											Расстояние от места аварии до близлежащих населенных пунктов :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n38" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n38}"/>
 										</td>
 									</tr>
 									<!--Охват населения своевременным оповещением об угрозе и возникновении ЧС (%)-->
@@ -1066,7 +1132,7 @@
 											Охват населения своевременным оповещением об угрозе и возникновении ЧС (%) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n39" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n39}"/>
 										</td>
 									</tr>
 									<!--Время оповещения -->
@@ -1075,7 +1141,7 @@
 											Время оповещения :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n40" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n40}"/>
 										</td>
 									</tr>
 									<!-- Дежурный дежурно-диспетчерских служб области, города, района (ФИО, телефон, факс) -->
@@ -1084,7 +1150,7 @@
 											Дежурный дежурно-диспетчерских служб области, города, района (ФИО, телефон, факс) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n41" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n41}"/>
 										</td>
 									</tr>
 								</table>
@@ -1098,7 +1164,7 @@
 											Дата и время локализации ЧС :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n42" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n42}"/>
 										</td>
 									</tr>
 									<!--Дата и время ликвидации ЧС-->
@@ -1107,7 +1173,7 @@
 											Дата и время ликвидации ЧС :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n43" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n43}"/>
 										</td>
 									</tr>
 									<!--Было задействовано в ликвидации-->
@@ -1116,16 +1182,7 @@
 											Было задействовано в ликвидации :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
-										</td>
-									</tr>
-									<!--Время оповещения -->
-									<tr>
-										<td class="fc">
-											Время оповещения :
-										</td>
-										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n44" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n44}"/>
 										</td>
 									</tr>
 									<!-- в том числе -->
@@ -1134,7 +1191,7 @@
 											в том числе :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n45" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n45}"/>
 										</td>
 									</tr>
 									<!-- Штаб ликвидации аварии -->
@@ -1143,7 +1200,7 @@
 											Штаб ликвидации аварии :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n46" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n46}"/>
 										</td>
 									</tr>
 									<!-- Руководитель ликвидации ЧС (ФИО, должность, место работы) -->
@@ -1152,7 +1209,7 @@
 											Руководитель ликвидации ЧС (ФИО, должность, место работы) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n47" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n47}"/>
 										</td>
 									</tr>
 									<!-- Виновное лицо (ФИО, возраст) -->
@@ -1161,7 +1218,25 @@
 											Виновное лицо (ФИО, возраст) :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n48" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n48}"/>
+										</td>
+									</tr>
+									<!-- Состояние виновного -->
+									<tr>
+										<td class="fc">
+											Состояние виновного :
+										</td>
+										<td>
+											<input type="text" name="f1n48_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n48_2}"/>
+										</td>
+									</tr>
+									<!-- Вид ответственности виновного -->
+									<tr>
+										<td class="fc">
+											Вид ответственности виновного :
+										</td>
+										<td>
+											<input type="text" name="f1n48_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n48_3}"/>
 										</td>
 									</tr>
 									<!-- Затраты на ликвидацию ЧС, тенге -->
@@ -1170,7 +1245,7 @@
 											Затраты на ликвидацию ЧС, тенге :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n49" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n49}"/>
 										</td>
 									</tr>
 									<!-- Сведения о создании Правительственной комиссии по расследованию аварии -->
@@ -1179,7 +1254,7 @@
 											Сведения о создании Правительственной комиссии по расследованию аварии :
 										</td>
 										<td>
-											<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+											<input type="text" name="f1n50" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n50}"/>
 										</td>
 									</tr>
 								</table>
@@ -1193,7 +1268,16 @@
 												Характеристика автомобильного транспорта :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n51" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n51}"/>
+											</td>
+										</tr>
+										<!-- Марка транспортного средства -->
+										<tr>
+											<td class="fc">
+												Вид транспорта :
+											</td>
+											<td>
+												<input type="text" name="f1n52" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n52}"/>
 											</td>
 										</tr>
 										<!-- Марка транспортного средства -->
@@ -1202,7 +1286,7 @@
 												Марка транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n52_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n52_2}"/>
 											</td>
 										</tr>
 										<!--Государственный номер автомобиля-(ей) -->
@@ -1211,7 +1295,7 @@
 												Государственный номер автомобиля-(ей) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n52_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n52_3}"/>
 											</td>
 										</tr>
 										<!-- Характеристика железнодорожного транспорта -->
@@ -1220,16 +1304,25 @@
 												Характеристика железнодорожного транспорта :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n53" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n53}"/>
+											</td>
+										</tr>
+										<!-- Виды поезда (-ов) -->
+										<tr>
+											<td class="fc">
+												Виды поезда (-ов) :
+											</td>
+											<td>
+												<input type="text" name="f1n53_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n53_2}"/>
 											</td>
 										</tr>
 										<!-- № поезда-(ов) -->
 										<tr>
 											<td class="fc">
-												№ поезда-(ов) :
+												№ поезда (-ов) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n53_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n53_3}"/>
 											</td>
 										</tr>
 										<!-- Характеристика морского транспорта -->
@@ -1238,6 +1331,7 @@
 												Характеристика морского транспорта :
 											</td>
 											<td>
+												<input type="text" name="f1n54" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n54}"/>
 											</td>
 										</tr>
 										<!-- Вид транспорта -->
@@ -1246,7 +1340,7 @@
 												Вид транспорта :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n54_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n54_2}"/>
 											</td>
 										</tr>
 										<!-- Модель транспортного средства -->
@@ -1255,7 +1349,7 @@
 												Модель транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n54_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n54_3}"/>
 											</td>
 										</tr>
 										<!-- Характеристика авиатранспорта -->
@@ -1264,7 +1358,16 @@
 												Характеристика авиатранспорта :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n55" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n55}"/>
+											</td>
+										</tr>
+										<!-- Вид авиатранспорта -->
+										<tr>
+											<td class="fc">
+												Вид  авиатранспорта :
+											</td>
+											<td>
+												<input type="text" name="f1n55_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n55_2}"/>
 											</td>
 										</tr>
 										<!-- марка -->
@@ -1273,7 +1376,7 @@
 												марка :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n55_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n55_3}"/>
 											</td>
 										</tr>
 										<!-- № рейса -->
@@ -1282,7 +1385,7 @@
 												№ рейса :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n55_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n55_4}"/>
 											</td>
 										</tr>
 										<!-- Общие характеристики -->
@@ -1299,7 +1402,7 @@
 												год выпуска транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_2}"/>
 											</td>
 										</tr>
 										<!-- вместительность каждого транспортного средства -->
@@ -1308,7 +1411,7 @@
 												вместительность каждого транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_3}"/>
 											</td>
 										</tr>
 										<!-- грузоподъемность каждого транспортного средства -->
@@ -1317,7 +1420,7 @@
 												грузоподъемность каждого транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_4}"/>
 											</td>
 										</tr>
 										<!-- дата последнего технического обслуживания (освидетельствования, ремонта) -->
@@ -1326,7 +1429,7 @@
 												дата последнего технического обслуживания (освидетельствования, ремонта) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_5}"/>
 											</td>
 										</tr>
 										<!-- срок службы транспортного средства -->
@@ -1335,7 +1438,7 @@
 												срок службы транспортного средства :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_6" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_6}"/>
 											</td>
 										</tr>
 										<!-- эксплуатационный ресурс -->
@@ -1344,7 +1447,7 @@
 												эксплуатационный ресурс :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_7" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_7}"/>
 											</td>
 										</tr>
 										<!-- ресурс для списания -->
@@ -1353,7 +1456,7 @@
 												ресурс для списания :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_8" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_8}"/>
 											</td>
 										</tr>
 										<!-- рабочий ресурс -->
@@ -1362,7 +1465,7 @@
 												рабочий ресурс :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n56_9" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n56_9}"/>
 											</td>
 										</tr>
 										<!-- Форма собственности -->
@@ -1371,7 +1474,7 @@
 												Форма собственности :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n57" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n57}"/>
 											</td>
 										</tr>
 										<!-- Принадлежность каждого транспорта -->
@@ -1380,7 +1483,7 @@
 												Принадлежность каждого транспорта :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n58" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n58}"/>
 											</td>
 										</tr>
 										<!-- Информация о владельце (полный почтовый адрес, телефон, факс и e-mail организации, ФИО руководителей) -->
@@ -1389,7 +1492,16 @@
 												Информация о владельце (полный почтовый адрес, телефон, факс и e-mail организации, ФИО руководителей) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n59" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n59}"/>
+											</td>
+										</tr>
+										<!-- Наличие системы -->
+										<tr>
+											<td class="fc">
+												Юридические реквизиты :
+											</td>
+											<td>
+												<input type="text" name="f1n60" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n60}"/>
 											</td>
 										</tr>
 										<!-- Наличие системы -->
@@ -1398,7 +1510,7 @@
 												Наличие системы :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n61" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n61}"/>
 											</td>
 										</tr>
 										<!-- Наличие аварийно-спасательных служб и формирований -->
@@ -1407,7 +1519,7 @@
 												Наличие аварийно-спасательных служб и формирований :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n62" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n62}"/>
 											</td>
 										</tr>
 										<!-- Наличие финансовых и материальных ресурсов для ликвидации аварии -->
@@ -1416,7 +1528,7 @@
 												Наличие финансовых и материальных ресурсов для ликвидации аварии :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n63" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n63}"/>
 											</td>
 										</tr>
 										<!-- Характер происшествия -->
@@ -1425,7 +1537,7 @@
 												Характер происшествия :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n64" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n64}"/>
 											</td>
 										</tr>
 										<!-- Обстоятельства и причины, приведшие к ЧС (описание) -->
@@ -1434,7 +1546,7 @@
 												Обстоятельства и причины, приведшие к ЧС (описание) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n65" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n65}"/>
 											</td>
 										</tr>
 										<!-- Количество транспорта, попавшего в аварию -->
@@ -1443,7 +1555,7 @@
 												Количество транспорта, попавшего в аварию :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n66" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n66}"/>
 											</td>
 										</tr>
 										<!-- Скорость движения транспортных средств -->
@@ -1452,7 +1564,7 @@
 												Скорость движения транспортных средств :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n67" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n67}"/>
 											</td>
 										</tr>
 										<!-- Описание состояния транспортных магистралей, железнодорожного полотна, взлетной полосы и т.д. -->
@@ -1461,7 +1573,7 @@
 												Описание состояния транспортных магистралей, железнодорожного полотна, взлетной полосы и т.д. :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n68" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n68}"/>
 											</td>
 										</tr>
 										<!-- Количество объектов попавших в зону ЧС -->
@@ -1470,7 +1582,7 @@
 												Количество объектов попавших в зону ЧС :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n69" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n69}"/>
 											</td>
 										</tr>
 										<!--населенных пунктов -->
@@ -1479,7 +1591,7 @@
 												населенных пунктов (ед.) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n69_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n69_2}"/>
 											</td>
 										</tr>
 										<!--водных акваторий (площадь, км) -->
@@ -1488,7 +1600,7 @@
 												водных акваторий (площадь, км) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n69_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n69_3}"/>
 											</td>
 										</tr>
 										<!-- дорог (км) -->
@@ -1497,7 +1609,7 @@
 												дорог (км) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n69_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n69_4}"/>
 											</td>
 										</tr>
 										<!-- ЛЭП (км) -->
@@ -1506,7 +1618,7 @@
 												ЛЭП (км) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n69_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n69_5}"/>
 											</td>
 										</tr>
 										<!-- Природные и климатические условия (описание) -->
@@ -1515,7 +1627,7 @@
 												Природные и климатические условия (описание) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70}"/>
 											</td>
 										</tr>
 										<!-- скорость ветра, м/с -->
@@ -1524,7 +1636,7 @@
 												скорость ветра, м/с :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_2}"/>
 											</td>
 										</tr>
 										<!-- направление ветра -->
@@ -1533,7 +1645,7 @@
 												направление ветра :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_3" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_3}"/>
 											</td>
 										</tr>
 										<!-- температура воздуха, С -->
@@ -1542,7 +1654,7 @@
 												температура воздуха, С :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_4" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_4}"/>
 											</td>
 										</tr>
 										<!-- атмосферное давление, р.с.-->
@@ -1551,7 +1663,7 @@
 												атмосферное давление, р.с. :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_5" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_5}"/>
 											</td>
 										</tr>
 										<!-- влажность воздуха-->
@@ -1560,7 +1672,7 @@
 												влажность воздуха :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_6" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_6}"/>
 											</td>
 										</tr>
 										<!-- количество осадков -->
@@ -1569,7 +1681,7 @@
 												количество осадков :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n70_7" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n70_7}"/>
 											</td>
 										</tr>
 										<!-- Наличие и характер разрушений, загрязнения окружающей среды (характеристики, описание) -->
@@ -1578,7 +1690,7 @@
 												Наличие и характер разрушений, загрязнения окружающей среды (характеристики, описание) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n71" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n71}"/>
 											</td>
 										</tr>
 										<!-- Площадь распространения ЧС, км -->
@@ -1587,7 +1699,7 @@
 												Площадь распространения ЧС, км :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n72" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n72}"/>
 											</td>
 										</tr>
 									</table>
@@ -1601,7 +1713,7 @@
 												Описание происшедшего ЧС :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n73" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n73}"/>
 											</td>
 										</tr>
 										<!-- Условия, способствовавшие развитию происшествия -->
@@ -1610,7 +1722,7 @@
 												Условия, способствовавшие развитию происшествия :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n74" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n74}"/>
 											</td>
 										</tr>
 										<!-- Обстоятельства возникновения происшествия -->
@@ -1619,7 +1731,7 @@
 												Обстоятельства возникновения происшествия :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n75" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n75}"/>
 											</td>
 										</tr>
 										<!-- Особенности происшествия -->
@@ -1628,7 +1740,7 @@
 												Особенности происшествия :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n76" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n76}"/>
 											</td>
 										</tr>
 										<!-- Анализ возможных причин возникновения ЧС -->
@@ -1637,7 +1749,7 @@
 												Анализ возможных причин возникновения ЧС :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n77" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n77}"/>
 											</td>
 										</tr>
 										<!-- Принятые меры по обеспечению техники безопасности -->
@@ -1646,7 +1758,7 @@
 												Принятые меры по обеспечению техники безопасности :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n78" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n78}"/>
 											</td>
 										</tr>
 										<!-- Условия, способствовавшие получению травм и гибели людей -->
@@ -1655,7 +1767,7 @@
 												Условия, способствовавшие получению травм и гибели людей :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n79" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n79}"/>
 											</td>
 										</tr>
 										<!-- Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из -->
@@ -1664,7 +1776,7 @@
 												Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n80" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n80}"/>
 											</td>
 										</tr>
 										<!-- О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС -->
@@ -1673,7 +1785,7 @@
 												О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n81" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n81}"/>
 											</td>
 										</tr>
 										<!-- Положительные стороны и недостатки при ликвидации ЧС -->
@@ -1682,7 +1794,7 @@
 												Положительные стороны и недостатки при ликвидации ЧС :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n82" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n82}"/>
 											</td>
 										</tr>
 										<!-- Выводы, предложения, меры -->
@@ -1691,7 +1803,7 @@
 												Выводы, предложения, меры :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n83" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n83}"/>
 											</td>
 										</tr>
 										<!-- Ответственный по заполнению (ФИО, должность, тел.) -->
@@ -1700,7 +1812,7 @@
 												Ответственный по заполнению (ФИО, должность, тел.) :
 											</td>
 											<td>
-												<input type="text" name="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+												<input type="text" name="f1n84" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n84}"/>
 											</td>
 										</tr>
 									</table>
