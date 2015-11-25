@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled source #
 ###################
 *.class
@@ -29,3 +30,24 @@
 
 node_modules
 bower_components
+=======
+/bin/
+/backup/
+/logs/
+/tmp/
+/*_data/
+/webserver/
+
+# app settings
+/rule/*/global.xml
+/rule/*/global.dat
+
+# nodejs modules
+node_modules
+
+*.class
+.classpath
+.project
+.settings
+cfg.xml
+>>>>>>> origin/master
