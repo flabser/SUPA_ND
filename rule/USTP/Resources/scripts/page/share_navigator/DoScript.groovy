@@ -38,7 +38,7 @@ class DoScript extends _DoScript {
 		list.add(tech_outline)
 
 		def nature_outline = new _Outline(getLocalizedWord("Природные ЧС",lang), getLocalizedWord("Природные ЧС",lang), "nature")
-		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Опасные геофизические явления",lang), getLocalizedWord("Опасные геофизические явления",lang), "geophysical", "Provider?type=page&id=geophysical"))
+		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Опасные геофизические явления",lang), getLocalizedWord("Опасные геофизические явления",lang), "geophysical-201", "Provider?type=page&id=geophysical-201"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Геологические опасные явления",lang), getLocalizedWord("Геологические опасные явления",lang), "geological", "Provider?type=page&id=geological"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Метеорологические и агрометеорологические опасные явления",lang), getLocalizedWord("Метеорологические и агрометеорологические опасные явления",lang), "meteo", "Provider?type=page&id=meteo"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Морские опасные гидрологические явления",lang), getLocalizedWord("Морские опасные гидрологические явления",lang), "seagidrogeo", "Provider?type=page&id=seagidrogeo"))
@@ -64,30 +64,10 @@ class DoScript extends _DoScript {
 		list.add(social_outline)
 		outline.addOutline(social_outline)
 
-		if (user.hasRole("chancellery")){
-			def docstoreg_outline = new _Outline(getLocalizedWord("На регистрацию",lang), getLocalizedWord("На регистрацию",lang), "docstoreg")
-			docstoreg_outline.addEntry(new _OutlineEntry(getLocalizedWord("Исходящие",lang), getLocalizedWord("Исходящие",lang), "outdocreg", "Provider?type=page&id=outdocreg&page=0"))
-			docstoreg_outline.addEntry(new _OutlineEntry(getLocalizedWord("Входящие",lang), getLocalizedWord("Входящие",lang), "indocreg", "Provider?type=page&id=indocreg&page=0"))
-			outline.addOutline(docstoreg_outline)
-			list.add(docstoreg_outline)
-		}
-
 		if (user.hasRole("administrator")){
 			def glossary_outline = new _Outline(getLocalizedWord("Справочники",lang), getLocalizedWord("Справочники",lang), "glossary")
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип контроля",lang), getLocalizedWord("Тип контроля",lang), "controltype", "Provider?type=page&id=controltype"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Категория",lang), getLocalizedWord("Категория",lang), "docscat", "Provider?type=page&id=docscat&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Характер вопроса",lang), getLocalizedWord("Характер вопроса",lang), "har", "Provider?type=page&id=har"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип документа",lang), getLocalizedWord("Тип документа",lang), "typedoc", "Provider?type=page&id=typedoc&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Вид доставки",lang), getLocalizedWord("Вид доставки",lang), "deliverytype", "Provider?type=page&id=deliverytype&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Категория граждан",lang), getLocalizedWord("Категория граждан",lang), "cat", "Provider?type=page&id=cat"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Номенклатура дел",lang), getLocalizedWord("Номенклатура дел",lang), "nomentypelist", "Provider?type=page&id=nomentypelist&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Категория корреспондентов",lang), getLocalizedWord("Категория корреспондентов",lang), "corrcatlist", "Provider?type=page&id=corrcatlist&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Корреспонденты",lang), getLocalizedWord("Корреспонденты",lang), "corrlist", "Provider?type=page&id=corrlist&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Адресат",lang), getLocalizedWord("Адресат",lang), "addressee", "Provider?type=page&id=addressee&sortfield=VIEWTEXT1&order=ASC"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Регион/Город",lang), getLocalizedWord("Регион/Город",lang), "city", "Provider?type=page&id=city"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Проекты",lang), getLocalizedWord("Проекты",lang), "projectsprav", "Provider?type=page&id=projectsprav"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип договора",lang), getLocalizedWord("Тип договора",lang), "contracttype", "Provider?type=page&id=contracttype"))
-			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип конечного документа",lang), getLocalizedWord("Тип конечного документа",lang), "finaldoctype", "Provider?type=page&id=finaldoctype"))
+			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип ЧС",lang), getLocalizedWord("Тип ЧС",lang), "estype", "Provider?type=page&id=estype"))
+			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Вид ЧС",lang), getLocalizedWord("Вид ЧС",lang), "estype", "Provider?type=page&id=essubtype"))
 			outline.addOutline(glossary_outline)
 			list.add(glossary_outline)
 		}
@@ -96,64 +76,4 @@ class DoScript extends _DoScript {
 		setContent(list)
 	}
 
-    def addEntryByProjects(_Session session, def entry, formid, fieldtype){
-
-        def projects = session.getCurrentDatabase().getGroupedEntries("project#${fieldtype == ""? "number" : fieldtype}", 1, 20);
-        def cdb = session.getCurrentDatabase();
-        def pageid = "docsbyproject";
-
-        if(formid == 'officememoprj' || formid == 'outgoingprj')
-            pageid = "prjbyproject";
-
-        projects.each{
-            def name = cdb.getGlossaryDocument(new BigDecimal(it.getViewText()).intValue())?.getName();
-            if(name != null && name != ""){
-               entry.addEntry(new _OutlineEntry(name, name, formid + it.getViewText(), "Provider?type=page&id=$pageid&projectid=${it.getViewText()}&formid=$formid&page=0"));
-            }
-        }
-        return entry;
-    }
-
-    def addEntryByFinalDocType(_Session session, def entry, formid){
-
-        def projects = session.getCurrentDatabase().getGroupedEntries("finaldoctype#number", 1, 20);
-        def cdb = session.getCurrentDatabase();
-        def pageid = "prjbyfinaldoctype";
-        if(formid == "workdoc")
-            pageid = "docsbyfinaldoctype";
-        for(it in projects){
-            try{
-                int docid = it.getViewText().toDouble().toInteger()
-                def name = cdb.getGlossaryDocument(docid)?.getName();
-                if(name != null && name != ""){
-                    entry.addEntry(new _OutlineEntry(name, name, formid + it.getViewText(), "Provider?type=page&id=$pageid&finaldoctype=$docid&formid=$formid&page=0"));
-                }
-            }catch(Exception e){}
-        }
-
-        return entry;
-    }
-
-	def addEntryByGlossary(_Session session, def entry, formid, glossaryform, isproject){
-
-		def projects = session.getCurrentDatabase().getGroupedEntries("$glossaryform#number", 1, 20);
-		def cdb = session.getCurrentDatabase();
-		def pageid ="docsbyglossary";
-		if(isproject){
-			pageid = "docsbyglossaryprj"
-		}
-		projects.each{
-			try{
-				int docid = it.getViewText().toDouble().toInteger()
-				def name = cdb.getGlossaryDocument(docid)?.getName();
-				if(name != null && name != ""){
-					entry.addEntry(new _OutlineEntry(name, name, formid + it.getViewText(), "Provider?type=page&id=$pageid&glossaryform=$glossaryform&glossaryid=$docid&formid=$formid&page=0"));
-				}
-			}catch(Exception e){
-				println(e)
-			}
-		}
-
-		return entry;
-	}
 }

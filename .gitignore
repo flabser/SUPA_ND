@@ -1,19 +1,31 @@
-/bin/
-/backup/
-/logs/
-/tmp/
-/*_data/
-/webserver/
+# Compiled source #
+###################
+*.class
 
-# app settings
-/rule/*/global.xml
+# Application resources #
+#########################
+/system_data/
+/backup/
+/indicators/
+/tmp/
+# /rule/*/global.xml
 /rule/*/global.dat
 
-# nodejs modules
-node_modules
+# Idea resources #
+##################
+.idea
+# cfg.xml
+*.iml
+/out/
+/.svn/
+# Logs #
+########
+*.log
+/logs/
+/bin/
+/.settings/
+/.classpath
+/.project
 
-*.class
-.classpath
-.project
-.settings
-cfg.xml
+node_modules
+bower_components
