@@ -15,8 +15,8 @@
 	<caption name="saved" source="KEYWORD">Сохраненный</caption>
 	<caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
 	<caption name="close" source="KEYWORD">Закрыть</caption>
-	<caption name="name" source="KEYWORD">Регион/Город</caption>
-	<caption name="country" source="KEYWORD">Страна</caption>
+	<caption name="name" source="KEYWORD">Город</caption>
+	<caption name="region" source="KEYWORD">Область</caption>
 	<caption name="code" source="KEYWORD">Код</caption>
 	<caption name="rank" source="KEYWORD">Ранг</caption>
 	<caption name="help" source="KEYWORD">Помощь</caption>
@@ -29,4 +29,8 @@
 	<caption name ="view_userprofile" source ="KEYWORD">Посмотреть свойства текущего пользователя</caption>
 	<caption name ="yes" source ="KEYWORD">Да</caption>
 	<caption name ="no" source ="KEYWORD">Нет</caption>
+	<glossary mode="on" id="region" source="query">
+		<description>Область</description>
+		<value>region</value>
+	</glossary>
 </rule>
