@@ -13,8 +13,8 @@ class estype extends _DoScript {
 		def actionBar = new _ActionBar(session);
 		def user = session.getCurrentAppUser();
 		if (user.hasRole(["supervisor","administrator","chancellery"])){
-			def newDocAction = new _Action(getLocalizedWord("Новый город", lang),getLocalizedWord("Новый город",lang),"new_glossary")
-			newDocAction.setURL("Provider?type=edit&id=city&key=")
+			def newDocAction = new _Action(getLocalizedWord("Новый тип ЧС", lang),getLocalizedWord("Новый тип ЧС",lang),"new_glossary")
+			newDocAction.setURL("Provider?type=edit&id=estype&key=")
 			actionBar.addAction(newDocAction);
 		}
 		if (user.hasRole(["supervisor","administrator","chancellery"])){

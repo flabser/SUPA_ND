@@ -15,7 +15,7 @@ class essubtype extends _DoScript {
 		def user = session.getCurrentAppUser();
 		if (user.hasRole(["supervisor","administrator","operator"])){
 			def newDocAction = new _Action(getLocalizedWord("Новый вид ЧС", lang),getLocalizedWord("Новый вид ЧС",lang),"new_glossary")
-			newDocAction.setURL("Provider?type=edit&id=estype&key=")
+			newDocAction.setURL("Provider?type=edit&id=essubtype&key=")
 			actionBar.addAction(newDocAction);
 		}
 		if (user.hasRole(["supervisor","administrator","chancellery"])){

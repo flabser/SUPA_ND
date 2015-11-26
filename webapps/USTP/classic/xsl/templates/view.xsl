@@ -11,17 +11,17 @@
 			<xsl:choose>
 				<xsl:when test="$sortorder = 'ASC' and $sortmode = 'ON'">
 					<xsl:attribute name="href">javascript:nbApp.viewSortColumn('<xsl:value-of select="/request/@id" />', '<xsl:value-of
-						select="$namefield" />', 'desc')</xsl:attribute>
+							select="$namefield" />', 'desc')</xsl:attribute>
 					<i class="fa fa-chevron-up" style="color:green;"></i>
 				</xsl:when>
 				<xsl:when test="$sortmode = 'OFF' or $sortorder = 'DESC'">
 					<xsl:attribute name="href">javascript:nbApp.viewSortColumn('<xsl:value-of select="/request/@id" />', '<xsl:value-of
-						select="$namefield" />', 'asc')</xsl:attribute>
+							select="$namefield" />', 'asc')</xsl:attribute>
 					<i class="fa fa-chevron-up" style="color:black;"></i>
 				</xsl:when>
 				<xsl:when test="$sortmode = 'OFF'">
 					<xsl:attribute name="href">javascript:nbApp.viewSortColumn('<xsl:value-of select="/request/@id" />', '<xsl:value-of
-						select="$namefield" />', 'asc')</xsl:attribute>
+							select="$namefield" />', 'asc')</xsl:attribute>
 					<i class="fa fa-chevron-up" style="color:black;"></i>
 				</xsl:when>
 			</xsl:choose>
@@ -83,7 +83,7 @@
 			<xsl:when test="category[node()] or responses[node()]">
 				<a id="a{@docid}" class="expandedentry" style="display:inline;margin-right:4px;">
 					<xsl:attribute name="href"
-						select="concat('javascript:nbApp.viewThreadCollapse(', @docid, ',', @doctype, ',', position(), ',', $colspan, ')')" />
+								   select="concat('javascript:nbApp.viewThreadCollapse(', @docid, ',', @doctype, ',', position(), ',', $colspan, ')')" />
 					<img src="/SharedResources/img/classic/1/minus1.png" alt="-" id="img{@docid}">
 						<xsl:attribute name='title' select="concat('свернуть/', viewcontent/viewtext)" />
 					</img>
@@ -92,7 +92,7 @@
 			<xsl:otherwise>
 				<a id="a{@docid}" class="expandedentry" style="display:inline;margin-right:4px;">
 					<xsl:attribute name="href"
-						select="concat('javascript:nbApp.viewThreadExpand(', @docid, ',', @doctype, ',', position(), ',', $colspan, ')')" />
+								   select="concat('javascript:nbApp.viewThreadExpand(', @docid, ',', @doctype, ',', position(), ',', $colspan, ')')" />
 					<img src="/SharedResources/img/classic/1/plus1.png" alt="+" id="img{@docid}">
 						<xsl:attribute name='title' select="concat('развернуть/', viewcontent/viewtext)" />
 					</img>

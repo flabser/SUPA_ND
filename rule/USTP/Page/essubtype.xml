@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="estype" mode="on" history="on">
+<rule type="page" id="essubtype" mode="on" history="on">
 	<description></description>
 	<caching>NO_CACHING</caching>
 	<xsltfile>pages/page-glossary.xsl</xsltfile>
@@ -10,13 +10,13 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.estype</doscript>
+			<doscript source="file">page.actionbar.essubtype</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="QUERY">
 		<name>view_content</name>
 		<doctype>glossary</doctype>
-		<query source="static">form = 'estype'</query>
+		<query source="static">form = 'essubtype'</query>
 		<sortby source="static">VIEWTEXT1#asc</sortby>
 	</element>
 	<caption name="category" source="KEYWORD">Справочники</caption>
