@@ -3,7 +3,7 @@
 
     <xsl:import href="templates/constants.xsl"/>
     <xsl:import href="templates/outline.xsl"/>
-    <xsl:import href="templates/view.xsl"/>
+    <xsl:import href="templates/view2.xsl"/>
     <xsl:import href="templates/actions.xsl"/>
     <xsl:import href="templates/utils.xsl"/>
 
