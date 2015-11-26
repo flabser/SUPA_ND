@@ -4,8 +4,8 @@
     <xsltfile>forms/essubtype.xsl</xsltfile>
     <doctype>glossary</doctype>
     <events>
-        <queryopen source="file">form.estype.QueryOpen</queryopen>
-        <querysave source="file">form.estype.QuerySave</querysave>
+        <queryopen source="file">form.essubtype.QueryOpen</queryopen>
+        <querysave source="file">form.essubtype.QuerySave</querysave>
     </events>
     <caption name="newdoc" source="KEYWORD">Новый документ</caption>
     <caption name="logout" source="KEYWORD">Завершить работу</caption>
@@ -15,7 +15,7 @@
     <caption name="saved" source="KEYWORD">Сохраненный</caption>
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
     <caption name="close" source="KEYWORD">Закрыть</caption>
-    <caption name="name" source="KEYWORD">Тип ЧС</caption>
+    <caption name="name" source="KEYWORD">Вид ЧС</caption>
     <caption name="code" source="KEYWORD">Код</caption>
     <caption name="rank" source="KEYWORD">Ранг</caption>
     <caption name="help" source="KEYWORD">Помощь</caption>
