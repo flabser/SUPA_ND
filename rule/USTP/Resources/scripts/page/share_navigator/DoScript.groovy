@@ -38,7 +38,7 @@ class DoScript extends _DoScript {
 		list.add(tech_outline)
 
 		def nature_outline = new _Outline(getLocalizedWord("Природные ЧС",lang), getLocalizedWord("Природные ЧС",lang), "nature")
-		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Опасные геофизические явления",lang), getLocalizedWord("Опасные геофизические явления",lang), "geophysical", "Provider?type=page&id=geophysical"))
+		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Опасные геофизические явления",lang), getLocalizedWord("Опасные геофизические явления",lang), "geophysical-201", "Provider?type=page&id=geophysical-201"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Геологические опасные явления",lang), getLocalizedWord("Геологические опасные явления",lang), "geological", "Provider?type=page&id=geological"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Метеорологические и агрометеорологические опасные явления",lang), getLocalizedWord("Метеорологические и агрометеорологические опасные явления",lang), "meteo", "Provider?type=page&id=meteo"))
 		nature_outline.addEntry(new _OutlineEntry(getLocalizedWord("Морские опасные гидрологические явления",lang), getLocalizedWord("Морские опасные гидрологические явления",lang), "seagidrogeo", "Provider?type=page&id=seagidrogeo"))
