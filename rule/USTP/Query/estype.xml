@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="query" id="city">
+<rule type="query" id="estype">
 	<description></description>
 	<doctype>glossary</doctype>
-	<query source="static">form = 'city'</query>
+	<query source="static">form = 'estype'</query>
 	<sortby source="static">VIEWTEXT1#asc</sortby>
-	<field mode="on">	
+	<field mode="on">
 		<name>viewtext</name>
-		<value source="resultset">name</value>	
-		
+		<value source="resultset">name</value>
 	</field>
-	<field mode="on">	
-		<name>country</name>
-		<value source="resultset">country</value>	
-		
-	</field>
-	<field mode="on">	
-		<name>direction</name>
-		<value source="resultset">direction</value>	
-		
-	</field>
-	<field mode="on">	
+	<field mode="on">
 		<name>code</name>
-		<value source="resultset">code</value>	
-		
+		<value source="resultset">code</value>
 	</field>
-		
 </rule>
