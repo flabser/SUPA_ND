@@ -259,33 +259,34 @@
                                         <div class="control-label">Количество пострадавших</div>
                                         <div class="controls">
                                             <input type="number" name="affected_count"
-                                                   value="{//fields/affected_count}"/>
-                                            <div class="control-group">
-                                                ФИО
-                                                <input type="text" name="affected_fio" value="{//fields/affected_fio}"/>
-                                                Пол
-                                                <input type="text" name="affected_sex" value="{//fields/affected_sex}"/>
-                                                Возраст
-                                                <input type="number" name="affected_age"
-                                                       value="{//fields/affected_age}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">В том числе детей</div>
-                                        <div class="controls">
+                                                   value="{//fields/affected_count}" class="span2"/>
+                                            В том числе детей
                                             <input type="number" name="affected_children_count"
-                                                   value="{//fields/affected_children_count}"/>
+                                                   value="{//fields/affected_children_count}" class="span2"/>
                                             <div class="control-group">
-                                                ФИО
-                                                <input type="text" name="affected_children_fio"
-                                                       value="{//fields/affected_children_fio}"/>
-                                                Пол
-                                                <input type="text" name="affected_children_sex"
-                                                       value="{//fields/affected_children_sex}"/>
-                                                Возраст
-                                                <input type="number" name="affected_children_age"
-                                                       value="{//fields/affected_children_age}"/>
+                                                <table>
+                                                    <tr>
+                                                        <th>ФИО</th>
+                                                        <th>Пол</th>
+                                                        <th>Возраст</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="affected_fio"
+                                                                   value="{//fields/affected_fio}" class="span5"/>
+                                                        </td>
+                                                        <td>
+                                                            <select name="affected_sex">
+                                                                <option value="m">муж</option>
+                                                                <option value="w">жен</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="affected_age"
+                                                                   value="{//fields/affected_age}" class="span1"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -293,7 +294,8 @@
                                         <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
                                         <div class="controls">
                                             <input type="number" name="affected_personnel_k4s_mvd_rk_count"
-                                                   value="{//fields/affected_personnel_k4s_mvd_rk_count}"/>
+                                                   value="{//fields/affected_personnel_k4s_mvd_rk_count}"
+                                                   class="span2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -306,32 +308,35 @@
                                     <div class="control-group">
                                         <div class="control-label">Количество погибших</div>
                                         <div class="controls">
-                                            <input type="number" name="dead_count" value="{//fields/dead_count}"/>
-                                            <div class="control-group">
-                                                ФИО
-                                                <input type="text" name="dead_fio" value="{//fields/dead_fio}"/>
-                                                Пол
-                                                <input type="text" name="dead_sex" value="{//fields/dead_sex}"/>
-                                                Возраст
-                                                <input type="number" name="dead_age" value="{//fields/dead_age}"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">В том числе детей</div>
-                                        <div class="controls">
+                                            <input type="number" name="dead_count" value="{//fields/dead_count}"
+                                                   class="span2"/>
+                                            В том числе детей
                                             <input type="number" name="dead_children_count"
-                                                   value="{//fields/dead_children_count}"/>
+                                                   value="{//fields/dead_children_count}" class="span2"/>
                                             <div class="control-group">
-                                                ФИО
-                                                <input type="text" name="dead_children_fio"
-                                                       value="{//fields/dead_children_fio}"/>
-                                                Пол
-                                                <input type="text" name="dead_children_sex"
-                                                       value="{//fields/dead_children_sex}"/>
-                                                Возраст
-                                                <input type="number" name="dead_children_age"
-                                                       value="{//fields/dead_children_age}"/>
+                                                <table>
+                                                    <tr>
+                                                        <th>ФИО</th>
+                                                        <th>Пол</th>
+                                                        <th>Возраст</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="dead_fio"
+                                                                   value="{//fields/dead_fio}" class="span5"/>
+                                                        </td>
+                                                        <td>
+                                                            <select name="dead_sex">
+                                                                <option value="m">муж</option>
+                                                                <option value="w">жен</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="dead_age"
+                                                                   value="{//fields/dead_age}" class="span1"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -339,7 +344,7 @@
                                         <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
                                         <div class="controls">
                                             <input type="number" name="dead_personnel_k4s_mvd_rk_count"
-                                                   value="{//fields/dead_personnel_k4s_mvd_rk_count}"/>
+                                                   value="{//fields/dead_personnel_k4s_mvd_rk_count}" class="span2"/>
                                         </div>
                                     </div>
                                 </div>
@@ -352,24 +357,35 @@
                                     <div class="control-group">
                                         <div class="control-label">Количество спасенных</div>
                                         <div class="controls">
-                                            <input type="number" name="rescued_count" value="{//fields/rescued_count}"/>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">В том числе детей</div>
-                                        <div class="controls">
+                                            <input type="number" name="rescued_count" value="{//fields/rescued_count}"
+                                                   class="span2"/>
+                                            В том числе детей
                                             <input type="number" name="rescued_children_count"
-                                                   value="{//fields/rescued_children_count}"/>
+                                                   value="{//fields/rescued_children_count}" class="span2"/>
                                             <div class="control-group">
-                                                ФИО
-                                                <input type="text" name="rescued_children_fio"
-                                                       value="{//fields/rescued_children_fio}"/>
-                                                Пол
-                                                <input type="text" name="rescued_children_sex"
-                                                       value="{//fields/rescued_children_sex}"/>
-                                                Возраст
-                                                <input type="number" name="rescued_children_age"
-                                                       value="{//fields/rescued_children_age}"/>
+                                                <table>
+                                                    <tr>
+                                                        <th>ФИО</th>
+                                                        <th>Пол</th>
+                                                        <th>Возраст</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="rescued_fio"
+                                                                   value="{//fields/rescued_fio}" class="span5"/>
+                                                        </td>
+                                                        <td>
+                                                            <select name="rescued_sex">
+                                                                <option value="m">муж</option>
+                                                                <option value="w">жен</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name="rescued_age"
+                                                                   value="{//fields/rescued_age}" class="span1"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -382,32 +398,43 @@
                             <div class="control-group">
                                 <div class="control-label">Количество людей пропавших без вести</div>
                                 <div class="controls">
-                                    <input type="number" name="missing_count" value="{//fields/missing_count}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе детей</div>
-                                <div class="controls">
+                                    <input type="number" name="missing_count" value="{//fields/missing_count}"
+                                           class="span2"/>
+                                    В том числе детей
                                     <input type="number" name="missing_children_count"
-                                           value="{//fields/missing_children_count}"/>
+                                           value="{//fields/missing_children_count}" class="span2"/>
                                     <div class="control-group">
-                                        ФИО
-                                        <input type="text" name="missing_children_fio"
-                                               value="{//fields/missing_children_fio}"/>
-                                        Пол
-                                        <input type="text" name="missing_children_sex"
-                                               value="{//fields/missing_children_sex}"/>
-                                        Возраст
-                                        <input type="number" name="missing_children_age"
-                                               value="{//fields/missing_children_age}"/>
+                                        <table>
+                                            <tr>
+                                                <th>ФИО</th>
+                                                <th>Пол</th>
+                                                <th>Возраст</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="missing_fio"
+                                                           value="{//fields/missing_fio}" class="span5"/>
+                                                </td>
+                                                <td>
+                                                    <select name="missing_sex">
+                                                        <option value="m">муж</option>
+                                                        <option value="w">жен</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="missing_age"
+                                                           value="{//fields/missing_age}" class="span1"/>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
                                 <div class="controls">
-                                    <input type="number" name="dead_personnel_k4s_mvd_rk_count"
-                                           value="{//fields/dead_personnel_k4s_mvd_rk_count}"/>
+                                    <input type="number" name="missing_personnel_k4s_mvd_rk_count"
+                                           value="{//fields/missing_personnel_k4s_mvd_rk_count}" class="span2"/>
                                 </div>
                             </div>
 
@@ -420,21 +447,22 @@
                                 </div>
                                 <div class="controls">
                                     <input type="number" name="search_rescue_found_people_count"
-                                           value="{//fields/search_rescue_found_people_count}"/>
+                                           value="{//fields/search_rescue_found_people_count}" class="span2"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="control-label">Спасены и доставлены в мед. учреждения</div>
                                 <div class="controls">
                                     <input type="number" name="search_rescue_taken_medical_count"
-                                           value="{//fields/search_rescue_taken_medical_count}"/>
+                                           value="{//fields/search_rescue_taken_medical_count}" class="span2"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
                                 <div class="controls">
                                     <input type="number" name="search_rescue_taken_medical_k4s_mvd_rk_count"
-                                           value="{//fields/search_rescue_taken_medical_k4s_mvd_rk_count}"/>
+                                           value="{//fields/search_rescue_taken_medical_k4s_mvd_rk_count}"
+                                           class="span2"/>
                                 </div>
                             </div>
 
@@ -444,42 +472,41 @@
                                 <div class="control-label">Общее количество людей требующих эвакуации</div>
                                 <div class="controls">
                                     <input type="number" name="requiring_evacuation_people_count"
-                                           value="{//fields/requiring_evacuation_people_count}"/>
+                                           value="{//fields/requiring_evacuation_people_count}" class="span2"/>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="control-label">Количество эвакуированных</div>
                                 <div class="controls">
                                     <input type="number" name="evacuees_count"
-                                           value="{//fields/evacuees_count}"/>
-                                    <div class="control-group">
-                                        ФИО
-                                        <input type="text" name="evacuees_fio"
-                                               value="{//fields/evacuees_fio}"/>
-                                        Пол
-                                        <input type="text" name="evacuees_people_sex"
-                                               value="{//fields/evacuees_sex}"/>
-                                        Возраст
-                                        <input type="number" name="rescued_children_age"
-                                               value="{//fields/evacuees_age}"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе детей</div>
-                                <div class="controls">
+                                           value="{//fields/evacuees_count}" class="span2"/>
+                                    В том числе детей
                                     <input type="number" name="evacuees_count_children"
-                                           value="{//fields/evacuees_children_count}"/>
+                                           value="{//fields/evacuees_children_count}" class="span2"/>
                                     <div class="control-group">
-                                        ФИО
-                                        <input type="text" name="evacuees_children_fio"
-                                               value="{//fields/evacuees_children_fio}"/>
-                                        Пол
-                                        <input type="text" name="missing_children_sex"
-                                               value="{//fields/evacuees_children_sex}"/>
-                                        Возраст
-                                        <input type="number" name="missing_children_age"
-                                               value="{//fields/evacuees_children_age}"/>
+                                        <table>
+                                            <tr>
+                                                <th>ФИО</th>
+                                                <th>Пол</th>
+                                                <th>Возраст</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="evacuees_fio"
+                                                           value="{//fields/evacuees_fio}" class="span5"/>
+                                                </td>
+                                                <td>
+                                                    <select name="evacuees_sex">
+                                                        <option value="m">муж</option>
+                                                        <option value="w">жен</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="evacuees_age"
+                                                           value="{//fields/evacuees_age}" class="span1"/>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -489,7 +516,8 @@
                             <div class="control-group">
                                 <div class="control-label">Оказана первая медицинская помощь</div>
                                 <div class="controls">
-                                    <input type="number" name="first_aid_count" value="{//fields/first_aid_count}"/>
+                                    <input type="number" name="first_aid_count" value="{//fields/first_aid_count}"
+                                           class="span2"/>
                                     <div class="control-group">
                                         first_aid_people
                                     </div>
@@ -499,7 +527,7 @@
                                 <div class="control-label">В том числе детей</div>
                                 <div class="controls">
                                     <input type="number" name="first_aid_count_children"
-                                           value="{//fields/first_aid_children_count}"/>
+                                           value="{//fields/first_aid_children_count}" class="span2"/>
                                     <div class="control-group">
                                         first_aid_children
                                     </div>
@@ -680,7 +708,123 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <div class="control-label"></div>
+                                        <div class="control-label">посты наблюдения</div>
+                                        <div class="controls">
+                                            круглогодичные
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+
+                                            сезонные
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">линейные маршруты</div>
+                                        <div class="controls">
+                                            водные
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+
+                                            снегомерные
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">сейсмополигоны</div>
+                                        <div class="controls">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">сейсмостанции</div>
+                                        <div class="controls">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>наименование</th>
+                                                    <th>место дислокации</th>
+                                                    <th>назначение</th>
+                                                    <th>зона ответственности (охват территории)</th>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn">+Добавить</button>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">Возможные зоны</div>
                                         <div class="controls"></div>
                                     </div>
                                     <div class="control-group">
