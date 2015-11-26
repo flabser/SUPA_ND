@@ -14,7 +14,7 @@
 
     <xsl:template name="layout">
         <xsl:param name="w_title" select="concat(//captions/viewnamecaption/@caption, ' - ', $APP_NAME)"/>
-        <xsl:param name="active_aside_id" select="//app_menu/response/content/current/entry/@id"/>
+        <xsl:param name="active_aside_id" select="//current_outline_entry/response/content/entry/@id"/>
         <xsl:param name="aside_collapse" select="''"/>
         <xsl:param name="include" select="''"/>
         <xsl:param name="body_class" select="''"/>
