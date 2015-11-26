@@ -14,7 +14,7 @@ class QueryOpen extends _FormQueryOpen{
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
 		publishValue("title",getLocalizedWord("Вид ЧС", lang))
-
+		publishGlossaryValue("estype",webFormData.getNumberValueSilently("parentdocid",0))
 		def nav = session.getPage("outline", webFormData)
 		publishElement(nav)
 		publishElement(getActionBar(session))
@@ -28,8 +28,9 @@ class QueryOpen extends _FormQueryOpen{
 		publishEmployer("author",glos.getAuthorID())
 		publishValue("name",glos.getName())
 		publishValue("code", glos.getCode())
+		publishGlossaryValue("estype", doc.getValueInt("estype"))
 
-		
+
 		def nav = session.getPage("outline", webFormData)
 		publishElement(nav)
 		publishElement(getActionBar(session))
