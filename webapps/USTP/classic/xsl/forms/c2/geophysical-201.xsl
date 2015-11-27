@@ -18,28 +18,40 @@
                 <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
                 <script>
                     $(function(){
-                        $("#tabs").tabs();
-                        $('[data-action=save_and_close]').click(SaveFormJquery);
+                    $("#tabs").tabs();
+                    $('[data-action=save_and_close]').click(SaveFormJquery);
+
+                    <![CDATA[
+                    $('[data-action=add_people]').click(function(){
+                        var $tableEl = $(this).parents('table');
+                        var field = $(this).data('field');
+                        var fio = $tableEl.find('input[name=' + field + '_fio]').val();
+                        var sex = $tableEl.find('select[name=' + field + '_sex]').val();
+                        var age = $tableEl.find('input[name=' + field + '_age]').val();
+                        var tr = '<tr><td>' + fio + '</td><td>' + sex + '</td><td>' + age + '</td>';
+                        $tableEl.append(tr);
+                    });
+                    ]]>
                     });
                 </script>
                 <xsl:if test="$editmode = 'edit'">
                     <script>
                         var _calendarLang = "<xsl:value-of select="/request/@lang"/>";
                         $(function() {
-                            $('#f1n5, #f1n16, #f1n18').datepicker({
-                                showOn: 'button',
-                                buttonImage: '/SharedResources/img/iconset/calendar.png',
-                                buttonImageOnly: true,
-                                regional:['ru'],
-                                showAnim: '',
-                                monthNames: calendarStrings[_calendarLang].monthNames,
-                                monthNamesShort: calendarStrings[_calendarLang].monthNamesShort,
-                                dayNames: calendarStrings[_calendarLang].dayNames,
-                                dayNamesShort: calendarStrings[_calendarLang].dayNamesShort,
-                                dayNamesMin: calendarStrings[_calendarLang].dayNamesMin,
-                                weekHeader: calendarStrings[_calendarLang].weekHeader,
-                                yearSuffix: calendarStrings[_calendarLang].yearSuffix,
-                            });
+                        $('#f1n5, #f1n16, #f1n18').datepicker({
+                        showOn: 'button',
+                        buttonImage: '/SharedResources/img/iconset/calendar.png',
+                        buttonImageOnly: true,
+                        regional:['ru'],
+                        showAnim: '',
+                        monthNames: calendarStrings[_calendarLang].monthNames,
+                        monthNamesShort: calendarStrings[_calendarLang].monthNamesShort,
+                        dayNames: calendarStrings[_calendarLang].dayNames,
+                        dayNamesShort: calendarStrings[_calendarLang].dayNamesShort,
+                        dayNamesMin: calendarStrings[_calendarLang].dayNamesMin,
+                        weekHeader: calendarStrings[_calendarLang].weekHeader,
+                        yearSuffix: calendarStrings[_calendarLang].yearSuffix,
+                        });
                         });
                     </script>
                 </xsl:if>
@@ -272,6 +284,7 @@
                                                         <th>ФИО</th>
                                                         <th>Пол</th>
                                                         <th>Возраст</th>
+                                                        <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -286,7 +299,13 @@
                                                         </td>
                                                         <td>
                                                             <input type="number" name="affected_age"
-                                                                   value="{//fields/affected_age}" class="span1"/>
+                                                                   value="{//fields/affected_age}" min="0" max="200"
+                                                                   class="span1"/>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" data-action="add_people"
+                                                                    data-field="affected">+
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -322,6 +341,7 @@
                                                         <th>ФИО</th>
                                                         <th>Пол</th>
                                                         <th>Возраст</th>
+                                                        <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -337,6 +357,11 @@
                                                         <td>
                                                             <input type="number" name="dead_age"
                                                                    value="{//fields/dead_age}" class="span1"/>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" data-action="add_people"
+                                                                    data-field="dead">+
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -371,6 +396,7 @@
                                                         <th>ФИО</th>
                                                         <th>Пол</th>
                                                         <th>Возраст</th>
+                                                        <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
@@ -386,6 +412,11 @@
                                                         <td>
                                                             <input type="number" name="rescued_age"
                                                                    value="{//fields/rescued_age}" class="span1"/>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" data-action="add_people"
+                                                                    data-field="rescued">+
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -412,6 +443,7 @@
                                                 <th>ФИО</th>
                                                 <th>Пол</th>
                                                 <th>Возраст</th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -427,6 +459,11 @@
                                                 <td>
                                                     <input type="number" name="missing_age"
                                                            value="{//fields/missing_age}" class="span1"/>
+                                                </td>
+                                                <td>
+                                                    <button type="button" data-action="add_people"
+                                                            data-field="missing">+
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -492,6 +529,7 @@
                                                 <th>ФИО</th>
                                                 <th>Пол</th>
                                                 <th>Возраст</th>
+                                                <th></th>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -507,6 +545,11 @@
                                                 <td>
                                                     <input type="number" name="evacuees_age"
                                                            value="{//fields/evacuees_age}" class="span1"/>
+                                                </td>
+                                                <td>
+                                                    <button type="button" data-action="add_people"
+                                                            data-field="evacuees">+
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </table>
