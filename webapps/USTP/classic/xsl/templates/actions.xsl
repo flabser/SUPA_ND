@@ -14,9 +14,6 @@
 			<xsl:if test="js">
 				<xsl:attribute name="href" select="concat('javascript:', js)" />
 			</xsl:if>
-			<xsl:if test="@id = 'save_and_close'">
-				<xsl:attribute name="href" select="'javascript:SaveFormJquery()'"/>
-			</xsl:if>
 			<xsl:if test="@url != ''">
 				<xsl:attribute name="href" select="@url" />
 			</xsl:if>
