@@ -1,10 +1,13 @@
 package form.c2.model;
 
-
 import java.util.List;
 
+
 public class Consequences {
-    // через таблицу связи прикреплять к событию
+    // связь с событием через guid
+
+    String guid;
+    String eventGUID;
 
     int human_in_zone_emergency_count;
 
@@ -23,7 +26,16 @@ public class Consequences {
     int missing_children_count;
     int missing_personnel_k4s_mvd_rk_count;
 
-    // List <Human>; через таблицу связи
-    List<Human> humans;
+    int search_rescue_found_count;
+    int search_rescue_taken_medical_count;
+    int search_rescue_taken_medical_k4s_mvd_rk_count;
 
+    int requiring_evacuation_people_count;
+    int evacuees_count;
+    int evacuees_children_count;
+
+    int first_aid_count;
+    int first_aid_children_count;
+
+    List<Human> humans;
 }

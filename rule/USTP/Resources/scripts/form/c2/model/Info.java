@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class Info {
 
+    // event id: guid
+    String guid; // https://ru.wikipedia.org/wiki/GUID
+
     public String cardNumber;
     public Date cardDate;
 

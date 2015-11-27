@@ -2,9 +2,12 @@ package form.c2.model;
 
 
 public class Human {
-    // через таблицу связи прикреплять к событию
-    // db table
-    // fio | age | sex | isChildren by age? | isAffected | isDead | isRescued | isMissing | isFoundBySearchRescue | personnel_type:enum[k4s_mvd_rk,?]
+    // связь с событием через guid
+
+    // fio | age | sex | isChildren by age? | isAffected | isDead | isRescued | isMissing | isFoundBySearchRescue | isEvacuated | isFirstAid | personnel_type:enum[k4s_mvd_rk,?]
+
+    String guid;
+    String eventGUID;
 
     String fio;
     int age;
@@ -23,4 +26,6 @@ public class Human {
     boolean isMissing;
     boolean isFoundBySearchRescue;
 
+    boolean isEvacuated;
+    boolean isFirstAid;
 }
