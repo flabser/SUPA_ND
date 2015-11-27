@@ -1,6 +1,10 @@
 package form.c2.model;
 
+
+import java.util.List;
+
 public class Consequences {
+    // через таблицу связи прикреплять к событию
 
     int human_in_zone_emergency_count;
 
@@ -12,9 +16,14 @@ public class Consequences {
     int dead_children_count;
     int dead_personnel_k4s_mvd_rk_count; // ?
 
+    int rescued_count;
+    int rescued_children_count;
+
+    int missing_count;
+    int missing_children_count;
+    int missing_personnel_k4s_mvd_rk_count;
+
     // List <Human>; через таблицу связи
-    // db table
-    // fio | age | sex | isChildren by age? | isAffected | isDead | isRescued | personnel_type:enum[k4s_mvd_rk,?]
-    String humans;
+    List<Human> humans;
 
 }
