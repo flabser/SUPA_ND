@@ -47,6 +47,8 @@
                         </div>
                     </div>
                 </fieldset>
+
+
                 <input type="hidden" name="type" value="save"/>
 
                 <input type="hidden" name="id" value="region"/>
