@@ -64,6 +64,9 @@ class DoScript extends _DoScript {
 		list.add(social_outline)
 		outline.addOutline(social_outline)
 
+
+
+
 		if (user.hasRole("administrator")){
 			def glossary_outline = new _Outline(getLocalizedWord("Справочники",lang), getLocalizedWord("Справочники",lang), "glossary")
 			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип ЧС",lang), getLocalizedWord("Тип ЧС",lang), "estype", "Provider?type=page&id=estype"))
