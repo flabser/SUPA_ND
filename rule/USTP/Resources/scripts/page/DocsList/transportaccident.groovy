@@ -18,10 +18,7 @@ class transportaccident extends _DoScript {
         if (formData.containsField("page") && formData.getValue("page")){
             page = Integer.parseInt(formData.getValue("page"))
         }
-        def formid = formData.getValue("formid");
-        def projectid = formData.getValue("projectid")
-        def formula = "form='$formid' and project#number=$projectid";
-
+        def formula = "form='transportaccident'";
         def db = session.getCurrentDatabase()
         def col = db.getCollectionOfDocuments(formula, page, true, true, new SimpleDateFormat("dd.MM.yyyy"))
         setContent(col)
