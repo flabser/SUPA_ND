@@ -68,6 +68,8 @@ class DoScript extends _DoScript {
 			def glossary_outline = new _Outline(getLocalizedWord("Справочники",lang), getLocalizedWord("Справочники",lang), "glossary")
 			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Тип ЧС",lang), getLocalizedWord("Тип ЧС",lang), "estype", "Provider?type=page&id=estype"))
 			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Вид ЧС",lang), getLocalizedWord("Вид ЧС",lang), "estype", "Provider?type=page&id=essubtype"))
+			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Область",lang), getLocalizedWord("Область",lang), "region", "Provider?type=page&id=region"))
+			glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Город",lang), getLocalizedWord("Город",lang), "city", "Provider?type=page&id=city"))
 			outline.addOutline(glossary_outline)
 			list.add(glossary_outline)
 		}
