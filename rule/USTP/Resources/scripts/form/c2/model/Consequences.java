@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public class Consequences {
-    // связь с событием через guid
+    // связь с событием через eventGUID
 
     String guid;
     String eventGUID;
@@ -36,6 +36,12 @@ public class Consequences {
 
     int first_aid_count;
     int first_aid_children_count;
+
+    int hospitalized_count;
+    int hospitalized_children_count;
+
+    int homeless_count;
+    int homeless_children_count;
 
     List<Human> humans;
 }

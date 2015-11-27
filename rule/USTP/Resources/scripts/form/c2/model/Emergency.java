@@ -3,9 +3,9 @@ package form.c2.model;
 import java.util.Date;
 
 
-public class Info {
+public class Emergency {
 
-    // event id: guid
+    // eventGUID
     String guid; // https://ru.wikipedia.org/wiki/GUID
 
     public String cardNumber;
@@ -31,7 +31,7 @@ public class Info {
     public String visibleLandmarks;
 
     // остальные данные через таблицы связи прикреплять к событию
-    // типа
+    //
     // Приостановлено движение транспорта по направлениям
     // Железнодорожные пути
     // Аэровокзальный комплекс

@@ -2,9 +2,11 @@ package form.c2.model;
 
 
 public class Human {
-    // связь с событием через guid
+    // связь с событием через eventGUID
 
-    // fio | age | sex | isChildren by age? | isAffected | isDead | isRescued | isMissing | isFoundBySearchRescue | isEvacuated | isFirstAid | personnel_type:enum[k4s_mvd_rk,?]
+    // table columns
+    // fio | age | sex | isChildren by age? | isAffected | isDead | isRescued | isMissing | isFoundBySearchRescue
+    // | isEvacuated | isFirstAid | isHomeless | personnel_type:enum[k4s_mvd_rk,?]
 
     String guid;
     String eventGUID;
@@ -28,4 +30,5 @@ public class Human {
 
     boolean isEvacuated;
     boolean isFirstAid;
+    boolean isHomeless;
 }
