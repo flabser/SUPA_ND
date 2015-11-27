@@ -37,7 +37,7 @@
                         background: #f5f5f5;
                         display: inline-block;
                         padding: 1px;
-                        width: 160px;
+                        width: 200px;
                     }
                     .ib .ib-col {
                         display: inline-block;
@@ -55,16 +55,6 @@
                         $("#tabs").tabs();
                         $("#tabs-inner-2").tabs();
                         $('[data-action=save_and_close]').click(SaveFormJquery);
-
-                        $('[data-action=add_people]').click(function(){
-                            var $tableEl = $(this).parents('table');
-                            var field = $(this).data('field');
-                            var fio = $tableEl.find('input[name=' + field + '_fio]').val();
-                            var sex = $tableEl.find('select[name=' + field + '_sex]').val();
-                            var age = $tableEl.find('input[name=' + field + '_age]').val();
-                            var tr = '<tr><td>' + fio + '</td><td>' + sex + '</td><td>' + age + '</td>';
-                            $tableEl.append(tr);
-                        });
                     });]]>
                 </script>
                 <xsl:if test="$editmode = 'edit'">
@@ -547,15 +537,16 @@
                                     <div class="control-group">
                                         <div class="control-label">В том числе</div>
                                         <div class="controls">
-                                            dynamic_selector
-                                            <ul>
-                                                <li>крупного рогатого скота</li>
-                                                <li>мелкого рогатого скота</li>
-                                                <li>лошадей</li>
-                                                <li>птицы</li>
-                                                <li>водных организмов (гидробионтов)</li>
-                                                <li>прочие</li>
-                                            </ul>
+                                            <div class="list"></div>
+                                            <select data-action="add-animal-count">
+                                                <option value=""></option>
+                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
+                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
+                                                <option value="лошадей">лошадей</option>
+                                                <option value="птицы">птицы</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов (гидробионтов)</option>
+                                                <option value="прочие">прочие</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -568,15 +559,16 @@
                                     <div class="control-group">
                                         <div class="control-label">В том числе</div>
                                         <div class="controls">
-                                            dynamic_selector
-                                            <ul>
-                                                <li>крупного рогатого скота</li>
-                                                <li>мелкого рогатого скота</li>
-                                                <li>лошадей</li>
-                                                <li>птицы</li>
-                                                <li>водных организмов (гидробионтов)</li>
-                                                <li>прочие</li>
-                                            </ul>
+                                            <div class="list"></div>
+                                            <select data-action="add-animal-count">
+                                                <option value=""></option>
+                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
+                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
+                                                <option value="лошадей">лошадей</option>
+                                                <option value="птицы">птицы</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов (гидробионтов)</option>
+                                                <option value="прочие">прочие</option>
+                                            </select>
                                         </div>
                                     </div>
 
