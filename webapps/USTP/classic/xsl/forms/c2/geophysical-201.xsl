@@ -18,13 +18,13 @@
                     <![CDATA[
                     .count-section {
                         display: inline-block;
-                        min-width: 600px;
+                        min-width: 700px;
                         vertical-align: top;
                         width:49%;
                     }
                     .humans-section {
                         display: inline-block;
-                        min-width: 600px;
+                        min-width: 700px;
                         vertical-align: top;
                         width:49%;
                     }
