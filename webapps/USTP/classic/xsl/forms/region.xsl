@@ -49,6 +49,7 @@
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>
                 <input type="hidden" name="id" value="region"/>
+
                 <input type="hidden" name="key" value="{document/@docid}"/>
             </form>
         </section>
