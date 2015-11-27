@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="essubtype" mode="on">
-    <description>Вид ЧС</description>
-    <xsltfile>forms/essubtype.xsl</xsltfile>
+<rule type="form" id="region" mode="on">
+    <description>область</description>
+    <xsltfile>forms/region.xsl</xsltfile>
     <doctype>glossary</doctype>
     <events>
-        <queryopen source="file">form.essubtype.QueryOpen</queryopen>
-        <querysave source="file">form.essubtype.QuerySave</querysave>
+        <queryopen source="file">form.region.QueryOpen</queryopen>
+        <querysave source="file">form.region.QuerySave</querysave>
     </events>
     <caption name="newdoc" source="KEYWORD">Новый документ</caption>
     <caption name="logout" source="KEYWORD">Завершить работу</caption>
@@ -15,9 +15,9 @@
     <caption name="saved" source="KEYWORD">Сохраненный</caption>
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
     <caption name="close" source="KEYWORD">Закрыть</caption>
-    <caption name="name" source="KEYWORD">Вид ЧС</caption>
+    <caption name="name" source="KEYWORD">Область</caption>
     <caption name="code" source="KEYWORD">Код</caption>
-    <caption name="estype" source="KEYWORD">Тип ЧС</caption>
+    <caption name="rank" source="KEYWORD">Ранг</caption>
     <caption name="help" source="KEYWORD">Помощь</caption>
     <caption name="properties" source="KEYWORD">Свойства</caption>
     <caption name="documentsavedcaption" source="KEYWORD">Идет сохранение документа...</caption>
@@ -25,11 +25,7 @@
     <caption name="pleasewaitdocsave" source="KEYWORD">Пожалуйста ждите... Идет сохранение документа</caption>
     <caption name="saving" source="KEYWORD">Сохранение</caption>
     <caption name="onlynumber" source="KEYWORD">Поле может содержать только числовые значения</caption>
-    <caption name ="view_userprofile" source ="KEYWORD">Посмотреть свойства текущего пользователя</caption>
-    <caption name ="yes" source ="KEYWORD">Да</caption>
-    <caption name ="no" source ="KEYWORD">Нет</caption>
-    <glossary mode="on" id="estype" source="query">
-        <description>Типы ЧС</description>
-        <value>estype</value>
-    </glossary>
+    <caption name="view_userprofile" source="KEYWORD">Посмотреть свойства текущего пользователя</caption>
+    <caption name="yes" source="KEYWORD">Да</caption>
+    <caption name="no" source="KEYWORD">Нет</caption>
 </rule>
