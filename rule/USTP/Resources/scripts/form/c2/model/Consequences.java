@@ -43,5 +43,9 @@ public class Consequences {
     int homeless_count;
     int homeless_children_count;
 
+    int dead_domestic_animal_count;
+    int evacuees_domestic_animal_count;
+
     List<Human> humans;
+    List<DomesticAnimal> domesticAnimals;
 }
