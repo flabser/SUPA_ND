@@ -12,6 +12,9 @@ class QueryOpen extends _FormQueryOpen {
     public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
         publishValue("title", "Human")
 
+        def nav = session.getPage("outline", webFormData)
+        publishElement(nav)
+
         def actionBar = session.createActionBar();
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), getLocalizedWord("Сохранить и закрыть", lang), _ActionType.SAVE_AND_CLOSE))
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), getLocalizedWord("Закрыть", lang), _ActionType.CLOSE))
@@ -21,6 +24,9 @@ class QueryOpen extends _FormQueryOpen {
     @Override
     public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
         publishValue("title", "Human")
+
+        def nav = session.getPage("outline", webFormData)
+        publishElement(nav)
 
         def actionBar = session.createActionBar();
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), getLocalizedWord("Сохранить и закрыть", lang), _ActionType.SAVE_AND_CLOSE))
