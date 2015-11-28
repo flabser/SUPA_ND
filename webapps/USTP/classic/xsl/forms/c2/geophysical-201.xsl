@@ -650,6 +650,7 @@
                                                 .section-destruction,
                                                 .section-potential-risk {
                                                     display: inline-block;
+                                                    min-width: 600px;
                                                     width: 48%;
                                                 }
                                                 .section-destruction th, .section-destruction td,
