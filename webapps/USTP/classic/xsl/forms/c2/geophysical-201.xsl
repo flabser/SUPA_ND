@@ -634,139 +634,37 @@
 
                                 <section id="tabs-inner-2-3">
                                     <div class="fieldset">
-                                        <div class="legend">Характер разрушений</div>
                                         <div class="fieldset-container">
-                                            <div class="control-group">
-                                                <div class="control-label">Количество постов, пунктов (станций),
+                                            <div>
+                                                <span>Количество постов, пунктов (станций),
                                                     полигонов,
                                                     маршрутов наблюдения и оповещения
-                                                </div>
-                                                <div class="controls">
                                                     <input type="number" name="monitoring_warning_post_count"
                                                            value="{//fields/monitoring_warning_post_count}"/>
-                                                </div>
+                                                </span>
                                             </div>
-                                            <div class="control-group">
-                                                <div class="control-label">Центрально-диспетчерские пункты</div>
-                                                <div class="controls">
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">Диспетчерские пункты</div>
-                                                <div class="controls">
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">Станции наблюдения</div>
-                                                <div class="controls">
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">посты наблюдения</div>
-                                                <div class="controls">
-                                                    круглогодичные
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
 
-                                                    сезонные
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">линейные маршруты</div>
-                                                <div class="controls">
-                                                    водные
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
+                                            <div class="control-group-separator"></div>
 
-                                                    снегомерные
+                                            <style>
+                                                .section-destruction,
+                                                .section-potential-risk {
+                                                    display: inline-block;
+                                                    width: 48%;
+                                                }
+                                                .section-destruction th, .section-destruction td,
+                                                .section-potential-risk th, .section-potential-risk td {
+                                                    border: 1px solid #f2f2f2;
+                                                    padding: 4px;
+                                                }
+                                            </style>
+
+                                            <div class="section-destruction fieldset">
+                                                <div class="legend">Разрушеные обьекты</div>
+                                                <div class="fieldset-container">
                                                     <table class="table table-bordered">
                                                         <tr>
+                                                            <th>Тип</th>
                                                             <th>наименование</th>
                                                             <th>место дислокации</th>
                                                             <th>назначение</th>
@@ -777,62 +675,28 @@
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
+                                                            <td></td>
                                                         </tr>
                                                     </table>
                                                     <button type="button" class="btn">+Добавить</button>
                                                 </div>
                                             </div>
-                                            <div class="control-group">
-                                                <div class="control-label">сейсмополигоны</div>
-                                                <div class="controls">
+
+                                            <div class="section-potential-risk fieldset">
+                                                <div class="legend">Возможные зоны риска</div>
+                                                <div class="fieldset-container">
                                                     <table class="table table-bordered">
                                                         <tr>
                                                             <th>наименование</th>
                                                             <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
                                                         </tr>
                                                         <tr>
-                                                            <td></td>
-                                                            <td></td>
                                                             <td></td>
                                                             <td></td>
                                                         </tr>
                                                     </table>
                                                     <button type="button" class="btn">+Добавить</button>
                                                 </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">сейсмостанции</div>
-                                                <div class="controls">
-                                                    <table class="table table-bordered">
-                                                        <tr>
-                                                            <th>наименование</th>
-                                                            <th>место дислокации</th>
-                                                            <th>назначение</th>
-                                                            <th>зона ответственности (охват территории)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </table>
-                                                    <button type="button" class="btn">+Добавить</button>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label">Возможные зоны</div>
-                                                <div class="controls"></div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label"></div>
-                                                <div class="controls"></div>
-                                            </div>
-                                            <div class="control-group">
-                                                <div class="control-label"></div>
-                                                <div class="controls"></div>
                                             </div>
                                         </div>
                                     </div>
