@@ -515,18 +515,18 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="evacuees_fio"
-                                                                   value="{//fields/evacuees_fio}" class="span3"/>
+                                                            <input type="text" name="human_fio"
+                                                                   value="{//fields/human_fio}" class="span3"/>
                                                         </td>
                                                         <td>
-                                                            <select name="evacuees_sex">
+                                                            <select name="human_sex">
                                                                 <option value="m">м</option>
                                                                 <option value="w">ж</option>
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="evacuees_age"
-                                                                   value="{//fields/evacuees_age}" class="span1"/>
+                                                            <input type="number" name="human_age"
+                                                                   value="{//fields/human_age}" class="span1"/>
                                                         </td>
                                                         <td>
                                                             <input type="checkbox" name="isChildren" value="1"/>
@@ -563,12 +563,14 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <button type="button" class="btn" data-action="add_people"
+                                                            <button type="button" class="btn"
+                                                                    data-action="add_people"
                                                                     data-field="evacuees">+
                                                             </button>
                                                         </td>
                                                     </tr>
                                                 </table>
+                                                <div id="human-table"></div>
                                             </div>
                                         </div>
                                     </section>
@@ -657,14 +659,14 @@
                                             <style>
                                                 .section-destruction,
                                                 .section-potential-risk {
-                                                    display: inline-block;
-                                                    min-width: 600px;
-                                                    width: 48%;
+                                                display: inline-block;
+                                                min-width: 600px;
+                                                width: 48%;
                                                 }
                                                 .section-destruction th, .section-destruction td,
                                                 .section-potential-risk th, .section-potential-risk td {
-                                                    border: 1px solid #f2f2f2;
-                                                    padding: 4px;
+                                                border: 1px solid #f2f2f2;
+                                                padding: 4px;
                                                 }
                                             </style>
 
@@ -1569,6 +1571,7 @@
                         <input type="hidden" name="author" value="{document/fields/author/@attrval}"/>
                         <input type="hidden" name="doctype" value="{document/@doctype}"/>
                         <input type="hidden" name="key" value="{document/@docid}"/>
+                        <input type="hidden" name="ddbid" value="{document/@id}"/>
                         <input type="hidden" id="currentuserid" value="{@userid}"/>
                         <input type="hidden" id="localusername" value="{@username}"/>
                     </fieldset>
