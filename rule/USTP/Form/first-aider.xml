@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="first-aider" mode="on">
+    <description>first-aider</description>
+    <xsltfile>forms/c2/first-aider.xsl</xsltfile>
+    <doctype>main</doctype>
+
+    <events>
+        <queryopen source="file">form.c2.first_aider.QueryOpen</queryopen>
+        <querysave source="file">form.c2.first_aider.QuerySave</querysave>
+    </events>
+
+    <caption name="close" source="KEYWORD">Закрыть</caption>
+    <caption name="properties" source="KEYWORD">Свойства</caption>
+    <caption name="attachments" source="KEYWORD">Вложения</caption>
+    <caption name="content" source="KEYWORD">Содержание</caption>
+    <caption name="performer" source="KEYWORD">исполнитель</caption>
+    <caption name="date" source="KEYWORD">дата</caption>
+
+    <caption name="saving" source="KEYWORD">Сохранение</caption>
+    <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+</rule>
