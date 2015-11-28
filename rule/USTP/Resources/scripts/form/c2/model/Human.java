@@ -17,7 +17,7 @@ public class Human {
 
     boolean isChildren; // computed by age
 
-    // почему по отдельности
+    // почему условные признаки.
     // может сперва пострадал, его спасли но все равно потом умер?
     // а может пострадал и спасен
     // ну и не хранить же в отдельных таблицах с повторами людей участников событий по признакам
@@ -31,4 +31,7 @@ public class Human {
     boolean isEvacuated;
     boolean isFirstAid;
     boolean isHomeless;
+
+    // enum
+    String personnelType; // k4s_mvd_rk, knb, ?
 }
