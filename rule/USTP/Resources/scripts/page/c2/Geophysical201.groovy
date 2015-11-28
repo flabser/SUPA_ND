@@ -11,13 +11,14 @@ class Geophysical201 extends _DoScript {
 
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
-        def page = formData.getNumberValueSilently("page", 1)
 
-        def formula = "form='geophysical-201'"
+        def viewParam = session.createViewEntryCollectionParam()
+        viewParam.setQuery("form = 'geophysical-201'")
+                .setPageNum(formData.getNumberValueSilently("page", 1))
+                .setCheckResponse(false)
+                .setDateFormat(new SimpleDateFormat("dd.MM.yyyy"))
 
-        def db = session.getCurrentDatabase()
-        def col = db.getCollectionOfDocuments(formula, page, true, true, new SimpleDateFormat("dd.MM.yyyy"))
-
+        def col = session.getCurrentDatabase().getCollectionOfDocuments(viewParam)
         setContent(col)
     }
 }
