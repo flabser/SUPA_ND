@@ -18,15 +18,23 @@
                     <![CDATA[
                     .count-section {
                         display: inline-block;
-                        min-width: 600px;
+                        min-width: 550px;
+                        padding: 8px 0;
                         vertical-align: top;
-                        width:40%;
+                        width:35%;
                     }
                     .humans-section {
                         display: inline-block;
+                        padding: 8px 0;
                         min-width: 700px;
                         vertical-align: top;
-                        width:58%;
+                        width:60%;
+                    }
+                    @media ( max-width : 1700px) {
+                        .count-section,
+                        .humans-section{
+                            width: 100%;
+                        }
                     }
                     .humans-table-container {
                         overflow: auto;
@@ -485,8 +493,8 @@
                                     </section>
 
                                     <section class="humans-section">
-                                        <div class="control-group">
-                                            <h4>Люди находившиеся в зоне ЧС</h4>
+                                        <div class="control-group fieldset">
+                                            <div class="legend">Люди находившиеся в зоне ЧС</div>
                                             <div class="humans-table-container">
                                                 <table class="humans-table">
                                                     <tr>
@@ -555,7 +563,7 @@
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <button type="button" data-action="add_people"
+                                                            <button type="button" class="btn" data-action="add_people"
                                                                     data-field="evacuees">+
                                                             </button>
                                                         </td>
