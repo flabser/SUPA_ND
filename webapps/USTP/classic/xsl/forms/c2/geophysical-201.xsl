@@ -28,6 +28,16 @@
                         vertical-align: top;
                         width:58%;
                     }
+                    .humans-table-container {
+                        overflow: auto;
+                    }
+                    .humans-table th {
+                        border: 1px solid #eee;
+                        font-size: 9px;
+                    }
+                    .humans-table td {
+                        border: 1px solid #f2f2f2;
+                    }
                     .ib {
                         display: block;
                         margin-bottom: 1px;
@@ -477,28 +487,72 @@
                                     <section class="humans-section">
                                         <div class="control-group">
                                             <h4>Люди находившиеся в зоне ЧС</h4>
-                                            <div>
-                                                <table>
+                                            <div class="humans-table-container">
+                                                <table class="humans-table">
                                                     <tr>
                                                         <th>ФИО</th>
                                                         <th>Пол</th>
                                                         <th>Возраст</th>
+                                                        <th>Children</th>
+                                                        <th>Affected</th>
+                                                        <th>Dead</th>
+                                                        <th>Rescued</th>
+                                                        <th>Missing</th>
+                                                        <th>FoundBySearchRescue</th>
+                                                        <th>Evacuated</th>
+                                                        <th>FirstAid</th>
+                                                        <th>Homeless</th>
+                                                        <th>pType</th>
                                                         <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
                                                             <input type="text" name="evacuees_fio"
-                                                                   value="{//fields/evacuees_fio}" class="span5"/>
+                                                                   value="{//fields/evacuees_fio}" class="span3"/>
                                                         </td>
                                                         <td>
                                                             <select name="evacuees_sex">
-                                                                <option value="m">муж</option>
-                                                                <option value="w">жен</option>
+                                                                <option value="m">м</option>
+                                                                <option value="w">ж</option>
                                                             </select>
                                                         </td>
                                                         <td>
                                                             <input type="number" name="evacuees_age"
                                                                    value="{//fields/evacuees_age}" class="span1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isChildren" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isAffected" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isDead" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isRescued" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isMissing" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isFoundBySearchRescue"
+                                                                   value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isEvacuated" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isFirstAid" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isHomeless" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <select name="personnelType">
+                                                                <option value=""></option>
+                                                                <option value="k4s_mvd_rk">k4s_mvd_rk</option>
+                                                            </select>
                                                         </td>
                                                         <td>
                                                             <button type="button" data-action="add_people"
@@ -544,7 +598,9 @@
                                                 <option value="мелкого рогатого скота">мелкого рогатого скота</option>
                                                 <option value="лошадей">лошадей</option>
                                                 <option value="птицы">птицы</option>
-                                                <option value="водных организмов (гидробионтов)">водных организмов (гидробионтов)</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов
+                                                    (гидробионтов)
+                                                </option>
                                                 <option value="прочие">прочие</option>
                                             </select>
                                         </div>
@@ -566,7 +622,9 @@
                                                 <option value="мелкого рогатого скота">мелкого рогатого скота</option>
                                                 <option value="лошадей">лошадей</option>
                                                 <option value="птицы">птицы</option>
-                                                <option value="водных организмов (гидробионтов)">водных организмов (гидробионтов)</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов
+                                                    (гидробионтов)
+                                                </option>
                                                 <option value="прочие">прочие</option>
                                             </select>
                                         </div>
