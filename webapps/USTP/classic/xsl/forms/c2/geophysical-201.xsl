@@ -18,15 +18,15 @@
                     <![CDATA[
                     .count-section {
                         display: inline-block;
-                        min-width: 700px;
+                        min-width: 600px;
                         vertical-align: top;
-                        width:49%;
+                        width:40%;
                     }
                     .humans-section {
                         display: inline-block;
                         min-width: 700px;
                         vertical-align: top;
-                        width:49%;
+                        width:58%;
                     }
                     .ib {
                         display: block;
@@ -43,7 +43,7 @@
                         display: inline-block;
                         padding: 1px;
                         vertical-align: top;
-                        width: 150px;
+                        width: 120px;
                     }]]>
                 </style>
                 <script type="text/javascript" src="classic/scripts/form.js"></script>
@@ -410,8 +410,8 @@
                                         <div class="ib">
                                             <div class="ib-label"></div>
                                             <span class="ib-col">Всего</span>
-                                            <span class="ib-col">Эвакуированных</span>
-                                            <span class="ib-col">Детей</span>
+                                            <span class="ib-col">Эвакуировано</span>
+                                            <span class="ib-col">Эвак. детей</span>
                                         </div>
                                         <div class="ib">
                                             <div class="ib-label">Требующих эвакуации</div>
