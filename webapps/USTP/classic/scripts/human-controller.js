@@ -26,11 +26,43 @@ app.human = {
     }
 };
 
+app.first_aider = {
+    getAll: function(eventId) {
+        $.get('Provider?type=page&id=first-aider&event_id=' + eventId).then(function(result){
+            $('#first-aider-table').html(result);
+        });
+    },
+
+    add: function(el) {
+        var parentdocddbid = $('input[name=ddbid]').val();
+
+        $.ajax({
+            method : 'POST',
+            datatype : 'html',
+            url : 'Provider?type=save&element=document&id=first-aider&docid=&parentdocddbid=' + parentdocddbid,
+            data : {
+                name: $('input[name=first-aider-name]').val(),
+                address: $('input[name=first-aider-address]').val(),
+                phone: $('input[name=first-aider-phone]').val(),
+                details: $('input[name=first-aider-details]').val()
+            },
+            success: function() {
+                app.first_aider.getAll();
+            }
+        });
+    }
+};
+
 $(function() {
     app.human.getHumans();
+    app.first_aider.getAll();
 
     $('[data-action=add_people]').click(function() {
         app.human.addHuman(this);
+    });
+
+    $('[data-action=add_first_aider]').click(function() {
+        app.first_aider.add(this);
     });
 
     $('select[data-action=add-animal-count]').change(function() {

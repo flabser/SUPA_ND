@@ -17,7 +17,7 @@
                 <style>
                     <![CDATA[
                     #human-table {
-                        max-height: 500px;
+                        max-height: 400px;
                         overflow-y: auto;
                     }
                     .count-section {
@@ -581,16 +581,45 @@
 
                                     <div class="control-group-separator"></div>
 
-                                    <!-- Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь  -->
-                                    <div class="control-group">
-                                        <div class="control-label">Наименование организаций, юридический адрес,
-                                            реквизиты,
-                                            оказывавших первую помощь
+                                    <section class="first-aider-section">
+                                        <div class="control-group fieldset">
+                                            <div class="legend">Наименование организаций, юридический адрес, реквизиты,
+                                                оказывавших первую помощь
+                                            </div>
+                                            <div class="table-container">
+                                                <table class="humans-table">
+                                                    <tr>
+                                                        <th>Наименование</th>
+                                                        <th>address</th>
+                                                        <th>Телефон</th>
+                                                        <th>Реквизиты</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="first-aider-name"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="first-aider-address"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="first-aider-phone"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="first-aider-details"/>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn"
+                                                                    data-action="add_first_aider"
+                                                                    data-field="evacuees">+
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div id="first-aider-table"></div>
+                                            </div>
                                         </div>
-                                        <div class="controls">
-                                            <input type="text" name="first_aider" value="{//fields/first_aider}"/>
-                                        </div>
-                                    </div>
+                                    </section>
                                 </section>
 
                                 <section id="tabs-inner-2-section-animal">
