@@ -12,4 +12,5 @@ public class Destruction {
     int post_of_monitoring_warning_count;
 
     List<PostOfMonitoringWarning> postsOfMonitoringWarning;
+    List<PotentialRiskZone> potentialRiskZones;
 }
