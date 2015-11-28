@@ -16,6 +16,10 @@
             <xsl:with-param name="include">
                 <style>
                     <![CDATA[
+                    #human-table {
+                        max-height: 500px;
+                        overflow-y: auto;
+                    }
                     .count-section {
                         display: inline-block;
                         min-width: 550px;
