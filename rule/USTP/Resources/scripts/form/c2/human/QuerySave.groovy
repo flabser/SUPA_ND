@@ -36,9 +36,6 @@ class QuerySave extends _FormQuerySave {
         doc.addNumberField("isHomeless", isHomeless)
 
         def pdoc = doc.getParentDocument()
-        if (pdoc) {
-
-        }
 
         doc.setViewText(doc.getValueString("fio"))
         //
