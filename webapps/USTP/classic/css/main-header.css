@@ -12,7 +12,7 @@
 
 .main-header .fa {
 	color: #646464;
-	font-size: 24px;
+	font-size: 18px;
 	vertical-align: middle;
 }
 
@@ -21,6 +21,7 @@
 	height: inherit;
 	line-height: inherit;
 	min-width: 48px;
+	padding: 0 8px;
 	position: relative;
 	text-align: center;
 	vertical-align: top;
