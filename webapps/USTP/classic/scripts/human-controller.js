@@ -9,8 +9,6 @@ app.human = {
 
     addHuman: function(el) {
         var parentdocddbid = $('input[name=ddbid]').val();
-        // var hedform = $('form');
-        // var data = hedform.serialize();
 
         $.ajax({
             method : 'POST',
@@ -32,13 +30,6 @@ $(function() {
     app.human.getHumans();
 
     $('[data-action=add_people]').click(function() {
-        /*var $tableEl = $(this).parents('table');
-        var field = $(this).data('field');
-        var fio = $tableEl.find('input[name=' + field + '_fio]').val();
-        var sex = $tableEl.find('select[name=' + field + '_sex]').val();
-        var age = $tableEl.find('input[name=' + field + '_age]').val();
-        var tr = '<tr><td>' + fio + '</td><td>' + sex + '</td><td>' + age + '</td>';
-        $tableEl.append(tr);*/
         app.human.addHuman(this);
     });
 
