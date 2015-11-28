@@ -103,13 +103,13 @@
                         <a href="#tabs-1">Информация</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-2">Последствия ЧС</a>
+                        <a href="#tabs-2">Последствия</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-3">Описание и реагирование на ЧС</a>
+                        <a href="#tabs-3">Описание и реагирование</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-4">Ликвидация ЧС</a>
+                        <a href="#tabs-4">Ликвидация</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
                         <a href="#tabs-5">Характеристика объекта</a>
