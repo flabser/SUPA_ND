@@ -22,9 +22,6 @@ class QueryOpen extends _FormQueryOpen {
 		def actionBar = session.createActionBar();
 		actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть",lang),getLocalizedWord("Сохранить и закрыть",lang),_ActionType.SAVE_AND_CLOSE))
 		actionBar.addAction(new _Action(getLocalizedWord("Закрыть",lang),getLocalizedWord("Закрыть без сохранения",lang),_ActionType.CLOSE))
-		if(session.getGlobalSettings().edsSettings.isOn == RunMode.ON){
-			actionBar.addAction(new _Action(getLocalizedWord("Подписать",lang),getLocalizedWord("Подписать с помощью ЭЦП",lang),_ActionType.EDS_SIGN))
-		}
 		publishElement(actionBar)
 
 		def control = new _Control(session, new Date(), false, 10)
@@ -41,7 +38,6 @@ class QueryOpen extends _FormQueryOpen {
 			publishParentDocs(pDoc, session, 'new') 
 		}
 		def db = session.getCurrentDatabase();
-		publishValue('rtflimit', Environment.getRtfLimitSize())
 		try{
 			def parentDoc = db.getDocumentByComplexID(webFormData.getParentDocID())
 			if (parentDoc){
@@ -69,8 +65,7 @@ class QueryOpen extends _FormQueryOpen {
 	 
 	@Override
 	public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
-		publishValue('rtflimit', Environment.getRtfLimitSize())
-		publishValue("title",getLocalizedWord("Задание", lang) + ": " + doc.getValueString("briefcontent"))
+		publishValue("title",getLocalizedWord("Транспортные аварии (катастрофы)", lang) + ": " + doc.getValueString("briefcontent"))
 		def user = session.getCurrentAppUser()
 
 		def nav = session.getPage("outline", webFormData)
@@ -83,10 +78,6 @@ class QueryOpen extends _FormQueryOpen {
 			actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть",lang),getLocalizedWord("Сохранить и закрыть",lang),_ActionType.SAVE_AND_CLOSE))
 		}
 		
-		if(doc.getEditMode() == _DocumentModeType.EDIT && (session.getGlobalSettings().edsSettings.isOn == RunMode.ON) && control.getAllControl() != 0){
-			actionBar.addAction(new _Action(getLocalizedWord("Подписать",lang),getLocalizedWord("Подписать с помощью ЭЦП",lang),_ActionType.EDS_SIGN))
-		}
-
 		actionBar.addAction(new _Action(getLocalizedWord("Закрыть",lang),getLocalizedWord("Закрыть без сохранения",lang),_ActionType.CLOSE))
 		if(user.hasRole("supervisor")){
 			actionBar.addAction(new _Action(_ActionType.GET_DOCUMENT_ACCESSLIST))
@@ -103,13 +94,6 @@ class QueryOpen extends _FormQueryOpen {
 			actionBar.addAction(new _Action(getLocalizedWord("Проект внутреннего документа",lang),getLocalizedWord("Проект внутреннего документа",lang),"compose_workdocprj"))
 		}
 
-		if (user.hasRole("controller") || user.getUserID() == doc.getValueString("taskauthor")){
-			if (control.getAllControl() == 1){
-				actionBar.addAction(new _Action(getLocalizedWord("Снять с контроля",lang),getLocalizedWord("Снять с контроля",lang),"reset"))
-			}else{
-				actionBar.addAction(new _Action(getLocalizedWord("Поставить на контроль",lang),getLocalizedWord("Поставить на контроль",lang),"to_control"))
-			}
-		}
 
 		publishElement(actionBar)
 
