@@ -25,7 +25,7 @@
                 <xsl:with-param name="w_title" select="$w_title"/>
                 <xsl:with-param name="include" select="$include"/>
             </xsl:call-template>
-            <body class="no_transition layout_fullscreen {$body_class}" onresize="nbApp.uiWindowResize()">
+            <body class="no_transition layout_fullscreen {$body_class}">
                 <div class="main-load" id="main-load" style="display:none"></div>
                 <div class="layout layout_header-fixed {$aside_collapse}">
                     <div class="content-overlay" id="content-overlay"></div>
@@ -70,6 +70,7 @@
             <script type="text/javascript"
                     src="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
             <script type="text/javascript" src="/SharedResources/vendor/jquery/jquery.cookie.min.js"></script>
+            <script type="text/javascript" src="/SharedResources/nb/js/nb.build.js"></script>
 
             <xsl:copy-of select="$include"/>
         </head>
@@ -84,7 +85,7 @@
                 <img alt="logo" src="{$APP_LOGO_IMG_SRC}" class="brand-logo"/>
                 <span class="brand-title">
                     <xsl:value-of select="$APP_NAME"/>
-                    <small>Учет сведений о ЧС техногенного и природного характера</small>
+                    <small> Учет сведений о ЧС</small>
                 </span>
             </div>
             <div class="head-item pull-right" style="width:auto">
