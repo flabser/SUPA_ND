@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="humans" mode="on" history="on">
+<rule type="page" id="humans" mode="on" history="off">
     <description>Люди оказавшиеся участниками происшествия</description>
     <caching>NO_CACHING</caching>
     <xsltfile>pages/c2/humans.xsl</xsltfile>
@@ -11,9 +11,9 @@
         </events>
     </element>
 
-    <caption name="viewtext1" source="KEYWORD">Категория</caption>
-    <caption name="viewtext2" source="KEYWORD">Описание документа</caption>
+    <caption name="viewtext1" source="KEYWORD">fio</caption>
+    <caption name="viewtext2" source="KEYWORD">sex</caption>
     <caption name="viewtext3" source="KEYWORD"></caption>
-    <caption name="viewnumber">№</caption>
+    <caption name="viewnumber">age</caption>
     <caption name="viewdate" source="KEYWORD">Дата</caption>
 </rule>

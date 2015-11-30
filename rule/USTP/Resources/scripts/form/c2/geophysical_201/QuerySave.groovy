@@ -17,8 +17,8 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("emergency_type", webFormData.getValue("emergency_type"))
         doc.addStringField("emergency_date", webFormData.getValue("emergency_date"))
         doc.addStringField("short_description", webFormData.getValue("short_description"))
-        doc.addStringField("incident_place", webFormData.getValue("incident_place"))
-        doc.addStringField("coordinates", webFormData.getValue("coordinates"))
+        // doc.addStringField("incident_place", webFormData.getValue("incident_place"))
+        // doc.addStringField("coordinates", webFormData.getValue("coordinates"))
 
         doc.setViewText(doc.getValueString("card_number"))
         doc.addViewText(doc.getValueString("card_number"))

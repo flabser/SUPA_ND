@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="first-aider" mode="on" history="on">
+<rule type="page" id="first-aider" mode="on" history="off">
     <description>first-aider</description>
     <caching>NO_CACHING</caching>
     <xsltfile>pages/c2/first-aider.xsl</xsltfile>
@@ -11,9 +11,8 @@
         </events>
     </element>
 
-    <caption name="viewtext1" source="KEYWORD">-</caption>
-    <caption name="viewtext2" source="KEYWORD">-</caption>
-    <caption name="viewtext3" source="KEYWORD">-</caption>
-    <caption name="viewnumber">-</caption>
-    <caption name="viewdate" source="KEYWORD">-</caption>
+    <caption name="viewtext1" source="KEYWORD">Наименование</caption>
+    <caption name="viewtext2" source="KEYWORD">address</caption>
+    <caption name="viewtext3" source="KEYWORD">Телефон</caption>
+    <caption name="viewtext3" source="KEYWORD">Реквизиты</caption>
 </rule>
