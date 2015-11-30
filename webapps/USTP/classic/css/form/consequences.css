@@ -1,0 +1,114 @@
+.consequences-count-section {
+    display: inline-block;
+    min-width: 600px;
+    padding: 8px;
+    vertical-align: top;
+    width: 35%;
+}
+
+
+/*  */
+
+.consequences-total {
+    background: #eee;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    display: block;
+    font-weight: normal;
+    padding: 8px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.consequences-total span,
+.consequences-total input {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.consequences-total input {
+    width: 80px;
+}
+
+
+/*  */
+
+.consequences-count-table {
+    background: #EEEEEE;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.consequences-count-gr {
+    background: #F5F5F5;
+    display: block;
+    margin: 1px;
+    position: relative;
+    vertical-align: top;
+}
+
+
+/* label */
+
+.consequences-count-gr > div {
+    display: inline-block;
+    padding: 1px;
+    vertical-align: middle;
+    width: 260px;
+}
+
+.consequences-count-gr.consequences-count-caption > div {
+    background: none;
+}
+
+
+/* input column */
+
+.consequences-count-gr > span {
+    display: inline-block;
+    padding: 1px;
+    vertical-align: middle;
+    word-wrap: break-word;
+    width: 90px;
+}
+
+.consequences-count-gr.consequences-count-caption > span {
+    font-size: .9em;
+    vertical-align: bottom;
+}
+
+
+/*  */
+
+.consequences-humans-section {
+    display: inline-block;
+    padding: 8px 0;
+    min-width: 700px;
+    vertical-align: top;
+    width: 60%;
+}
+
+.humans-table-container {
+    overflow: auto;
+}
+
+.humans-table th {
+    border: 1px solid #eee;
+    font-size: 9px;
+}
+
+.humans-table td {
+    border: 1px solid #f2f2f2;
+}
+
+#human-table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+@media ( max-width: 1700px) {
+    .consequences-count-section,
+    .consequences-humans-section {
+        width: 100%;
+    }
+}
