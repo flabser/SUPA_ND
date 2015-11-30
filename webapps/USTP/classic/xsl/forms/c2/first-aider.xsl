@@ -20,7 +20,45 @@
         </header>
 
         <section class="form-content">
-
+            <form action="Provider" name="frm" method="post" id="frm" enctype="application/x-www-form-urlencoded">
+                <fieldset class="fieldset">
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="document/captions/name/@caption"/>
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="name" value="{document/fields/name}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="document/captions/address/@caption"/>
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="address" value="{document/fields/address}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="document/captions/phone/@caption"/>
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="phone" value="{document/fields/phone}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="document/captions/details/@caption"/>
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="details" value="{document/fields/details}"/>
+                        </div>
+                    </div>
+                </fieldset>
+                <input type="hidden" name="type" value="save"/>
+                <input type="hidden" name="id" value="first-aider"/>
+                <input type="hidden" name="key" value="{document/@docid}"/>
+            </form>
         </section>
     </xsl:template>
 
