@@ -108,4 +108,12 @@
 		<description>Область</description>
 		<value>region</value>
 	</glossary>
+	<glossary mode="on" id="city" source="query">
+		<description>Город</description>
+		<value>city</value>
+	</glossary>
+	<glossary mode="on" id="roadtype" source="query">
+		<description>Тип дороги</description>
+		<value>roadtype</value>
+	</glossary>
 </rule>
