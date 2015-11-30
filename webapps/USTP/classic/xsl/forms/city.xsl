@@ -10,6 +10,7 @@
 	<xsl:variable name="status" select="/request/document/@status"/>
 
 
+
 	<xsl:template match="/request">
 		<xsl:call-template name="layout">
 			<xsl:with-param name="include">
