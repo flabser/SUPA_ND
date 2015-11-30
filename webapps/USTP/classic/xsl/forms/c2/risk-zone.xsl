@@ -23,32 +23,12 @@
             <form action="Provider" name="frm" method="post" id="frm" enctype="application/x-www-form-urlencoded">
                 <fieldset class="fieldset">
                     <div class="control-group">
-                        <div class="control-label">
-                            <xsl:value-of select="document/captions/fio/@caption"/>
-                        </div>
-                        <div class="controls">
-                            <input type="text" name="fio" value="{document/fields/fio}"/>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="control-label">
-                            <xsl:value-of select="document/captions/sex/@caption"/>
-                        </div>
-                        <div class="controls">
-                            <input type="number" name="sex" value="{document/fields/sex}"/>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="control-label">
-                            <xsl:value-of select="document/captions/age/@caption"/>
-                        </div>
-                        <div class="controls">
-                            <input type="number" name="age" value="{document/fields/age}"/>
-                        </div>
+                        <div class="control-label"></div>
+                        <div class="controls"></div>
                     </div>
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>
-                <input type="hidden" name="id" value="human"/>
+                <input type="hidden" name="id" value="risk-zone"/>
                 <input type="hidden" name="key" value="{document/@docid}"/>
             </form>
         </section>

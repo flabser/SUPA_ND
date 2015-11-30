@@ -24,31 +24,39 @@
                 <fieldset class="fieldset">
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="document/captions/fio/@caption"/>
+                            <xsl:value-of select="document/captions/name/@caption"/>
                         </div>
                         <div class="controls">
-                            <input type="text" name="fio" value="{document/fields/fio}"/>
+                            <input type="text" name="name" value="{document/fields/name}"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="document/captions/sex/@caption"/>
+                            <xsl:value-of select="document/captions/address/@caption"/>
                         </div>
                         <div class="controls">
-                            <input type="number" name="sex" value="{document/fields/sex}"/>
+                            <input type="text" name="address" value="{document/fields/address}"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="document/captions/age/@caption"/>
+                            <xsl:value-of select="document/captions/phone/@caption"/>
                         </div>
                         <div class="controls">
-                            <input type="number" name="age" value="{document/fields/age}"/>
+                            <input type="text" name="phone" value="{document/fields/phone}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="document/captions/details/@caption"/>
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="details" value="{document/fields/details}"/>
                         </div>
                     </div>
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>
-                <input type="hidden" name="id" value="human"/>
+                <input type="hidden" name="id" value="first-aider"/>
                 <input type="hidden" name="key" value="{document/@docid}"/>
             </form>
         </section>

@@ -88,13 +88,25 @@
                 </span>
             </div>
             <div class="head-item pull-right" style="width:auto">
-                <a id="currentuser" title="{//captions/view_userprofile/@caption}"
-                   href=" Provider?type=edit&amp;element=userprofile&amp;id=userprofile">
-                    <xsl:value-of select="@username"/>
-                </a>
-                <a id="logout" href="Logout" title="{document/captions/logout/@caption}">
-                    <xsl:value-of select="//captions/logout/@caption"/>
-                </a>
+                <div class="dropdown dropdown-hover">
+                    <div class="dropdown-toggle" data-toggle="dropdown">
+                        <xsl:value-of select="@username"/>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <ul class="dropdown-menu right">
+                        <li>
+                            <a id="currentuser" title="{//captions/view_userprofile/@caption}"
+                               href=" Provider?type=edit&amp;element=userprofile&amp;id=userprofile">
+                                <xsl:value-of select="@username"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="logout" href="Logout" title="{document/captions/logout/@caption}">
+                                <xsl:value-of select="//captions/logout/@caption"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <xsl:if test="not(document)">
                 <div class="head-item nav-search-toggle" title="Поиск" id="toggle-head-search">

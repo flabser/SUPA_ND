@@ -191,7 +191,7 @@
 
 	<!--кнопка закрыть-->
 	<xsl:template name="cancel">
-		<button title= "{document/captions/close/@hint}" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" id="canceldoc" autocomplete="off">
+		<button title= "{document/captions/close/@hint}" class="btn" id="canceldoc" autocomplete="off">
 			<xsl:attribute name="onclick">javascript:<xsl:value-of select="document/actionbar/action[@id = 'close']/js"/></xsl:attribute>
 			<span>
 				<img src="/SharedResources/img/classic/icons/cross.png" class="button_img"/>

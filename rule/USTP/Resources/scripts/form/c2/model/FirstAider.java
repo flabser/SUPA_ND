@@ -7,4 +7,8 @@ public class FirstAider {
     String guid;
     String eventGUID;
 
+    String name;
+    String address;
+    String phone;
+    String details;
 }

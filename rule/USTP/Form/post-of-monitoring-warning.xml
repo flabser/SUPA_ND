@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="post-of-monitoring-warning" mode="on">
+    <description>post-of-monitoring-warning</description>
+    <xsltfile>forms/c2/post-of-monitoring-warning.xsl</xsltfile>
+    <doctype>main</doctype>
+
+    <events>
+        <queryopen source="file">form.c2.post_of_monitoring_warning.QueryOpen</queryopen>
+        <querysave source="file">form.c2.post_of_monitoring_warning.QuerySave</querysave>
+    </events>
+
+    <caption name="close" source="KEYWORD">Закрыть</caption>
+    <caption name="properties" source="KEYWORD">Свойства</caption>
+    <caption name="attachments" source="KEYWORD">Вложения</caption>
+    <caption name="content" source="KEYWORD">Содержание</caption>
+    <caption name="performer" source="KEYWORD">исполнитель</caption>
+    <caption name="date" source="KEYWORD">дата</caption>
+
+    <caption name="saving" source="KEYWORD">Сохранение</caption>
+    <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+</rule>

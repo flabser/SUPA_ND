@@ -14,25 +14,70 @@
     <xsl:template match="/request">
         <xsl:call-template name="layout">
             <xsl:with-param name="include">
+                <style>
+                    <![CDATA[
+                    #human-table {
+                        max-height: 400px;
+                        overflow-y: auto;
+                    }
+                    .count-section {
+                        display: inline-block;
+                        min-width: 550px;
+                        padding: 8px 0;
+                        vertical-align: top;
+                        width:35%;
+                    }
+                    .humans-section {
+                        display: inline-block;
+                        padding: 8px 0;
+                        min-width: 700px;
+                        vertical-align: top;
+                        width:60%;
+                    }
+                    @media ( max-width : 1700px) {
+                        .count-section,
+                        .humans-section{
+                            width: 100%;
+                        }
+                    }
+                    .humans-table-container {
+                        overflow: auto;
+                    }
+                    .humans-table th {
+                        border: 1px solid #eee;
+                        font-size: 9px;
+                    }
+                    .humans-table td {
+                        border: 1px solid #f2f2f2;
+                    }
+                    .ib {
+                        display: block;
+                        margin-bottom: 1px;
+                        vertical-align: top;
+                    }
+                    .ib .ib-label {
+                        background: #f5f5f5;
+                        display: inline-block;
+                        padding: 1px;
+                        width: 200px;
+                    }
+                    .ib .ib-col {
+                        display: inline-block;
+                        padding: 1px;
+                        vertical-align: top;
+                        width: 120px;
+                    }]]>
+                </style>
                 <script type="text/javascript" src="classic/scripts/form.js"></script>
                 <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
+                <script type="text/javascript" src="classic/scripts/human-controller.js"></script>
                 <script>
-                    $(function(){
-                    $("#tabs").tabs();
-                    $('[data-action=save_and_close]').click(SaveFormJquery);
-
                     <![CDATA[
-                    $('[data-action=add_people]').click(function(){
-                        var $tableEl = $(this).parents('table');
-                        var field = $(this).data('field');
-                        var fio = $tableEl.find('input[name=' + field + '_fio]').val();
-                        var sex = $tableEl.find('select[name=' + field + '_sex]').val();
-                        var age = $tableEl.find('input[name=' + field + '_age]').val();
-                        var tr = '<tr><td>' + fio + '</td><td>' + sex + '</td><td>' + age + '</td>';
-                        $tableEl.append(tr);
-                    });
-                    ]]>
-                    });
+                    $(function(){
+                        $("#tabs").tabs();
+                        $("#tabs-inner-2").tabs();
+                        $('[data-action=save_and_close]').click(SaveFormJquery);
+                    });]]>
                 </script>
                 <xsl:if test="$editmode = 'edit'">
                     <script>
@@ -80,13 +125,13 @@
                         <a href="#tabs-1">Информация</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-2">Последствия ЧС</a>
+                        <a href="#tabs-2">Последствия</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-3">Описание и реагирование на ЧС</a>
+                        <a href="#tabs-3">Описание и реагирование</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
-                        <a href="#tabs-4">Ликвидация ЧС</a>
+                        <a href="#tabs-4">Ликвидация</a>
                     </li>
                     <li class="ui-state-default ui-corner-top">
                         <a href="#tabs-5">Характеристика объекта</a>
@@ -107,15 +152,14 @@
 
                         <div class="ui-tabs-panel" id="tabs-1">
                             <div class="control-group">
-                                <div class="control-label">Номер карточки</div>
+                                <div class="control-label">Карточка</div>
                                 <div class="controls">
-                                    <input type="text" name="card_number" value="{//fields/card_number}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">Дата карточки</div>
-                                <div class="controls">
-                                    <input type="date" name="card_date" value="{//fields/card_date}"/>
+                                    <input type="text" name="card_number"
+                                           value="{//fields/card_number}"
+                                           placeholder="Номер"/>
+                                    <input type="date" name="card_date"
+                                           value="{//fields/card_date}"
+                                           placeholder="Дата"/>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -257,631 +301,450 @@
                                 </div>
                             </div>
                         </div>
+
                         <div id="tabs-2">
-                            <div class="control-group">
-                                <div class="control-label">Общее количество людей находившихся в зоне ЧС</div>
-                                <div class="controls">
-                                    <input type="number" name="people_in_zone_emergency_count"
-                                           value="{//fields/people_in_zone_emergency_count}"/>
-                                </div>
-                            </div>
 
-                            <!-- пострадавших -->
-                            <div class="fieldset">
-                                <div class="legend">Пострадавших</div>
-                                <div class="fieldset-container">
-                                    <div class="control-group">
-                                        <div class="control-label">Количество пострадавших</div>
-                                        <div class="controls">
-                                            <input type="number" name="affected_count"
-                                                   value="{//fields/affected_count}" class="span2"/>
-                                            В том числе детей
-                                            <input type="number" name="affected_children_count"
-                                                   value="{//fields/affected_children_count}" class="span2"/>
-                                            <div class="control-group">
-                                                <table>
+                            <div id="tabs-inner-2">
+                                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                                    <li class="ui-state-default ui-corner-top">
+                                        <a href="#tabs-inner-2-section-human">Люди</a>
+                                    </li>
+                                    <li class="ui-state-default ui-corner-top">
+                                        <a href="#tabs-inner-2-section-animal">Домашние животные</a>
+                                    </li>
+                                    <li class="ui-state-default ui-corner-top">
+                                        <a href="#tabs-inner-2-3">Разрушения</a>
+                                    </li>
+                                </ul>
+
+                                <section id="tabs-inner-2-section-human">
+                                    <section class="count-section">
+                                        <div class="control-group">
+                                            <span class="ibtl span5">Общее количество людей находившихся в зоне ЧС
+                                            </span>
+                                            <span class="span1">
+                                                <input type="number" name="people_in_zone_emergency_count"
+                                                       value="{//fields/people_in_zone_emergency_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="ib">
+                                            <div class="ib-label"></div>
+                                            <span class="ib-col">Всего</span>
+                                            <span class="ib-col">Детей</span>
+                                            <span class="ib-col">сотрудников КЧС МВД РК</span>
+                                        </div>
+
+                                        <!-- пострадавших -->
+                                        <div class="ib">
+                                            <div class="ib-label">Пострадавших</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="affected_count"
+                                                       value="{//fields/affected_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="affected_children_count"
+                                                       value="{//fields/affected_children_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="affected_personnel_k4s_mvd_rk_count"
+                                                       value="{//fields/affected_personnel_k4s_mvd_rk_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <!-- погибших -->
+                                        <div class="ib">
+                                            <div class="ib-label">Погибших</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="dead_count" value="{//fields/dead_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="dead_children_count"
+                                                       value="{//fields/dead_children_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="dead_personnel_k4s_mvd_rk_count"
+                                                       value="{//fields/dead_personnel_k4s_mvd_rk_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <!-- спасенных -->
+                                        <div class="ib">
+                                            <div class="ib-label">Спасенных</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="rescued_count"
+                                                       value="{//fields/rescued_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="rescued_children_count"
+                                                       value="{//fields/rescued_children_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <!-- Количество людей пропавших без вести -->
+                                        <div class="ib">
+                                            <div class="ib-label">Пропавших без вести</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="missing_count"
+                                                       value="{//fields/missing_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="missing_children_count"
+                                                       value="{//fields/missing_children_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="missing_personnel_k4s_mvd_rk_count"
+                                                       value="{//fields/missing_personnel_k4s_mvd_rk_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="control-group-separator"></div>
+
+                                        <div class="ib">
+                                            <div class="ib-label"></div>
+                                            <span class="ib-col">Всего</span>
+                                            <span class="ib-col">Доставлены в мед. учреждения</span>
+                                            <span class="ib-col">сотрудников КЧС МВД РК</span>
+                                        </div>
+                                        <!-- Обнаруженно людей в ходе проведения поисково - спасательных работ (чел.) -->
+                                        <div class="ib">
+                                            <div class="ib-label">Обнаруженно людей в ходе проведения поисково -
+                                                спасательных
+                                                работ
+                                            </div>
+                                            <span class="ib-col">
+                                                <input type="number" name="search_rescue_found_people_count"
+                                                       value="{//fields/search_rescue_found_people_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="search_rescue_taken_medical_count"
+                                                       value="{//fields/search_rescue_taken_medical_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="search_rescue_taken_medical_k4s_mvd_rk_count"
+                                                       value="{//fields/search_rescue_taken_medical_k4s_mvd_rk_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="control-group-separator"></div>
+
+                                        <!-- Требующих эвакуации -->
+                                        <div class="ib">
+                                            <div class="ib-label"></div>
+                                            <span class="ib-col">Всего</span>
+                                            <span class="ib-col">Эвакуировано</span>
+                                            <span class="ib-col">Эвак. детей</span>
+                                        </div>
+                                        <div class="ib">
+                                            <div class="ib-label">Требующих эвакуации</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="requiring_evacuation_people_count"
+                                                       value="{//fields/requiring_evacuation_people_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="evacuees_count"
+                                                       value="{//fields/evacuees_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="evacuees_count_children"
+                                                       value="{//fields/evacuees_children_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="control-group-separator"></div>
+
+                                        <div class="ib">
+                                            <div class="ib-label"></div>
+                                            <span class="ib-col">Всего</span>
+                                            <span class="ib-col">Детей</span>
+                                        </div>
+
+                                        <div class="ib">
+                                            <div class="ib-label">Оказана первая мед. помощь</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="first_aid_count"
+                                                       value="{//fields/first_aid_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="first_aid_count_children"
+                                                       value="{//fields/first_aid_children_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="ib">
+                                            <div class="ib-label">Госпитализировано людей</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="hospitalized_count"
+                                                       value="{//fields/hospitalized_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="hospitalized_children_count"
+                                                       value="{//fields/hospitalized_children_count}"/>
+                                            </span>
+                                        </div>
+
+                                        <div class="ib">
+                                            <div class="ib-label">Оставшихся без крова</div>
+                                            <span class="ib-col">
+                                                <input type="number" name="homeless_count"
+                                                       value="{//fields/homeless_count}"/>
+                                            </span>
+                                            <span class="ib-col">
+                                                <input type="number" name="homeless_children_count"
+                                                       value="{//fields/homeless_children_count}"/>
+                                            </span>
+                                        </div>
+                                    </section>
+
+                                    <section class="humans-section">
+                                        <div class="control-group fieldset">
+                                            <div class="legend">Люди находившиеся в зоне ЧС</div>
+                                            <div class="humans-table-container">
+                                                <table class="humans-table">
                                                     <tr>
                                                         <th>ФИО</th>
                                                         <th>Пол</th>
                                                         <th>Возраст</th>
+                                                        <th>Children</th>
+                                                        <th>Affected</th>
+                                                        <th>Dead</th>
+                                                        <th>Rescued</th>
+                                                        <th>Missing</th>
+                                                        <th>FoundBySearchRescue</th>
+                                                        <th>Evacuated</th>
+                                                        <th>FirstAid</th>
+                                                        <th>Homeless</th>
+                                                        <th>pType</th>
                                                         <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="affected_fio"
-                                                                   value="{//fields/affected_fio}" class="span5"/>
+                                                            <input type="text" name="human_fio"
+                                                                   value="{//fields/human_fio}" class="span3"/>
                                                         </td>
                                                         <td>
-                                                            <select name="affected_sex">
-                                                                <option value="m">муж</option>
-                                                                <option value="w">жен</option>
+                                                            <select name="human_sex">
+                                                                <option value="m">м</option>
+                                                                <option value="w">ж</option>
                                                             </select>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="affected_age"
-                                                                   value="{//fields/affected_age}" min="0" max="200"
-                                                                   class="span1"/>
+                                                            <input type="number" name="human_age"
+                                                                   value="{//fields/human_age}" class="span1"/>
                                                         </td>
                                                         <td>
-                                                            <button type="button" data-action="add_people"
-                                                                    data-field="affected">+
+                                                            <input type="checkbox" name="isChildren" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isAffected" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isDead" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isRescued" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isMissing" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isFoundBySearchRescue"
+                                                                   value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isEvacuated" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isFirstAid" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="checkbox" name="isHomeless" value="1"/>
+                                                        </td>
+                                                        <td>
+                                                            <select name="personnelType">
+                                                                <option value=""></option>
+                                                                <option value="k4s_mvd_rk">k4s_mvd_rk</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn"
+                                                                    data-action="add_people"
+                                                                    data-field="evacuees">+
                                                             </button>
                                                         </td>
                                                     </tr>
                                                 </table>
+                                                <div id="human-table"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
-                                        <div class="controls">
-                                            <input type="number" name="affected_personnel_k4s_mvd_rk_count"
-                                                   value="{//fields/affected_personnel_k4s_mvd_rk_count}"
-                                                   class="span2"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </section>
 
-                            <!-- погибших -->
-                            <div class="fieldset">
-                                <div class="legend">Погибших</div>
-                                <div class="fieldset-container">
-                                    <div class="control-group">
-                                        <div class="control-label">Количество погибших</div>
-                                        <div class="controls">
-                                            <input type="number" name="dead_count" value="{//fields/dead_count}"
-                                                   class="span2"/>
-                                            В том числе детей
-                                            <input type="number" name="dead_children_count"
-                                                   value="{//fields/dead_children_count}" class="span2"/>
-                                            <div class="control-group">
-                                                <table>
+                                    <div class="control-group-separator"></div>
+
+                                    <section class="first-aider-section">
+                                        <div class="control-group fieldset">
+                                            <div class="legend">Наименование организаций, юридический адрес, реквизиты,
+                                                оказывавших первую помощь
+                                            </div>
+                                            <div class="table-container">
+                                                <table class="humans-table">
                                                     <tr>
-                                                        <th>ФИО</th>
-                                                        <th>Пол</th>
-                                                        <th>Возраст</th>
+                                                        <th>Наименование</th>
+                                                        <th>address</th>
+                                                        <th>Телефон</th>
+                                                        <th>Реквизиты</th>
                                                         <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="dead_fio"
-                                                                   value="{//fields/dead_fio}" class="span5"/>
+                                                            <input type="text" name="first-aider-name"/>
                                                         </td>
                                                         <td>
-                                                            <select name="dead_sex">
-                                                                <option value="m">муж</option>
-                                                                <option value="w">жен</option>
-                                                            </select>
+                                                            <input type="text" name="first-aider-address"/>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="dead_age"
-                                                                   value="{//fields/dead_age}" class="span1"/>
+                                                            <input type="text" name="first-aider-phone"/>
                                                         </td>
                                                         <td>
-                                                            <button type="button" data-action="add_people"
-                                                                    data-field="dead">+
+                                                            <input type="text" name="first-aider-details"/>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" class="btn"
+                                                                    data-action="add_first_aider"
+                                                                    data-field="evacuees">+
                                                             </button>
                                                         </td>
                                                     </tr>
                                                 </table>
+                                                <div id="first-aider-table"></div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+
+                                <section id="tabs-inner-2-section-animal">
+
+                                    <div class="control-group">
+                                        <div class="control-label">Количество погибших домашних животных</div>
+                                        <div class="controls">
+                                            <input type="number" name="dead_domestic_animals_count"
+                                                   value="{//fields/dead_domestic_animals_count}"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">В том числе</div>
+                                        <div class="controls">
+                                            <div class="list"></div>
+                                            <select data-action="add-animal-count">
+                                                <option value=""></option>
+                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
+                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
+                                                <option value="лошадей">лошадей</option>
+                                                <option value="птицы">птицы</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов
+                                                    (гидробионтов)
+                                                </option>
+                                                <option value="прочие">прочие</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">Количество эвакуированных домашних животных</div>
+                                        <div class="controls">
+                                            <input type="number" name="evacuees_domestic_animals_count"
+                                                   value="{//fields/evacuees_domestic_animals_count}"/>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="control-label">В том числе</div>
+                                        <div class="controls">
+                                            <div class="list"></div>
+                                            <select data-action="add-animal-count">
+                                                <option value=""></option>
+                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
+                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
+                                                <option value="лошадей">лошадей</option>
+                                                <option value="птицы">птицы</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов
+                                                    (гидробионтов)
+                                                </option>
+                                                <option value="прочие">прочие</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </section>
+
+                                <section id="tabs-inner-2-3">
+                                    <div class="fieldset">
+                                        <div class="fieldset-container">
+                                            <div>
+                                                <span>Количество постов, пунктов (станций),
+                                                    полигонов,
+                                                    маршрутов наблюдения и оповещения
+                                                    <input type="number" name="monitoring_warning_post_count"
+                                                           value="{//fields/monitoring_warning_post_count}"/>
+                                                </span>
+                                            </div>
+
+                                            <div class="control-group-separator"></div>
+
+                                            <style>
+                                                .section-destruction,
+                                                .section-potential-risk {
+                                                display: inline-block;
+                                                min-width: 600px;
+                                                width: 48%;
+                                                }
+                                                .section-destruction th, .section-destruction td,
+                                                .section-potential-risk th, .section-potential-risk td {
+                                                border: 1px solid #f2f2f2;
+                                                padding: 4px;
+                                                }
+                                            </style>
+
+                                            <div class="section-destruction fieldset">
+                                                <div class="legend">Разрушеные обьекты</div>
+                                                <div class="fieldset-container">
+                                                    <table class="table table-bordered">
+                                                        <tr>
+                                                            <th>Тип</th>
+                                                            <th>наименование</th>
+                                                            <th>место дислокации</th>
+                                                            <th>назначение</th>
+                                                            <th>зона ответственности (охват территории)</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                    <button type="button" class="btn">+Добавить</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="section-potential-risk fieldset">
+                                                <div class="legend">Возможные зоны риска</div>
+                                                <div class="fieldset-container">
+                                                    <table class="table table-bordered">
+                                                        <tr>
+                                                            <th>наименование</th>
+                                                            <th>место дислокации</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                    <button type="button" class="btn">+Добавить</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="control-group">
-                                        <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
-                                        <div class="controls">
-                                            <input type="number" name="dead_personnel_k4s_mvd_rk_count"
-                                                   value="{//fields/dead_personnel_k4s_mvd_rk_count}" class="span2"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- спасенных -->
-                            <div class="fieldset">
-                                <div class="legend">Спасенных</div>
-                                <div class="fieldset-container">
-                                    <div class="control-group">
-                                        <div class="control-label">Количество спасенных</div>
-                                        <div class="controls">
-                                            <input type="number" name="rescued_count" value="{//fields/rescued_count}"
-                                                   class="span2"/>
-                                            В том числе детей
-                                            <input type="number" name="rescued_children_count"
-                                                   value="{//fields/rescued_children_count}" class="span2"/>
-                                            <div class="control-group">
-                                                <table>
-                                                    <tr>
-                                                        <th>ФИО</th>
-                                                        <th>Пол</th>
-                                                        <th>Возраст</th>
-                                                        <th></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="text" name="rescued_fio"
-                                                                   value="{//fields/rescued_fio}" class="span5"/>
-                                                        </td>
-                                                        <td>
-                                                            <select name="rescued_sex">
-                                                                <option value="m">муж</option>
-                                                                <option value="w">жен</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" name="rescued_age"
-                                                                   value="{//fields/rescued_age}" class="span1"/>
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" data-action="add_people"
-                                                                    data-field="rescued">+
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <!-- Количество людей пропавших без вести -->
-                            <div class="control-group">
-                                <div class="control-label">Количество людей пропавших без вести</div>
-                                <div class="controls">
-                                    <input type="number" name="missing_count" value="{//fields/missing_count}"
-                                           class="span2"/>
-                                    В том числе детей
-                                    <input type="number" name="missing_children_count"
-                                           value="{//fields/missing_children_count}" class="span2"/>
-                                    <div class="control-group">
-                                        <table>
-                                            <tr>
-                                                <th>ФИО</th>
-                                                <th>Пол</th>
-                                                <th>Возраст</th>
-                                                <th></th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" name="missing_fio"
-                                                           value="{//fields/missing_fio}" class="span5"/>
-                                                </td>
-                                                <td>
-                                                    <select name="missing_sex">
-                                                        <option value="m">муж</option>
-                                                        <option value="w">жен</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input type="number" name="missing_age"
-                                                           value="{//fields/missing_age}" class="span1"/>
-                                                </td>
-                                                <td>
-                                                    <button type="button" data-action="add_people"
-                                                            data-field="missing">+
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
-                                <div class="controls">
-                                    <input type="number" name="missing_personnel_k4s_mvd_rk_count"
-                                           value="{//fields/missing_personnel_k4s_mvd_rk_count}" class="span2"/>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <!-- Обнаруженно людей в ходе проведения поисково - спасательных работ (чел.) -->
-                            <div class="control-group">
-                                <div class="control-label">
-                                    Обнаруженно людей в ходе проведения поисково - спасательных работ
-                                </div>
-                                <div class="controls">
-                                    <input type="number" name="search_rescue_found_people_count"
-                                           value="{//fields/search_rescue_found_people_count}" class="span2"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">Спасены и доставлены в мед. учреждения</div>
-                                <div class="controls">
-                                    <input type="number" name="search_rescue_taken_medical_count"
-                                           value="{//fields/search_rescue_taken_medical_count}" class="span2"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">в том числе сотрудников КЧС МВД РК</div>
-                                <div class="controls">
-                                    <input type="number" name="search_rescue_taken_medical_k4s_mvd_rk_count"
-                                           value="{//fields/search_rescue_taken_medical_k4s_mvd_rk_count}"
-                                           class="span2"/>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <div class="control-group">
-                                <div class="control-label">Общее количество людей требующих эвакуации</div>
-                                <div class="controls">
-                                    <input type="number" name="requiring_evacuation_people_count"
-                                           value="{//fields/requiring_evacuation_people_count}" class="span2"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">Количество эвакуированных</div>
-                                <div class="controls">
-                                    <input type="number" name="evacuees_count"
-                                           value="{//fields/evacuees_count}" class="span2"/>
-                                    В том числе детей
-                                    <input type="number" name="evacuees_count_children"
-                                           value="{//fields/evacuees_children_count}" class="span2"/>
-                                    <div class="control-group">
-                                        <table>
-                                            <tr>
-                                                <th>ФИО</th>
-                                                <th>Пол</th>
-                                                <th>Возраст</th>
-                                                <th></th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" name="evacuees_fio"
-                                                           value="{//fields/evacuees_fio}" class="span5"/>
-                                                </td>
-                                                <td>
-                                                    <select name="evacuees_sex">
-                                                        <option value="m">муж</option>
-                                                        <option value="w">жен</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <input type="number" name="evacuees_age"
-                                                           value="{//fields/evacuees_age}" class="span1"/>
-                                                </td>
-                                                <td>
-                                                    <button type="button" data-action="add_people"
-                                                            data-field="evacuees">+
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <div class="control-group">
-                                <div class="control-label">Оказана первая медицинская помощь</div>
-                                <div class="controls">
-                                    <input type="number" name="first_aid_count" value="{//fields/first_aid_count}"
-                                           class="span2"/>
-                                    <div class="control-group">
-                                        first_aid_people
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе детей</div>
-                                <div class="controls">
-                                    <input type="number" name="first_aid_count_children"
-                                           value="{//fields/first_aid_children_count}" class="span2"/>
-                                    <div class="control-group">
-                                        first_aid_children
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <!-- Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь  -->
-                            <div class="control-group">
-                                <div class="control-label">Наименование организаций, юридический адрес, реквизиты,
-                                    оказывавших первую помощь
-                                </div>
-                                <div class="controls">
-                                    <input type="text" name="first_aider" value="{//fields/first_aider}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">Госпитализировано людей</div>
-                                <div class="controls">
-                                    <input type="number" name="hospitalized_count"
-                                           value="{//fields/hospitalized_count}"/>
-                                    <div class="control-group">
-                                        hospitalized_people
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе детей</div>
-                                <div class="controls">
-                                    <input type="number" name="hospitalized_children_count"
-                                           value="{//fields/hospitalized_children_count}"/>
-                                    <div class="control-group">
-                                        hospitalized_children
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <div class="control-group">
-                                <div class="control-label">Количество людей оставшихся без крова в результате ЧС</div>
-                                <div class="controls">
-                                    <input type="number" name="homeless_count" value="{//fields/homeless_count}"/>
-                                    <div class="control-group">
-                                        homeless_people
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе детей</div>
-                                <div class="controls">
-                                    <input type="number" name="homeless_children_count"
-                                           value="{//fields/homeless_children_count}"/>
-                                    <div class="control-group">
-                                        homeless_children
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <div class="control-group">
-                                <div class="control-label">Количество погибших домашних животных</div>
-                                <div class="controls">
-                                    <input type="number" name="dead_domestic_animals_count"
-                                           value="{//fields/dead_domestic_animals_count}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе</div>
-                                <div class="controls">
-                                    dynamic_selector
-                                    <ul>
-                                        <li>крупного рогатого скота</li>
-                                        <li>мелкого рогатого скота</li>
-                                        <li>лошадей</li>
-                                        <li>птицы</li>
-                                        <li>водных организмов (гидробионтов)</li>
-                                        <li>прочие</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">Количество эвакуированных домашних животных</div>
-                                <div class="controls">
-                                    <input type="number" name="evacuees_domestic_animals_count"
-                                           value="{//fields/evacuees_domestic_animals_count}"/>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <div class="control-label">В том числе</div>
-                                <div class="controls">
-                                    dynamic_selector
-                                    <ul>
-                                        <li>крупного рогатого скота</li>
-                                        <li>мелкого рогатого скота</li>
-                                        <li>лошадей</li>
-                                        <li>птицы</li>
-                                        <li>водных организмов (гидробионтов)</li>
-                                        <li>прочие</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="control-group-separator"></div>
-
-                            <div class="fieldset">
-                                <div class="legend">Характер разрушений</div>
-                                <div class="fieldset-container">
-                                    <div class="control-group">
-                                        <div class="control-label">Количество постов, пунктов (станций), полигонов,
-                                            маршрутов наблюдения и оповещения
-                                        </div>
-                                        <div class="controls">
-                                            <input type="number" name="monitoring_warning_post_count"
-                                                   value="{//fields/monitoring_warning_post_count}"/>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">Центрально-диспетчерские пункты</div>
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">Диспетчерские пункты</div>
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">Станции наблюдения</div>
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">посты наблюдения</div>
-                                        <div class="controls">
-                                            круглогодичные
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-
-                                            сезонные
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">линейные маршруты</div>
-                                        <div class="controls">
-                                            водные
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-
-                                            снегомерные
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">сейсмополигоны</div>
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">сейсмостанции</div>
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>наименование</th>
-                                                    <th>место дислокации</th>
-                                                    <th>назначение</th>
-                                                    <th>зона ответственности (охват территории)</th>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn">+Добавить</button>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label">Возможные зоны</div>
-                                        <div class="controls"></div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label"></div>
-                                        <div class="controls"></div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="control-label"></div>
-                                        <div class="controls"></div>
-                                    </div>
-                                </div>
+                                </section>
                             </div>
                         </div>
 
@@ -1741,6 +1604,7 @@
                         <input type="hidden" name="author" value="{document/fields/author/@attrval}"/>
                         <input type="hidden" name="doctype" value="{document/@doctype}"/>
                         <input type="hidden" name="key" value="{document/@docid}"/>
+                        <input type="hidden" name="ddbid" value="{document/@id}"/>
                         <input type="hidden" id="currentuserid" value="{@userid}"/>
                         <input type="hidden" id="localusername" value="{@username}"/>
                     </fieldset>
