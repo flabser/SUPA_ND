@@ -49,9 +49,9 @@
 							<xsl:value-of select="document/captions/region/@caption"/>
 						</div>
 						<div class="controls">
+
 							<xsl:variable name="region" select="document/fields/region/@attrval"/>
-							<select size="1" name="region" style="width:612px;"
-									class="select_editable" autocomplete="off">
+							<select size="1" name="region" style="width:612px;" class="select_editable" autocomplete="off">
 								<xsl:if test="$editmode !='edit'">
 									<xsl:attribute name="disabled"/>
 									<xsl:attribute name="class">select_noteditable
@@ -69,11 +69,7 @@
 								</xsl:if>
 								<xsl:for-each select="document/glossaries/region/query/entry">
 									<option value="{@docid}">
-										<xsl:if test="region = @docid">
-											<xsl:attribute name="selected">selected
-											</xsl:attribute>
-										</xsl:if>
-										<xsl:if test="region = @docid">
+										<xsl:if test="$region = @docid">
 											<xsl:attribute name="selected">selected
 											</xsl:attribute>
 										</xsl:if>
