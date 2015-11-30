@@ -1,11 +1,10 @@
 /* nav-app */
 .nav-app {
 	border-right: 1px solid #E6E6E6;
-	width: 230px;
 }
 
 .tablet .nav-app, .phone .nav-app {
-	left: -230px;
+	left: -260px;
 }
 
 .nav-app .fa {

@@ -15,13 +15,16 @@
 
 /* layout_header */
 .layout_header {
+    background: #fff59d url(../img/yellow_background.jpg) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	border: none;
 	box-shadow: 0 0 3px #999;
 	display: block;
-	height: 60px;
-	line-height: 60px;
 	max-width: inherit;
-	position: relative;
+	position: fixed;
 	width: 100%;
 	z-index: 5;
 }
@@ -40,8 +43,9 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: fixed;
-	top: 60px;
+	top: 50px;
 	transition: all .15s;
+	width: 280px;
 	z-index: 4;
 }
 
@@ -56,8 +60,9 @@
 .layout_content {
 	border: none;
 	height: auto;
-	margin: 0 0 10px 230px;
+	margin: 0 0 10px 280px;
 	padding: 0;
+	padding-top: 50px;
 	position: relative;
 }
 
