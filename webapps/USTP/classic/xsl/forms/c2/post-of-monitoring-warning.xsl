@@ -6,7 +6,7 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
 
     <xsl:template match="/request">
-        <xsl:call-template name="layout"/>
+        <xsl:call-template name="_content"/>
     </xsl:template>
 
     <xsl:template name="_content">
@@ -14,17 +14,50 @@
             <h1 class="header-title">
                 <xsl:value-of select="//fields/title"/>
             </h1>
-            <xsl:apply-templates select="//actionbar">
-                <xsl:with-param name="fixed_top" select="''"/>
-            </xsl:apply-templates>
         </header>
 
         <section class="form-content">
-            <form action="Provider" name="frm" method="post" id="frm" enctype="application/x-www-form-urlencoded">
+            <form action="Provider" method="post" enctype="application/x-www-form-urlencoded">
                 <fieldset class="fieldset">
                     <div class="control-group">
-                        <div class="control-label"></div>
-                        <div class="controls"></div>
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/type/@caption"/>type
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="type" value="{//fields/type}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/name/@caption"/>name
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="name" value="{//fields/name}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/location/@caption"/>location
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="location" value="{//fields/location}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/appointment/@caption"/>appointment
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="appointment" value="{//fields/appointment}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/zone_responsibility/@caption"/>zone_responsibility
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="zoneResponsibility" value="{//fields/zoneResponsibility}"/>
+                        </div>
                     </div>
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>

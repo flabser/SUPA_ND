@@ -23,6 +23,24 @@ app.human = {
                 app.human.getHumans(parentdocddbid);
             }
         });
+    },
+
+    dialog: function(href) {
+        var dlg = nb.dialog.show({
+            title : 'human',
+            href : href,
+            maxHeight : 500,
+            minHeight : 440,
+            width : 500,
+            buttons : {
+                "cancel" : {
+                    text : nb.getText("cancel"),
+                    click : function() {
+                        dlg.dialog("close");
+                    }
+                }
+            }
+        });
     }
 };
 
@@ -65,6 +83,14 @@ $(function() {
         app.first_aider.add(this);
     });
 
+    $('[data-action=add_post_monitoring_warning]').click(function() {
+        app.human.dialog('Provider?type=edit&element=document&id=post-of-monitoring-warning&docid=');
+    });
+
+    $('[data-action=add_risk_zone]').click(function() {
+        app.human.dialog('Provider?type=edit&element=document&id=risk-zone&docid=');
+    });
+
     $('select[data-action=add-animal-count]').change(function() {
         if(!$(this).val()){
             return;
@@ -77,7 +103,7 @@ $(function() {
     $('body').on('click', 'a', function(e) {
         if (this.href.indexOf('id=human') != -1 || this.href.indexOf('id=first-aider') != -1) {
             e.preventDefault();
-            app.windowOpen(this.href, 1);
+            app.human.dialog(this.href);
         }
 
         return true;

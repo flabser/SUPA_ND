@@ -721,7 +721,7 @@
                                                             <td></td>
                                                         </tr>
                                                     </table>
-                                                    <button type="button" class="btn">+Добавить</button>
+                                                    <button type="button" class="btn" data-action="add_post_monitoring_warning">+Добавить</button>
                                                 </div>
                                             </div>
 
@@ -738,7 +738,7 @@
                                                             <td></td>
                                                         </tr>
                                                     </table>
-                                                    <button type="button" class="btn">+Добавить</button>
+                                                    <button type="button" class="btn" data-action="add_risk_zone">+Добавить</button>
                                                 </div>
                                             </div>
                                         </div>

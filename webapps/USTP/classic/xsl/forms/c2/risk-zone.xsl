@@ -6,7 +6,7 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
 
     <xsl:template match="/request">
-        <xsl:call-template name="layout"/>
+        <xsl:call-template name="_content"/>
     </xsl:template>
 
     <xsl:template name="_content">
@@ -14,17 +14,33 @@
             <h1 class="header-title">
                 <xsl:value-of select="//fields/title"/>
             </h1>
-            <xsl:apply-templates select="//actionbar">
-                <xsl:with-param name="fixed_top" select="''"/>
-            </xsl:apply-templates>
         </header>
-
         <section class="form-content">
-            <form action="Provider" name="frm" method="post" id="frm" enctype="application/x-www-form-urlencoded">
+            <form action="Provider" method="post" enctype="application/x-www-form-urlencoded">
                 <fieldset class="fieldset">
                     <div class="control-group">
-                        <div class="control-label"></div>
-                        <div class="controls"></div>
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/risk_type/@caption"/>risk_type
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="riskType" value="{//fields/riskType}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/coordinates/@caption"/>coordinates
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="coordinates" value="{//fields/coordinates}"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/distance/@caption"/>distance
+                        </div>
+                        <div class="controls">
+                            <input type="text" name="distance" value="{//fields/distance}"/>
+                        </div>
                     </div>
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>
