@@ -104,4 +104,8 @@
 		<description>Виды ЧС</description>
 		<value>essubtype</value>
 	</glossary>
+	<glossary mode="on" id="region" source="query">
+		<description>Область</description>
+		<value>region</value>
+	</glossary>
 </rule>
