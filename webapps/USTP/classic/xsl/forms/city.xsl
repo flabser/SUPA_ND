@@ -9,8 +9,23 @@
 	<xsl:variable name="editmode" select="/request/document/@editmode"/>
 	<xsl:variable name="status" select="/request/document/@status"/>
 
+
+
 	<xsl:template match="/request">
-		<xsl:call-template name="layout"/>
+		<xsl:call-template name="layout">
+			<xsl:with-param name="include">
+				<script type="text/javascript" src="classic/scripts/form.js"></script>
+				<script type="text/javascript" src="classic/scripts/dialogs.js"></script>
+
+				<script>
+					$(function(){
+					$("#tabs").tabs();
+					$('[data-action=save_and_close]').click(SaveFormJquery);
+					$("button").button();
+					});
+				</script>
+			</xsl:with-param>
+		</xsl:call-template>
 	</xsl:template>
 
 	<xsl:template name="_content">

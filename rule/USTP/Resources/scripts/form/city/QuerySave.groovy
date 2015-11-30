@@ -20,13 +20,11 @@ class QuerySave extends _FormQuerySave {
 		def glos = (_Glossary)doc;
 		glos.setForm("city")
 		glos.setName(webFormData.getValue("name"))
-		glos.setCountry(webFormData.getValue("country"))
 		glos.setCode(webFormData.getValue("code"))
-		glos.setRank(webFormData.getValue("rank"))
-
+		doc.setValueNumber("region",webFormData.getNumberValueSilently("region",0));
 		glos.setViewText(glos.getName())
 		glos.addViewText(glos.getCode())
-		glos.addViewText(glos.getValueString("country"))
+		glos.addViewText(webFormData.getNumberValueSilently("region",0))
 		def returnURL = session.getURLOfLastPage()
 		if (doc.isNewDoc) {
 			returnURL.changeParameter("page", "0");
@@ -45,15 +43,9 @@ class QuerySave extends _FormQuerySave {
 		}else if (webFormData.getValueSilently("code") == ""){
 			localizedMsgBox("Поле \"Код\" не заполнено")
 			return false
-		}else if (webFormData.getValueSilently("rank") == ""){
-			localizedMsgBox("Поле \"Ранг\" не заполнено")
+		}else if (webFormData.getValueSilently("region") == ""){
+			localizedMsgBox("Поле \"Область\" не заполнено")
 			return false
-		}else if (webFormData.getValueSilently("country") == ""){
-			localizedMsgBox("Поле \"Страна\" не заполнено")
-			return false
-		}else if (webFormData.getValueSilently('country').length() > 2046){
-			localizedMsgBox('Поле \'Страна\' содержит значение превышающее 2046 символов');
-			return false;
 		}
 
 

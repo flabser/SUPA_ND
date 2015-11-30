@@ -7,6 +7,7 @@
 		<queryopen source="file">form.city.QueryOpen</queryopen>
 		<querysave source="file">form.city.QuerySave</querysave>   
 	</events>
+
 	<caption name="newdoc" source="KEYWORD">Новый документ</caption>
 	<caption name="logout" source="KEYWORD">Завершить работу</caption>
 	<caption name="editing" source="KEYWORD">Редактирование</caption>
