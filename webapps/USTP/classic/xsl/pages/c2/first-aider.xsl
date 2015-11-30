@@ -25,7 +25,7 @@
                         <xsl:value-of select="//captions/viewtext3/@caption"/>
                     </span>
                     <span class="vaccount-amount-control">
-                        <xsl:value-of select="//captions/viewnumber/@caption"/>
+                        <xsl:value-of select="//captions/viewtext4/@caption"/>
                     </span>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                             </span>
                         </span>
                         <span class="entry-field vaccount-amount-control">
-                            <xsl:value-of select="viewcontent/viewnumber"/>
+                            <xsl:value-of select="viewcontent/viewtext4"/>
                         </span>
                     </div>
                 </a>
