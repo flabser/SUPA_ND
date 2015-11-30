@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="risk-zones" mode="on" history="on">
+    <description>risk-zones</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>pages/c2/risk-zones.xsl</xsltfile>
+
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">page.c2.RiskZones</doscript>
+        </events>
+    </element>
+
+    <caption name="viewtext1" source="KEYWORD">-</caption>
+    <caption name="viewtext2" source="KEYWORD">-</caption>
+    <caption name="viewtext3" source="KEYWORD">-</caption>
+    <caption name="viewnumber">-</caption>
+    <caption name="viewdate" source="KEYWORD">-</caption>
+</rule>
