@@ -13,7 +13,7 @@ var csso = require('gulp-csso');
 				'!./js/*.min.js'];*/
 
 var css_files = ['../SharedResources/css/normalize.css',
-                 './css/*.css',
+                 './css/**/*.css',
                  '!./css/all.min.css'];
 
 /*gulp.task('lint', function() {
