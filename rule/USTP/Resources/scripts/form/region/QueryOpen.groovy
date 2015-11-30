@@ -13,7 +13,7 @@ class QueryOpen extends _FormQueryOpen{
 
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Вид ЧС", lang))
+		publishValue("title",getLocalizedWord("Область", lang))
 
 		def nav = session.getPage("outline", webFormData)
 		publishElement(nav)
@@ -24,7 +24,7 @@ class QueryOpen extends _FormQueryOpen{
 	@Override
 	public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 		def glos = (_Glossary)doc
-		publishValue("title",getLocalizedWord("Вид ЧС", lang) + ":" + glos.getViewText())
+		publishValue("title",getLocalizedWord("Область", lang) + ":" + glos.getViewText())
 		publishEmployer("author",glos.getAuthorID())
 		publishValue("name",glos.getName())
 		publishValue("code", glos.getCode())
@@ -37,7 +37,7 @@ class QueryOpen extends _FormQueryOpen{
 		def user = session.getCurrentAppUser()
 		if (user.hasRole(["administrator","operator"])){
 			actionBar.addAction(new _Action("Сохранить и закрыть","Сохранить и закрыть",_ActionType.SAVE_AND_CLOSE))
-			actionBar.addAction(new _Action("Добавить новый вид ЧС","Добавить новый вид ЧС","NEW_DOCUMENT"))
+			actionBar.addAction(new _Action("Добавить город","Добавить город","NEW_DOCUMENT"))
 		}
 		actionBar.addAction(new _Action("Закрыть","Закрыть без сохранения",_ActionType.CLOSE))
 		publishElement(actionBar)

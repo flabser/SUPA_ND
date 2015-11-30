@@ -35,10 +35,10 @@ class QuerySave extends _FormQuerySave {
 	def validate(_WebFormData webFormData){
 
 		if (webFormData.getValueSilently("name") == ""){
-			localizedMsgBox("Поле \"Регион/Город\" не заполнено")
+			localizedMsgBox("Поле \"Город\" не заполнено")
 			return false
 		}else if (webFormData.getValueSilently('name').length() > 2046){
-			localizedMsgBox('Поле \'Регион/Город\' содержит значение превышающее 2046 символов');
+			localizedMsgBox('Поле \'Город\' содержит значение превышающее 2046 символов');
 			return false;
 		}else if (webFormData.getValueSilently("code") == ""){
 			localizedMsgBox("Поле \"Код\" не заполнено")

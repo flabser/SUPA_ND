@@ -12,7 +12,7 @@ class QueryOpen extends _FormQueryOpen{
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
 		publishValue("title",getLocalizedWord("Город", lang))
-
+		publishGlossaryValue("region",webFormData.getNumberValueSilently("parentdocid",0))
 		def nav = session.getPage("outline", webFormData)
 		publishElement(nav)
 		publishElement(getActionBar(session))
