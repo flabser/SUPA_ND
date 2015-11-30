@@ -156,7 +156,7 @@
                                 <td>
                                     <select size="1" name="f1n3" style="width:612px;"
                                             class="select_editable" autocomplete="off">
-                                        <xsl:variable name="type" select="document/fields/f1n3"/>
+                                        <xsl:variable name="essubtype" select="document/fields/essubtype"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -166,14 +166,14 @@
                                         <xsl:if test="$editmode !='edit'">
                                             <xsl:attribute name="disabled"/>
                                             <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/project/@attrval}">
+                                            <option value="{document/fields/essubtype/@attrval}">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/type"/>
+                                                <xsl:value-of select="document/fields/essubtype"/>
                                             </option>
                                         </xsl:if>
-                                        <xsl:for-each select="document/glossaries/type/query/entry">
+                                        <xsl:for-each select="document/glossaries/essubtype/query/entry">
                                             <option value="{@docid}">
-                                                <xsl:if test="$type = @docid">
+                                                <xsl:if test="$essubtype = @docid">
                                                     <xsl:attribute name="selected">selected</xsl:attribute>
                                                 </xsl:if>
                                                 <xsl:value-of select="viewcontent/viewtext1"/>
