@@ -105,7 +105,6 @@
     </xsl:template>
 
     <xsl:template name="_content">
-        <xsl:variable name="filename" select="//fields/pdocrtfcontent"/>
 
         <header class="form-header">
             <h1 class="header-title">
@@ -201,8 +200,8 @@
                             <div class="control-group">
                                 <div class="control-label">Краткое описание происшествия</div>
                                 <div class="controls">
-                                    <textarea name="emergency_short_description" rows="3" autocomplete="off">
-                                        <xsl:value-of select="//fields/emergency_short_description"/>
+                                    <textarea name="short_description" rows="3" autocomplete="off">
+                                        <xsl:value-of select="//fields/short_description"/>
                                     </textarea>
                                 </div>
                             </div>

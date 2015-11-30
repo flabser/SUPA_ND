@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="posts-of-monitoring-warning" mode="on" history="on">
+<rule type="page" id="posts-of-monitoring-warning" mode="on" history="off">
     <description>posts-of-monitoring-warning</description>
     <caching>NO_CACHING</caching>
     <xsltfile>pages/c2/posts-of-monitoring-warning.xsl</xsltfile>
@@ -13,6 +13,7 @@
 
     <caption name="viewtext1" source="KEYWORD">-</caption>
     <caption name="viewtext2" source="KEYWORD">-</caption>
+    <caption name="viewtext3" source="KEYWORD">-</caption>
     <caption name="viewtext3" source="KEYWORD">-</caption>
     <caption name="viewnumber">-</caption>
     <caption name="viewdate" source="KEYWORD">-</caption>
