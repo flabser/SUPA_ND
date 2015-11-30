@@ -73,4 +73,39 @@ $(function() {
         var it = '<div><span style="display:inline-block" class=span4>' + $(this).val() + '</span><input type="number" class=span1 /></div>';
         $list.append(it);
     });
+
+    $('body').on('click', 'a', function(e) {
+        if (this.href.indexOf('id=human') != -1 || this.href.indexOf('id=first-aider') != -1) {
+            e.preventDefault();
+            app.windowOpen(this.href, 1);
+        }
+
+        return true;
+    });
 });
+
+app.windowOpen = function(url, id, callbacks) {
+	var features, width = 800, height = 600;
+	var top = (window.innerHeight - height) / 2, left = (window.innerWidth - width) / 2;
+	if (top < 0) top = 0;
+	if (left < 0) left = 0;
+	features = 'top=' + top + ',left=' + left;
+	features += ',height=' + height + ',width=' + width + ',resizable=yes,scrollbars=yes,status=no';
+
+	var wid = 'window-' + (id || url.hashCode());
+
+	var w = window.open('', wid, features);
+	if ('about:blank' === w.document.URL || w.document.URL === '') {
+		w = window.open(url, wid, features);
+
+		if (callbacks && callbacks.onclose) {
+			var timer = setInterval(function() {
+				if (w.closed) {
+					clearInterval(timer);
+					callbacks.onclose();
+				}
+			}, 1000);
+		}
+	}
+	w.focus();
+};
