@@ -49,6 +49,7 @@
 							<xsl:value-of select="document/captions/region/@caption"/>
 						</div>
 						<div class="controls">
+
 							<xsl:variable name="region" select="document/fields/region/@attrval"/>
 							<select size="1" name="region" style="width:612px;"
 									class="select_editable" autocomplete="off">
