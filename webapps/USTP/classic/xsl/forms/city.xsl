@@ -14,6 +14,7 @@
 			<xsl:with-param name="include">
 				<script type="text/javascript" src="classic/scripts/form.js"></script>
 				<script type="text/javascript" src="classic/scripts/dialogs.js"></script>
+
 				<script>
 					$(function(){
 					$("#tabs").tabs();
