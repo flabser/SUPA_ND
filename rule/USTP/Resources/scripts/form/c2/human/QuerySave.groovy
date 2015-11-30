@@ -13,6 +13,7 @@ class QuerySave extends _FormQuerySave {
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 
         doc.setForm("human")
+
         doc.addStringField("fio", webFormData.getValue("fio"))
         doc.addNumberField("age", webFormData.getNumberValueSilently("age", 0))
         doc.addStringField("sex", webFormData.getValue("sex"))
@@ -35,15 +36,12 @@ class QuerySave extends _FormQuerySave {
         doc.addNumberField("isFirstAid", isFirstAid)
         doc.addNumberField("isHomeless", isHomeless)
 
-        def pdoc = doc.getParentDocument()
-
         doc.setViewText(doc.getValueString("fio"))
-        //
         doc.addViewText(doc.getValueString("fio"))
         doc.addViewText(doc.getValueString("sex"))
         doc.setViewNumber(doc.getValueNumber("age"))
-
-        def returnURL = session.getURLOfLastPage()
-        setRedirectURL(returnURL)
+        //
+        doc.addEditor(session.getUser().getUserID())
+        doc.addEditor("[supervisor]")
     }
 }

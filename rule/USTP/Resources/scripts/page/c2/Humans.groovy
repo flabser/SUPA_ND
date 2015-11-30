@@ -10,6 +10,7 @@ class Humans extends _DoScript {
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
 
+        def eventId = formData.getValueSilently("event_id")
         def viewParam = session.createViewEntryCollectionParam()
         viewParam.setQuery("form = 'human'")
                 .setPageNum(0)

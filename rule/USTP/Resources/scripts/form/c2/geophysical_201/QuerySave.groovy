@@ -14,14 +14,13 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("card_number", webFormData.getValue("card_number"))
         doc.addStringField("card_date", webFormData.getValue("card_date"))
 
-        def returnURL = session.getURLOfLastPage()
-
         doc.setViewText(doc.getValueString("card_number"))
         doc.addViewText(doc.getValueString("card_number"))
         doc.addViewText(doc.getValueString("card_date"))
         //
         doc.addEditor(session.getUser().getUserID())
-
-        setRedirectURL(returnURL)
+        doc.addEditor("[supervisor]")
+        //
+        setRedirectURL(session.getURLOfLastPage())
     }
 }

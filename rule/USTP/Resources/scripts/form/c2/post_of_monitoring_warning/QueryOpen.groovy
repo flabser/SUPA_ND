@@ -1,4 +1,4 @@
-package form.c2.first_aider
+package form.c2.post_of_monitoring_warning
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
@@ -12,7 +12,7 @@ class QueryOpen extends _FormQueryOpen {
 
     @Override
     public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-        publishValue("title", "First Aider")
+        publishValue("title", "post-of-monitoring-warning")
 
         def actionBar = session.createActionBar();
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), getLocalizedWord("Сохранить и закрыть", lang), _ActionType.SAVE_AND_CLOSE))
@@ -21,15 +21,16 @@ class QueryOpen extends _FormQueryOpen {
 
     @Override
     public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
-        publishValue("title", "First Aider")
+        publishValue("title", "post_of_monitoring_warning")
 
         def actionBar = session.createActionBar();
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), getLocalizedWord("Сохранить и закрыть", lang), _ActionType.SAVE_AND_CLOSE))
         publishElement(actionBar)
 
+        publishValue("type", doc.getValueString("type"))
         publishValue("name", doc.getValueString("name"))
-        publishValue("address", doc.getValueString("address"))
-        publishValue("phone", doc.getValueString("phone"))
-        publishValue("details", doc.getValueString("details"))
+        publishValue("location", doc.getValueString("location"))
+        publishValue("appointment", doc.getValueString("appointment"))
+        publishValue("zoneResponsibility", doc.getValueString("zoneResponsibility"))
     }
 }

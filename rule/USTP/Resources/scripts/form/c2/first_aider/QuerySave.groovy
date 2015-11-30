@@ -5,6 +5,7 @@ import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
 import kz.nextbase.script.events._FormQuerySave
 
+
 class QuerySave extends _FormQuerySave {
 
     @Override
@@ -17,16 +18,13 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("phone", webFormData.getValue("phone"))
         doc.addStringField("details", webFormData.getValue("details"))
 
-        def pdoc = doc.getParentDocument()
-
         doc.setViewText(doc.getValueString("name"))
-        //
         doc.addViewText(doc.getValueString("name"))
         doc.addViewText(doc.getValueString("address"))
         doc.addViewText(doc.getValueString("phone"))
         doc.addViewText(doc.getValueString("details"))
-
-        def returnURL = session.getURLOfLastPage()
-        setRedirectURL(returnURL)
+        //
+        doc.addEditor(session.getUser().getUserID())
+        doc.addEditor("[supervisor]")
     }
 }
