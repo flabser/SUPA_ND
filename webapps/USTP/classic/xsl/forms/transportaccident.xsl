@@ -116,15 +116,7 @@
                                     </font>
                                 </td>
                                 <td>
-                                    <table>
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="f1n1" maxlength="10"
-                                                       class="td_editable" style="width:80px;"
-                                                       value="{document/fields/f1n1}"/>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                   <input type="text" name="f1n1" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n1}"/>
                                 </td>
                             </tr>
                             <!-- Дата карточки -->
@@ -133,9 +125,7 @@
                                     Дата карточки :
                                 </td>
                                 <td>
-                                    <input type="text" name="carddate" id="carddate" maxlength="10"
-                                           class="td_editable" style="width:80px;"
-                                           value="{document/fields/carddate}"/>
+                                    <input type="text" name="carddate" id="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
                                 </td>
                             </tr>
                             <!-- Код ЧС -->
@@ -144,8 +134,7 @@
                                     Код ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n2}"/>
+                                    <input type="text" name="f1n2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n2}"/>
                                 </td>
                             </tr>
                             <!-- Вид  ЧС -->
@@ -189,8 +178,7 @@
                                 </td>
                                 <td style="padding-top:5px">
                                     <div>
-                                        <textarea name="f1n4" rows="3" tabindex="3" style="width:750px"
-                                                  autocomplete="off" class="textarea_editable">
+                                        <textarea name="f1n4" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
                                             <xsl:if test="$editmode !='edit'">
                                                 <xsl:attribute name="readonly">readonly</xsl:attribute>
                                                 <xsl:attribute name="class">textarea_noteditable
@@ -212,9 +200,7 @@
                                     Дата возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n5" id="f1n5" maxlength="10"
-                                           class="td_editable" style="width:80px;"
-                                           value="{document/fields/f1n5}"/>
+                                    <input type="text" name="f1n5" id="f1n5" maxlength="10" class="td_editable" style="width:100px;" value="{document/fields/f1n5}"/>
                                 </td>
                             </tr>
                             <!-- Наименование области -->
@@ -223,8 +209,7 @@
                                     Наименование области :
                                 </td>
                                 <td>
-                                    <select size="1" name="region" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
+                                    <select size="1" name="region" style="width:612px;" class="select_editable" autocomplete="off">
                                         <xsl:variable name="region" select="document/fields/region"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
@@ -235,12 +220,12 @@
                                         <xsl:if test="$editmode !='edit'">
                                             <xsl:attribute name="disabled"/>
                                             <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/project/@attrval}">
+                                            <option value="{document/fields/region/@attrval}">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/type"/>
+                                                <xsl:value-of select="document/fields/region"/>
                                             </option>
                                         </xsl:if>
-                                        <xsl:for-each select="document/glossaries/type/query/entry">
+                                        <xsl:for-each select="document/glossaries/region/query/entry">
                                             <option value="{@docid}">
                                                 <xsl:if test="$region = @docid">
                                                     <xsl:attribute name="selected">selected</xsl:attribute>
@@ -257,166 +242,8 @@
                                     Город республиканского значения :
                                 </td>
                                 <td>
-                                    <input type="text" name="respcity" class="td_editable"
-                                           style="width:160px;" value="{document/fields/respcity}"/>
-                                </td>
-                            </tr>
-                            <!-- город областного значения  -->
-                            <tr>
-                                <td class="fc">
-                                    Город областного значения :
-                                </td>
-                                <td>
-                                    <input type="text" name="regioncity" class="td_editable"
-                                           style="width:160px;" value="{document/fields/regioncity}"/>
-                                </td>
-                            </tr>
-                            <!-- Район  -->
-                            <tr>
-                                <td class="fc">
-                                    Район :
-                                </td>
-                                <td>
-                                    <input type="text" name="district" class="td_editable"
-                                           style="width:160px;" value="{document/fields/district}"/>
-                                </td>
-                            </tr>
-                            <!-- Сельский округ  -->
-                            <tr>
-                                <td class="fc">
-                                    Сельский округ :
-                                </td>
-                                <td>
-                                    <input type="text" name="villagedistrict" class="td_editable"
-                                           style="width:160px;" value="{document/fields/villagedistrict}"/>
-                                </td>
-                            </tr>
-                            <!-- Поселок  -->
-                            <tr>
-                                <td class="fc">
-                                    Поселок :
-                                </td>
-                                <td>
-                                    <input type="text" name="settlement" class="td_editable"
-                                           style="width:160px;" value="{document/fields/settlement}"/>
-                                </td>
-                            </tr>
-                            <!-- Село  -->
-                            <tr>
-                                <td class="fc">
-                                    Село :
-                                </td>
-                                <td>
-                                    <input type="text" name="village" class="td_editable"
-                                           style="width:160px;" value="{document/fields/village}"/>
-                                </td>
-                            </tr>
-                            <!-- Аул  -->
-                            <tr>
-                                <td class="fc">
-                                    Аул :
-                                </td>
-                                <td>
-                                    <input type="text" name="aul" class="td_editable" style="width:160px;"
-                                           value="{document/fields/aul}"/>
-                                </td>
-                            </tr>
-                            <!-- Проспект  -->
-                            <tr>
-                                <td class="fc">
-                                    Проспект :
-                                </td>
-                                <td>
-                                    <input type="text" name="avenue" class="td_editable"
-                                           style="width:160px;" value="{document/fields/avenue}"/>
-                                </td>
-                            </tr>
-                            <!-- Улица   -->
-                            <tr>
-                                <td class="fc">
-                                    Улица :
-                                </td>
-                                <td>
-                                    <input type="text" name="street" class="td_editable"
-                                           style="width:160px;" value="{document/fields/street}"/>
-                                </td>
-                            </tr>
-                            <!-- Микрорайон   -->
-                            <tr>
-                                <td class="fc">
-                                    Микрорайон :
-                                </td>
-                                <td>
-                                    <input type="text" name="microdistrict" class="td_editable"
-                                           style="width:160px;" value="{document/fields/microdistrict}"/>
-                                </td>
-                            </tr>
-                            <!-- Переулок   -->
-                            <tr>
-                                <td class="fc">
-                                    Переулок :
-                                </td>
-                                <td>
-                                    <input type="text" name="lane" class="td_editable" style="width:160px;"
-                                           value="{document/fields/lane}"/>
-                                </td>
-                            </tr>
-                            <!-- дом   -->
-                            <tr>
-                                <td class="fc">
-                                    Дом :
-                                </td>
-                                <td>
-                                    <input type="text" name="house" class="td_editable" style="width:160px;"
-                                           value="{document/fields/house}"/>
-                                </td>
-                            </tr>
-                            <!-- Корпус   -->
-                            <tr>
-                                <td class="fc">
-                                    Корпус :
-                                </td>
-                                <td>
-                                    <input type="text" name="housing" class="td_editable"
-                                           style="width:160px;" value="{document/fields/housing}"/>
-                                </td>
-                            </tr>
-                            <!-- Расстояние от видимых ориентиров   -->
-                            <tr>
-                                <td class="fc">
-                                    Видимые ориентиры :
-                                </td>
-                                <td style="padding-left:5px">
-                                    Ориентир :
-                                    <input type="text" name="f1n7" class="td_editable"
-                                           style="width:160px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n7}"/>
-                                    Расстояние :
-                                    <input type="text" name="distance" class="td_editable"
-                                           style="width:60px; margin-left:5px;"
-                                           value="{document/fields/distance}"/>
-                                    км
-                                </td>
-                            </tr>
-                            <!-- Географические координаты   -->
-                            <tr>
-                                <td class="fc">
-                                    Географические координаты :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n8" class="td_editable" style="width:200px;"
-                                           value="{document/fields/f1n8}"/>
-                                </td>
-                            </tr>
-                            <!-- дороги (значение) -->
-                            <tr>
-                                <td class="fc">
-                                    Дороги (значение) :
-                                </td>
-                                <td>
-                                    <select size="1" name="road" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
-                                        <xsl:variable name="road" select="document/fields/road"/>
+                                    <select size="1" name="respcity" style="width:612px;" class="select_editable" autocomplete="off">
+                                        <xsl:variable name="respcity" select="document/fields/respcity"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -426,14 +253,222 @@
                                         <xsl:if test="$editmode !='edit'">
                                             <xsl:attribute name="disabled"/>
                                             <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/road/@attrval}">
+                                            <option value="{document/fields/respcity/@attrval}">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/type"/>
+                                                <xsl:value-of select="document/fields/respcity"/>
                                             </option>
                                         </xsl:if>
-                                        <xsl:for-each select="document/glossaries/road/query/entry">
+                                        <xsl:for-each select="document/glossaries/city/query/entry">
                                             <option value="{@docid}">
-                                                <xsl:if test="$road = @docid">
+                                                <xsl:if test="$respcity = @docid">
+                                                    <xsl:attribute name="selected">selected</xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:value-of select="viewcontent/viewtext1"/>
+                                            </option>
+                                        </xsl:for-each>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- город областного значения  -->
+                            <tr>
+                                <td class="fc">
+                                    Город областного значения :
+                                </td>
+                                <td>
+                                    <select size="1" name="city" style="width:612px;" class="select_editable" autocomplete="off">
+                                        <xsl:variable name="city" select="document/fields/respcity"/>
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="disabled"/>
+                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
+                                            <option value="{document/fields/city/@attrval}">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                <xsl:value-of select="document/fields/city"/>
+                                            </option>
+                                        </xsl:if>
+                                        <xsl:for-each select="document/glossaries/city/query/entry">
+                                            <option value="{@docid}">
+                                                <xsl:if test="$city = @docid">
+                                                    <xsl:attribute name="selected">selected</xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:value-of select="viewcontent/viewtext1"/>
+                                            </option>
+                                        </xsl:for-each>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- Район  -->
+                            <tr>
+                                <td class="fc">
+                                    Район :
+                                </td>
+                                <td>
+                                    <input type="text" name="district" class="td_editable"  style="width:500px;" value="{document/fields/district}"/>
+                                </td>
+                            </tr>
+                            <!-- Сельский округ  -->
+                            <tr>
+                                <td class="fc">
+                                    Сельский округ :
+                                </td>
+                                <td>
+                                    <input type="text" name="villagedistrict" class="td_editable" style="width:500px;" value="{document/fields/villagedistrict}"/>
+                                </td>
+                            </tr>
+                            <!-- Поселок  -->
+                            <tr>
+                                <td class="fc">
+                                    Поселок :
+                                </td>
+                                <td>
+                                    <input type="text" name="settlement" class="td_editable" style="width:500px;" value="{document/fields/settlement}"/>
+                                </td>
+                            </tr>
+                            <!-- Село  -->
+                            <tr>
+                                <td class="fc">
+                                    Село :
+                                </td>
+                                <td>
+                                    <input type="text" name="village" class="td_editable"  style="width:500px;" value="{document/fields/village}"/>
+                                </td>
+                            </tr>
+                            <!-- Аул  -->
+                            <tr>
+                                <td class="fc">
+                                    Аул :
+                                </td>
+                                <td>
+                                    <input type="text" name="aul" class="td_editable" style="width:500px;" value="{document/fields/aul}"/>
+                                </td>
+                            </tr>
+                            <!-- Проспект  -->
+                            <tr>
+                                <td class="fc">
+                                    Проспект :
+                                </td>
+                                <td>
+                                    <input type="text" name="avenue" class="td_editable" style="width:500px;" value="{document/fields/avenue}"/>
+                                </td>
+                            </tr>
+                            <!-- Улица   -->
+                            <tr>
+                                <td class="fc">
+                                    Улица :
+                                </td>
+                                <td>
+                                    <input type="text" name="street" class="td_editable" style="width:500px;" value="{document/fields/street}"/>
+                                </td>
+                            </tr>
+                            <!-- Микрорайон   -->
+                            <tr>
+                                <td class="fc">
+                                    Микрорайон :
+                                </td>
+                                <td>
+                                    <input type="text" name="microdistrict" class="td_editable" style="width:500px;" value="{document/fields/microdistrict}"/>
+                                </td>
+                            </tr>
+                            <!-- Переулок   -->
+                            <tr>
+                                <td class="fc">
+                                    Переулок :
+                                </td>
+                                <td>
+                                    <input type="text" name="lane" class="td_editable" style="width:500px;" value="{document/fields/lane}"/>
+                                </td>
+                            </tr>
+                            <!-- дом   -->
+                            <tr>
+                                <td class="fc">
+                                    Дом :
+                                </td>
+                                <td>
+                                    <input type="text" name="house" class="td_editable" style="width:160px;" value="{document/fields/house}"/>
+                                </td>
+                            </tr>
+                            <!-- Корпус   -->
+                            <tr>
+                                <td class="fc">
+                                    Корпус :
+                                </td>
+                                <td>
+                                    <input type="text" name="housing" class="td_editable" style="width:160px;" value="{document/fields/housing}"/>
+                                </td>
+                            </tr>
+                            <!-- Расстояние от видимых ориентиров   -->
+                            <tr>
+                                <td class="fc">
+
+                                </td>
+                                <td style="padding-left:5px">
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:200px"> Ориентир </td>
+                                            <td style="width:120px"> Расстояние (км) </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fc">
+                                    Видимые ориентиры :
+                                </td>
+                                <td>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:200px; padding:0">
+                                                <input type="text" name="f1n7" class="td_editable" style="width:195px;" value="{document/fields/f1n7}"/>
+                                            </td>
+                                            <td style="width:120px; padding:0">
+                                                <input type="text" name="distance" class="td_editable" style="width:120px;" value="{document/fields/distance}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- Географические координаты   -->
+                            <tr>
+                                <td class="fc">
+                                    Географические координаты :
+                                </td>
+                                <td>
+                                    <input type="text" name="f1n8" class="td_editable" style="width:320px;"
+                                           value="{document/fields/f1n8}"/>
+                                </td>
+                            </tr>
+                            <!-- дороги (значение) -->
+                            <tr>
+                                <td class="fc">
+                                    Дороги (значение) :
+                                </td>
+                                <td>
+                                    <select size="1" name="roadtype" style="width:612px;"
+                                            class="select_editable" autocomplete="off">
+                                        <xsl:variable name="roadtype" select="document/fields/roadtype"/>
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="disabled"/>
+                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
+                                            <option value="{document/fields/roadtype/@attrval}">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                <xsl:value-of select="document/fields/roadtype"/>
+                                            </option>
+                                        </xsl:if>
+                                        <xsl:for-each select="document/glossaries/roadtype/query/entry">
+                                            <option value="{@docid}">
+                                                <xsl:if test="$roadtype = @docid">
                                                     <xsl:attribute name="selected">selected</xsl:attribute>
                                                 </xsl:if>
                                                 <xsl:value-of select="viewcontent/viewtext1"/>
@@ -586,7 +621,7 @@
                                     Маршрут передвижения (направление, сообщение):
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n14" class="td_editable" style="width:160px;"
+                                    <input type="text" name="f1n14" class="td_editable" style="width:500px;"
                                            value="{document/fields/f1n14}"/>
                                 </td>
                             </tr>
@@ -597,12 +632,12 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n15" class="td_editable"
-                                           style="width:160px; margin-right:5px"
+                                           style="width:500px; margin-right:5px"
                                            value="{document/fields/f1n15}"/>
                                     Отправления
                                     <br/>
                                     <input type="text" name="f1n15_2" class="td_editable"
-                                           style="width:160px; margin-right:5px"
+                                           style="width:500px; margin-right:5px"
                                            value="{document/fields/f1n15_2}"/>
                                     Прибытия
                                 </td>
@@ -614,7 +649,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n16" id="f1n16" class="td_editable"
-                                           style="width:160px;" value="{document/fields/f1n16}"/>
+                                           style="width:100px;" value="{document/fields/f1n16}"/>
                                 </td>
                             </tr>
                             <!-- Время отправления   -->
@@ -623,7 +658,7 @@
                                     Время отправления :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n17" class="td_editable" style="width:160px;"
+                                    <input type="text" name="f1n17" class="td_editable" style="width:100px;"
                                            value="{document/fields/f1n17}"/>
                                 </td>
                             </tr>
@@ -634,7 +669,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n18" id="f1n18" class="td_editable"
-                                           style="width:160px;" value="{document/fields/f1n18}"/>
+                                           style="width:100px;" value="{document/fields/f1n18}"/>
                                 </td>
                             </tr>
                             <!-- Время прибытия    -->
@@ -643,7 +678,7 @@
                                     Время прибытия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n19" class="td_editable" style="width:160px;"
+                                    <input type="text" name="f1n19" class="td_editable" style="width:100px;"
                                            value="{document/fields/f1n19}"/>
                                 </td>
                             </tr>
@@ -653,7 +688,7 @@
                                     Задержка движения транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n20" class="td_editable" style="width:160px;"
+                                    <input type="text" name="f1n20" class="td_editable" style="width:100px;"
                                            value="{document/fields/f1n20}"/>
                                 </td>
                             </tr>
@@ -685,8 +720,7 @@
                                     Общее количество людей находившихся в зоне ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n22" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n22}"/>
+                                    <input type="text" name="f1n22" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n22}"/>
                                 </td>
                             </tr>
                             <!-- Количество пострадавших (чел.) -->
@@ -695,8 +729,8 @@
                                     Количество пострадавших (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n23" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n23}"/>
+                                    <input type="text" name="f1n23" maxlength="10" class="td_editable"  style="width:120px; margin-right:5px" value="{document/fields/f1n23}"/>
+                                    Детей :  <input type="text" name="f1n23_5" maxlength="10" class="td_editable" style="width:120px; margin-left:5px" value="{document/fields/f1n213_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -705,48 +739,28 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n23_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n23_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n23_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n23_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n23_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n23_4}"/>
-                                </td>
-                            </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n23_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n213_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
-
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n23_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n23_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n23_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n23_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n23_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n23_8}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n23_2" maxlength="10" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n23_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n23_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n23_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n23_4" maxlength="10" class="td_editable"
+                                                        style="width:60px;"
+                                                        value="{document/fields/f1n23_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Количество Погибших (чел.) -->
@@ -755,8 +769,8 @@
                                     Количество погибших (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n24" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n24}"/>
+                                    <input type="text" name="f1n24" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n24}"/>
+                                    Детей : <input type="text" name="f1n24_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n24_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -765,48 +779,28 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n24_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n24_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n24_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n24_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n24_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n24_4}"/>
-                                </td>
-                            </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n24_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n24_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
-
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n24_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n24_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n24_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n24_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n24_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n24_8}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n24_2" maxlength="10" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n24_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n24_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n24_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n24_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n24_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Количество людей пропавших без вести (чел.) -->
@@ -815,8 +809,8 @@
                                     Количество пропавших без вести (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n25" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n25}"/>
+                                    <input type="text" name="f1n25" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n25}"/>
+                                    Детей : <input type="text" name="f1n25_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n25_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -825,58 +819,41 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n25_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n25_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n25_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n25_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n25_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n25_4}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n25_2" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n25_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n25_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n25_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n25_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n25_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n25_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n25_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
 
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n25_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n25_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n25_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n25_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n25_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n25_8}"/>
-                                </td>
-                            </tr>
                             <!-- Количество спасенных (чел.) -->
                             <tr>
                                 <td class="fc">
                                     Количество спасенных (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n26" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n26}"/>
+                                    <input type="text" name="f1n26" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n26}"/>
+                                    Детей : <input type="text" name="f1n26_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n26_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -885,58 +862,40 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n26_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n26_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n26_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n26_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n26_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n26_4}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n26_2" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n26_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n26_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n26_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n26_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n26_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n26_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n26_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
 
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n26_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n26_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n26_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n26_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n26_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n26_8}"/>
-                                </td>
-                            </tr>
                             <!-- Обнаруженно людей в ходе проведения поисково - спасательных работ -->
                             <tr>
                                 <td class="fc">
                                     Обнаруженно людей в ходе проведения поисково - спасательных работ :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n27" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n27}"/>
+                                    <input type="text" name="f1n27" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n27}"/>
                                 </td>
                             </tr>
                             <!-- Спасены и доставлены в мед. учреждения -->
@@ -945,8 +904,7 @@
                                     Спасены и доставлены в мед. учреждения :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n27_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n27_2}"/>
+                                    <input type="text" name="f1n27_2" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n27_2}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -955,18 +913,30 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n27_3" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n27_3}"/>
-                                    Пол :
-                                    <input type="text" name="f1n27_4" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n27_4}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n27_5" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n27_5}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n27_3" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n27_3}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n27_4" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n27_4}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n27_5" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n27_5}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Общее количество людей требующих эвакуации (чел.) -->
@@ -976,7 +946,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n28" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n28}"/>
+                                           style="width:120px;" value="{document/fields/f1n28}"/>
                                 </td>
                             </tr>
                             <!-- Количество эвакуированных  -->
@@ -985,8 +955,8 @@
                                     Количество эвакуированных :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n29" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n29}"/>
+                                    <input type="text" name="f1n29" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n29}"/>
+                                    Детей : <input type="text" name="f1n29_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n29_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -995,48 +965,30 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n29_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n29_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n29_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n29_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n29_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n29_4}"/>
-                                </td>
-                            </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n29_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n29_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
-
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n29_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n29_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n29_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n29_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n29_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n29_8}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n29_2" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n29_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n29_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n29_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n29_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n29_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Оказана первая медицинская помощь  -->
@@ -1045,8 +997,8 @@
                                     Оказана первая медицинская помощь :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n30" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n30}"/>
+                                    <input type="text" name="f1n30" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n30}"/>
+                                    Детей : <input type="text" name="f1n30_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n30_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -1055,55 +1007,36 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n30_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n30_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n30_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n30_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n30_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n30_4}"/>
-                                </td>
-                            </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n30_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n30_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
-
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n30_6" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n30_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n30_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n30_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n30_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n30_8}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n30_2" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n30_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n30_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n30_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n30_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n30_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь  -->
                             <tr>
                                 <td class="fc">
-                                    Наименование организаций, юридический адрес, реквизиты, оказывавших
-                                    первую помощь :
+                                    Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь :
                                 </td>
                                 <td>
                                     <input type="text" name="f1n31" maxlength="10" class="td_editable"
@@ -1117,8 +1050,8 @@
                                     Госпитализировано людей :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n32" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n32}"/>
+                                    <input type="text" name="f1n32" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n32}"/>
+                                    Детей : <input type="text" name="f1n32_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n32_5}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -1127,48 +1060,30 @@
 
                                 </td>
                                 <td>
-                                    ФИО :
-                                    <input type="text" name="f1n32_2" maxlength="10" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n32_2}"/>
-                                    Пол :
-                                    <input type="text" name="f1n32_3" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n32_3}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n32_4" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n32_4}"/>
-                                </td>
-                            </tr>
-                            <!-- В том числе детей (чел.) -->
-                            <tr>
-                                <td class="fc">
-                                    В том числе детей (чел.) :
-                                </td>
-                                <td>
-                                    <input type="text" name="f1n32_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n32_5}"/>
-                                </td>
-                            </tr>
-                            <!-- ФИО, Пол, Возраст -->
-                            <tr>
-                                <td class="fc">
-
-                                </td>
-                                <td>
-                                    ФИО :
-                                    <input type="text" name="f1n32_6" class="td_editable"
-                                           style="width:200px; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n32_6}"/>
-                                    Пол :
-                                    <input type="text" name="f1n32_7" maxlength="10" class="td_editable"
-                                           style="width:100px; ; margin-left:5px; margin-right:5px"
-                                           value="{document/fields/f1n32_7}"/>
-                                    Возраст :
-                                    <input type="text" name="f1n32_8" maxlength="10" class="td_editable"
-                                           style="width:60px; ; margin-left:5px; "
-                                           value="{document/fields/f1n32_8}"/>
+                                    <table style="padding:0px">
+                                        <tr>
+                                            <td style="width:250px">ФИО</td>
+                                            <td style="width:100px">Пол</td>
+                                            <td style="width:60px">Возраст</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n32_2" maxlength="10" class="td_editable"
+                                                       style="width:250px;  margin-right:5px"
+                                                       value="{document/fields/f1n32_2}"/>
+                                            </td>
+                                            <td style="padding:0px">
+                                                <input type="text" name="f1n32_3" maxlength="10" class="td_editable"
+                                                       style="width:100px; margin-right:5px;"
+                                                       value="{document/fields/f1n32_3}"/>
+                                            </td>
+                                            <td  style="padding:0px">
+                                                <input type="text" name="f1n32_4" maxlength="10" class="td_editable"
+                                                       style="width:60px; ; margin-left:5px; "
+                                                       value="{document/fields/f1n32_4}"/>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             <!-- Повреждено -->
