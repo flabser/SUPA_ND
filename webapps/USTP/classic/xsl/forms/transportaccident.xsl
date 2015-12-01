@@ -20,11 +20,6 @@
                 <script>
                     $(function(){
                         $("#tabs").tabs();
-                        $('[data-action=save_and_close]').click(SaveFormJquery);
-                        $(function(){
-                            $("#tabs").tabs();
-                            $("button").button();
-                        });
                     });
                 </script>
                 <xsl:if test="$editmode = 'edit'">

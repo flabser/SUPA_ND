@@ -13,10 +13,11 @@
     <xsl:template match="/request">
         <xsl:call-template name="layout">
             <xsl:with-param name="include">
+                <script type="text/javascript" src="classic/scripts/form.js"></script>
+                <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
                 <script>
                     $(function(){
-                    $("#tabs").tabs();
-                    $("button").button();
+                        $("#tabs").tabs();
                     });
                 </script>
             </xsl:with-param>
