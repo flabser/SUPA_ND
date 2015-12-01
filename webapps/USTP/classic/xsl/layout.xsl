@@ -70,6 +70,7 @@
             <script type="text/javascript"
                     src="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
             <script type="text/javascript" src="/SharedResources/vendor/jquery/jquery.cookie.min.js"></script>
+            <script type="text/javascript" src="classic/scripts/form-ui-init.js"></script>
             <script type="text/javascript" src="/SharedResources/nb/js/nb.build.js"></script>
 
             <script>

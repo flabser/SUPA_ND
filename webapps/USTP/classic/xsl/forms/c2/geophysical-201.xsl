@@ -17,33 +17,6 @@
                 <script type="text/javascript" src="classic/scripts/form.js"></script>
                 <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
                 <script type="text/javascript" src="classic/scripts/human-controller.js"></script>
-                <script>
-                    <![CDATA[
-                    $(function(){
-                        $('[data-action=save_and_close]').click(SaveFormJquery);
-                    });]]>
-                </script>
-                <xsl:if test="$editmode = 'edit'">
-                    <script>
-                        var _calendarLang = "<xsl:value-of select="/request/@lang"/>";
-                        $(function() {
-                        $('#f1n5, #f1n16, #f1n18').datepicker({
-                        showOn: 'button',
-                        buttonImage: '/SharedResources/img/iconset/calendar.png',
-                        buttonImageOnly: true,
-                        regional:['ru'],
-                        showAnim: '',
-                        monthNames: calendarStrings[_calendarLang].monthNames,
-                        monthNamesShort: calendarStrings[_calendarLang].monthNamesShort,
-                        dayNames: calendarStrings[_calendarLang].dayNames,
-                        dayNamesShort: calendarStrings[_calendarLang].dayNamesShort,
-                        dayNamesMin: calendarStrings[_calendarLang].dayNamesMin,
-                        weekHeader: calendarStrings[_calendarLang].weekHeader,
-                        yearSuffix: calendarStrings[_calendarLang].yearSuffix,
-                        });
-                        });
-                    </script>
-                </xsl:if>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
