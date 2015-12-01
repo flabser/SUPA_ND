@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="estype" mode="on">
     <description>Тип ЧС</description>
-    <xsltfile>forms/estype.xsl</xsltfile>
+    <xsltfile>forms/glossary/estype.xsl</xsltfile>
     <doctype>glossary</doctype>
     <events>
         <queryopen source="file">form.estype.QueryOpen</queryopen>

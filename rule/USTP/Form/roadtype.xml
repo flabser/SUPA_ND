@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="roadtype" mode="on">
     <description>Тип дороги</description>
-    <xsltfile>forms/roadtype.xsl</xsltfile>
+    <xsltfile>forms/glossary/roadtype.xsl</xsltfile>
     <doctype>glossary</doctype>
     <events>
         <queryopen source="file">form.roadtype.QueryOpen</queryopen>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="City" mode="on">
 	<description>Регион/город</description>
-	<xsltfile>forms/city.xsl</xsltfile>
+	<xsltfile>forms/glossary/city.xsl</xsltfile>
 	<doctype>glossary</doctype>
 	<events> 
 		<queryopen source="file">form.city.QueryOpen</queryopen>

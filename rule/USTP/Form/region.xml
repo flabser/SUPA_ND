@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="region" mode="on">
     <description>область</description>
-    <xsltfile>forms/region.xsl</xsltfile>
+    <xsltfile>forms/glossary/region.xsl</xsltfile>
     <doctype>glossary</doctype>
     <events>
         <queryopen source="file">form.region.QueryOpen</queryopen>
