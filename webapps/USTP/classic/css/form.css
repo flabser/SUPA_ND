@@ -130,6 +130,11 @@ select {
     vertical-align: middle;
 }
 
+input[type=checkbox],
+input[type=radio] {
+    height: auto;
+}
+
 input:focus,
 textarea:focus,
 select:focus {

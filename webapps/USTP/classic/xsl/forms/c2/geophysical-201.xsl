@@ -210,8 +210,8 @@
                                         <section class="consequences-count-section col-md-4">
                                             <label class="consequences-total">
                                                 <span>Общее количество людей находившихся в зоне ЧС</span>
-                                                <input type="number" name="people_in_zone_emergency_count"
-                                                       value="{//fields/people_in_zone_emergency_count}"/>
+                                                <input type="number" name="human_in_zone_emergency_count"
+                                                       value="{//fields/human_in_zone_emergency_count}"/>
                                             </label>
 
                                             <div class="consequences-count-table">
@@ -234,8 +234,8 @@
                                                                value="{//fields/affected_children_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="affected_personnel_k4s_mvd_rk_count"
-                                                               value="{//fields/affected_personnel_k4s_mvd_rk_count}"/>
+                                                        <input type="number" name="affected_personnel_k4s_count"
+                                                               value="{//fields/affected_personnel_k4s_count}"/>
                                                     </span>
                                                 </div>
 
@@ -251,8 +251,8 @@
                                                                value="{//fields/dead_children_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="dead_personnel_k4s_mvd_rk_count"
-                                                               value="{//fields/dead_personnel_k4s_mvd_rk_count}"/>
+                                                        <input type="number" name="dead_personnel_k4s_count"
+                                                               value="{//fields/dead_personnel_k4s_count}"/>
                                                     </span>
                                                 </div>
 
@@ -281,8 +281,8 @@
                                                                value="{//fields/missing_children_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="missing_personnel_k4s_mvd_rk_count"
-                                                               value="{//fields/missing_personnel_k4s_mvd_rk_count}"/>
+                                                        <input type="number" name="missing_personnel_k4s_count"
+                                                               value="{//fields/missing_personnel_k4s_count}"/>
                                                     </span>
                                                 </div>
 
@@ -296,21 +296,19 @@
                                                 </div>
                                                 <!-- Обнаруженно людей в ходе проведения поисково - спасательных работ (чел.) -->
                                                 <div class="consequences-count-gr">
-                                                    <div>Обнаруженно людей в ходе проведения поисково - спасательных
-                                                        работ
-                                                    </div>
+                                                    <div>Обнаруженно в ходе поисково - спасательных работ</div>
                                                     <span>
-                                                        <input type="number" name="search_rescue_found_people_count"
-                                                               value="{//fields/search_rescue_found_people_count}"/>
+                                                        <input type="number" name="searchrescue_found_count"
+                                                               value="{//fields/searchrescue_found_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="search_rescue_taken_medical_count"
-                                                               value="{//fields/search_rescue_taken_medical_count}"/>
+                                                        <input type="number" name="searchrescue_taken_med_count"
+                                                               value="{//fields/searchrescue_taken_med_count}"/>
                                                     </span>
                                                     <span>
                                                         <input type="number"
-                                                               name="search_rescue_taken_medical_k4s_mvd_rk_count"
-                                                               value="{//fields/search_rescue_taken_medical_k4s_mvd_rk_count}"/>
+                                                               name="searchrescue_taken_med_k4s_count"
+                                                               value="{//fields/searchrescue_taken_med_k4s_count}"/>
                                                     </span>
                                                 </div>
 
@@ -327,8 +325,8 @@
                                                 <div class="consequences-count-gr">
                                                     <div>Требующих эвакуации</div>
                                                     <span>
-                                                        <input type="number" name="requiring_evacuation_people_count"
-                                                               value="{//fields/requiring_evacuation_people_count}"/>
+                                                        <input type="number" name="requiring_evacuation_count"
+                                                               value="{//fields/requiring_evacuation_count}"/>
                                                     </span>
                                                     <span>
                                                         <input type="number" name="evacuees_count"
@@ -516,60 +514,45 @@
                             </section>
 
                             <section role="tabpanel" class="tab-pane" id="tabs-inner-2-section-animal">
-
-                                <div class="control-group">
-                                    <div class="control-label">Количество погибших домашних животных</div>
-                                    <div class="controls">
-                                        <input type="number" name="dead_domestic_animals_count"
-                                               value="{//fields/dead_domestic_animals_count}"/>
-                                    </div>
+                                <div class="input-panel">
+                                    <header>
+                                        <label></label>
+                                        <span>Погибших</span>
+                                        <span>Эвакуированных</span>
+                                    </header>
+                                    <section>
+                                        <label class="text-right">Всего</label>
+                                        <span>
+                                            <input type="number" name="dead_domestic_animals_count"
+                                                   value="{//fields/dead_domestic_animals_count}"/>
+                                        </span>
+                                        <span>
+                                            <input type="number" name="evacuees_domestic_animals_count"
+                                                   value="{//fields/evacuees_domestic_animals_count}"/>
+                                        </span>
+                                    </section>
+                                    <header>
+                                        <label class="text-right">В том числе</label>
+                                        <span></span>
+                                        <span></span>
+                                    </header>
+                                    <footer>
+                                        <label></label>
+                                        <span>
+                                            <select data-action="add-animal-count">
+                                                <option value=""></option>
+                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
+                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
+                                                <option value="лошадей">лошадей</option>
+                                                <option value="птицы">птицы</option>
+                                                <option value="водных организмов (гидробионтов)">водных организмов
+                                                    (гидробионтов)
+                                                </option>
+                                                <option value="прочие">прочие</option>
+                                            </select>
+                                        </span>
+                                    </footer>
                                 </div>
-                                <div class="control-group">
-                                    <div class="control-label">В том числе</div>
-                                    <div class="controls">
-                                        <div class="list"></div>
-                                        <select data-action="add-animal-count">
-                                            <option value=""></option>
-                                            <option value="крупного рогатого скота">крупного рогатого скота
-                                            </option>
-                                            <option value="мелкого рогатого скота">мелкого рогатого скота
-                                            </option>
-                                            <option value="лошадей">лошадей</option>
-                                            <option value="птицы">птицы</option>
-                                            <option value="водных организмов (гидробионтов)">водных организмов
-                                                (гидробионтов)
-                                            </option>
-                                            <option value="прочие">прочие</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="control-label">Количество эвакуированных домашних животных</div>
-                                    <div class="controls">
-                                        <input type="number" name="evacuees_domestic_animals_count"
-                                               value="{//fields/evacuees_domestic_animals_count}"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="control-label">В том числе</div>
-                                    <div class="controls">
-                                        <div class="list"></div>
-                                        <select data-action="add-animal-count">
-                                            <option value=""></option>
-                                            <option value="крупного рогатого скота">крупного рогатого скота
-                                            </option>
-                                            <option value="мелкого рогатого скота">мелкого рогатого скота
-                                            </option>
-                                            <option value="лошадей">лошадей</option>
-                                            <option value="птицы">птицы</option>
-                                            <option value="водных организмов (гидробионтов)">водных организмов
-                                                (гидробионтов)
-                                            </option>
-                                            <option value="прочие">прочие</option>
-                                        </select>
-                                    </div>
-                                </div>
-
                             </section>
 
                             <section role="tabpanel" class="tab-pane" id="tabs-inner-2-3">
@@ -650,6 +633,37 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="tabs-3">
+
+                        <div class="control-group">
+                            <div class="control-label">Возникновения</div>
+                            <div class="controls">
+                                <input type="datetime" name="emergency_start_time"
+                                       value="{//fields/emergency_start_time}"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">Обнаружения</div>
+                            <div class="controls">
+                                <input type="datetime" name="emergency_detection_time"
+                                       value="{//fields/emergency_detection_time}"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">Сообщения</div>
+                            <div class="controls">
+                                <input type="datetime" name="emergency_report_time"
+                                       value="{//fields/emergency_report_time}"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">Выезда подразделений</div>
+                            <div class="controls">
+                                <input type="datetime" name="departure_time_divisions"
+                                       value="{//fields/departure_time_divisions}"/>
+                            </div>
+                        </div>
+
+
                         <br/>
                         <table width="100%" border="0">
                             <!-- Время -->

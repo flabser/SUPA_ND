@@ -1,5 +1,8 @@
 $(function() {
-    $('[data-action=save_and_close]').click(SaveFormJquery);
+
+    $('[data-action=save_and_close]').click(function(){
+        SaveFormJquery();
+    });
 
     $('[data-role="side-tree-toggle"]').click(function() {
         $(this).parent().toggleClass('side-tree-collapse');

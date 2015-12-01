@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="human" mode="on">
-    <description>Человек оказавшийся участником происшествия</description>
+    <description>Человек находившийся в зоне ЧС</description>
     <xsltfile>forms/c2/human.xsl</xsltfile>
     <doctype>main</doctype>
 
@@ -9,13 +9,21 @@
         <querysave source="file">form.c2.human.QuerySave</querysave>
     </events>
 
-    <caption name="close" source="KEYWORD">Закрыть</caption>
-    <caption name="properties" source="KEYWORD">Свойства</caption>
-    <caption name="attachments" source="KEYWORD">Вложения</caption>
-    <caption name="content" source="KEYWORD">Содержание</caption>
-    <caption name="performer" source="KEYWORD">исполнитель</caption>
-    <caption name="date" source="KEYWORD">дата</caption>
+    <caption name="fio" source="KEYWORD">ФИО</caption>
+    <caption name="sex" source="KEYWORD">Пол</caption>
+    <caption name="age" source="KEYWORD">Возраст</caption>
 
-    <caption name="saving" source="KEYWORD">Сохранение</caption>
+    <caption name="is_children" source="KEYWORD">Ребенок</caption>
+    <caption name="is_affected" source="KEYWORD">Пострадал</caption>
+    <caption name="is_dead" source="KEYWORD">Погиб</caption>
+    <caption name="is_rescued" source="KEYWORD">Спасен</caption>
+    <caption name="is_missing" source="KEYWORD">Пропал</caption>
+    <caption name="is_found_by_search_rescue" source="KEYWORD">Найден в ходе поисково-спасательных работ</caption>
+    <caption name="is_evacuated" source="KEYWORD">Эвакуирован</caption>
+    <caption name="is_first_aid" source="KEYWORD">Оказана первая мед.помощь</caption>
+    <caption name="is_homeless" source="KEYWORD">Без крова</caption>
+    <caption name="personnel_type" source="KEYWORD">Сотрудник</caption>
+
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+    <caption name="close" source="KEYWORD">Закрыть</caption>
 </rule>
