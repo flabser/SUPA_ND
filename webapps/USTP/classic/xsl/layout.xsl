@@ -73,14 +73,6 @@
             <script type="text/javascript" src="classic/scripts/form-ui-init.js"></script>
             <script type="text/javascript" src="/SharedResources/nb/js/nb.build.js"></script>
 
-            <script>
-                $(function(){
-                    $('[data-role="side-tree-toggle"]').click(function() {
-                        $(this).parent().toggleClass('side-tree-collapse');
-                    });
-                });
-            </script>
-
             <xsl:copy-of select="$include"/>
         </head>
     </xsl:template>

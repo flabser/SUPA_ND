@@ -1,6 +1,10 @@
 $(function() {
     $('[data-action=save_and_close]').click(SaveFormJquery);
 
+    $('[data-role="side-tree-toggle"]').click(function() {
+        $(this).parent().toggleClass('side-tree-collapse');
+    });
+
     var uiLang = $.cookie('lang');
     $('input[type=date]').datepicker({
         dateFormat: 'yy-mm-dd',
