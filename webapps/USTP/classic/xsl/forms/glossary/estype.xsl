@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:import href="../layout.xsl"/>
+    <xsl:import href="../../layout.xsl"/>
 
     <xsl:output method="html" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
@@ -10,19 +10,7 @@
     <xsl:variable name="status" select="/request/document/@status"/>
 
     <xsl:template match="/request">
-        <xsl:call-template name="layout">
-            <xsl:with-param name="include">
-                <script type="text/javascript" src="classic/scripts/form.js"></script>
-                <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
-                <script>
-                    $(function(){
-                    $("#tabs").tabs();
-                    $('[data-action=save_and_close]').click(SaveFormJquery);
-                    $("button").button();
-                    });
-                </script>
-            </xsl:with-param>
-        </xsl:call-template>
+        <xsl:call-template name="layout"/>
     </xsl:template>
 
     <xsl:template name="_content">
@@ -60,7 +48,7 @@
                     </div>
                 </fieldset>
                 <input type="hidden" name="type" value="save"/>
-                <input type="hidden" name="id" value="roadtype"/>
+                <input type="hidden" name="id" value="estype"/>
                 <input type="hidden" name="key" value="{document/@docid}"/>
             </form>
         </section>
