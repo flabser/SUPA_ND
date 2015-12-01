@@ -96,6 +96,8 @@ public class QuerySave extends _FormQuerySave {
         consequencesDoc.addNumberField("dead_domestic_animal_count", webFormData.getNumberValueSilently("dead_domestic_animal_count", 0));
         consequencesDoc.addNumberField("evacuees_domestic_animal_count", webFormData.getNumberValueSilently("evacuees_domestic_animal_count", 0));
 
+        consequencesDoc.addNumberField("monitoring_warning_post_count", webFormData.getNumberValueSilently("monitoring_warning_post_count", 0));
+
         consequencesDoc.addEditor(session.getUser().getUserID());
         consequencesDoc.addEditor("[supervisor]");
         consequencesDoc.save("[supervisor]");

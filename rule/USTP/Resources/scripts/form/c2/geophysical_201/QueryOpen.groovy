@@ -88,6 +88,8 @@ class QueryOpen extends _FormQueryOpen {
 
             publishValue("dead_domestic_animal_count", consequencesDoc.getValueNumber("dead_domestic_animal_count"))
             publishValue("evacuees_domestic_animal_count", consequencesDoc.getValueNumber("evacuees_domestic_animal_count"))
+
+            publishValue("monitoring_warning_post_count", consequencesDoc.getValueNumber("monitoring_warning_post_count"))
         }
     }
 }
