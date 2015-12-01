@@ -478,32 +478,43 @@
                                     Автовокзал :
                                 </td>
                                 <td>
-                                    <select size="1" name="busstation" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
-                                        <xsl:variable name="busstation"
-                                                      select="document/fields/busstation"/>
+                                    <select size="1" name="busstation" style="width:412px;" class="select_editable" autocomplete="off">
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                                 &#xA0;
                                             </option>
                                         </xsl:if>
-                                        <xsl:if test="$editmode !='edit'">
-                                            <xsl:attribute name="disabled"/>
-                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/road/@attrval}">
+                                        <option value="1">
+                                            <xsl:if test="document/fields/busstation = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/busstation"/>
-                                            </option>
-                                        </xsl:if>
-                                        <xsl:for-each select="document/glossaries/busstation/query/entry">
-                                            <option value="{@docid}">
-                                                <xsl:if test="$busstation = @docid">
-                                                    <xsl:attribute name="selected">selected</xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:value-of select="viewcontent/viewtext1"/>
-                                            </option>
-                                        </xsl:for-each>
+                                            </xsl:if>
+                                            Вокзальное здание
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/busstation = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перрон для посадки
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/busstation = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перрон для высадки
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/busstation = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Стоянка подвижного состава
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/busstation = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Устройство для мойки автобусов
+                                        </option>
                                     </select>
                                 </td>
                             </tr>
@@ -513,31 +524,79 @@
                                     Железнодорожные пути :
                                 </td>
                                 <td>
-                                    <select size="1" name="railways" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
-                                        <xsl:variable name="railways" select="document/fields/railways"/>
+                                    <select size="1" name="railways" style="width:412px;" class="select_editable" autocomplete="off">
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                                 &#xA0;
                                             </option>
                                         </xsl:if>
-                                        <xsl:if test="$editmode !='edit'">
-                                            <xsl:attribute name="disabled"/>
-                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/railways/@attrval}">
+                                        <option value="1">
+                                            <xsl:if test="document/fields/railways = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/railways"/>
-                                            </option>
-                                        </xsl:if>
-                                        <xsl:for-each select="document/glossaries/railways/query/entry">
-                                            <option value="{@docid}">
-                                                <xsl:if test="$railways = @docid">
-                                                    <xsl:attribute name="selected">selected</xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:value-of select="viewcontent/viewtext1"/>
-                                            </option>
-                                        </xsl:for-each>
+                                            </xsl:if>
+                                            Железная дорога
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/railways = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Внеклассовый вокзал
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/railways = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вокзал 1го класса
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/railways = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вокзал 2го класса
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/railways = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вокзал 3го класса
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/railways = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Станция
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/railways = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перрон
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/railways = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Платформа
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/railways = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перегон
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/railways = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Разъезд
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/railways = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Тупик
+                                        </option>
                                     </select>
                                 </td>
                             </tr>
@@ -547,32 +606,109 @@
                                     Аэровокзальный комплекс :
                                 </td>
                                 <td>
-                                    <select size="1" name="airterminal" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
-                                        <xsl:variable name="airterminal"
-                                                      select="document/fields/airterminal"/>
+                                    <select size="1" name="airterminal" style="width:412px;" class="select_editable" autocomplete="off">
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                                 &#xA0;
                                             </option>
                                         </xsl:if>
-                                        <xsl:if test="$editmode !='edit'">
-                                            <xsl:attribute name="disabled"/>
-                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/airterminal/@attrval}">
+                                        <option value="1">
+                                            <xsl:if test="document/fields/airterminal = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/airterminal"/>
-                                            </option>
-                                        </xsl:if>
-                                        <xsl:for-each select="document/glossaries/airterminal/query/entry">
-                                            <option value="{@docid}">
-                                                <xsl:if test="$airterminal = @docid">
-                                                    <xsl:attribute name="selected">selected</xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:value-of select="viewcontent/viewtext1"/>
-                                            </option>
-                                        </xsl:for-each>
+                                            </xsl:if>
+                                            Аэродром
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/airterminal = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - взлетно-посадочная полоса
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/airterminal = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - рулежные дорожки
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/airterminal = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - перрон
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/airterminal = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - место стоянки
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/airterminal = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - место заправки
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/airterminal = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - комплекс управления воздушным движением
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/airterminal = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            аэровокзалы
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/airterminal = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - внеклассовые
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/airterminal = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - 1 класса
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/airterminal = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - 2 класса
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/airterminal = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - 3 класса
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/airterminal = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - 4 класса
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/airterminal = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - 5 класса
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/airterminal = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неклассифицированные
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/airterminal = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Грузовой комплекс
+                                        </option>
                                     </select>
                                 </td>
                             </tr>
@@ -582,31 +718,73 @@
                                     Порты :
                                 </td>
                                 <td>
-                                    <select size="1" name="seaport" style="width:612px;"
-                                            class="select_editable" autocomplete="off">
-                                        <xsl:variable name="seaport" select="document/fields/seaport"/>
+                                    <select size="1" name="seaport" style="width:412px;" class="select_editable" autocomplete="off">
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                                 &#xA0;
                                             </option>
                                         </xsl:if>
-                                        <xsl:if test="$editmode !='edit'">
-                                            <xsl:attribute name="disabled"/>
-                                            <xsl:attribute name="class">select_noteditable</xsl:attribute>
-                                            <option value="{document/fields/seaport/@attrval}">
+                                        <option value="1">
+                                            <xsl:if test="document/fields/seaport = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
-                                                <xsl:value-of select="document/fields/seaport"/>
-                                            </option>
-                                        </xsl:if>
-                                        <xsl:for-each select="document/glossaries/seaport/query/entry">
-                                            <option value="{@docid}">
-                                                <xsl:if test="$seaport = @docid">
-                                                    <xsl:attribute name="selected">selected</xsl:attribute>
-                                                </xsl:if>
-                                                <xsl:value-of select="viewcontent/viewtext1"/>
-                                            </option>
-                                        </xsl:for-each>
+                                            </xsl:if>
+                                            морские
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/seaport = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            военно-морские базы
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/seaport = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            речные
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/seaport = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            пассажирские
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/seaport = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            торговые
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/seaport = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            рыбные
+                                        </option>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/seaport = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            причалы
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/seaport = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            вокзалы
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/seaport = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            терминалы
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/seaport = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            переправа
+                                        </option>
                                     </select>
                                 </td>
                             </tr>
@@ -1088,17 +1266,331 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n33" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n33}"/>
+                                           style="width:120px;" value="{document/fields/f1n33}"/>
                                 </td>
                             </tr>
                             <!-- Техники транспорт (ед.) -->
                             <tr>
                                 <td class="fc">
-                                    Техники транспорт (ед.) :
+                                    Техники транспорт  :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n33_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n33_2}"/>
+                                    <select size="1" name="f1n33_2" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n33_2 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Водный
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n33_2 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Гужевой
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n33_2 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -  Повозки
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n33_2 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -  Телеги
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n33_2 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -  Обозы
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n33_2 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -  Сани
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n33_2 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              Автомобильный
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n33_2 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Общего пользования
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n33_2 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Пассажирские перевозки
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n33_2 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Перевозка товаров
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n33_2 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Специального пользования
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n33_2 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Внутрипроизводственный
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n33_2 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Тракторы
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n33_2 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- КАМАЗы
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/f1n33_2 = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Автопогрузчики
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/f1n33_2 = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Электрокары
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="document/fields/f1n33_2 = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Экскаваторы
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="document/fields/f1n33_2 = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Бульдозеры
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="document/fields/f1n33_2 = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Грейдеры
+                                        </option>
+                                        <option value="20">
+                                            <xsl:if test="document/fields/f1n33_2 = '20'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              --- Автокраны
+                                        </option>
+                                        <option value="21">
+                                            <xsl:if test="document/fields/f1n33_2 = '21'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Внутриведомственный
+                                        </option>
+                                        <option value="22">
+                                            <xsl:if test="document/fields/f1n33_2 = '22'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Личный и индивидуальный
+                                        </option>
+                                        <option value="23">
+                                            <xsl:if test="document/fields/f1n33_2 = '23'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Легковые автомобили
+                                        </option>
+                                        <option value="24">
+                                            <xsl:if test="document/fields/f1n33_2 = '24'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Велосипеды
+                                        </option>
+                                        <option value="25">
+                                            <xsl:if test="document/fields/f1n33_2 = '25'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Яхты
+                                        </option>
+                                        <option value="26">
+                                            <xsl:if test="document/fields/f1n33_2 = '26'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Частные самолеты
+                                        </option>
+                                        <option value="27">
+                                            <xsl:if test="document/fields/f1n33_2 = '27'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Мопеды
+                                        </option>
+                                        <option value="28">
+                                            <xsl:if test="document/fields/f1n33_2 = '28'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Специализированный
+                                        </option>
+                                        <option value="29">
+                                            <xsl:if test="document/fields/f1n33_2 = '29'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Железнодорожный
+                                        </option>
+                                        <option value="30">
+                                            <xsl:if test="document/fields/f1n33_2 = '30'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Тепловозы
+                                        </option>
+                                        <option value="31">
+                                            <xsl:if test="document/fields/f1n33_2 = '31'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Электровозы
+                                        </option>
+                                        <option value="32">
+                                            <xsl:if test="document/fields/f1n33_2 = '32'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Паровозы
+                                        </option>
+                                        <option value="33">
+                                            <xsl:if test="document/fields/f1n33_2 = '33'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Электропоезда
+                                        </option>
+                                        <option value="34">
+                                            <xsl:if test="document/fields/f1n33_2 = '34'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Дизель-поезда
+                                        </option>
+                                        <option value="35">
+                                            <xsl:if test="document/fields/f1n33_2 = '35'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Локомотивы
+                                        </option>
+                                        <option value="36">
+                                            <xsl:if test="document/fields/f1n33_2 = '36'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Вагоны
+                                        </option>
+                                        <option value="37">
+                                            <xsl:if test="document/fields/f1n33_2 = '37'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Резервуары (цистерны)
+                                        </option>
+                                        <option value="38">
+                                            <xsl:if test="document/fields/f1n33_2 = '38'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Воздушный
+                                        </option>
+                                        <option value="39">
+                                            <xsl:if test="document/fields/f1n33_2 = '39'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Самолет
+                                        </option>
+                                        <option value="40">
+                                            <xsl:if test="document/fields/f1n33_2 = '40'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Вертолет
+                                        </option>
+                                        <option value="41">
+                                            <xsl:if test="document/fields/f1n33_2 = '41'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Аэроплан
+                                        </option>
+                                        <option value="42">
+                                            <xsl:if test="document/fields/f1n33_2 = '42'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Трубопроводный
+                                        </option>
+                                        <option value="43">
+                                            <xsl:if test="document/fields/f1n33_2 = '43'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Пневматический
+                                        </option>
+                                        <option value="44">
+                                            <xsl:if test="document/fields/f1n33_2 = '44'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              - Плавательные средства
+                                        </option>
+                                        <option value="45">
+                                            <xsl:if test="document/fields/f1n33_2 = '45'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Лодки
+                                        </option>
+                                        <option value="46">
+                                            <xsl:if test="document/fields/f1n33_2 = '46'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Катера
+                                        </option>
+                                        <option value="47">
+                                            <xsl:if test="document/fields/f1n33_2 = '47'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Байдарки
+                                        </option>
+                                        <option value="48">
+                                            <xsl:if test="document/fields/f1n33_2 = '48'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Теплоход
+                                        </option>
+                                        <option value="49">
+                                            <xsl:if test="document/fields/f1n33_2 = '49'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Пароход
+                                        </option>
+                                        <option value="50">
+                                            <xsl:if test="document/fields/f1n33_2 = '50'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Танкер
+                                        </option>
+                                        <option value="51">
+                                            <xsl:if test="document/fields/f1n33_2 = '51'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                              -- Паром
+                                        </option>
+                                    </select>
+                                    <input type="text" name="f1n33_3" maxlength="10" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
                                 </td>
                             </tr>
                             <!-- Уничтожено -->
@@ -1108,7 +1600,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n34" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n34}"/>
+                                           style="width:120px;" value="{document/fields/f1n34}"/>
                                 </td>
                             </tr>
                             <!-- Техники транспорт (ед.) -->
@@ -1117,8 +1609,322 @@
                                     Техники транспорт (ед.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n34_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n34_2}"/>
+                                    <select size="1" name="f1n34_2" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n33_2 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Водный
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n33_2 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Гужевой
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n33_2 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -  Повозки
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n33_2 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -  Телеги
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n33_2 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -  Обозы
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n33_2 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -  Сани
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n33_2 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Автомобильный
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n33_2 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Общего пользования
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n33_2 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Пассажирские перевозки
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n33_2 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Перевозка товаров
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n33_2 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Специального пользования
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n33_2 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Внутрипроизводственный
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n33_2 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Тракторы
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n33_2 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- КАМАЗы
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/f1n33_2 = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Автопогрузчики
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/f1n33_2 = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Электрокары
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="document/fields/f1n33_2 = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Экскаваторы
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="document/fields/f1n33_2 = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Бульдозеры
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="document/fields/f1n33_2 = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Грейдеры
+                                        </option>
+                                        <option value="20">
+                                            <xsl:if test="document/fields/f1n33_2 = '20'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Автокраны
+                                        </option>
+                                        <option value="21">
+                                            <xsl:if test="document/fields/f1n33_2 = '21'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Внутриведомственный
+                                        </option>
+                                        <option value="22">
+                                            <xsl:if test="document/fields/f1n33_2 = '22'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Личный и индивидуальный
+                                        </option>
+                                        <option value="23">
+                                            <xsl:if test="document/fields/f1n33_2 = '23'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Легковые автомобили
+                                        </option>
+                                        <option value="24">
+                                            <xsl:if test="document/fields/f1n33_2 = '24'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Велосипеды
+                                        </option>
+                                        <option value="25">
+                                            <xsl:if test="document/fields/f1n33_2 = '25'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Яхты
+                                        </option>
+                                        <option value="26">
+                                            <xsl:if test="document/fields/f1n33_2 = '26'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Частные самолеты
+                                        </option>
+                                        <option value="27">
+                                            <xsl:if test="document/fields/f1n33_2 = '27'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Мопеды
+                                        </option>
+                                        <option value="28">
+                                            <xsl:if test="document/fields/f1n33_2 = '28'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Специализированный
+                                        </option>
+                                        <option value="29">
+                                            <xsl:if test="document/fields/f1n33_2 = '29'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Железнодорожный
+                                        </option>
+                                        <option value="30">
+                                            <xsl:if test="document/fields/f1n33_2 = '30'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Тепловозы
+                                        </option>
+                                        <option value="31">
+                                            <xsl:if test="document/fields/f1n33_2 = '31'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Электровозы
+                                        </option>
+                                        <option value="32">
+                                            <xsl:if test="document/fields/f1n33_2 = '32'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Паровозы
+                                        </option>
+                                        <option value="33">
+                                            <xsl:if test="document/fields/f1n33_2 = '33'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Электропоезда
+                                        </option>
+                                        <option value="34">
+                                            <xsl:if test="document/fields/f1n33_2 = '34'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Дизель-поезда
+                                        </option>
+                                        <option value="35">
+                                            <xsl:if test="document/fields/f1n33_2 = '35'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Локомотивы
+                                        </option>
+                                        <option value="36">
+                                            <xsl:if test="document/fields/f1n33_2 = '36'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Вагоны
+                                        </option>
+                                        <option value="37">
+                                            <xsl:if test="document/fields/f1n33_2 = '37'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Резервуары (цистерны)
+                                        </option>
+                                        <option value="38">
+                                            <xsl:if test="document/fields/f1n33_2 = '38'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Воздушный
+                                        </option>
+                                        <option value="39">
+                                            <xsl:if test="document/fields/f1n33_2 = '39'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Самолет
+                                        </option>
+                                        <option value="40">
+                                            <xsl:if test="document/fields/f1n33_2 = '40'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Вертолет
+                                        </option>
+                                        <option value="41">
+                                            <xsl:if test="document/fields/f1n33_2 = '41'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Аэроплан
+                                        </option>
+                                        <option value="42">
+                                            <xsl:if test="document/fields/f1n33_2 = '42'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Трубопроводный
+                                        </option>
+                                        <option value="43">
+                                            <xsl:if test="document/fields/f1n33_2 = '43'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Пневматический
+                                        </option>
+                                        <option value="44">
+                                            <xsl:if test="document/fields/f1n33_2 = '44'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Плавательные средства
+                                        </option>
+                                        <option value="45">
+                                            <xsl:if test="document/fields/f1n33_2 = '45'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Лодки
+                                        </option>
+                                        <option value="46">
+                                            <xsl:if test="document/fields/f1n33_2 = '46'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Катера
+                                        </option>
+                                        <option value="47">
+                                            <xsl:if test="document/fields/f1n33_2 = '47'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Байдарки
+                                        </option>
+                                        <option value="48">
+                                            <xsl:if test="document/fields/f1n33_2 = '48'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Теплоход
+                                        </option>
+                                        <option value="49">
+                                            <xsl:if test="document/fields/f1n33_2 = '49'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Пароход
+                                        </option>
+                                        <option value="50">
+                                            <xsl:if test="document/fields/f1n33_2 = '50'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Танкер
+                                        </option>
+                                        <option value="51">
+                                            <xsl:if test="document/fields/f1n33_2 = '51'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Паром
+                                        </option>
+                                    </select>
+                                    <input type="text" name="f1n34_3" maxlength="10" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
                                 </td>
                             </tr>
                             <!-- Спасено материальных ценностей тенге всего -->
@@ -1128,7 +1934,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n35" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n35}"/>
+                                           style="width:120px;" value="{document/fields/f1n35}"/>
                                 </td>
                             </tr>
                             <!-- Имущества -->
@@ -1138,7 +1944,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n35_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n35_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n35_2}"/>
                                 </td>
                             </tr>
                             <!-- Техники -->
@@ -1148,7 +1954,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n35_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n35_3}"/>
+                                           style="width:120px;" value="{document/fields/f1n35_3}"/>
                                 </td>
                             </tr>
                             <!-- Материальный ущерб (предварительный) тенге -->
@@ -1158,7 +1964,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n36" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n36}"/>
+                                           style="width:120px;" value="{document/fields/f1n36}"/>
                                 </td>
                             </tr>
                         </table>
@@ -1181,7 +1987,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n37_2" id="f1n37_2" maxlength="10"
-                                           class="td_editable" style="width:80px;"
+                                           class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_2}"/>
                                 </td>
                             </tr>
@@ -1192,7 +1998,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n37_3" id="f1n37_3" maxlength="10"
-                                           class="td_editable" style="width:80px;"
+                                           class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_3}"/>
                                 </td>
                             </tr>
@@ -1203,7 +2009,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n37_4" id="f1n37_4" maxlength="10"
-                                           class="td_editable" style="width:80px;"
+                                           class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_4}"/>
                                 </td>
                             </tr>
@@ -1214,7 +2020,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n37_5" id="f1n37_5" maxlength="10"
-                                           class="td_editable" style="width:80px;"
+                                           class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_5}"/>
                                 </td>
                             </tr>
@@ -1225,7 +2031,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n37_6" id="f1n37_6" maxlength="10"
-                                           class="td_editable" style="width:80px;"
+                                           class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_6}"/>
                                 </td>
                             </tr>
@@ -1236,7 +2042,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n38" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n38}"/>
+                                           style="width:120px;" value="{document/fields/f1n38}"/>
                                 </td>
                             </tr>
                             <!--Охват населения своевременным оповещением об угрозе и возникновении ЧС (%)-->
@@ -1247,7 +2053,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n39" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n39}"/>
+                                           style="width:120px;" value="{document/fields/f1n39}"/>
                                 </td>
                             </tr>
                             <!--Время оповещения -->
@@ -1257,7 +2063,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n40" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n40}"/>
+                                           style="width:120px;" value="{document/fields/f1n40}"/>
                                 </td>
                             </tr>
                             <!-- Дежурный дежурно-диспетчерских служб области, города, района (ФИО, телефон, факс) -->
@@ -1267,8 +2073,8 @@
                                     телефон, факс) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n41" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n41}"/>
+                                    <input type="text" name="f1n41" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n41}"/>
                                 </td>
                             </tr>
                         </table>
@@ -1283,7 +2089,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n42" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n42}"/>
+                                           style="width:120px;" value="{document/fields/f1n42}"/>
                                 </td>
                             </tr>
                             <!--Дата и время ликвидации ЧС-->
@@ -1293,7 +2099,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n43" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n43}"/>
+                                           style="width:120px;" value="{document/fields/f1n43}"/>
                                 </td>
                             </tr>
                             <!--Было задействовано в ликвидации-->
@@ -1303,7 +2109,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n44" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n44}"/>
+                                           style="width:120px;" value="{document/fields/f1n44}"/>
                                 </td>
                             </tr>
                             <!-- в том числе -->
@@ -1313,7 +2119,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n45" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n45}"/>
+                                           style="width:120px;" value="{document/fields/f1n45}"/>
                                 </td>
                             </tr>
                             <!-- Штаб ликвидации аварии -->
@@ -1322,8 +2128,8 @@
                                     Штаб ликвидации аварии :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n46" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n46}"/>
+                                    <input type="text" name="f1n46" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n46}"/>
                                 </td>
                             </tr>
                             <!-- Руководитель ликвидации ЧС (ФИО, должность, место работы) -->
@@ -1332,8 +2138,8 @@
                                     Руководитель ликвидации ЧС (ФИО, должность, место работы) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n47" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n47}"/>
+                                    <input type="text" name="f1n47"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n47}"/>
                                 </td>
                             </tr>
                             <!-- Виновное лицо (ФИО, возраст) -->
@@ -1342,8 +2148,8 @@
                                     Виновное лицо (ФИО, возраст) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n48" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n48}"/>
+                                    <input type="text" name="f1n48" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n48}"/>
                                 </td>
                             </tr>
                             <!-- Состояние виновного -->
@@ -1352,8 +2158,8 @@
                                     Состояние виновного :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n48_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n48_2}"/>
+                                    <input type="text" name="f1n48_2" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n48_2}"/>
                                 </td>
                             </tr>
                             <!-- Вид ответственности виновного -->
@@ -1362,8 +2168,8 @@
                                     Вид ответственности виновного :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n48_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n48_3}"/>
+                                    <input type="text" name="f1n48_3"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n48_3}"/>
                                 </td>
                             </tr>
                             <!-- Затраты на ликвидацию ЧС, тенге -->
@@ -1373,7 +2179,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n49" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n49}"/>
+                                           style="width:120px;" value="{document/fields/f1n49}"/>
                                 </td>
                             </tr>
                             <!-- Сведения о создании Правительственной комиссии по расследованию аварии -->
@@ -1382,8 +2188,8 @@
                                     Сведения о создании Правительственной комиссии по расследованию аварии :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n50" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n50}"/>
+                                    <input type="text" name="f1n50" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n50}"/>
                                 </td>
                             </tr>
                         </table>
@@ -1401,14 +2207,134 @@
                                            style="width:80px;" value="{document/fields/f1n51}"/>
                                 </td>
                             </tr>
-                            <!-- Марка транспортного средства -->
+                            <!-- Вид транспортного средства -->
                             <tr>
                                 <td class="fc">
                                     Вид транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n52" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n52}"/>
+                                    <select size="1" name="f1n52" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n52 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Общего пользования
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n52 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Пассажирские перевозки
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n52 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Перевозка товаров
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n52 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Специального пользования
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n52 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Внутрипроизводственный
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n52 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Тракторы
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n52 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- КАМАЗы
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/f1n52 = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Автопогрузчики
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/f1n52 = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Электрокары
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="document/fields/f1n52 = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Экскаваторы
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="document/fields/f1n52 = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Бульдозеры
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="document/fields/f1n52 = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Грейдеры
+                                        </option>
+                                        <option value="20">
+                                            <xsl:if test="document/fields/f1n52 = '20'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            --- Автокраны
+                                        </option>
+                                        <option value="21">
+                                            <xsl:if test="document/fields/f1n52 = '21'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Внутриведомственный
+                                        </option>
+                                        <option value="22">
+                                            <xsl:if test="document/fields/f1n52 = '22'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Личный и индивидуальный
+                                        </option>
+                                        <option value="23">
+                                            <xsl:if test="document/fields/f1n52 = '23'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Легковые автомобили
+                                        </option>
+                                        <option value="24">
+                                            <xsl:if test="document/fields/f1n52 = '24'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Велосипеды
+                                        </option>
+                                        <option value="27">
+                                            <xsl:if test="document/fields/f1n52 = '27'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Мопеды
+                                        </option>
+                                        <option value="28">
+                                            <xsl:if test="document/fields/f1n52 = '28'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            -- Специализированный
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Марка транспортного средства -->
@@ -1447,8 +2373,98 @@
                                     Виды поезда (-ов) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n53_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n53_2}"/>
+                                    <select size="1" name="f1n53_2" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n53_2 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вид поезда
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n53_2 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Товарные поезда
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n53_2 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Пассажирские поезда
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n53_2 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Поезда метрополитена
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n53_2 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вид подвижного состава
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n53_2 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Тепловозы
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n53_2 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Электровозы
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n53_2 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Паровозы
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n53_2 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Электропоезда
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n53_2 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Дизель-поезда
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n53_2 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Локомотивы
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n53_2 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Локомотивные тяги
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n53_2 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Вагоны
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n53_2 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - резервуары (цистерны)
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- № поезда-(ов) -->
@@ -1477,8 +2493,44 @@
                                     Вид транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n54_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n54_2}"/>
+                                    <select size="1" name="f1n54_2" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n54_2 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Морские транспортные суда и суда рыбопромыслового флота
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n54_2 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Речные транспортные суда и суда рыбопромыслового флота
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n54_2 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Морские пассажирские суда
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n54_2 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Морские грузовые суда
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n54_2 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Речные грузовые суда
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Модель транспортного средства -->
@@ -1487,8 +2539,56 @@
                                     Модель транспортного средства :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n54_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n54_3}"/>
+                                    <select size="1" name="f1n54_3" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n54_3 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Лодка
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n54_3 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Катер
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n54_3 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Байдарка
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n54_3 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Теплоход
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n54_3 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Пароход
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n54_3 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Танкер
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n54_3 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Паром
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Характеристика авиатранспорта -->
@@ -1507,8 +2607,38 @@
                                     Вид авиатранспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n55_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n55_2}"/>
+                                    <select size="1" name="f1n55_2" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n55_2 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Самолеты
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n55_2 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Вертолеты
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n55_2 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Планеры
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n55_2 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Другие леталтельные аппараты
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- марка -->
@@ -1697,8 +2827,170 @@
                                     Характер происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n64" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n64}"/>
+                                    <select size="1" name="f1n64" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n64 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Наезд на пешехода
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n64 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Переход в неустановленном месте
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n64 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Столкновение
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n64 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С другим транспортом
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n64 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Автотранспорта с железнодорожным транспрортом
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n64 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Грузовым судном
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n64 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - Пассажирским судном
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n64 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С препятствием
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n64 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перевертывание транспортного средства
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n64 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Перевертывание прицепа транспортного средства
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n64 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Возгорание транспортного  средства
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n64 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Взрыв транспортного (-ных) средства
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n64 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Аварии
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n64 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С утечкой горючих материалов
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/f1n64 = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С опрокидыванием груза
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/f1n64 = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С задержкой движения (вылета)
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="document/fields/f1n64 = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - На территории другой страны
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="document/fields/f1n64 = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Сход железнодорожного транспорта с рельсов
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="document/fields/f1n64 = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С повреждением участков ж/д пути
+                                        </option>
+                                        <option value="20">
+                                            <xsl:if test="document/fields/f1n64 = '20'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С повреждением вагонов
+                                        </option>
+                                        <option value="21">
+                                            <xsl:if test="document/fields/f1n64 = '21'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С повреждением контактной сети
+                                        </option>
+                                        <option value="22">
+                                            <xsl:if test="document/fields/f1n64 = '22'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Крушение самолетов, вертолетов, летательных аппаратов
+                                        </option>
+                                        <option value="23">
+                                            <xsl:if test="document/fields/f1n64 = '23'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С последующим возгоранием
+                                        </option>
+                                        <option value="24">
+                                            <xsl:if test="document/fields/f1n64 = '24'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - С последующим взрывом
+                                        </option>
+                                        <option value="25">
+                                            <xsl:if test="document/fields/f1n64 = '25'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Утечка и сброс вредных веществ в водный бассейн
+                                        </option>
+                                        <option value="26">
+                                            <xsl:if test="document/fields/f1n64 = '26'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Утопление транспортного средства
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Обстоятельства и причины, приведшие к ЧС (описание) -->
@@ -1707,8 +2999,362 @@
                                     Обстоятельства и причины, приведшие к ЧС (описание) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n65" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n65}"/>
+                                    <select size="1" name="f1n65" style="width:412px;" class="select_editable" autocomplete="off">
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="1">
+                                            <xsl:if test="document/fields/f1n65 = '1'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Человеческий фактор
+                                        </option>
+                                        <option value="2">
+                                            <xsl:if test="document/fields/f1n65 = '2'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - террористический акт
+                                        </option>
+                                        <option value="3">
+                                            <xsl:if test="document/fields/f1n65 = '3'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - хулиганство
+                                        </option>
+                                        <option value="4">
+                                            <xsl:if test="document/fields/f1n65 = '4'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - халатность
+                                        </option>
+                                        <option value="5">
+                                            <xsl:if test="document/fields/f1n65 = '5'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - состояние алкогольного опьянения
+                                        </option>
+                                        <option value="6">
+                                            <xsl:if test="document/fields/f1n65 = '6'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - состояние наркотического, психотропного опьянения
+                                        </option>
+                                        <option value="7">
+                                            <xsl:if test="document/fields/f1n65 = '7'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несчастный случай
+                                        </option>
+                                        <option value="8">
+                                            <xsl:if test="document/fields/f1n65 = '8'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - нарушение технологического процесса
+                                        </option>
+                                        <option value="9">
+                                            <xsl:if test="document/fields/f1n65 = '9'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - поджог
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="document/fields/f1n65 = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - кража
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="document/fields/f1n65 = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - нарушение правил техники безопасности
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="document/fields/f1n65 = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - превышение скорости движения транспорта
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="document/fields/f1n65 = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несоблюдение правил дорожного движения
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="document/fields/f1n65 = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несоблюдение правил перевозок на железнодорожном транспорте
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="document/fields/f1n65 = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несоблюдение правил навигации
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="document/fields/f1n65 = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несоблюдение правил полетов
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="document/fields/f1n65 = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несоблюдение правил перевозки опасных грузов
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="document/fields/f1n65 = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неправильная эксплуатация
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="document/fields/f1n65 = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неправильное хранение
+                                        </option>
+                                        <option value="20">
+                                            <xsl:if test="document/fields/f1n65 = '20'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - несвоевременное выполнение технического осмотра
+                                        </option>
+                                        <option value="21">
+                                            <xsl:if test="document/fields/f1n65 = '21'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - нарушение правил эксплуатации транспорта, машин, механизмов
+                                        </option>
+                                        <option value="22">
+                                            <xsl:if test="document/fields/f1n65 = '22'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - прочее
+                                        </option>
+                                        <option value="23">
+                                            <xsl:if test="document/fields/f1n65 = '23'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            технический фактор
+                                        </option>
+                                        <option value="24">
+                                            <xsl:if test="document/fields/f1n65 = '24'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - замыкание
+                                        </option>
+                                        <option value="25">
+                                            <xsl:if test="document/fields/f1n65 = '25'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - пожар
+                                        </option>
+                                        <option value="26">
+                                            <xsl:if test="document/fields/f1n65 = '26'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - сбой
+                                        </option>
+                                        <option value="27">
+                                            <xsl:if test="document/fields/f1n65 = '27'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - взрыв
+                                        </option>
+                                        <option value="28">
+                                            <xsl:if test="document/fields/f1n65 = '28'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неисправность транспортного средства
+                                        </option>
+                                        <option value="29">
+                                            <xsl:if test="document/fields/f1n65 = '29'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - износ оборудования
+                                        </option>
+                                        <option value="30">
+                                            <xsl:if test="document/fields/f1n65 = '30'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неисправность оборудования транспортного средства
+                                        </option>
+                                        <option value="31">
+                                            <xsl:if test="document/fields/f1n65 = '31'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - неисправность железнодорожного, автодорожного полотна
+                                        </option>
+                                        <option value="32">
+                                            <xsl:if test="document/fields/f1n65 = '32'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - дефекты, допущенные при проектировании транспорта
+                                        </option>
+                                        <option value="33">
+                                            <xsl:if test="document/fields/f1n65 = '33'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - прекращение эксплуатации транспортного средства
+                                        </option>
+                                        <option value="34">
+                                            <xsl:if test="document/fields/f1n65 = '34'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - недостаточное количество питания, электроэнергии
+                                        </option>
+                                        <option value="35">
+                                            <xsl:if test="document/fields/f1n65 = '35'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - ошибки, допущенные при монтаже
+                                        </option>
+                                        <option value="36">
+                                            <xsl:if test="document/fields/f1n65 = '36'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - прочее
+                                        </option>
+                                        <option value="37">
+                                            <xsl:if test="document/fields/f1n65 = '37'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            природный фактор
+                                        </option>
+                                        <option value="38">
+                                            <xsl:if test="document/fields/f1n65 = '38'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - землетрясение
+                                        </option>
+                                        <option value="39">
+                                            <xsl:if test="document/fields/f1n65 = '39'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - ураган
+                                        </option>
+                                        <option value="40">
+                                            <xsl:if test="document/fields/f1n65 = '40'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - буря
+                                        </option>
+                                        <option value="41">
+                                            <xsl:if test="document/fields/f1n65 = '41'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - шторм
+                                        </option>
+                                        <option value="42">
+                                            <xsl:if test="document/fields/f1n65 = '42'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - наводнение
+                                        </option>
+                                        <option value="43">
+                                            <xsl:if test="document/fields/f1n65 = '43'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - оползень
+                                        </option>
+                                        <option value="44">
+                                            <xsl:if test="document/fields/f1n65 = '44'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - сель
+                                        </option>
+                                        <option value="45">
+                                            <xsl:if test="document/fields/f1n65 = '45'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - обвал
+                                        </option>
+                                        <option value="46">
+                                            <xsl:if test="document/fields/f1n65 = '46'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - туман
+                                        </option>
+                                        <option value="47">
+                                            <xsl:if test="document/fields/f1n65 = '47'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - снегопад
+                                        </option>
+                                        <option value="48">
+                                            <xsl:if test="document/fields/f1n65 = '48'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - гололед
+                                        </option>
+                                        <option value="49">
+                                            <xsl:if test="document/fields/f1n65 = '49'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - просадка (провал) земной поверхности
+                                        </option>
+                                        <option value="50">
+                                            <xsl:if test="document/fields/f1n65 = '50'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - мороз
+                                        </option>
+                                        <option value="51">
+                                            <xsl:if test="document/fields/f1n65 = '51'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - лавина
+                                        </option>
+                                        <option value="52">
+                                            <xsl:if test="document/fields/f1n65 = '52'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - метель
+                                        </option>
+                                        <option value="53">
+                                            <xsl:if test="document/fields/f1n65 = '53'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - засуха
+                                        </option>
+                                        <option value="54">
+                                            <xsl:if test="document/fields/f1n65 = '54'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - жара
+                                        </option>
+                                        <option value="55">
+                                            <xsl:if test="document/fields/f1n65 = '55'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - гроза
+                                        </option>
+                                        <option value="56">
+                                            <xsl:if test="document/fields/f1n65 = '56'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - град
+                                        </option>
+                                        <option value="57">
+                                            <xsl:if test="document/fields/f1n65 = '57'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - молния
+                                        </option>
+                                        <option value="58">
+                                            <xsl:if test="document/fields/f1n65 = '58'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            - прочее
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Количество транспорта, попавшего в аварию -->
@@ -1718,7 +3364,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n66" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n66}"/>
+                                           style="width:120px;" value="{document/fields/f1n66}"/>
                                 </td>
                             </tr>
                             <!-- Скорость движения транспортных средств -->
@@ -1728,7 +3374,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n67" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n67}"/>
+                                           style="width:120px;" value="{document/fields/f1n67}"/>
                                 </td>
                             </tr>
                             <!-- Описание состояния транспортных магистралей, железнодорожного полотна, взлетной полосы и т.д. -->
@@ -1738,8 +3384,8 @@
                                     взлетной полосы и т.д. :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n68" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n68}"/>
+                                    <input type="text" name="f1n68"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n68}"/>
                                 </td>
                             </tr>
                             <!-- Количество объектов попавших в зону ЧС -->
@@ -1749,7 +3395,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n69" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n69}"/>
+                                           style="width:120px;" value="{document/fields/f1n69}"/>
                                 </td>
                             </tr>
                             <!--населенных пунктов -->
@@ -1759,7 +3405,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n69_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n69_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n69_2}"/>
                                 </td>
                             </tr>
                             <!--водных акваторий (площадь, км) -->
@@ -1769,7 +3415,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n69_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n69_3}"/>
+                                           style="width:1200px;" value="{document/fields/f1n69_3}"/>
                                 </td>
                             </tr>
                             <!-- дорог (км) -->
@@ -1779,7 +3425,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n69_4" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n69_4}"/>
+                                           style="width:120px;" value="{document/fields/f1n69_4}"/>
                                 </td>
                             </tr>
                             <!-- ЛЭП (км) -->
@@ -1789,7 +3435,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n69_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n69_5}"/>
+                                           style="width:120px;" value="{document/fields/f1n69_5}"/>
                                 </td>
                             </tr>
                             <!-- Природные и климатические условия (описание) -->
@@ -1798,8 +3444,8 @@
                                     Природные и климатические условия (описание) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n70" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70}"/>
+                                    <input type="text" name="f1n70"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n70}"/>
                                 </td>
                             </tr>
                             <!-- скорость ветра, м/с -->
@@ -1809,7 +3455,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_2" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_2}"/>
                                 </td>
                             </tr>
                             <!-- направление ветра -->
@@ -1819,7 +3465,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_3}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_3}"/>
                                 </td>
                             </tr>
                             <!-- температура воздуха, С -->
@@ -1829,7 +3475,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_4" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_4}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_4}"/>
                                 </td>
                             </tr>
                             <!-- атмосферное давление, р.с.-->
@@ -1839,7 +3485,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_5}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_5}"/>
                                 </td>
                             </tr>
                             <!-- влажность воздуха-->
@@ -1849,7 +3495,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_6" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_6}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_6}"/>
                                 </td>
                             </tr>
                             <!-- количество осадков -->
@@ -1859,7 +3505,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n70_7" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n70_7}"/>
+                                           style="width:120px;" value="{document/fields/f1n70_7}"/>
                                 </td>
                             </tr>
                             <!-- Наличие и характер разрушений, загрязнения окружающей среды (характеристики, описание) -->
@@ -1869,8 +3515,8 @@
                                     (характеристики, описание) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n71" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n71}"/>
+                                    <input type="text" name="f1n71" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n71}"/>
                                 </td>
                             </tr>
                             <!-- Площадь распространения ЧС, км -->
@@ -1880,7 +3526,7 @@
                                 </td>
                                 <td>
                                     <input type="text" name="f1n72" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n72}"/>
+                                           style="width:120px;" value="{document/fields/f1n72}"/>
                                 </td>
                             </tr>
                         </table>
@@ -1894,8 +3540,8 @@
                                     Описание происшедшего ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n73" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n73}"/>
+                                    <input type="text" name="f1n73" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n73}"/>
                                 </td>
                             </tr>
                             <!-- Условия, способствовавшие развитию происшествия -->
@@ -1904,8 +3550,8 @@
                                     Условия, способствовавшие развитию происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n74" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n74}"/>
+                                    <input type="text" name="f1n74" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n74}"/>
                                 </td>
                             </tr>
                             <!-- Обстоятельства возникновения происшествия -->
@@ -1914,8 +3560,8 @@
                                     Обстоятельства возникновения происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n75" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n75}"/>
+                                    <input type="text" name="f1n75" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n75}"/>
                                 </td>
                             </tr>
                             <!-- Особенности происшествия -->
@@ -1924,8 +3570,8 @@
                                     Особенности происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n76" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n76}"/>
+                                    <input type="text" name="f1n76" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n76}"/>
                                 </td>
                             </tr>
                             <!-- Анализ возможных причин возникновения ЧС -->
@@ -1934,8 +3580,8 @@
                                     Анализ возможных причин возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n77" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n77}"/>
+                                    <input type="text" name="f1n77" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n77}"/>
                                 </td>
                             </tr>
                             <!-- Принятые меры по обеспечению техники безопасности -->
@@ -1944,8 +3590,8 @@
                                     Принятые меры по обеспечению техники безопасности :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n78" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n78}"/>
+                                    <input type="text" name="f1n78" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n78}"/>
                                 </td>
                             </tr>
                             <!-- Условия, способствовавшие получению травм и гибели людей -->
@@ -1954,8 +3600,8 @@
                                     Условия, способствовавшие получению травм и гибели людей :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n79" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n79}"/>
+                                    <input type="text" name="f1n79"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n79}"/>
                                 </td>
                             </tr>
                             <!-- Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из -->
@@ -1965,8 +3611,8 @@
                                     из :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n80" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n80}"/>
+                                    <input type="text" name="f1n80"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n80}"/>
                                 </td>
                             </tr>
                             <!-- О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС -->
@@ -1976,8 +3622,8 @@
                                     случившегося ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n81" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n81}"/>
+                                    <input type="text" name="f1n81" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n81}"/>
                                 </td>
                             </tr>
                             <!-- Положительные стороны и недостатки при ликвидации ЧС -->
@@ -1986,8 +3632,8 @@
                                     Положительные стороны и недостатки при ликвидации ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n82" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n82}"/>
+                                    <input type="text" name="f1n82" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n82}"/>
                                 </td>
                             </tr>
                             <!-- Выводы, предложения, меры -->
@@ -1996,8 +3642,8 @@
                                     Выводы, предложения, меры :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n83" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n83}"/>
+                                    <input type="text" name="f1n83"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n83}"/>
                                 </td>
                             </tr>
                             <!-- Ответственный по заполнению (ФИО, должность, тел.) -->
@@ -2006,8 +3652,8 @@
                                     Ответственный по заполнению (ФИО, должность, тел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n84" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n84}"/>
+                                    <input type="text" name="f1n84"  class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n84}"/>
                                 </td>
                             </tr>
                         </table>
