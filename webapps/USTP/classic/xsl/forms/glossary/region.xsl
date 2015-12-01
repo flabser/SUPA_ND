@@ -14,13 +14,6 @@
             <xsl:with-param name="include">
                 <script type="text/javascript" src="classic/scripts/form.js"></script>
                 <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
-                <script>
-                    $(function(){
-                        $("#tabs").tabs();
-                        $('[data-action=save_and_close]').click(SaveFormJquery);
-                        $("button").button();
-                    });
-                </script>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
@@ -41,6 +34,9 @@
                     <xsl:if test="$editmode != 'edit'">
                         <xsl:attribute name="disabled">disabled</xsl:attribute>
                     </xsl:if>
+                    <legend class="legend">
+                        <xsl:value-of select="//captions/properties/@caption"/>
+                    </legend>
 
                     <div class="control-group">
                         <div class="control-label">
@@ -59,12 +55,8 @@
                         </div>
                     </div>
                 </fieldset>
-
-
                 <input type="hidden" name="type" value="save"/>
-
                 <input type="hidden" name="id" value="region"/>
-
                 <input type="hidden" name="key" value="{document/@docid}"/>
             </form>
         </section>
