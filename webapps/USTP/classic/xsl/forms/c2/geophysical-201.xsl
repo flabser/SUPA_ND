@@ -353,7 +353,7 @@
                                                                value="{//fields/first_aid_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="first_aid_count_children"
+                                                        <input type="number" name="first_aid_children_count"
                                                                value="{//fields/first_aid_children_count}"/>
                                                     </span>
                                                 </div>
