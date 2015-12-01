@@ -523,12 +523,12 @@
                                     <section>
                                         <label class="text-right">Всего</label>
                                         <span>
-                                            <input type="number" name="dead_domestic_animals_count"
-                                                   value="{//fields/dead_domestic_animals_count}"/>
+                                            <input type="number" name="dead_domestic_animal_count"
+                                                   value="{//fields/dead_domestic_animal_count}"/>
                                         </span>
                                         <span>
-                                            <input type="number" name="evacuees_domestic_animals_count"
-                                                   value="{//fields/evacuees_domestic_animals_count}"/>
+                                            <input type="number" name="evacuees_domestic_animal_count"
+                                                   value="{//fields/evacuees_domestic_animal_count}"/>
                                         </span>
                                     </section>
                                     <header>
@@ -574,6 +574,7 @@
                                             .section-potential-risk {
                                             display: inline-block;
                                             min-width: 600px;
+                                            vertical-align: top;
                                             width: 48%;
                                             }
                                             .section-destruction th, .section-destruction td,
