@@ -1,0 +1,39 @@
+.input-panel {
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.input-panel > header,
+.input-panel > section,
+.input-panel > footer {
+    padding: 1px;
+}
+
+.input-panel > header > label,
+.input-panel > section > label,
+.input-panel > footer > label {
+    display: inline-block;
+    font-weight: normal;
+    padding: 2px;
+    vertical-align: middle;
+    width: 260px;
+}
+
+.input-panel > section > span,
+.input-panel > header > span {
+    display: inline-block;
+    padding: 2px;
+    vertical-align: middle;
+    word-wrap: break-word;
+    width: 110px;
+}
+
+.input-panel > header > label,
+.input-panel > header > span {
+    font-size: .9em;
+    vertical-align: bottom;
+}
+
+.input-panel > footer > span {
+    padding: 2px;
+}
