@@ -333,7 +333,7 @@
                                                                value="{//fields/evacuees_count}"/>
                                                     </span>
                                                     <span>
-                                                        <input type="number" name="evacuees_count_children"
+                                                        <input type="number" name="evacuees_children_count"
                                                                value="{//fields/evacuees_children_count}"/>
                                                     </span>
                                                 </div>
