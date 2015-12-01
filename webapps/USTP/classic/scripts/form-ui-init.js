@@ -5,7 +5,7 @@ $(function() {
         $(this).parent().toggleClass('side-tree-collapse');
     });
 
-    var uiLang = $.cookie('lang');
+    var uiLang = $.cookie('lang') || 'RUS';
     $('input[type=date]').datepicker({
         dateFormat: 'yy-mm-dd',
         showOn: 'button',
