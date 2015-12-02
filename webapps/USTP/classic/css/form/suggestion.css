@@ -1,0 +1,6 @@
+.suggestion {}
+
+.suggestion .due-date select {
+    display: inline-block;
+    vertical-align: top;
+}
