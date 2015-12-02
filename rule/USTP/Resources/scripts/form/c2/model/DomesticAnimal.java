@@ -7,7 +7,7 @@ public class DomesticAnimal {
     String guid;
     String eventGUID;
 
-    String type;
+    String animalType;
     /*
     - крупного рогатого скота
     - мелкого рогатого скота
