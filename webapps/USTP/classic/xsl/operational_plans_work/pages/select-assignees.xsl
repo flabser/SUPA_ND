@@ -21,7 +21,7 @@
                 <label class="entry-select">
                     <input type="checkbox" name="userid" id="{@id}" value="{userid}"/>
                 </label>
-                <a href="#" class="entry-link">
+                <a href="#" onclick="app." class="entry-link">
                     <div class="entry-fields">
                         <span class="entry-field">
                             <xsl:value-of select="fullname"/>

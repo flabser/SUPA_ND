@@ -46,6 +46,9 @@
                             <span data-input="assignees">
                                 <xsl:value-of select="assignees"/>
                             </span>
+                            <button type="button" class="btn btn-link select-assignees"
+                                    data-action="select-assignees">выбрать
+                            </button>
                             <input type="hidden" name="assignees" value="{//fields/assignees}"/>
                         </div>
                     </div>
