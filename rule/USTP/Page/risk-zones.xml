@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="risk-zones" mode="on" history="on">
+<rule type="page" id="risk-zones" mode="on" history="off">
     <description>risk-zones</description>
     <caching>NO_CACHING</caching>
     <xsltfile>pages/c2/risk-zones.xsl</xsltfile>

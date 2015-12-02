@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="human" mode="on">
+<rule type="form" id="human" mode="on" history="off">
     <description>Человек находившийся в зоне ЧС</description>
     <xsltfile>forms/c2/human.xsl</xsltfile>
     <doctype>main</doctype>
