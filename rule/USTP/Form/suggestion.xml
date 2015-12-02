@@ -9,6 +9,8 @@
         <querysave source="file">ustp.modules.operational_plans_work.form.suggestion.QuerySave</querysave>
     </events>
 
+    <caption name="title" source="KEYWORD">Предложение</caption>
+
     <caption name="fio" source="KEYWORD">ФИО</caption>
     <caption name="sex" source="KEYWORD">Пол</caption>
     <caption name="age" source="KEYWORD">Возраст</caption>

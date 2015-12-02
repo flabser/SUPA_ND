@@ -12,8 +12,6 @@ class QueryOpen extends _FormQueryOpen {
 
     @Override
     public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-        publishValue("title", getLocalizedWord("Новое предложение", lang))
-
         def nav = session.getPage("outline", webFormData)
         publishElement(nav)
 
@@ -25,8 +23,6 @@ class QueryOpen extends _FormQueryOpen {
 
     @Override
     public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
-        publishValue("title", getLocalizedWord("Предложение", lang))
-
         def nav = session.getPage("outline", webFormData)
         publishElement(nav)
 
