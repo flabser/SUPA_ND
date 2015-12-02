@@ -138,7 +138,7 @@
                                     Вид ЧС :
                                 </td>
                                 <td>
-                                    <select size="1" name="f1n3" style="width:612px;"
+                                    <select size="1" name="essubtype" style="width:612px;"
                                             class="select_editable" autocomplete="off">
                                         <xsl:variable name="essubtype" select="document/fields/essubtype"/>
                                         <xsl:if test="$editmode ='edit'">
@@ -206,7 +206,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="region" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="region" select="document/fields/region"/>
+                                        <xsl:variable name="region" select="document/fields/region/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -239,7 +239,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="respcity" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="respcity" select="document/fields/respcity"/>
+                                        <xsl:variable name="respcity" select="document/fields/respcity/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -272,7 +272,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="city" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="city" select="document/fields/respcity"/>
+                                        <xsl:variable name="city" select="document/fields/respcity/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -1530,7 +1530,7 @@
                                         </option>
                                     </select>
                                     <input type="text" name="f1n33_3" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n33_3}"/>
                                 </td>
                             </tr>
                             <!-- Уничтожено -->
@@ -1557,314 +1557,314 @@
                                             </option>
                                         </xsl:if>
                                         <option value="1">
-                                            <xsl:if test="document/fields/f1n33_2 = '1'">
+                                            <xsl:if test="document/fields/f1n34_2 = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Водный
                                         </option>
                                         <option value="2">
-                                            <xsl:if test="document/fields/f1n33_2 = '2'">
+                                            <xsl:if test="document/fields/f1n34_2 = '2'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Гужевой
                                         </option>
                                         <option value="3">
-                                            <xsl:if test="document/fields/f1n33_2 = '3'">
+                                            <xsl:if test="document/fields/f1n34_2 = '3'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Повозки
                                         </option>
                                         <option value="4">
-                                            <xsl:if test="document/fields/f1n33_2 = '4'">
+                                            <xsl:if test="document/fields/f1n34_2 = '4'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Телеги
                                         </option>
                                         <option value="5">
-                                            <xsl:if test="document/fields/f1n33_2 = '5'">
+                                            <xsl:if test="document/fields/f1n34_2 = '5'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Обозы
                                         </option>
                                         <option value="6">
-                                            <xsl:if test="document/fields/f1n33_2 = '6'">
+                                            <xsl:if test="document/fields/f1n34_2 = '6'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Сани
                                         </option>
                                         <option value="7">
-                                            <xsl:if test="document/fields/f1n33_2 = '7'">
+                                            <xsl:if test="document/fields/f1n34_2 = '7'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Автомобильный
                                         </option>
                                         <option value="8">
-                                            <xsl:if test="document/fields/f1n33_2 = '8'">
+                                            <xsl:if test="document/fields/f1n34_2 = '8'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Общего пользования
                                         </option>
                                         <option value="9">
-                                            <xsl:if test="document/fields/f1n33_2 = '9'">
+                                            <xsl:if test="document/fields/f1n34_2 = '9'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пассажирские перевозки
                                         </option>
                                         <option value="10">
-                                            <xsl:if test="document/fields/f1n33_2 = '10'">
+                                            <xsl:if test="document/fields/f1n34_2 = '10'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Перевозка товаров
                                         </option>
                                         <option value="11">
-                                            <xsl:if test="document/fields/f1n33_2 = '11'">
+                                            <xsl:if test="document/fields/f1n34_2 = '11'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Специального пользования
                                         </option>
                                         <option value="12">
-                                            <xsl:if test="document/fields/f1n33_2 = '12'">
+                                            <xsl:if test="document/fields/f1n34_2 = '12'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Внутрипроизводственный
                                         </option>
                                         <option value="13">
-                                            <xsl:if test="document/fields/f1n33_2 = '13'">
+                                            <xsl:if test="document/fields/f1n34_2 = '13'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Тракторы
                                         </option>
                                         <option value="14">
-                                            <xsl:if test="document/fields/f1n33_2 = '14'">
+                                            <xsl:if test="document/fields/f1n34_2 = '14'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- КАМАЗы
                                         </option>
                                         <option value="15">
-                                            <xsl:if test="document/fields/f1n33_2 = '15'">
+                                            <xsl:if test="document/fields/f1n34_2 = '15'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Автопогрузчики
                                         </option>
                                         <option value="16">
-                                            <xsl:if test="document/fields/f1n33_2 = '16'">
+                                            <xsl:if test="document/fields/f1n34_2 = '16'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Электрокары
                                         </option>
                                         <option value="17">
-                                            <xsl:if test="document/fields/f1n33_2 = '17'">
+                                            <xsl:if test="document/fields/f1n34_2 = '17'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Экскаваторы
                                         </option>
                                         <option value="18">
-                                            <xsl:if test="document/fields/f1n33_2 = '18'">
+                                            <xsl:if test="document/fields/f1n34_2 = '18'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Бульдозеры
                                         </option>
                                         <option value="19">
-                                            <xsl:if test="document/fields/f1n33_2 = '19'">
+                                            <xsl:if test="document/fields/f1n34_2 = '19'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Грейдеры
                                         </option>
                                         <option value="20">
-                                            <xsl:if test="document/fields/f1n33_2 = '20'">
+                                            <xsl:if test="document/fields/f1n34_2 = '20'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Автокраны
                                         </option>
                                         <option value="21">
-                                            <xsl:if test="document/fields/f1n33_2 = '21'">
+                                            <xsl:if test="document/fields/f1n34_2 = '21'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Внутриведомственный
                                         </option>
                                         <option value="22">
-                                            <xsl:if test="document/fields/f1n33_2 = '22'">
+                                            <xsl:if test="document/fields/f1n34_2 = '22'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Личный и индивидуальный
                                         </option>
                                         <option value="23">
-                                            <xsl:if test="document/fields/f1n33_2 = '23'">
+                                            <xsl:if test="document/fields/f1n34_2 = '23'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Легковые автомобили
                                         </option>
                                         <option value="24">
-                                            <xsl:if test="document/fields/f1n33_2 = '24'">
+                                            <xsl:if test="document/fields/f1n34_2 = '24'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Велосипеды
                                         </option>
                                         <option value="25">
-                                            <xsl:if test="document/fields/f1n33_2 = '25'">
+                                            <xsl:if test="document/fields/f1n34_2 = '25'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Яхты
                                         </option>
                                         <option value="26">
-                                            <xsl:if test="document/fields/f1n33_2 = '26'">
+                                            <xsl:if test="document/fields/f1n34_2 = '26'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Частные самолеты
                                         </option>
                                         <option value="27">
-                                            <xsl:if test="document/fields/f1n33_2 = '27'">
+                                            <xsl:if test="document/fields/f1n34_2 = '27'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Мопеды
                                         </option>
                                         <option value="28">
-                                            <xsl:if test="document/fields/f1n33_2 = '28'">
+                                            <xsl:if test="document/fields/f1n34_2 = '28'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Специализированный
                                         </option>
                                         <option value="29">
-                                            <xsl:if test="document/fields/f1n33_2 = '29'">
+                                            <xsl:if test="document/fields/f1n34_2 = '29'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Железнодорожный
                                         </option>
                                         <option value="30">
-                                            <xsl:if test="document/fields/f1n33_2 = '30'">
+                                            <xsl:if test="document/fields/f1n34_2 = '30'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Тепловозы
                                         </option>
                                         <option value="31">
-                                            <xsl:if test="document/fields/f1n33_2 = '31'">
+                                            <xsl:if test="document/fields/f1n34_2 = '31'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Электровозы
                                         </option>
                                         <option value="32">
-                                            <xsl:if test="document/fields/f1n33_2 = '32'">
+                                            <xsl:if test="document/fields/f1n34_2 = '32'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Паровозы
                                         </option>
                                         <option value="33">
-                                            <xsl:if test="document/fields/f1n33_2 = '33'">
+                                            <xsl:if test="document/fields/f1n34_2 = '33'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Электропоезда
                                         </option>
                                         <option value="34">
-                                            <xsl:if test="document/fields/f1n33_2 = '34'">
+                                            <xsl:if test="document/fields/f1n34_2 = '34'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Дизель-поезда
                                         </option>
                                         <option value="35">
-                                            <xsl:if test="document/fields/f1n33_2 = '35'">
+                                            <xsl:if test="document/fields/f1n34_2 = '35'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Локомотивы
                                         </option>
                                         <option value="36">
-                                            <xsl:if test="document/fields/f1n33_2 = '36'">
+                                            <xsl:if test="document/fields/f1n34_2 = '36'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Вагоны
                                         </option>
                                         <option value="37">
-                                            <xsl:if test="document/fields/f1n33_2 = '37'">
+                                            <xsl:if test="document/fields/f1n34_2 = '37'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Резервуары (цистерны)
                                         </option>
                                         <option value="38">
-                                            <xsl:if test="document/fields/f1n33_2 = '38'">
+                                            <xsl:if test="document/fields/f1n34_2 = '38'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Воздушный
                                         </option>
                                         <option value="39">
-                                            <xsl:if test="document/fields/f1n33_2 = '39'">
+                                            <xsl:if test="document/fields/f1n34_2 = '39'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Самолет
                                         </option>
                                         <option value="40">
-                                            <xsl:if test="document/fields/f1n33_2 = '40'">
+                                            <xsl:if test="document/fields/f1n34_2 = '40'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Вертолет
                                         </option>
                                         <option value="41">
-                                            <xsl:if test="document/fields/f1n33_2 = '41'">
+                                            <xsl:if test="document/fields/f1n34_2 = '41'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Аэроплан
                                         </option>
                                         <option value="42">
-                                            <xsl:if test="document/fields/f1n33_2 = '42'">
+                                            <xsl:if test="document/fields/f1n34_2 = '42'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Трубопроводный
                                         </option>
                                         <option value="43">
-                                            <xsl:if test="document/fields/f1n33_2 = '43'">
+                                            <xsl:if test="document/fields/f1n34_2 = '43'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пневматический
                                         </option>
                                         <option value="44">
-                                            <xsl:if test="document/fields/f1n33_2 = '44'">
+                                            <xsl:if test="document/fields/f1n34_2 = '44'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Плавательные средства
                                         </option>
                                         <option value="45">
-                                            <xsl:if test="document/fields/f1n33_2 = '45'">
+                                            <xsl:if test="document/fields/f1n34_2 = '45'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Лодки
                                         </option>
                                         <option value="46">
-                                            <xsl:if test="document/fields/f1n33_2 = '46'">
+                                            <xsl:if test="document/fields/f1n34_2 = '46'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Катера
                                         </option>
                                         <option value="47">
-                                            <xsl:if test="document/fields/f1n33_2 = '47'">
+                                            <xsl:if test="document/fields/f1n34_2 = '47'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Байдарки
                                         </option>
                                         <option value="48">
-                                            <xsl:if test="document/fields/f1n33_2 = '48'">
+                                            <xsl:if test="document/fields/f1n34_2 = '48'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Теплоход
                                         </option>
                                         <option value="49">
-                                            <xsl:if test="document/fields/f1n33_2 = '49'">
+                                            <xsl:if test="document/fields/f1n34_2 = '49'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пароход
                                         </option>
                                         <option value="50">
-                                            <xsl:if test="document/fields/f1n33_2 = '50'">
+                                            <xsl:if test="document/fields/f1n34_2 = '50'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Танкер
                                         </option>
                                         <option value="51">
-                                            <xsl:if test="document/fields/f1n33_2 = '51'">
+                                            <xsl:if test="document/fields/f1n34_2 = '51'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Паром
                                         </option>
                                     </select>
                                     <input type="text" name="f1n34_3" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n34_3}"/>
                                 </td>
                             </tr>
                             <!-- Спасено материальных ценностей тенге всего -->
@@ -2014,6 +2014,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n41"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -2087,6 +2088,7 @@
                                         <xsl:if test="$editmode = 'edit'">
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                            <xsl:value-of select="document/fields/f1n47"/>
                                         </xsl:if>
                                     </textarea>
                                 </td>
@@ -2147,6 +2149,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n50"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -2753,6 +2756,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n60"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3359,6 +3363,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n68"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3499,6 +3504,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n71"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3533,6 +3539,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n73"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3552,6 +3559,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n74"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3571,6 +3579,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n75"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3590,6 +3599,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n76"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3609,6 +3619,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n77"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3628,6 +3639,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n78"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3647,6 +3659,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n79"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3667,6 +3680,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n80"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3687,6 +3701,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n81"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3706,6 +3721,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n82"/>
                                     </textarea>
                                 </td>
                             </tr>
@@ -3726,6 +3742,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n83"/>
                                     </textarea>
                                 </td>
                             </tr>
