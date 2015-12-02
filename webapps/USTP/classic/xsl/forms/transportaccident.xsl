@@ -140,7 +140,7 @@
                                 <td>
                                     <select size="1" name="essubtype" style="width:612px;"
                                             class="select_editable" autocomplete="off">
-                                        <xsl:variable name="essubtype" select="document/fields/essubtype"/>
+                                        <xsl:variable name="essubtype" select="document/fields/essubtype/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
