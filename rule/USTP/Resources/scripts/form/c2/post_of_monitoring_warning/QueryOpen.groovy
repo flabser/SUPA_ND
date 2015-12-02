@@ -27,7 +27,7 @@ class QueryOpen extends _FormQueryOpen {
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), getLocalizedWord("Сохранить и закрыть", lang), _ActionType.SAVE_AND_CLOSE))
         publishElement(actionBar)
 
-        publishValue("type", doc.getValueString("type"))
+        publishValue("postType", doc.getValueString("postType"))
         publishValue("name", doc.getValueString("name"))
         publishValue("location", doc.getValueString("location"))
         publishValue("appointment", doc.getValueString("appointment"))
