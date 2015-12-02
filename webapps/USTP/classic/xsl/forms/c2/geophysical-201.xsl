@@ -508,25 +508,20 @@
                                         </span>
                                     </section>
                                     <header>
-                                        <label class="text-right">В том числе</label>
+                                        <label class="text-right">
+                                            В том числе
+                                            <button type="button" class="btn" data-action="add_domestic_animal">
+                                                +Добавить
+                                            </button>
+                                        </label>
                                         <span></span>
                                         <span></span>
                                     </header>
                                     <footer>
                                         <label></label>
-                                        <span>
-                                            <select data-action="add-animal-count">
-                                                <option value=""></option>
-                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
-                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
-                                                <option value="лошадей">лошадей</option>
-                                                <option value="птицы">птицы</option>
-                                                <option value="водных организмов (гидробионтов)">водных организмов
-                                                    (гидробионтов)
-                                                </option>
-                                                <option value="прочие">прочие</option>
-                                            </select>
-                                        </span>
+                                        <div>
+                                            <div id="domestic_animal-table"></div>
+                                        </div>
                                     </footer>
                                 </div>
                             </section>
