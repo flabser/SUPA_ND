@@ -3714,6 +3714,7 @@
                                 <td class="fc">
                                     Выводы, предложения, меры :
                                 </td>
+                                
                                 <td>
                                     <textarea name="f1n83" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
                                         <xsl:if test="$editmode !='edit'">
