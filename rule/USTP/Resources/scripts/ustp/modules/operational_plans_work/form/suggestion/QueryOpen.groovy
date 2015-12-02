@@ -34,6 +34,7 @@ class QueryOpen extends _FormQueryOpen {
         publishValue("description", doc.getValueString("description"))
         publishEmployer("assignee", doc.getValueString("assignee"))
         // publishValue("assignee", doc.getValueString("assignee"))
+        publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))
     }
 }

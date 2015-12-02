@@ -1,6 +1,6 @@
 $(function() {
 
-    $('[data-action=save_and_close]').click(function(){
+    $('[data-action=save_and_close]').click(function() {
         SaveFormJquery();
     });
 
@@ -8,20 +8,24 @@ $(function() {
         $(this).parent().toggleClass('side-tree-collapse');
     });
 
-    var uiLang = $.cookie('lang') || 'RUS';
-    $('input[type=date]').datepicker({
-        dateFormat: 'yy-mm-dd',
-        showOn: 'button',
-        buttonImage: '/SharedResources/img/iconset/calendar.png',
-        buttonImageOnly: true,
-        regional:['ru'],
-        showAnim: '',
-        monthNames: calendarStrings[uiLang].monthNames,
-        monthNamesShort: calendarStrings[uiLang].monthNamesShort,
-        dayNames: calendarStrings[uiLang].dayNames,
-        dayNamesShort: calendarStrings[uiLang].dayNamesShort,
-        dayNamesMin: calendarStrings[uiLang].dayNamesMin,
-        weekHeader: calendarStrings[uiLang].weekHeader,
-        yearSuffix: calendarStrings[uiLang].yearSuffix,
-    });
+    try {
+        var uiLang = $.cookie('lang') || 'RUS';
+        $('input[type=date]').datepicker({
+            dateFormat: 'yy-mm-dd',
+            showOn: 'button',
+            buttonImage: '/SharedResources/img/iconset/calendar.png',
+            buttonImageOnly: true,
+            regional: ['ru'],
+            showAnim: '',
+            monthNames: calendarStrings[uiLang].monthNames,
+            monthNamesShort: calendarStrings[uiLang].monthNamesShort,
+            dayNames: calendarStrings[uiLang].dayNames,
+            dayNamesShort: calendarStrings[uiLang].dayNamesShort,
+            dayNamesMin: calendarStrings[uiLang].dayNamesMin,
+            weekHeader: calendarStrings[uiLang].weekHeader,
+            yearSuffix: calendarStrings[uiLang].yearSuffix,
+        });
+    } catch (e) {
+        console.log(e);
+    }
 });
