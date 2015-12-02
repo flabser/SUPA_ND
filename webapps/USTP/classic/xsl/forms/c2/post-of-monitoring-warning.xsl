@@ -21,15 +21,15 @@
                 <fieldset class="fieldset">
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/type/@caption"/>type
+                            <xsl:value-of select="//captions/post_type/@caption"/>
                         </div>
                         <div class="controls">
-                            <input type="text" name="type" value="{//fields/type}"/>
+                            <input type="text" name="postType" value="{//fields/postType}"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/name/@caption"/>name
+                            <xsl:value-of select="//captions/name/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="name" value="{//fields/name}"/>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/location/@caption"/>location
+                            <xsl:value-of select="//captions/location/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="location" value="{//fields/location}"/>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/appointment/@caption"/>appointment
+                            <xsl:value-of select="//captions/appointment/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="appointment" value="{//fields/appointment}"/>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/zone_responsibility/@caption"/>zone_responsibility
+                            <xsl:value-of select="//captions/zone_responsibility/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="zoneResponsibility" value="{//fields/zoneResponsibility}"/>

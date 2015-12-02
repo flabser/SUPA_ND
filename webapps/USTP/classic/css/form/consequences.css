@@ -1,9 +1,9 @@
 .consequences-count-section {
     display: inline-block;
-    min-width: 600px;
-    padding: 8px;
+    min-width: 505px;
+    padding: 0px;
     vertical-align: top;
-    width: 35%;
+    width: 25%;
 }
 
 
@@ -54,7 +54,7 @@
     display: inline-block;
     padding: 1px;
     vertical-align: middle;
-    width: 260px;
+    width: 220px;
 }
 
 .consequences-count-gr.consequences-count-caption > div {
@@ -82,10 +82,10 @@
 
 .consequences-humans-section {
     display: inline-block;
-    padding: 8px 0;
+    padding: 0px;
     min-width: 700px;
     vertical-align: top;
-    width: 60%;
+    width: 67%;
 }
 
 .humans-table-container {
