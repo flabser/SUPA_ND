@@ -5,6 +5,8 @@ app.oper_plans_work = {
         this.dueDateTypeToggle();
     },
 
+    actions: {},
+
     dueDateTypeToggle: function() {
         var $dueDateType = $('[name=dueDateType]');
         switch ($dueDateType.val()) {
@@ -36,10 +38,31 @@ app.oper_plans_work = {
     },
 
     dialog: {
+        selectAssignees: function() {
+            var dlg = nb.dialog.show({
+                title: 'selectDueDateLink',
+                href: 'Provider?type=page&id=select-assignees',
+                buttons: {
+                    'cancel': {
+                        text: nb.getText('cancel'),
+                        click: function() {
+                            dlg.dialog('close');
+                        }
+                    },
+                    'select': {
+                        text: nb.getText('select'),
+                        click: function() {
+
+                        }
+                    }
+                }
+            });
+        },
+
         selectDueDateLink: function() {
             var dlg = nb.dialog.show({
                 title: 'selectDueDateLink',
-                href: '',
+                href: 'Provider?type=page&id=suggestions-list',
                 buttons: {
                     'cancel': {
                         text: nb.getText('cancel'),
@@ -59,8 +82,22 @@ app.oper_plans_work = {
     }
 };
 
+app.oper_plans_work.actions.send = function() {
+    nb.utils.notify({
+        message: 'action send'
+    }).show().remove(3000);
+};
+
 $(function() {
     app.oper_plans_work.init();
+
+    $('[data-action=send]').click(function() {
+        app.oper_plans_work.actions.send();
+    });
+
+    $('[data-action=select-assignees]').click(function() {
+        app.oper_plans_work.dialog.selectAssignees();
+    });
 
     $('[data-action=due-date-link]').click(function() {
         app.oper_plans_work.dialog.selectDueDateLink();
