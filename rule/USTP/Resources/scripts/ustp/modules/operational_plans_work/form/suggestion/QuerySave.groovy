@@ -1,5 +1,6 @@
 package ustp.modules.operational_plans_work.form.suggestion
 
+import kz.flabs.util.Util
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
@@ -13,18 +14,24 @@ class QuerySave extends _FormQuerySave {
 
         doc.setForm("suggestion")
 
-        doc.addStringField("name", webFormData.getValue("name"))
-        doc.addStringField("address", webFormData.getValue("address"))
-        doc.addStringField("phone", webFormData.getValue("phone"))
-        doc.addStringField("details", webFormData.getValue("details"))
+        doc.addStringField("description", webFormData.getValue("description"))
+        doc.addStringField("assignee", webFormData.getValue("assignee"))
+        doc.addDateField("dueDate", webFormData.getValue("dueDate"))
 
-        doc.setViewText(doc.getValueString("name"))
-        doc.addViewText(doc.getValueString("name"))
-        doc.addViewText(doc.getValueString("address"))
-        doc.addViewText(doc.getValueString("phone"))
-        doc.addViewText(doc.getValueString("details"))
+        def struct = session.getStructure();
+        def assignee = struct.getEmployer(webFormData.getValue("assignee"));
+
+        def vt = """${doc.getValueString("description")} > ${doc.getValueString("assignee")}, ${
+            doc.getValueString("dueDate")
+        }"""
+        doc.setViewText(vt)
+        doc.addViewText(doc.getValueString("description"))
+        doc.addViewText(assignee.getFullName())
+        doc.addViewText(assignee.getUserID())
+        doc.setViewDate(Util.convertStringToDateTime(doc.getValueString("dueDate")))
         //
         doc.addEditor(session.getUser().getUserID())
+        doc.addReader(assignee.getUserID())
         doc.addEditor("[supervisor]")
     }
 }

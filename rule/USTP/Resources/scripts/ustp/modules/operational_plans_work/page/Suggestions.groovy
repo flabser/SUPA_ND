@@ -27,7 +27,6 @@ class Suggestions extends _DoScript {
                 .setPageNum(formData.getNumberValueSilently("page", 1))
                 .setCheckResponse(false)
                 .setDateFormat(new SimpleDateFormat("dd.MM.yyyy"))
-
         def col = session.getCurrentDatabase().getCollectionOfDocuments(viewParam)
 
         //

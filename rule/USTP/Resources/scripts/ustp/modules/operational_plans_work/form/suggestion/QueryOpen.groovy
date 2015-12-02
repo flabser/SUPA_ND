@@ -31,9 +31,9 @@ class QueryOpen extends _FormQueryOpen {
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
 
-        publishValue("name", doc.getValueString("name"))
-        publishValue("address", doc.getValueString("address"))
-        publishValue("phone", doc.getValueString("phone"))
-        publishValue("details", doc.getValueString("details"))
+        publishValue("description", doc.getValueString("description"))
+        publishEmployer("assignee", doc.getValueString("assignee"))
+        // publishValue("assignee", doc.getValueString("assignee"))
+        publishValue("dueDate", doc.getValueString("dueDate"))
     }
 }
