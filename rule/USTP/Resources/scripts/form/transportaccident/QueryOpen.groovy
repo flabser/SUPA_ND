@@ -246,6 +246,7 @@ class QueryOpen extends _FormQueryOpen {
 		publishValue("f1n84", doc.getValueString("f1n84"))
 
 
+
 		try{
 			publishAttachment("rtfcontent","rtfcontent")
 		}catch(_Exception e){
