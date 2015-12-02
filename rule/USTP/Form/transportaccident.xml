@@ -6,7 +6,7 @@
 	<events>
 		<queryopen source="file">form.transportaccident.QueryOpen</queryopen>
 		<querysave source="file">form.transportaccident.QuerySave</querysave>
-		<postsave source="file">form.transportaccident.PostSave</postsave>
+		<!--<postsave source="file">form.transportaccident.PostSave</postsave>-->
 	</events> 
 	<caption name="close" source="KEYWORD">Закрыть</caption>
 	<caption name="properties" source="KEYWORD">Свойства</caption>

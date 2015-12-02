@@ -27,16 +27,7 @@
                 </label>
                 <div class="entry-captions">
                     <span class="vaccount-name">
-                        <xsl:value-of select="//captions/viewtext1/@caption"/>
-                    </span>
-                    <span class="vaccount-user">
                         <xsl:value-of select="//captions/viewtext2/@caption"/>
-                    </span>
-                    <span class="vaccount-observers">
-                        <xsl:value-of select="//captions/viewtext3/@caption"/>
-                    </span>
-                    <span class="vaccount-amount-control">
-                        <xsl:value-of select="//captions/viewnumber/@caption"/>
                     </span>
                 </div>
             </div>
@@ -59,19 +50,8 @@
                 </label>
                 <a href="{@url}" class="entry-link">
                     <div class="entry-fields">
-                        <span class="entry-field vaccount-name">
-                            <xsl:value-of select="viewcontent/viewtext1"/>
-                        </span>
-                        <span class="entry-field vaccount-user">
-                            <xsl:value-of select="viewcontent/viewtext2"/>
-                        </span>
-                        <span class="entry-field vaccount-observers">
-                            <span>
-                                <xsl:value-of select="viewcontent/viewtext3"/>
-                            </span>
-                        </span>
-                        <span class="entry-field vaccount-amount-control">
-                            <xsl:value-of select="viewcontent/viewnumber"/>
+                        <span class="entry-field vaccount-name" style="width:90% !important;">
+                            <xsl:value-of select="viewcontent/viewtext"/>
                         </span>
                     </div>
                 </a>

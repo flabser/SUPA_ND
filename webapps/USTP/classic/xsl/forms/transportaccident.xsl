@@ -111,7 +111,7 @@
                                     </font>
                                 </td>
                                 <td>
-                                   <input type="text" name="f1n1" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n1}"/>
+                                   <input type="text" name="cardnumber" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/cardnumber}"/>
                                 </td>
                             </tr>
                             <!-- Дата карточки -->
@@ -129,7 +129,7 @@
                                     Код ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n2" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/f1n2}"/>
+                                    <input type="text" name="escode" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/escode}"/>
                                 </td>
                             </tr>
                             <!-- Вид  ЧС -->
@@ -138,9 +138,9 @@
                                     Вид ЧС :
                                 </td>
                                 <td>
-                                    <select size="1" name="f1n3" style="width:612px;"
+                                    <select size="1" name="essubtype" style="width:612px;"
                                             class="select_editable" autocomplete="off">
-                                        <xsl:variable name="essubtype" select="document/fields/essubtype"/>
+                                        <xsl:variable name="essubtype" select="document/fields/essubtype/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -173,7 +173,7 @@
                                 </td>
                                 <td style="padding-top:5px">
                                     <div>
-                                        <textarea name="f1n4" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <textarea name="esbriefcontent" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
                                             <xsl:if test="$editmode !='edit'">
                                                 <xsl:attribute name="readonly">readonly</xsl:attribute>
                                                 <xsl:attribute name="class">textarea_noteditable
@@ -185,6 +185,7 @@
                                                 <xsl:attribute name="onblur">fieldOnBlur(this)
                                                 </xsl:attribute>
                                             </xsl:if>
+                                            <xsl:value-of select="document/fields/esbriefcontent"/>
                                         </textarea>
                                     </div>
                                 </td>
@@ -195,7 +196,7 @@
                                     Дата возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n5" id="f1n5" maxlength="10" class="td_editable" style="width:100px;" value="{document/fields/f1n5}"/>
+                                    <input type="text" name="esdate" id="f1n5" maxlength="10" class="td_editable" style="width:100px;" value="{document/fields/esdate}"/>
                                 </td>
                             </tr>
                             <!-- Наименование области -->
@@ -205,7 +206,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="region" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="region" select="document/fields/region"/>
+                                        <xsl:variable name="region" select="document/fields/region/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -238,7 +239,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="respcity" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="respcity" select="document/fields/respcity"/>
+                                        <xsl:variable name="respcity" select="document/fields/respcity/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -271,7 +272,7 @@
                                 </td>
                                 <td>
                                     <select size="1" name="city" style="width:612px;" class="select_editable" autocomplete="off">
-                                        <xsl:variable name="city" select="document/fields/respcity"/>
+                                        <xsl:variable name="city" select="document/fields/respcity/@attrval"/>
                                         <xsl:if test="$editmode ='edit'">
                                             <option value=" ">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
@@ -419,7 +420,7 @@
                                     <table style="padding:0px">
                                         <tr>
                                             <td style="width:200px; padding:0">
-                                                <input type="text" name="f1n7" class="td_editable" style="width:195px;" value="{document/fields/f1n7}"/>
+                                                <input type="text" name="referencepoint" class="td_editable" style="width:195px;" value="{document/fields/referencepoint}"/>
                                             </td>
                                             <td style="width:120px; padding:0">
                                                 <input type="text" name="distance" class="td_editable" style="width:120px;" value="{document/fields/distance}"/>
@@ -434,8 +435,7 @@
                                     Географические координаты :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n8" class="td_editable" style="width:320px;"
-                                           value="{document/fields/f1n8}"/>
+                                    <input type="text" name="coordinats" class="td_editable" style="width:320px;" value="{document/fields/coordinats}"/>
                                 </td>
                             </tr>
                             <!-- дороги (значение) -->
@@ -794,8 +794,7 @@
                                     Маршрут передвижения (направление, сообщение):
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n14" class="td_editable" style="width:500px;"
-                                           value="{document/fields/f1n14}"/>
+                                    <input type="text" name="route" class="td_editable" style="width:500px;" value="{document/fields/route}"/>
                                 </td>
                             </tr>
                             <!-- Пункт направления (назначения)  -->
@@ -804,14 +803,10 @@
                                     Пункт направления (назначения):
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n15" class="td_editable"
-                                           style="width:500px; margin-right:5px"
-                                           value="{document/fields/f1n15}"/>
+                                    <input type="text" name="f1n15" class="td_editable" style="width:500px; margin-right:5px" value="{document/fields/f1n15}"/>
                                     Отправления
                                     <br/>
-                                    <input type="text" name="f1n15_2" class="td_editable"
-                                           style="width:500px; margin-right:5px"
-                                           value="{document/fields/f1n15_2}"/>
+                                    <input type="text" name="f1n15_2" class="td_editable"  style="width:500px; margin-right:5px" value="{document/fields/f1n15_2}"/>
                                     Прибытия
                                 </td>
                             </tr>
@@ -821,8 +816,7 @@
                                     Дата отправления :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n16" id="f1n16" class="td_editable"
-                                           style="width:100px;" value="{document/fields/f1n16}"/>
+                                    <input type="text" name="departdate" id="f1n16" class="td_editable" style="width:100px;" value="{document/fields/departdate}"/>
                                 </td>
                             </tr>
                             <!-- Время отправления   -->
@@ -831,8 +825,7 @@
                                     Время отправления :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n17" class="td_editable" style="width:100px;"
-                                           value="{document/fields/f1n17}"/>
+                                    <input type="text" name="departtime" class="td_editable" style="width:100px;" value="{document/fields/departtime}"/>
                                 </td>
                             </tr>
                             <!-- Дата прибытия    -->
@@ -841,8 +834,7 @@
                                     Дата прибытия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n18" id="f1n18" class="td_editable"
-                                           style="width:100px;" value="{document/fields/f1n18}"/>
+                                    <input type="text" name="arrivaldate" id="f1n18" class="td_editable" style="width:100px;" value="{document/fields/arrivaldate}"/>
                                 </td>
                             </tr>
                             <!-- Время прибытия    -->
@@ -851,8 +843,8 @@
                                     Время прибытия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n19" class="td_editable" style="width:100px;"
-                                           value="{document/fields/f1n19}"/>
+                                    <input type="text" name="arrivaltime" class="td_editable" style="width:100px;"
+                                           value="{document/fields/arrivaltime}"/>
                                 </td>
                             </tr>
                             <!-- Задержка движения транспорта  -->
@@ -861,8 +853,7 @@
                                     Задержка движения транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n20" class="td_editable" style="width:100px;"
-                                           value="{document/fields/f1n20}"/>
+                                    <input type="text" name="f1n20" class="td_editable" style="width:100px;" value="{document/fields/f1n20}"/>
                                 </td>
                             </tr>
                             <!-- Количество пассажиров  -->
@@ -871,14 +862,10 @@
                                     Количество пассажиров (человек) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n21" class="td_editable"
-                                           style="width:160px; margin-right:5px"
-                                           value="{document/fields/f1n21}"/>
+                                    <input type="text" name="f1n21" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n21}"/>
                                     Взрослых
                                     <br/>
-                                    <input type="text" name="f1n21_2" class="td_editable"
-                                           style="width:160px; margin-right:5px"
-                                           value="{document/fields/f1n21_2}"/>
+                                    <input type="text" name="f1n21_2" class="td_editable" style="width:160px; margin-right:5px" value="{document/fields/f1n21_2}"/>
                                     Детей
                                 </td>
                             </tr>
@@ -893,7 +880,7 @@
                                     Общее количество людей находившихся в зоне ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n22" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n22}"/>
+                                    <input type="text" name="f1n22" class="td_editable" style="width:120px;" value="{document/fields/f1n22}"/>
                                 </td>
                             </tr>
                             <!-- Количество пострадавших (чел.) -->
@@ -902,7 +889,7 @@
                                     Количество пострадавших (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n23" maxlength="10" class="td_editable"  style="width:120px; margin-right:5px" value="{document/fields/f1n23}"/>
+                                    <input type="text" name="f1n23" class="td_editable"  style="width:120px; margin-right:5px" value="{document/fields/f1n23}"/>
                                     Детей :  <input type="text" name="f1n23_5" maxlength="10" class="td_editable" style="width:120px; margin-left:5px" value="{document/fields/f1n213_5}"/>
                                 </td>
                             </tr>
@@ -923,14 +910,10 @@
                                                 <input type="text" name="f1n23_2" maxlength="10" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n23_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n23_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n23_3}"/>
+                                                <input type="text" name="f1n23_3" maxlength="10" class="td_editable"  style="width:100px; margin-right:5px;" value="{document/fields/f1n23_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n23_4" maxlength="10" class="td_editable"
-                                                        style="width:60px;"
-                                                        value="{document/fields/f1n23_4}"/>
+                                                <input type="text" name="f1n23_4" maxlength="10" class="td_editable"  style="width:60px;" value="{document/fields/f1n23_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -942,7 +925,7 @@
                                     Количество погибших (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n24" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n24}"/>
+                                    <input type="text" name="f1n24" class="td_editable" style="width:120px;" value="{document/fields/f1n24}"/>
                                     Детей : <input type="text" name="f1n24_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n24_5}"/>
                                 </td>
                             </tr>
@@ -960,17 +943,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n24_2" maxlength="10" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n24_2}"/>
+                                                <input type="text" name="f1n24_2"  class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n24_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n24_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n24_3}"/>
+                                                <input type="text" name="f1n24_3"  class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n24_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n24_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n24_4}"/>
+                                                <input type="text" name="f1n24_4" class="td_editable" style="width:60px; ; margin-left:5px;" value="{document/fields/f1n24_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -982,7 +961,7 @@
                                     Количество пропавших без вести (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n25" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n25}"/>
+                                    <input type="text" name="f1n25" class="td_editable" style="width:120px;" value="{document/fields/f1n25}"/>
                                     Детей : <input type="text" name="f1n25_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n25_5}"/>
                                 </td>
                             </tr>
@@ -1000,19 +979,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n25_2" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n25_2}"/>
+                                                <input type="text" name="f1n25_2" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n25_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n25_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n25_3}"/>
+                                                <input type="text" name="f1n25_3"  class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n25_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n25_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n25_4}"/>
+                                                <input type="text" name="f1n25_4" class="td_editable" style="width:60px; margin-left:5px; " value="{document/fields/f1n25_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1025,7 +998,7 @@
                                     Количество спасенных (чел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n26" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n26}"/>
+                                    <input type="text" name="f1n26" class="td_editable" style="width:120px;" value="{document/fields/f1n26}"/>
                                     Детей : <input type="text" name="f1n26_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n26_5}"/>
                                 </td>
                             </tr>
@@ -1043,19 +1016,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n26_2" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n26_2}"/>
+                                                <input type="text" name="f1n26_2" class="td_editable" style="width:250px; margin-right:5px" value="{document/fields/f1n26_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n26_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n26_3}"/>
+                                                <input type="text" name="f1n26_3" class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n26_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n26_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n26_4}"/>
+                                                <input type="text" name="f1n26_4" class="td_editable" style="width:60px;  margin-left:5px; " value="{document/fields/f1n26_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1068,7 +1035,7 @@
                                     Обнаруженно людей в ходе проведения поисково - спасательных работ :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n27" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n27}"/>
+                                    <input type="text" name="f1n27"  class="td_editable" style="width:120px;" value="{document/fields/f1n27}"/>
                                 </td>
                             </tr>
                             <!-- Спасены и доставлены в мед. учреждения -->
@@ -1077,7 +1044,7 @@
                                     Спасены и доставлены в мед. учреждения :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n27_2" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n27_2}"/>
+                                    <input type="text" name="f1n27_2" class="td_editable" style="width:120px;" value="{document/fields/f1n27_2}"/>
                                 </td>
                             </tr>
                             <!-- ФИО, Пол, Возраст -->
@@ -1094,19 +1061,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n27_3" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n27_3}"/>
+                                                <input type="text" name="f1n27_3" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n27_3}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n27_4" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n27_4}"/>
+                                                <input type="text" name="f1n27_4" class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n27_4}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n27_5" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n27_5}"/>
+                                                <input type="text" name="f1n27_5" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n27_5}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1118,8 +1079,7 @@
                                     Общее количество людей требующих эвакуации :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n28" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n28}"/>
+                                    <input type="text" name="f1n28" class="td_editable" style="width:120px;" value="{document/fields/f1n28}"/>
                                 </td>
                             </tr>
                             <!-- Количество эвакуированных  -->
@@ -1128,7 +1088,7 @@
                                     Количество эвакуированных :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n29" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n29}"/>
+                                    <input type="text" name="f1n29" class="td_editable" style="width:120px;" value="{document/fields/f1n29}"/>
                                     Детей : <input type="text" name="f1n29_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n29_5}"/>
                                 </td>
                             </tr>
@@ -1146,19 +1106,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n29_2" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n29_2}"/>
+                                                <input type="text" name="f1n29_2" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n29_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n29_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n29_3}"/>
+                                                <input type="text" name="f1n29_3" class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n29_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n29_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n29_4}"/>
+                                                <input type="text" name="f1n29_4" class="td_editable"  style="width:60px;  margin-left:5px; " value="{document/fields/f1n29_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1170,7 +1124,7 @@
                                     Оказана первая медицинская помощь :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n30" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n30}"/>
+                                    <input type="text" name="f1n30"  class="td_editable" style="width:120px;" value="{document/fields/f1n30}"/>
                                     Детей : <input type="text" name="f1n30_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n30_5}"/>
                                 </td>
                             </tr>
@@ -1188,19 +1142,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n30_2" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n30_2}"/>
+                                                <input type="text" name="f1n30_2" class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n30_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n30_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n30_3}"/>
+                                                <input type="text" name="f1n30_3" class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n30_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n30_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n30_4}"/>
+                                                <input type="text" name="f1n30_4" class="td_editable"  style="width:60px; margin-left:5px; " value="{document/fields/f1n30_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1212,8 +1160,7 @@
                                     Наименование организаций, юридический адрес, реквизиты, оказывавших первую помощь :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n31" maxlength="10" class="td_editable"
-                                           style="width:600px;" value="{document/fields/f1n31}"/>
+                                    <input type="text" name="f1n31" class="td_editable" style="width:600px;" value="{document/fields/f1n31}"/>
                                 </td>
                             </tr>
 
@@ -1223,7 +1170,7 @@
                                     Госпитализировано людей :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n32" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n32}"/>
+                                    <input type="text" name="f1n32" class="td_editable" style="width:120px;" value="{document/fields/f1n32}"/>
                                     Детей : <input type="text" name="f1n32_5" maxlength="10" class="td_editable" style="width:120px;" value="{document/fields/f1n32_5}"/>
                                 </td>
                             </tr>
@@ -1241,19 +1188,13 @@
                                         </tr>
                                         <tr>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n32_2" maxlength="10" class="td_editable"
-                                                       style="width:250px;  margin-right:5px"
-                                                       value="{document/fields/f1n32_2}"/>
+                                                <input type="text" name="f1n32_2"  class="td_editable" style="width:250px;  margin-right:5px" value="{document/fields/f1n32_2}"/>
                                             </td>
                                             <td style="padding:0px">
-                                                <input type="text" name="f1n32_3" maxlength="10" class="td_editable"
-                                                       style="width:100px; margin-right:5px;"
-                                                       value="{document/fields/f1n32_3}"/>
+                                                <input type="text" name="f1n32_3" class="td_editable" style="width:100px; margin-right:5px;" value="{document/fields/f1n32_3}"/>
                                             </td>
                                             <td  style="padding:0px">
-                                                <input type="text" name="f1n32_4" maxlength="10" class="td_editable"
-                                                       style="width:60px; ; margin-left:5px; "
-                                                       value="{document/fields/f1n32_4}"/>
+                                                <input type="text" name="f1n32_4" class="td_editable" style="width:60px; ; margin-left:5px; " value="{document/fields/f1n32_4}"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -1265,8 +1206,7 @@
                                     Повреждено :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n33" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n33}"/>
+                                    <input type="text" name="f1n33" class="td_editable"  style="width:120px;" value="{document/fields/f1n33}"/>
                                 </td>
                             </tr>
                             <!-- Техники транспорт (ед.) -->
@@ -1590,7 +1530,7 @@
                                         </option>
                                     </select>
                                     <input type="text" name="f1n33_3" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n33_3}"/>
                                 </td>
                             </tr>
                             <!-- Уничтожено -->
@@ -1599,7 +1539,7 @@
                                     Уничтожено :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n34" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n34" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n34}"/>
                                 </td>
                             </tr>
@@ -1617,314 +1557,314 @@
                                             </option>
                                         </xsl:if>
                                         <option value="1">
-                                            <xsl:if test="document/fields/f1n33_2 = '1'">
+                                            <xsl:if test="document/fields/f1n34_2 = '1'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Водный
                                         </option>
                                         <option value="2">
-                                            <xsl:if test="document/fields/f1n33_2 = '2'">
+                                            <xsl:if test="document/fields/f1n34_2 = '2'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Гужевой
                                         </option>
                                         <option value="3">
-                                            <xsl:if test="document/fields/f1n33_2 = '3'">
+                                            <xsl:if test="document/fields/f1n34_2 = '3'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Повозки
                                         </option>
                                         <option value="4">
-                                            <xsl:if test="document/fields/f1n33_2 = '4'">
+                                            <xsl:if test="document/fields/f1n34_2 = '4'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Телеги
                                         </option>
                                         <option value="5">
-                                            <xsl:if test="document/fields/f1n33_2 = '5'">
+                                            <xsl:if test="document/fields/f1n34_2 = '5'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Обозы
                                         </option>
                                         <option value="6">
-                                            <xsl:if test="document/fields/f1n33_2 = '6'">
+                                            <xsl:if test="document/fields/f1n34_2 = '6'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -  Сани
                                         </option>
                                         <option value="7">
-                                            <xsl:if test="document/fields/f1n33_2 = '7'">
+                                            <xsl:if test="document/fields/f1n34_2 = '7'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             Автомобильный
                                         </option>
                                         <option value="8">
-                                            <xsl:if test="document/fields/f1n33_2 = '8'">
+                                            <xsl:if test="document/fields/f1n34_2 = '8'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Общего пользования
                                         </option>
                                         <option value="9">
-                                            <xsl:if test="document/fields/f1n33_2 = '9'">
+                                            <xsl:if test="document/fields/f1n34_2 = '9'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пассажирские перевозки
                                         </option>
                                         <option value="10">
-                                            <xsl:if test="document/fields/f1n33_2 = '10'">
+                                            <xsl:if test="document/fields/f1n34_2 = '10'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Перевозка товаров
                                         </option>
                                         <option value="11">
-                                            <xsl:if test="document/fields/f1n33_2 = '11'">
+                                            <xsl:if test="document/fields/f1n34_2 = '11'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Специального пользования
                                         </option>
                                         <option value="12">
-                                            <xsl:if test="document/fields/f1n33_2 = '12'">
+                                            <xsl:if test="document/fields/f1n34_2 = '12'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Внутрипроизводственный
                                         </option>
                                         <option value="13">
-                                            <xsl:if test="document/fields/f1n33_2 = '13'">
+                                            <xsl:if test="document/fields/f1n34_2 = '13'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Тракторы
                                         </option>
                                         <option value="14">
-                                            <xsl:if test="document/fields/f1n33_2 = '14'">
+                                            <xsl:if test="document/fields/f1n34_2 = '14'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- КАМАЗы
                                         </option>
                                         <option value="15">
-                                            <xsl:if test="document/fields/f1n33_2 = '15'">
+                                            <xsl:if test="document/fields/f1n34_2 = '15'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Автопогрузчики
                                         </option>
                                         <option value="16">
-                                            <xsl:if test="document/fields/f1n33_2 = '16'">
+                                            <xsl:if test="document/fields/f1n34_2 = '16'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Электрокары
                                         </option>
                                         <option value="17">
-                                            <xsl:if test="document/fields/f1n33_2 = '17'">
+                                            <xsl:if test="document/fields/f1n34_2 = '17'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Экскаваторы
                                         </option>
                                         <option value="18">
-                                            <xsl:if test="document/fields/f1n33_2 = '18'">
+                                            <xsl:if test="document/fields/f1n34_2 = '18'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Бульдозеры
                                         </option>
                                         <option value="19">
-                                            <xsl:if test="document/fields/f1n33_2 = '19'">
+                                            <xsl:if test="document/fields/f1n34_2 = '19'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Грейдеры
                                         </option>
                                         <option value="20">
-                                            <xsl:if test="document/fields/f1n33_2 = '20'">
+                                            <xsl:if test="document/fields/f1n34_2 = '20'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             --- Автокраны
                                         </option>
                                         <option value="21">
-                                            <xsl:if test="document/fields/f1n33_2 = '21'">
+                                            <xsl:if test="document/fields/f1n34_2 = '21'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Внутриведомственный
                                         </option>
                                         <option value="22">
-                                            <xsl:if test="document/fields/f1n33_2 = '22'">
+                                            <xsl:if test="document/fields/f1n34_2 = '22'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Личный и индивидуальный
                                         </option>
                                         <option value="23">
-                                            <xsl:if test="document/fields/f1n33_2 = '23'">
+                                            <xsl:if test="document/fields/f1n34_2 = '23'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Легковые автомобили
                                         </option>
                                         <option value="24">
-                                            <xsl:if test="document/fields/f1n33_2 = '24'">
+                                            <xsl:if test="document/fields/f1n34_2 = '24'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Велосипеды
                                         </option>
                                         <option value="25">
-                                            <xsl:if test="document/fields/f1n33_2 = '25'">
+                                            <xsl:if test="document/fields/f1n34_2 = '25'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Яхты
                                         </option>
                                         <option value="26">
-                                            <xsl:if test="document/fields/f1n33_2 = '26'">
+                                            <xsl:if test="document/fields/f1n34_2 = '26'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Частные самолеты
                                         </option>
                                         <option value="27">
-                                            <xsl:if test="document/fields/f1n33_2 = '27'">
+                                            <xsl:if test="document/fields/f1n34_2 = '27'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Мопеды
                                         </option>
                                         <option value="28">
-                                            <xsl:if test="document/fields/f1n33_2 = '28'">
+                                            <xsl:if test="document/fields/f1n34_2 = '28'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Специализированный
                                         </option>
                                         <option value="29">
-                                            <xsl:if test="document/fields/f1n33_2 = '29'">
+                                            <xsl:if test="document/fields/f1n34_2 = '29'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Железнодорожный
                                         </option>
                                         <option value="30">
-                                            <xsl:if test="document/fields/f1n33_2 = '30'">
+                                            <xsl:if test="document/fields/f1n34_2 = '30'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Тепловозы
                                         </option>
                                         <option value="31">
-                                            <xsl:if test="document/fields/f1n33_2 = '31'">
+                                            <xsl:if test="document/fields/f1n34_2 = '31'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Электровозы
                                         </option>
                                         <option value="32">
-                                            <xsl:if test="document/fields/f1n33_2 = '32'">
+                                            <xsl:if test="document/fields/f1n34_2 = '32'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Паровозы
                                         </option>
                                         <option value="33">
-                                            <xsl:if test="document/fields/f1n33_2 = '33'">
+                                            <xsl:if test="document/fields/f1n34_2 = '33'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Электропоезда
                                         </option>
                                         <option value="34">
-                                            <xsl:if test="document/fields/f1n33_2 = '34'">
+                                            <xsl:if test="document/fields/f1n34_2 = '34'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Дизель-поезда
                                         </option>
                                         <option value="35">
-                                            <xsl:if test="document/fields/f1n33_2 = '35'">
+                                            <xsl:if test="document/fields/f1n34_2 = '35'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Локомотивы
                                         </option>
                                         <option value="36">
-                                            <xsl:if test="document/fields/f1n33_2 = '36'">
+                                            <xsl:if test="document/fields/f1n34_2 = '36'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Вагоны
                                         </option>
                                         <option value="37">
-                                            <xsl:if test="document/fields/f1n33_2 = '37'">
+                                            <xsl:if test="document/fields/f1n34_2 = '37'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Резервуары (цистерны)
                                         </option>
                                         <option value="38">
-                                            <xsl:if test="document/fields/f1n33_2 = '38'">
+                                            <xsl:if test="document/fields/f1n34_2 = '38'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Воздушный
                                         </option>
                                         <option value="39">
-                                            <xsl:if test="document/fields/f1n33_2 = '39'">
+                                            <xsl:if test="document/fields/f1n34_2 = '39'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Самолет
                                         </option>
                                         <option value="40">
-                                            <xsl:if test="document/fields/f1n33_2 = '40'">
+                                            <xsl:if test="document/fields/f1n34_2 = '40'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Вертолет
                                         </option>
                                         <option value="41">
-                                            <xsl:if test="document/fields/f1n33_2 = '41'">
+                                            <xsl:if test="document/fields/f1n34_2 = '41'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Аэроплан
                                         </option>
                                         <option value="42">
-                                            <xsl:if test="document/fields/f1n33_2 = '42'">
+                                            <xsl:if test="document/fields/f1n34_2 = '42'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Трубопроводный
                                         </option>
                                         <option value="43">
-                                            <xsl:if test="document/fields/f1n33_2 = '43'">
+                                            <xsl:if test="document/fields/f1n34_2 = '43'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пневматический
                                         </option>
                                         <option value="44">
-                                            <xsl:if test="document/fields/f1n33_2 = '44'">
+                                            <xsl:if test="document/fields/f1n34_2 = '44'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             - Плавательные средства
                                         </option>
                                         <option value="45">
-                                            <xsl:if test="document/fields/f1n33_2 = '45'">
+                                            <xsl:if test="document/fields/f1n34_2 = '45'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Лодки
                                         </option>
                                         <option value="46">
-                                            <xsl:if test="document/fields/f1n33_2 = '46'">
+                                            <xsl:if test="document/fields/f1n34_2 = '46'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Катера
                                         </option>
                                         <option value="47">
-                                            <xsl:if test="document/fields/f1n33_2 = '47'">
+                                            <xsl:if test="document/fields/f1n34_2 = '47'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Байдарки
                                         </option>
                                         <option value="48">
-                                            <xsl:if test="document/fields/f1n33_2 = '48'">
+                                            <xsl:if test="document/fields/f1n34_2 = '48'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Теплоход
                                         </option>
                                         <option value="49">
-                                            <xsl:if test="document/fields/f1n33_2 = '49'">
+                                            <xsl:if test="document/fields/f1n34_2 = '49'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Пароход
                                         </option>
                                         <option value="50">
-                                            <xsl:if test="document/fields/f1n33_2 = '50'">
+                                            <xsl:if test="document/fields/f1n34_2 = '50'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Танкер
                                         </option>
                                         <option value="51">
-                                            <xsl:if test="document/fields/f1n33_2 = '51'">
+                                            <xsl:if test="document/fields/f1n34_2 = '51'">
                                                 <xsl:attribute name="selected">selected</xsl:attribute>
                                             </xsl:if>
                                             -- Паром
                                         </option>
                                     </select>
                                     <input type="text" name="f1n34_3" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n33_2}"/>
+                                           style="width:120px;" value="{document/fields/f1n34_3}"/>
                                 </td>
                             </tr>
                             <!-- Спасено материальных ценностей тенге всего -->
@@ -1933,8 +1873,7 @@
                                     Спасено материальных ценностей тенге всего :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n35" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n35}"/>
+                                    <input type="text" name="f1n35" class="td_editable" style="width:120px;" value="{document/fields/f1n35}"/>
                                 </td>
                             </tr>
                             <!-- Имущества -->
@@ -1943,8 +1882,7 @@
                                     Имущества :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n35_2" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n35_2}"/>
+                                    <input type="text" name="f1n35_2" class="td_editable" style="width:120px;" value="{document/fields/f1n35_2}"/>
                                 </td>
                             </tr>
                             <!-- Техники -->
@@ -1953,8 +1891,7 @@
                                     Техники :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n35_3" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n35_3}"/>
+                                    <input type="text" name="f1n35_3" class="td_editable" style="width:120px;" value="{document/fields/f1n35_3}"/>
                                 </td>
                             </tr>
                             <!-- Материальный ущерб (предварительный) тенге -->
@@ -1963,7 +1900,7 @@
                                     Материальный ущерб (предварительный) тенге :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n36" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n36" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n36}"/>
                                 </td>
                             </tr>
@@ -1986,8 +1923,7 @@
                                     Возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_2" id="f1n37_2" maxlength="10"
-                                           class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_2" id="f1n37_2" class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_2}"/>
                                 </td>
                             </tr>
@@ -1997,8 +1933,7 @@
                                     обнаружения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_3" id="f1n37_3" maxlength="10"
-                                           class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_3" id="f1n37_3" class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_3}"/>
                                 </td>
                             </tr>
@@ -2008,8 +1943,7 @@
                                     сообщения о ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_4" id="f1n37_4" maxlength="10"
-                                           class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_4" id="f1n37_4" class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_4}"/>
                                 </td>
                             </tr>
@@ -2019,8 +1953,7 @@
                                     Выезда подразделений :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_5" id="f1n37_5" maxlength="10"
-                                           class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_5" id="f1n37_5" class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_5}"/>
                                 </td>
                             </tr>
@@ -2030,8 +1963,7 @@
                                     Время прибытия первых подразделений :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_6" id="f1n37_6" maxlength="10"
-                                           class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_6" id="f1n37_6" class="td_editable" style="width:120px;"
                                            value="{document/fields/f1n37_6}"/>
                                 </td>
                             </tr>
@@ -2041,8 +1973,7 @@
                                     Расстояние от места аварии до близлежащих населенных пунктов :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n38" maxlength="10" class="td_editable"
-                                           style="width:120px;" value="{document/fields/f1n38}"/>
+                                    <input type="text" name="f1n38" class="td_editable" style="width:120px;" value="{document/fields/f1n38}"/>
                                 </td>
                             </tr>
                             <!--Охват населения своевременным оповещением об угрозе и возникновении ЧС (%)-->
@@ -2052,7 +1983,7 @@
                                     (%) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n39" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n39" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n39}"/>
                                 </td>
                             </tr>
@@ -2062,7 +1993,7 @@
                                     Время оповещения :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n40" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n40" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n40}"/>
                                 </td>
                             </tr>
@@ -2073,8 +2004,18 @@
                                     телефон, факс) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n41" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n41}"/>
+                                    <textarea name="f1n41" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n41"/>
+                                    </textarea>
                                 </td>
                             </tr>
                         </table>
@@ -2088,7 +2029,7 @@
                                     Дата и время локализации ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n42" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n42" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n42}"/>
                                 </td>
                             </tr>
@@ -2098,7 +2039,7 @@
                                     Дата и время ликвидации ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n43" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n43" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n43}"/>
                                 </td>
                             </tr>
@@ -2108,7 +2049,7 @@
                                     Было задействовано в ликвидации :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n44" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n44" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n44}"/>
                                 </td>
                             </tr>
@@ -2118,7 +2059,7 @@
                                     в том числе :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n45" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n45" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n45}"/>
                                 </td>
                             </tr>
@@ -2138,8 +2079,18 @@
                                     Руководитель ликвидации ЧС (ФИО, должность, место работы) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n47"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n47}"/>
+                                    <textarea name="f1n47" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                            <xsl:value-of select="document/fields/f1n47"/>
+                                        </xsl:if>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Виновное лицо (ФИО, возраст) -->
@@ -2188,8 +2139,18 @@
                                     Сведения о создании Правительственной комиссии по расследованию аварии :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n50" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n50}"/>
+                                    <textarea name="f1n50" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n50"/>
+                                    </textarea>
                                 </td>
                             </tr>
                         </table>
@@ -2203,7 +2164,7 @@
                                     Характеристика автомобильного транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n51" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n51" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n51}"/>
                                 </td>
                             </tr>
@@ -2343,7 +2304,7 @@
                                     Марка транспортного средства :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n52_2" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n52_2" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n52_2}"/>
                                 </td>
                             </tr>
@@ -2353,7 +2314,7 @@
                                     Государственный номер автомобиля-(ей) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n52_3" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n52_3" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n52_3}"/>
                                 </td>
                             </tr>
@@ -2363,7 +2324,7 @@
                                     Характеристика железнодорожного транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n53" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n53" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n53}"/>
                                 </td>
                             </tr>
@@ -2473,7 +2434,7 @@
                                     № поезда (-ов) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n53_3" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n53_3" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n53_3}"/>
                                 </td>
                             </tr>
@@ -2483,7 +2444,7 @@
                                     Характеристика морского транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n54" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n54" class="td_editable"
                                            style="width:80px;" value="{document/fields/f1n54}"/>
                                 </td>
                             </tr>
@@ -2597,8 +2558,8 @@
                                     Характеристика авиатранспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n55" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n55}"/>
+                                    <input type="text" name="f1n55" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n55}"/>
                                 </td>
                             </tr>
                             <!-- Вид авиатранспорта -->
@@ -2647,8 +2608,8 @@
                                     марка :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n55_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n55_3}"/>
+                                    <input type="text" name="f1n55_3"  class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n55_3}"/>
                                 </td>
                             </tr>
                             <!-- № рейса -->
@@ -2657,8 +2618,8 @@
                                     № рейса :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n55_4" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n55_4}"/>
+                                    <input type="text" name="f1n55_4" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n55_4}"/>
                                 </td>
                             </tr>
                             <!-- Общие характеристики -->
@@ -2685,8 +2646,8 @@
                                     вместительность каждого транспортного средства :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_3" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_3}"/>
+                                    <input type="text" name="f1n56_3" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_3}"/>
                                 </td>
                             </tr>
                             <!-- грузоподъемность каждого транспортного средства -->
@@ -2695,19 +2656,18 @@
                                     грузоподъемность каждого транспортного средства :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_4" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_4}"/>
+                                    <input type="text" name="f1n56_4"  class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_4}"/>
                                 </td>
                             </tr>
                             <!-- дата последнего технического обслуживания (освидетельствования, ремонта) -->
                             <tr>
                                 <td class="fc">
-                                    дата последнего технического обслуживания (освидетельствования, ремонта)
-                                    :
+                                    дата последнего технического обслуживания (освидетельствования, ремонта):
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_5" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_5}"/>
+                                    <input type="text" name="f1n56_5" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_5}"/>
                                 </td>
                             </tr>
                             <!-- срок службы транспортного средства -->
@@ -2716,8 +2676,8 @@
                                     срок службы транспортного средства :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_6" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_6}"/>
+                                    <input type="text" name="f1n56_6" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_6}"/>
                                 </td>
                             </tr>
                             <!-- эксплуатационный ресурс -->
@@ -2726,8 +2686,8 @@
                                     эксплуатационный ресурс :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_7" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_7}"/>
+                                    <input type="text" name="f1n56_7" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_7}"/>
                                 </td>
                             </tr>
                             <!-- ресурс для списания -->
@@ -2736,8 +2696,8 @@
                                     ресурс для списания :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_8" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_8}"/>
+                                    <input type="text" name="f1n56_8" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_8}"/>
                                 </td>
                             </tr>
                             <!-- рабочий ресурс -->
@@ -2746,8 +2706,8 @@
                                     рабочий ресурс :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n56_9" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n56_9}"/>
+                                    <input type="text" name="f1n56_9" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n56_9}"/>
                                 </td>
                             </tr>
                             <!-- Форма собственности -->
@@ -2756,8 +2716,8 @@
                                     Форма собственности :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n57" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n57}"/>
+                                    <input type="text" name="f1n57" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n57}"/>
                                 </td>
                             </tr>
                             <!-- Принадлежность каждого транспорта -->
@@ -2766,8 +2726,8 @@
                                     Принадлежность каждого транспорта :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n58" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n58}"/>
+                                    <input type="text" name="f1n58" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n58}"/>
                                 </td>
                             </tr>
                             <!-- Информация о владельце (полный почтовый адрес, телефон, факс и e-mail организации, ФИО руководителей) -->
@@ -2777,8 +2737,7 @@
                                     организации, ФИО руководителей) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n59" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n59}"/>
+                                    <input type="text" name="f1n59" class="td_editable" style="width:500px;" value="{document/fields/f1n59}"/>
                                 </td>
                             </tr>
                             <!-- Наличие системы -->
@@ -2787,8 +2746,18 @@
                                     Юридические реквизиты :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n60" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n60}"/>
+                                    <textarea name="f1n60" rows="3" tabindex="3" style="width:500px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n60"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Наличие системы -->
@@ -2797,8 +2766,8 @@
                                     Наличие системы :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n61" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n61}"/>
+                                    <input type="text" name="f1n61" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n61}"/>
                                 </td>
                             </tr>
                             <!-- Наличие аварийно-спасательных служб и формирований -->
@@ -2807,8 +2776,8 @@
                                     Наличие аварийно-спасательных служб и формирований :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n62" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n62}"/>
+                                    <input type="text" name="f1n62" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n62}"/>
                                 </td>
                             </tr>
                             <!-- Наличие финансовых и материальных ресурсов для ликвидации аварии -->
@@ -2817,8 +2786,8 @@
                                     Наличие финансовых и материальных ресурсов для ликвидации аварии :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n63" maxlength="10" class="td_editable"
-                                           style="width:80px;" value="{document/fields/f1n63}"/>
+                                    <input type="text" name="f1n63" class="td_editable"
+                                           style="width:500px;" value="{document/fields/f1n63}"/>
                                 </td>
                             </tr>
                             <!-- Характер происшествия -->
@@ -3363,7 +3332,7 @@
                                     Количество транспорта, попавшего в аварию :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n66" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n66" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n66}"/>
                                 </td>
                             </tr>
@@ -3373,7 +3342,7 @@
                                     Скорость движения транспортных средств :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n67" maxlength="10" class="td_editable"
+                                    <input type="text" name="f1n67" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n67}"/>
                                 </td>
                             </tr>
@@ -3384,8 +3353,18 @@
                                     взлетной полосы и т.д. :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n68"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n68}"/>
+                                    <textarea name="f1n68" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n68"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Количество объектов попавших в зону ЧС -->
@@ -3515,8 +3494,18 @@
                                     (характеристики, описание) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n71" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n71}"/>
+                                    <textarea name="f1n71" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n71"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Площадь распространения ЧС, км -->
@@ -3540,8 +3529,18 @@
                                     Описание происшедшего ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n73" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n73}"/>
+                                    <textarea name="f1n73" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n73"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Условия, способствовавшие развитию происшествия -->
@@ -3550,8 +3549,18 @@
                                     Условия, способствовавшие развитию происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n74" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n74}"/>
+                                    <textarea name="f1n74" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n74"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Обстоятельства возникновения происшествия -->
@@ -3560,8 +3569,18 @@
                                     Обстоятельства возникновения происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n75" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n75}"/>
+                                    <textarea name="f1n75" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n75"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Особенности происшествия -->
@@ -3570,8 +3589,18 @@
                                     Особенности происшествия :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n76" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n76}"/>
+                                    <textarea name="f1n76" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n76"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Анализ возможных причин возникновения ЧС -->
@@ -3580,8 +3609,18 @@
                                     Анализ возможных причин возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n77" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n77}"/>
+                                    <textarea name="f1n77" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n77"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Принятые меры по обеспечению техники безопасности -->
@@ -3590,8 +3629,18 @@
                                     Принятые меры по обеспечению техники безопасности :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n78" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n78}"/>
+                                    <textarea name="f1n78" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n78"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Условия, способствовавшие получению травм и гибели людей -->
@@ -3600,8 +3649,18 @@
                                     Условия, способствовавшие получению травм и гибели людей :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n79"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n79}"/>
+                                    <textarea name="f1n79" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n79"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Выделение финансовых средств на мероприятия по ликвидации последствий ЧС из -->
@@ -3611,8 +3670,18 @@
                                     из :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n80"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n80}"/>
+                                    <textarea name="f1n80" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n80"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- О проведенных мероприятиях по предупреждению и снижению тяжести случившегося ЧС -->
@@ -3622,8 +3691,18 @@
                                     случившегося ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n81" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n81}"/>
+                                    <textarea name="f1n81" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n81"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Положительные стороны и недостатки при ликвидации ЧС -->
@@ -3632,8 +3711,18 @@
                                     Положительные стороны и недостатки при ликвидации ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n82" class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n82}"/>
+                                    <textarea name="f1n82" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n82"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Выводы, предложения, меры -->
@@ -3641,9 +3730,20 @@
                                 <td class="fc">
                                     Выводы, предложения, меры :
                                 </td>
+                                
                                 <td>
-                                    <input type="text" name="f1n83"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n83}"/>
+                                    <textarea name="f1n83" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                        <xsl:if test="$editmode !='edit'">
+                                            <xsl:attribute name="readonly">readonly</xsl:attribute>
+                                            <xsl:attribute name="class">textarea_noteditable
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:if test="$editmode = 'edit'">
+                                            <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
+                                            <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:value-of select="document/fields/f1n83"/>
+                                    </textarea>
                                 </td>
                             </tr>
                             <!-- Ответственный по заполнению (ФИО, должность, тел.) -->
@@ -3652,8 +3752,7 @@
                                     Ответственный по заполнению (ФИО, должность, тел.) :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n84"  class="td_editable"
-                                           style="width:500px;" value="{document/fields/f1n84}"/>
+                                    <input type="text" name="f1n84"  class="td_editable" style="width:500px;" value="{document/fields/f1n84}"/>
                                 </td>
                             </tr>
                         </table>
