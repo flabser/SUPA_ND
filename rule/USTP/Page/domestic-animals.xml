@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="domestic-animals" mode="on" history="off">
+    <description>domestic-animals</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>pages/c2/domestic-animals.xsl</xsltfile>
+
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">page.c2.DomesticAnimals</doscript>
+        </events>
+    </element>
+
+    <caption name="viewtext1" source="KEYWORD">type</caption>
+    <caption name="viewtext2" source="KEYWORD">dead count</caption>
+    <caption name="viewtext3" source="KEYWORD">evacuees count</caption>
+</rule>

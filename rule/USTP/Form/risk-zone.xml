@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="risk-zone" mode="on">
+<rule type="form" id="risk-zone" mode="on" history="off">
     <description>risk-zone</description>
     <xsltfile>forms/c2/risk-zone.xsl</xsltfile>
     <doctype>main</doctype>
@@ -9,13 +9,11 @@
         <querysave source="file">form.c2.risk_zone.QuerySave</querysave>
     </events>
 
-    <caption name="close" source="KEYWORD">Закрыть</caption>
-    <caption name="properties" source="KEYWORD">Свойства</caption>
-    <caption name="attachments" source="KEYWORD">Вложения</caption>
-    <caption name="content" source="KEYWORD">Содержание</caption>
-    <caption name="performer" source="KEYWORD">исполнитель</caption>
-    <caption name="date" source="KEYWORD">дата</caption>
+    <caption name="risk_type" source="KEYWORD">risk_type</caption>
+    <caption name="coordinates" source="KEYWORD">coordinates</caption>
+    <caption name="distance" source="KEYWORD">distance</caption>
 
     <caption name="saving" source="KEYWORD">Сохранение</caption>
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+    <caption name="close" source="KEYWORD">Закрыть</caption>
 </rule>

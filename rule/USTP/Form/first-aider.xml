@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="first-aider" mode="on">
+<rule type="form" id="first-aider" mode="on" history="off">
     <description>first-aider</description>
     <xsltfile>forms/c2/first-aider.xsl</xsltfile>
     <doctype>main</doctype>

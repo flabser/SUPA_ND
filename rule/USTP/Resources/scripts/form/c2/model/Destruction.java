@@ -9,8 +9,6 @@ public class Destruction {
     String guid;
     String eventGUID;
 
-    int post_of_monitoring_warning_count;
-
     List<PostOfMonitoringWarning> postsOfMonitoringWarning;
-    List<PotentialRiskZone> potentialRiskZones;
+    List<RiskZone> riskZones;
 }

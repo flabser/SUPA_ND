@@ -19,7 +19,7 @@
                 <fieldset class="fieldset">
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/name/@caption"/>name
+                            <xsl:value-of select="//captions/name/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="name" value="{//fields/name}"/>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/address/@caption"/>address
+                            <xsl:value-of select="//captions/address/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="address" value="{//fields/address}"/>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/phone/@caption"/>phone
+                            <xsl:value-of select="//captions/phone/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="phone" value="{//fields/phone}"/>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/details/@caption"/>details
+                            <xsl:value-of select="//captions/details/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="details" value="{//fields/details}"/>

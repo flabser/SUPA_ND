@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="post-of-monitoring-warning" mode="on">
+<rule type="form" id="post-of-monitoring-warning" mode="on" history="off">
     <description>post-of-monitoring-warning</description>
     <xsltfile>forms/c2/post-of-monitoring-warning.xsl</xsltfile>
     <doctype>main</doctype>
@@ -9,13 +9,13 @@
         <querysave source="file">form.c2.post_of_monitoring_warning.QuerySave</querysave>
     </events>
 
-    <caption name="close" source="KEYWORD">Закрыть</caption>
-    <caption name="properties" source="KEYWORD">Свойства</caption>
-    <caption name="attachments" source="KEYWORD">Вложения</caption>
-    <caption name="content" source="KEYWORD">Содержание</caption>
-    <caption name="performer" source="KEYWORD">исполнитель</caption>
-    <caption name="date" source="KEYWORD">дата</caption>
+    <caption name="post_type" source="KEYWORD">post_type</caption>
+    <caption name="name" source="KEYWORD">name</caption>
+    <caption name="location" source="KEYWORD">location</caption>
+    <caption name="appointment" source="KEYWORD">appointment</caption>
+    <caption name="zone_responsibility" source="KEYWORD">zone_responsibility</caption>
 
     <caption name="saving" source="KEYWORD">Сохранение</caption>
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+    <caption name="close" source="KEYWORD">Закрыть</caption>
 </rule>

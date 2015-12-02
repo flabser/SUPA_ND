@@ -388,7 +388,7 @@
                                             <div class="fieldset">
                                                 <div class="legend">Люди находившиеся в зоне ЧС</div>
                                                 <div class="humans-table-container">
-                                                    <table class="humans-table">
+                                                    <table class="hidden humans-table">
                                                         <tr>
                                                             <th>ФИО</th>
                                                             <th>Пол</th>
@@ -455,13 +455,15 @@
                                                                 </select>
                                                             </td>
                                                             <td>
-                                                                <button type="button" class="btn"
-                                                                        data-action="add_people"
-                                                                        data-field="evacuees">+
+                                                                <button type="button" class="btn btn-default"
+                                                                        data-action="add_human">+
                                                                 </button>
                                                             </td>
                                                         </tr>
                                                     </table>
+                                                    <button type="button" class="btn"
+                                                            data-action="add_human">+Добавить
+                                                    </button>
                                                     <div id="human-table"></div>
                                                 </div>
                                             </div>
@@ -478,35 +480,9 @@
                                             оказывавших первую помощь
                                         </div>
                                         <div class="table-container">
-                                            <table class="humans-table">
-                                                <tr>
-                                                    <th>Наименование</th>
-                                                    <th>address</th>
-                                                    <th>Телефон</th>
-                                                    <th>Реквизиты</th>
-                                                    <th></th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="text" name="first-aider-name"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="first-aider-address"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="first-aider-phone"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="first-aider-details"/>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn"
-                                                                data-action="add_first_aider"
-                                                                data-field="evacuees">+
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                            <button type="button" class="btn"
+                                                    data-action="add_first_aider">+Добавить
+                                            </button>
                                             <div id="first-aider-table"></div>
                                         </div>
                                     </div>
@@ -532,25 +508,20 @@
                                         </span>
                                     </section>
                                     <header>
-                                        <label class="text-right">В том числе</label>
+                                        <label class="text-right">
+                                            В том числе
+                                            <button type="button" class="btn" data-action="add_domestic_animal">
+                                                +Добавить
+                                            </button>
+                                        </label>
                                         <span></span>
                                         <span></span>
                                     </header>
                                     <footer>
                                         <label></label>
-                                        <span>
-                                            <select data-action="add-animal-count">
-                                                <option value=""></option>
-                                                <option value="крупного рогатого скота">крупного рогатого скота</option>
-                                                <option value="мелкого рогатого скота">мелкого рогатого скота</option>
-                                                <option value="лошадей">лошадей</option>
-                                                <option value="птицы">птицы</option>
-                                                <option value="водных организмов (гидробионтов)">водных организмов
-                                                    (гидробионтов)
-                                                </option>
-                                                <option value="прочие">прочие</option>
-                                            </select>
-                                        </span>
+                                        <div>
+                                            <div id="domestic_animal-table"></div>
+                                        </div>
                                     </footer>
                                 </div>
                             </section>
@@ -587,24 +558,9 @@
                                         <div class="section-destruction fieldset">
                                             <div class="legend">Разрушеные обьекты</div>
                                             <div class="fieldset-container">
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <th>Тип</th>
-                                                        <th>наименование</th>
-                                                        <th>место дислокации</th>
-                                                        <th>назначение</th>
-                                                        <th>зона ответственности (охват территории)</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                </table>
+                                                <div id="post_of_monitoring_warning-table"></div>
                                                 <button type="button" class="btn"
-                                                        data-action="add_post_monitoring_warning">+Добавить
+                                                        data-action="add_post_of_monitoring_warning">+Добавить
                                                 </button>
                                             </div>
                                         </div>
@@ -612,16 +568,7 @@
                                         <div class="section-potential-risk fieldset">
                                             <div class="legend">Возможные зоны риска</div>
                                             <div class="fieldset-container">
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <th>наименование</th>
-                                                        <th>место дислокации</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                </table>
+                                                <div id="risk_zone-table"></div>
                                                 <button type="button" class="btn" data-action="add_risk_zone">
                                                     +Добавить
                                                 </button>

@@ -13,7 +13,7 @@ class QuerySave extends _FormQuerySave {
 
         doc.setForm("post-of-monitoring-warning")
 
-        doc.addStringField("type", webFormData.getValueSilently("type"))
+        doc.addStringField("postType", webFormData.getValueSilently("postType"))
         doc.addStringField("name", webFormData.getValueSilently("name"))
         doc.addStringField("location", webFormData.getValueSilently("location"))
         doc.addStringField("appointment", webFormData.getValueSilently("appointment"))
@@ -21,7 +21,7 @@ class QuerySave extends _FormQuerySave {
 
         doc.setViewText(doc.getValueString("name"))
         doc.addViewText(doc.getValueString("name"))
-        doc.addViewText(doc.getValueString("type"))
+        doc.addViewText(doc.getValueString("postType"))
         doc.addViewText(doc.getValueString("location"))
         doc.addViewText(doc.getValueString("appointment"))
         doc.addViewText(doc.getValueString("zoneResponsibility"))

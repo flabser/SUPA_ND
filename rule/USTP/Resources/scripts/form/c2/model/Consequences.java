@@ -1,7 +1,5 @@
 package form.c2.model;
 
-import java.util.List;
-
 
 public class Consequences {
     // связь с событием через eventGUID
@@ -46,6 +44,5 @@ public class Consequences {
     int dead_domestic_animal_count;
     int evacuees_domestic_animal_count;
 
-    List<Human> humans;
-    List<DomesticAnimal> domesticAnimals;
+    int post_of_monitoring_warning_count;
 }

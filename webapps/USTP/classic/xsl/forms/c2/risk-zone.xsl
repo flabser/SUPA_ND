@@ -20,7 +20,7 @@
                 <fieldset class="fieldset">
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/risk_type/@caption"/>risk_type
+                            <xsl:value-of select="//captions/risk_type/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="riskType" value="{//fields/riskType}"/>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/coordinates/@caption"/>coordinates
+                            <xsl:value-of select="//captions/coordinates/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="coordinates" value="{//fields/coordinates}"/>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            <xsl:value-of select="//captions/distance/@caption"/>distance
+                            <xsl:value-of select="//captions/distance/@caption"/>
                         </div>
                         <div class="controls">
                             <input type="text" name="distance" value="{//fields/distance}"/>

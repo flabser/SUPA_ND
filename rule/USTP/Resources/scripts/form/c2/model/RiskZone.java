@@ -2,7 +2,7 @@ package form.c2.model;
 
 
 // Возможные зоны поражения
-public class PotentialRiskZone {
+public class RiskZone {
     // связь с событием через eventGUID
 
     String guid;

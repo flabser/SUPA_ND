@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="domestic-animal" mode="on" history="off">
+    <description>domestic-animal</description>
+    <xsltfile>forms/c2/domestic-animal.xsl</xsltfile>
+    <doctype>main</doctype>
+
+    <events>
+        <queryopen source="file">form.c2.domestic_animal.QueryOpen</queryopen>
+        <querysave source="file">form.c2.domestic_animal.QuerySave</querysave>
+    </events>
+
+    <caption name="animal_type" source="KEYWORD">animal_type</caption>
+    <caption name="dead_count" source="KEYWORD">dead_count</caption>
+    <caption name="evacuees_count" source="KEYWORD">evacuees_count</caption>
+
+    <caption name="saving" source="KEYWORD">Сохранение</caption>
+    <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
+    <caption name="close" source="KEYWORD">Закрыть</caption>
+</rule>
