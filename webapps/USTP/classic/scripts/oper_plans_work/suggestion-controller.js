@@ -146,6 +146,14 @@ app.oper_plans_work.actions.agree = function(el) {
     app.oper_plans_work.actions.save(el, 'agree');
 };
 
+app.oper_plans_work.actions.exclusion = function(el) {
+    app.oper_plans_work.actions.save(el, 'exclusion');
+};
+
+app.oper_plans_work.actions.revision = function(el) {
+    app.oper_plans_work.actions.save(el, 'revision');
+};
+
 app.oper_plans_work.actions.reject = function(el) {
     var dlg = nb.dialog.show({
         title: el.title,
@@ -159,7 +167,7 @@ app.oper_plans_work.actions.reject = function(el) {
                     }).show().remove(2000);
                     dlg.dialog('close');
 
-                    app.oper_plans_work.actions.save(el, 'exclusion');
+                    app.oper_plans_work.actions.revision(el);
                 }
             },
             'revision': {
@@ -170,7 +178,7 @@ app.oper_plans_work.actions.reject = function(el) {
                     }).show().remove(2000);
                     dlg.dialog('close');
 
-                    app.oper_plans_work.actions.save(el, 'revision');
+                    app.oper_plans_work.actions.revision(el);
                 }
             },
             'cancel': {

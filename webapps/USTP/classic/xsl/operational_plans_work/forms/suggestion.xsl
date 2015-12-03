@@ -49,7 +49,7 @@
                             <button type="button" class="btn btn-link select-assignees" data-action="select-assignees">
                                 выбрать
                             </button>
-                            <input type="hidden" name="assignee" value="{//fields/assignee}"/>
+                            <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
                         </div>
                     </div>
                     <div class="control-group">
