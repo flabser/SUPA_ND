@@ -1,4 +1,4 @@
-package ustp.modules.operational_plans_work.page.share_navigator.current_entry
+package ustp.modules.operational_plans_work5.page.current_entry
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._Tag

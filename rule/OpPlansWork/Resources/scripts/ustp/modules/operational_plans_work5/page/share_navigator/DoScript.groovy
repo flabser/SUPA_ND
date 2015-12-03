@@ -1,4 +1,4 @@
-package ustp.modules.operational_plans_work.page.share_navigator
+package ustp.modules.operational_plans_work5.page.share_navigator
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData

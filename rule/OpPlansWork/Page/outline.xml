@@ -5,7 +5,7 @@
 	<element mode="ON" type="SCRIPT">
 		<name>current_outline_entry</name>
 		<events>
-			<doscript source="file">ustp.modules.operational_plans_work.page.share_navigator.current_entry.DoScript</doscript>
+			<doscript source="file">ustp.modules.operational_plans_work5.page.current_entry.DoScript</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="INCLUDED_PAGE">
