@@ -114,12 +114,13 @@ app.oper_plans_work = {
     }
 };
 
-app.oper_plans_work.actions.send = function(el) {
+app.oper_plans_work.actions.save = function(el, msg) {
+    $('[name=_action]').val(msg);
     var form = $('#frm');
     var data = $(form).serialize();
 
     var noty = nb.utils.notify({
-        message: 'action send...'
+        message: 'action ' + msg
     }).show();
 
     return $.ajax({
@@ -128,9 +129,64 @@ app.oper_plans_work.actions.send = function(el) {
         url: 'Provider',
         data: data,
         success: function() {
-            noty.set({
-                text: 'saved'
-            }).remove(3000);
+            noty.remove(3000);
+            nb.utils.notify({
+                message: 'saved'
+            }).show().remove(2000);
+            $('[data-action=close]')[0].click();
+        }
+    });
+};
+
+app.oper_plans_work.actions.send = function(el) {
+    app.oper_plans_work.actions.save(el, 'send');
+};
+
+app.oper_plans_work.actions.agree = function(el) {
+    app.oper_plans_work.actions.save(el, 'agree');
+};
+
+app.oper_plans_work.actions.exclusion = function(el) {
+    app.oper_plans_work.actions.save(el, 'exclusion');
+};
+
+app.oper_plans_work.actions.revision = function(el) {
+    app.oper_plans_work.actions.save(el, 'revision');
+};
+
+app.oper_plans_work.actions.reject = function(el) {
+    var dlg = nb.dialog.show({
+        title: el.title,
+        message: '',
+        buttons: {
+            'exclusion': {
+                text: 'Исключить',
+                click: function() {
+                    nb.utils.notify({
+                        message: 'action Исключить'
+                    }).show().remove(2000);
+                    dlg.dialog('close');
+
+                    app.oper_plans_work.actions.revision(el);
+                }
+            },
+            'revision': {
+                text: 'Отправка на доработку',
+                click: function() {
+                    nb.utils.notify({
+                        message: 'action Отправка на доработку'
+                    }).show().remove(2000);
+                    dlg.dialog('close');
+
+                    app.oper_plans_work.actions.revision(el);
+                }
+            },
+            'cancel': {
+                text: nb.getText('cancel'),
+                click: function() {
+                    dlg.dialog('close');
+                }
+            }
         }
     });
 };
@@ -140,6 +196,12 @@ $(function() {
 
     $('[data-action=send]').click(function() {
         app.oper_plans_work.actions.send(this);
+    });
+    $('[data-action=agree]').click(function() {
+        app.oper_plans_work.actions.agree(this);
+    });
+    $('[data-action=reject]').click(function() {
+        app.oper_plans_work.actions.reject(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
