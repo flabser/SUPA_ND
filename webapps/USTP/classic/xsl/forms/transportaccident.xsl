@@ -111,7 +111,7 @@
                                     </font>
                                 </td>
                                 <td>
-                                   <input type="text" name="cardnumber" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/cardnumber}"/>
+                                   <input type="text" name="cardnumber" maxlength="10" class="td_editable" style="width:90px;" value="{document/fields/cardnumber}"/>
                                 </td>
                             </tr>
                             <!-- Дата карточки -->
@@ -120,7 +120,7 @@
                                     Дата карточки :
                                 </td>
                                 <td>
-                                    <input type="text" name="carddate" id="carddate" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/carddate}"/>
+                                    <input type="text" name="carddate" id="carddate" maxlength="10" class="td_editable" style="width:90px;" value="{document/fields/carddate}"/>
                                 </td>
                             </tr>
                             <!-- Код ЧС -->
@@ -129,7 +129,7 @@
                                     Код ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="escode" maxlength="10" class="td_editable" style="width:80px;" value="{document/fields/escode}"/>
+                                    <input type="text" name="escode" maxlength="10" class="td_editable" style="width:90px;" value="{document/fields/escode}"/>
                                 </td>
                             </tr>
                             <!-- Вид  ЧС -->
@@ -3730,7 +3730,7 @@
                                 <td class="fc">
                                     Выводы, предложения, меры :
                                 </td>
-                                
+
                                 <td>
                                     <textarea name="f1n83" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
                                         <xsl:if test="$editmode !='edit'">
