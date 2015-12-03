@@ -33,10 +33,10 @@
                         <xsl:value-of select="//captions/viewtext2/@caption"/>
                     </span>
                     <span class="vaccount-observers">
-                        <xsl:value-of select="//captions/viewtext3/@caption"/>
+                        <xsl:value-of select="//captions/viewtext4/@caption"/>
                     </span>
                     <span class="vaccount-amount-control">
-                        <xsl:value-of select="//captions/viewnumber/@caption"/>
+                        <xsl:value-of select="//captions/viewtext6/@caption"/>
                     </span>
                 </div>
             </div>
@@ -66,12 +66,13 @@
                             <xsl:value-of select="viewcontent/viewtext2"/>
                         </span>
                         <span class="entry-field vaccount-observers">
-                            <span>
-                                <xsl:value-of select="viewcontent/viewtext3"/>
-                            </span>
+                            <xsl:value-of select="viewcontent/viewtext4"/>
+                            <div>
+                                <xsl:value-of select="viewcontent/viewtext5"/>
+                            </div>
                         </span>
-                        <span class="entry-field vaccount-amount-control">
-                            <xsl:value-of select="viewcontent/viewnumber"/>
+                        <span class="entry-field vaccount-observers">
+                            <xsl:value-of select="viewcontent/viewtext6"/>
                         </span>
                     </div>
                 </a>
