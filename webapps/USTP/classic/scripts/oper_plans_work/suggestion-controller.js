@@ -134,6 +134,7 @@ app.oper_plans_work.actions.send = function(el) {
         }
     });
 };
+
 app.oper_plans_work.actions.agree = function(el) {
     var form = $('#frm');
     var data = $(form).serialize();
@@ -154,23 +155,39 @@ app.oper_plans_work.actions.agree = function(el) {
         }
     });
 };
+
 app.oper_plans_work.actions.reject = function(el) {
     var form = $('#frm');
     var data = $(form).serialize();
 
-    var noty = nb.utils.notify({
-        message: 'action reject...'
-    }).show();
-
-    return $.ajax({
-        method: 'POST',
-        datatype: 'html',
-        url: 'Provider',
-        data: data,
-        success: function() {
-            noty.set({
-                text: 'rejected'
-            }).remove(3000);
+    var dlg = nb.dialog.show({
+        title: el.title,
+        message: '',
+        buttons: {
+            'exclusion': {
+                text: 'Исключить',
+                click: function() {
+                    nb.utils.notify({
+                        message: 'action Исключить'
+                    }).show().remove(2000);
+                    dlg.dialog('close');
+                }
+            },
+            'revision': {
+                text: 'Отправка на доработку',
+                click: function() {
+                    nb.utils.notify({
+                        message: 'action Отправка на доработку'
+                    }).show().remove(2000);
+                    dlg.dialog('close');
+                }
+            },
+            'cancel': {
+                text: nb.getText('cancel'),
+                click: function() {
+                    dlg.dialog('close');
+                }
+            }
         }
     });
 };
