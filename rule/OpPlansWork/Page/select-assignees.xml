@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="select-assignees" mode="on" history="off">
+    <description>select-assignees</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>operational_plans_work/pages/select-assignees.xsl</xsltfile>
+
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">ustp.modules.operational_plans_work.page.Assignees</doscript>
+        </events>
+    </element>
+
+    <caption name="viewtext1" source="KEYWORD">-</caption>
+    <caption name="viewtext2" source="KEYWORD">-</caption>
+    <caption name="viewtext3" source="KEYWORD">-</caption>
+    <caption name="viewtext4" source="KEYWORD">-</caption>
+    <caption name="viewnumber">-</caption>
+    <caption name="viewdate" source="KEYWORD">-</caption>
+</rule>
