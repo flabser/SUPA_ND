@@ -5,8 +5,8 @@
     <doctype>main</doctype>
 
     <events>
-        <queryopen source="file">ustp.modules.operational_plans_work5.form.suggestion.QueryOpen</queryopen>
-        <querysave source="file">ustp.modules.operational_plans_work5.form.suggestion.QuerySave</querysave>
+        <queryopen source="file">supa_nd.plans_work.form.suggestion.QueryOpen</queryopen>
+        <querysave source="file">supa_nd.plans_work.form.suggestion.QuerySave</querysave>
     </events>
 
     <caption name="title" source="KEYWORD">Предложение</caption>

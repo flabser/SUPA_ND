@@ -11,15 +11,12 @@
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">ustp.modules.operational_plans_work5.page.Suggestions</doscript>
+            <doscript source="file">supa_nd.plans_work.page.Suggestions</doscript>
         </events>
     </element>
 
     <caption name="title" source="KEYWORD">Журнал для сбора предложений</caption>
-
     <caption name="viewtext1" source="KEYWORD">Мероприятия, пути и средства достижения цели</caption>
     <caption name="viewtext2" source="KEYWORD">Ответственный исполнитель</caption>
     <caption name="viewtext4" source="KEYWORD">Срок исполнения</caption>
-
-    <caption name="logout" source="KEYWORD">Завершить работу</caption>
 </rule>

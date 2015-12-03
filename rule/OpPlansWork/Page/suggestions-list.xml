@@ -7,11 +7,9 @@
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">ustp.modules.operational_plans_work5.page.Suggestions</doscript>
+            <doscript source="file">supa_nd.plans_work.page.Suggestions</doscript>
         </events>
     </element>
-
-    <caption name="title" source="KEYWORD">Журнал для сбора предложений</caption>
 
     <caption name="viewtext1" source="KEYWORD">-</caption>
     <caption name="viewtext2" source="KEYWORD">-</caption>

@@ -7,7 +7,7 @@
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">ustp.modules.operational_plans_work5.page.Assignees</doscript>
+            <doscript source="file">supa_nd.plans_work.page.Assignees</doscript>
         </events>
     </element>
 

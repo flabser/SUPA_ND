@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rule id="OpPlansWork" mode="on" type="global">
-    <description>OpPlansWork</description>
+    <description>Операционные планы и планы работы подразделений</description>
     <orgname>ТОО "Lab of the Future"</orgname>
     <liccount>100</liccount>
     <logo>workflow_small.png</logo>
@@ -23,7 +23,7 @@
         <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/OpPlansWork/classic/xsl">Classic</entry>
     </skins>
     <roles>
-        <entry id="administrator">Разрешает ввод и редактирование значении справочников</entry>
+        <entry id="administrator">Разрешает ввод и редактирование значений справочников</entry>
     </roles>
     <markdelaysec>5</markdelaysec>
     <eds mode="OFF">

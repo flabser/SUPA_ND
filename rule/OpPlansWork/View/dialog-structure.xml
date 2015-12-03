@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule type="view" id="dialog-structure">
+    <description>Структура</description>
+    <query>structure</query>
+    <xsltfile>views/dialog-structure.xsl</xsltfile>
+</rule>

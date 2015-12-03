@@ -1,4 +1,4 @@
-package ustp.modules.operational_plans_work5.form.suggestion
+package supa_nd.plans_work.form.suggestion
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
