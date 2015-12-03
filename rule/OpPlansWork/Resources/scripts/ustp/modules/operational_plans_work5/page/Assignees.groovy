@@ -1,4 +1,4 @@
-package ustp.modules.operational_plans_work2.page
+package ustp.modules.operational_plans_work5.page
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
