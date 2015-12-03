@@ -43,13 +43,13 @@
                             Ответственный исполнитель
                         </div>
                         <div class="controls">
-                            <span data-input="assignees" id="assigneestbl">
-                                <xsl:value-of select="assignees"/>
+                            <span data-input="assignee" id="assigneetbl">
+                                <xsl:value-of select="assignee"/>
                             </span>
                             <button type="button" class="btn btn-link select-assignees" data-action="select-assignees">
                                 выбрать
                             </button>
-                            <input type="hidden" name="assignees" value="{//fields/assignees}"/>
+                            <input type="hidden" name="assignee" value="{//fields/assignee}"/>
                         </div>
                     </div>
                     <div class="control-group">
@@ -96,8 +96,16 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <div class="control-label">
+                            Отметка об отправке
+                        </div>
                         <div class="controls">
-
+                            <select name="sendMark">
+                                <option value=""></option>
+                                <option value="revision">Отправка на доработку</option>
+                                <option value="exclusion">Исключение</option>
+                                <option value="coordinated">Согласовано</option>
+                            </select>
                         </div>
                     </div>
                 </div>

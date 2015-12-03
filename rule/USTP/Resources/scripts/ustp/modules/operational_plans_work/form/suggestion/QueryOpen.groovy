@@ -27,7 +27,7 @@ class QueryOpen extends _FormQueryOpen {
         publishElement(nav)
 
         def actionBar = session.createActionBar();
-        actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), "", _ActionType.SAVE_AND_CLOSE))
+        actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), "", "send"))
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
 
@@ -36,5 +36,6 @@ class QueryOpen extends _FormQueryOpen {
         // publishValue("assignee", doc.getValueString("assignee"))
         publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))
+        publishValue("sendMark", doc.getValueString("sendMark"))
     }
 }

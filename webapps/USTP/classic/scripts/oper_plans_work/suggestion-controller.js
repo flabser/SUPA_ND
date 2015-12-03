@@ -114,21 +114,36 @@ app.oper_plans_work = {
     }
 };
 
-app.oper_plans_work.actions.send = function() {
-    nb.utils.notify({
-        message: 'action send'
-    }).show().remove(3000);
+app.oper_plans_work.actions.send = function(el) {
+    var form = $('#frm');
+    var data = $(form).serialize();
+
+    var noty = nb.utils.notify({
+        message: 'action send...'
+    }).show();
+
+    return $.ajax({
+        method: 'POST',
+        datatype: 'html',
+        url: 'Provider',
+        data: data,
+        success: function() {
+            noty.set({
+                text: 'saved'
+            }).remove(3000);
+        }
+    });
 };
 
 $(function() {
     app.oper_plans_work.init();
 
     $('[data-action=send]').click(function() {
-        app.oper_plans_work.actions.send();
+        app.oper_plans_work.actions.send(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
-        app.oper_plans_work.dialog.selectAssignees(this, 'assignees');
+        app.oper_plans_work.dialog.selectAssignees(this, 'assignee');
     });
 
     $('[data-action=due-date-link]').click(function() {
