@@ -14,7 +14,7 @@
 
     <xsl:template name="layout">
         <xsl:param name="w_title" select="concat(//captions/viewnamecaption/@caption, ' - ', $APP_NAME)"/>
-        <xsl:param name="active_aside_id" select="//current_outline_entry/response/content/entry/@id"/>
+        <xsl:param name="active_aside_id" select="//app_menu//current/entry/@id"/>
         <xsl:param name="aside_collapse" select="''"/>
         <xsl:param name="include" select="''"/>
         <xsl:param name="body_class" select="''"/>
@@ -30,7 +30,7 @@
                 <div class="layout layout_header-fixed {$aside_collapse}">
                     <div class="content-overlay" id="content-overlay"></div>
                     <xsl:call-template name="main-header"/>
-                    <xsl:apply-templates select="//included_share_navi" mode="outline">
+                    <xsl:apply-templates select="//app_menu" mode="outline">
                         <xsl:with-param name="active-entry-id" select="$active_aside_id"/>
                     </xsl:apply-templates>
                     <section class="layout_content">

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:variable name="outline-current-entry" select="//current_outline_entry/response/content/entry"/>
+    <xsl:variable name="outline-current-entry" select="//app_menu//current/entry"/>
 
-    <xsl:template match="included_share_navi" mode="outline">
+    <xsl:template match="app_menu" mode="outline">
         <xsl:param name="active-entry-id"/>
 
         <aside class="layout_aside nav-app">
             <div class="side">
                 <div class="side-container">
-                    <xsl:apply-templates select="page/response/content/outline" mode="outline">
+                    <xsl:apply-templates select="response/content/outline" mode="outline">
                         <xsl:with-param name="active-entry-id" select="$active-entry-id"/>
                     </xsl:apply-templates>
                 </div>

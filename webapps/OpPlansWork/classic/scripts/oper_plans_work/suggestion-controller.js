@@ -95,7 +95,7 @@ app.oper_plans_work = {
                 maxHeight: 500,
                 minHeight: 440,
                 width: 500,
-                href: 'Provider?type=view&id=bossandemppicklist-pl-wrk&page=1&fieldName=' + fieldName + '&isMulti=' + isMulti,
+                href: 'Provider?type=view&id=dialog-structure&page=1&fieldName=' + fieldName + '&isMulti=' + isMulti,
                 onLoad: function() {
                     if (isMulti === false) {
                         $('[type=checkbox][data-type=select]', dlg[0]).attr('type', 'radio');

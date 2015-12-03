@@ -50,7 +50,7 @@
 				<xsl:value-of select="$co_entry" />
 			</xsl:if>
 
-			<xsl:value-of select="//current_outline_entry/response/content/entry" />Журнал для сбора предложений
+			<xsl:value-of select="//current_outline_entry/response/content/entry" />
 
 			<xsl:if test="//view_content//query/@count">
 				<sup class="entry-count">
