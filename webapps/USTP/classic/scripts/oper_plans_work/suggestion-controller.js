@@ -38,7 +38,7 @@ app.oper_plans_work = {
     },
 
     dialog: {
-        selectAssignees: function() {
+        selectAssignees2: function() {
             var dlg = nb.dialog.show({
                 title: 'selectDueDateLink',
                 href: 'Provider?type=page&id=select-assignees',
@@ -78,6 +78,38 @@ app.oper_plans_work = {
                     }
                 }
             });
+        },
+
+        selectAssignees: function(el, fieldName, isMulti) {
+            var dlg = nb.dialog.show({
+                targetForm: el.form.name,
+                fieldName: fieldName,
+                dialogFilterListItem: '.tree-entry',
+                title: el.title,
+                maxHeight: 500,
+                minHeight: 440,
+                width: 500,
+                href: 'Provider?type=view&id=bossandemppicklist-pl-wrk&page=1&fieldName=' + fieldName + '&isMulti=' + isMulti,
+                onLoad: function() {
+                    if (isMulti === false) {
+                        $('[type=checkbox][data-type=select]', dlg[0]).attr('type', 'radio');
+                    }
+                },
+                buttons: {
+                    'select': {
+                        text: nb.getText('select'),
+                        click: function() {
+                            dlg[0].dialogOptions.onExecute();
+                        }
+                    },
+                    'cancel': {
+                        text: nb.getText('cancel'),
+                        click: function() {
+                            dlg.dialog('close');
+                        }
+                    }
+                }
+            });
         }
     }
 };
@@ -96,7 +128,7 @@ $(function() {
     });
 
     $('[data-action=select-assignees]').click(function() {
-        app.oper_plans_work.dialog.selectAssignees();
+        app.oper_plans_work.dialog.selectAssignees(this, 'assignees');
     });
 
     $('[data-action=due-date-link]').click(function() {

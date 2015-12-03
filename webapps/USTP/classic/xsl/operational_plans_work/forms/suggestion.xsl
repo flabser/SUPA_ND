@@ -43,11 +43,11 @@
                             Ответственный исполнитель
                         </div>
                         <div class="controls">
-                            <span data-input="assignees">
+                            <span data-input="assignees" id="assigneestbl">
                                 <xsl:value-of select="assignees"/>
                             </span>
-                            <button type="button" class="btn btn-link select-assignees"
-                                    data-action="select-assignees">выбрать
+                            <button type="button" class="btn btn-link select-assignees" data-action="select-assignees">
+                                выбрать
                             </button>
                             <input type="hidden" name="assignees" value="{//fields/assignees}"/>
                         </div>
@@ -86,8 +86,8 @@
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                 </select>
-                                <button type="button" class="btn btn-link due-date-link"
-                                        data-action="due-date-link">выбрать
+                                <button type="button" class="btn btn-link due-date-link" data-action="due-date-link">
+                                    выбрать
                                 </button>
                                 <input type="hidden" name="dueDateLink" value="{//fields/dueDateLink}"/>
                             </div>
