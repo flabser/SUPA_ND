@@ -2,63 +2,69 @@ var app = app || {};
 
 app.oper_plans_work = {
     init: function() {
+        $('[name=_dueDateType]').val($('[name=dueDateType]').val());
         this.dueDateTypeToggle();
     },
 
     actions: {},
 
     dueDateTypeToggle: function() {
-        var $dueDateType = $('[name=dueDateType]');
+        var $dueDateType = $('[name=_dueDateType]');
+        $('[name=dueDateType]').val($dueDateType.val());
+
+        var selectData = {};
+        var multi = false;
         switch ($dueDateType.val()) {
             case 'month':
-                $('[name=dueDateMonth]').show();
-                $('[name=dueDateQuarter]').hide();
-                $('[name=dueDateHalfYear]').hide();
-                $('.due-date-link').hide();
+                multi = true;
+                selectData = {
+                    '1': 'январь',
+                    '2': 'февраль',
+                    '3': 'март',
+                    '4': 'апрель',
+                    '5': 'май',
+                    '6': 'июнь',
+                    '7': 'июль',
+                    '8': 'август',
+                    '9': 'сентябрь',
+                    '10': 'октябрь',
+                    '11': 'ноябрь',
+                    '12': 'декабрь',
+                };
                 break;
             case 'quarter':
-                $('[name=dueDateMonth]').hide();
-                $('[name=dueDateQuarter]').show();
-                $('[name=dueDateHalfYear]').hide();
-                $('.due-date-link').hide();
+                selectData = {
+                    '1': '1',
+                    '2': '2',
+                    '3': '3',
+                    '4': '4'
+                };
                 break;
             case 'half-year':
-                $('[name=dueDateMonth]').hide();
-                $('[name=dueDateQuarter]').hide();
-                $('[name=dueDateHalfYear]').show();
-                $('.due-date-link').hide();
+                selectData = {
+                    '1': '1',
+                    '2': '2'
+                };
                 break;
             case 'link':
-                $('[name=dueDateMonth]').hide();
-                $('[name=dueDateQuarter]').hide();
-                $('[name=dueDateHalfYear]').hide();
-                $('.due-date-link').show();
                 break;
+        }
+
+        var html = [];
+        for (var key in selectData) {
+            html.push('<option value=' + key + '>' + selectData[key] + '</option>');
+        }
+        if (html.length) {
+            $('select[name=_dueDate]').html(html.join('')).attr('multiple', multi).show();
+            $('[name=_dueDate]').val($('[name=dueDate]').val());
+            $('.js-due-date-link').hide();
+        } else {
+            $('select[name=_dueDate]').hide();
+            $('.js-due-date-link').show();
         }
     },
 
     dialog: {
-        selectAssignees2: function() {
-            var dlg = nb.dialog.show({
-                title: 'selectDueDateLink',
-                href: 'Provider?type=page&id=select-assignees',
-                buttons: {
-                    'cancel': {
-                        text: nb.getText('cancel'),
-                        click: function() {
-                            dlg.dialog('close');
-                        }
-                    },
-                    'select': {
-                        text: nb.getText('select'),
-                        click: function() {
-
-                        }
-                    }
-                }
-            });
-        },
-
         selectDueDateLink: function() {
             var dlg = nb.dialog.show({
                 title: 'selectDueDateLink',
@@ -212,7 +218,10 @@ $(function() {
         app.oper_plans_work.dialog.selectDueDateLink();
     });
 
-    $('body').on('change', '[name=dueDateType]', function(e) {
+    $('body').on('change', '[name=_dueDateType]', function(e) {
         app.oper_plans_work.dueDateTypeToggle();
+    });
+    $('body').on('change', '[name=_dueDate]', function(e) {
+        $('[name=dueDate]').val($('[name=_dueDate]').val());
     });
 });
