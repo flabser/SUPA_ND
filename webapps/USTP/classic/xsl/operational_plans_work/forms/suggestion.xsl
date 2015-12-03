@@ -115,6 +115,7 @@
                 <input type="hidden" name="doctype" value="{document/@doctype}"/>
                 <input type="hidden" name="key" value="{document/@docid}"/>
                 <input type="hidden" name="ddbid" value="{document/@id}"/>
+                <input type="hidden" name="_action" value=""/>
             </form>
         </section>
     </xsl:template>

@@ -114,12 +114,13 @@ app.oper_plans_work = {
     }
 };
 
-app.oper_plans_work.actions.send = function(el) {
+app.oper_plans_work.actions.save = function(el, msg) {
+    $('[name=_action]').val(msg);
     var form = $('#frm');
     var data = $(form).serialize();
 
     var noty = nb.utils.notify({
-        message: 'action send...'
+        message: 'action ' + msg
     }).show();
 
     return $.ajax({
@@ -128,38 +129,23 @@ app.oper_plans_work.actions.send = function(el) {
         url: 'Provider',
         data: data,
         success: function() {
-            noty.set({
-                text: 'saved'
-            }).remove(3000);
+            noty.remove(3000);
+            nb.utils.notify({
+                message: 'saved'
+            }).show().remove(2000);
         }
     });
+};
+
+app.oper_plans_work.actions.send = function(el) {
+    app.oper_plans_work.actions.save(el, 'send');
 };
 
 app.oper_plans_work.actions.agree = function(el) {
-    var form = $('#frm');
-    var data = $(form).serialize();
-
-    var noty = nb.utils.notify({
-        message: 'action agree...'
-    }).show();
-
-    return $.ajax({
-        method: 'POST',
-        datatype: 'html',
-        url: 'Provider',
-        data: data,
-        success: function() {
-            noty.set({
-                text: 'agreed'
-            }).remove(3000);
-        }
-    });
+    app.oper_plans_work.actions.save(el, 'agree');
 };
 
 app.oper_plans_work.actions.reject = function(el) {
-    var form = $('#frm');
-    var data = $(form).serialize();
-
     var dlg = nb.dialog.show({
         title: el.title,
         message: '',
@@ -171,6 +157,8 @@ app.oper_plans_work.actions.reject = function(el) {
                         message: 'action Исключить'
                     }).show().remove(2000);
                     dlg.dialog('close');
+
+                    app.oper_plans_work.actions.save(el, 'exclusion');
                 }
             },
             'revision': {
@@ -180,6 +168,8 @@ app.oper_plans_work.actions.reject = function(el) {
                         message: 'action Отправка на доработку'
                     }).show().remove(2000);
                     dlg.dialog('close');
+
+                    app.oper_plans_work.actions.save(el, 'revision');
                 }
             },
             'cancel': {
