@@ -133,6 +133,7 @@ app.oper_plans_work.actions.save = function(el, msg) {
             nb.utils.notify({
                 message: 'saved'
             }).show().remove(2000);
+            $('[data-action=close]')[0].click();
         }
     });
 };
