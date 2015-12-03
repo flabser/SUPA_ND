@@ -16,7 +16,7 @@ class QueryOpen extends _FormQueryOpen {
         publishElement(nav)
 
         def actionBar = session.createActionBar();
-        actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), "", "send"))
+        actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "send"))
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
     }
@@ -27,12 +27,13 @@ class QueryOpen extends _FormQueryOpen {
         publishElement(nav)
 
         def actionBar = session.createActionBar();
-        actionBar.addAction(new _Action(getLocalizedWord("Сохранить и закрыть", lang), "", "send"))
+        actionBar.addAction(new _Action(getLocalizedWord("Согласовать", lang), "", "agree"))
+        actionBar.addAction(new _Action(getLocalizedWord("Отклонить", lang), "", "reject"))
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
 
         publishValue("description", doc.getValueString("description"))
-        publishEmployer("assignee", doc.getValueString("assignee"))
+        // publishEmployer("assignee", doc.getValueString("assignee"))
         // publishValue("assignee", doc.getValueString("assignee"))
         publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))

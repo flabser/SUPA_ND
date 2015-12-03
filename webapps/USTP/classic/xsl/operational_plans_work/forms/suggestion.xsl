@@ -34,7 +34,7 @@
                         </div>
                         <div class="controls">
                             <textarea name="description">
-                                <xsl:value-of select="description"/>
+                                <xsl:value-of select="//fields/description"/>
                             </textarea>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="controls">
                             <span data-input="assignee" id="assigneetbl">
-                                <xsl:value-of select="assignee"/>
+                                <xsl:value-of select="//fields/assignee"/>
                             </span>
                             <button type="button" class="btn btn-link select-assignees" data-action="select-assignees">
                                 выбрать

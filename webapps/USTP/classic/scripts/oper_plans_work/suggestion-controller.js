@@ -134,12 +134,58 @@ app.oper_plans_work.actions.send = function(el) {
         }
     });
 };
+app.oper_plans_work.actions.agree = function(el) {
+    var form = $('#frm');
+    var data = $(form).serialize();
+
+    var noty = nb.utils.notify({
+        message: 'action agree...'
+    }).show();
+
+    return $.ajax({
+        method: 'POST',
+        datatype: 'html',
+        url: 'Provider',
+        data: data,
+        success: function() {
+            noty.set({
+                text: 'agreed'
+            }).remove(3000);
+        }
+    });
+};
+app.oper_plans_work.actions.reject = function(el) {
+    var form = $('#frm');
+    var data = $(form).serialize();
+
+    var noty = nb.utils.notify({
+        message: 'action reject...'
+    }).show();
+
+    return $.ajax({
+        method: 'POST',
+        datatype: 'html',
+        url: 'Provider',
+        data: data,
+        success: function() {
+            noty.set({
+                text: 'rejected'
+            }).remove(3000);
+        }
+    });
+};
 
 $(function() {
     app.oper_plans_work.init();
 
     $('[data-action=send]').click(function() {
         app.oper_plans_work.actions.send(this);
+    });
+    $('[data-action=agree]').click(function() {
+        app.oper_plans_work.actions.agree(this);
+    });
+    $('[data-action=reject]').click(function() {
+        app.oper_plans_work.actions.reject(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
