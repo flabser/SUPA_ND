@@ -939,7 +939,7 @@
                                     Количество поврежденного оборудования :
                                 </td>
                                 <td>
-                                    <input type="text" name="f2n31" class="td_editable"
+                                    <input type="text" name="f2n32" class="td_editable"
                                            style="width:120px;" value="{document/fields/f2n32}"/>
                                 </td>
                             </tr>
@@ -1758,7 +1758,7 @@
                                     Выполненные мероприятия по восстановлению работоспособности систем телекоммуникаций :
                                 </td>
                                 <td>
-                                    <textarea name="f1n75" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
+                                    <textarea name="f1n75_2" rows="3" tabindex="3" style="width:750px" autocomplete="off" class="textarea_editable">
                                         <xsl:if test="$editmode !='edit'">
                                             <xsl:attribute name="readonly">readonly</xsl:attribute>
                                             <xsl:attribute name="class">textarea_noteditable
@@ -1768,7 +1768,7 @@
                                             <xsl:attribute name="onfocus">fieldOnFocus(this)</xsl:attribute>
                                             <xsl:attribute name="onblur">fieldOnBlur(this)</xsl:attribute>
                                         </xsl:if>
-                                        <xsl:value-of select="document/fields/f1n75"/>
+                                        <xsl:value-of select="document/fields/f1n75_2"/>
                                     </textarea>
                                 </td>
                             </tr>
