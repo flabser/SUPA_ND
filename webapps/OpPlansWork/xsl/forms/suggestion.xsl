@@ -11,7 +11,7 @@
     <xsl:template match="/request">
         <xsl:call-template name="layout">
             <xsl:with-param name="include">
-                <script type="text/javascript" src="js/oper_plans_work/suggestion-controller.js"></script>
+                <script type="text/javascript" src="js/suggestion-controller.js"></script>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
