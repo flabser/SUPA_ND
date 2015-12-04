@@ -18,16 +18,11 @@
 
     <xsl:template match="entry" mode="view-table-body">
         <div class="entry-wrap">
-            <div class="entry-actions">
-                <a class="entry-action action-delete" data-ddbid="{@id}" href="#">
-                    <i class="fa fa-trash"/>
-                </a>
-            </div>
             <div data-ddbid="{@id}" class="entry document js-swipe-entry">
                 <label class="entry-select">
                     <input type="checkbox" name="docid" id="{@id}" value="{@doctype}"/>
                 </label>
-                <a href="{@url}" class="entry-link">
+                <span class="entry-link">
                     <div class="entry-fields">
                         <span class="entry-field vaccount-name">
                             <xsl:value-of select="viewcontent/viewtext1"/>
@@ -36,12 +31,10 @@
                             <xsl:value-of select="viewcontent/viewtext2"/>
                         </span>
                         <span class="entry-field vaccount-observers">
-                            <span>
-                                <xsl:value-of select="viewcontent/viewtext3"/>
-                            </span>
+                            <xsl:value-of select="viewcontent/viewtext3"/>
                         </span>
                     </div>
-                </a>
+                </span>
             </div>
         </div>
     </xsl:template>
