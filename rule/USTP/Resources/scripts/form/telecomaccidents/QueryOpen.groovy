@@ -13,7 +13,7 @@ class QueryOpen extends _FormQueryOpen {
 
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Транспортные аварии (катастрофы)", lang))
+		publishValue("title",getLocalizedWord("Аварии систем связи и телекоммуникаций", lang))
 		def user = session.getCurrentAppUser()
 
 		def nav = session.getPage("outline", webFormData)
@@ -45,7 +45,7 @@ class QueryOpen extends _FormQueryOpen {
 	 
 	@Override
 	public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Транспортные аварии (катастрофы)", lang) + ": " + doc.getValueString("briefcontent"))
+		publishValue("title",getLocalizedWord("Аварии систем связи и телекоммуникаций", lang) + ": " + doc.getValueString("briefcontent"))
 		def user = session.getCurrentAppUser()
 
 		def nav = session.getPage("outline", webFormData)
