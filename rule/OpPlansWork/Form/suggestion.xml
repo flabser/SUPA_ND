@@ -9,10 +9,15 @@
         <querysave source="file">supa_nd.plans_work.form.suggestion.QuerySave</querysave>
     </events>
 
-    <caption name="title" source="KEYWORD">Предложение</caption>
-    <caption name="fio" source="KEYWORD">ФИО</caption>
-    <caption name="sex" source="KEYWORD">Пол</caption>
-    <caption name="age" source="KEYWORD">Возраст</caption>
-    <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
-    <caption name="close" source="KEYWORD">Закрыть</caption>
+    <caption name="title" source="KEYWORD">Формуляр предложения</caption>
+
+    <caption name="description" source="KEYWORD">Мероприятия, пути и средства достижения цели</caption>
+    <caption name="assignee" source="KEYWORD">Ответственный исполнитель</caption>
+    <caption name="due_date" source="KEYWORD">Срок исполнения</caption>
+    <caption name="send_mark" source="KEYWORD">Отметка об отправке</caption>
+
+    <caption name="month" source="KEYWORD">Месяц</caption>
+    <caption name="quarter" source="KEYWORD">Квартал</caption>
+    <caption name="half_year" source="KEYWORD">Полугодие</caption>
+    <caption name="plan_link" source="KEYWORD">По плановому документу</caption>
 </rule>

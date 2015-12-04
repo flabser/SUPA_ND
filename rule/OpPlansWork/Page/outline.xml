@@ -10,6 +10,7 @@
         </events>
     </element>
 
+    <caption name="brand" source="KEYWORD">Операционные планы и планы работ подразделений</caption>
     <caption name="page" source="KEYWORD">Страница</caption>
     <caption name="search" source="KEYWORD">Поиск</caption>
     <caption name="exit" source="KEYWORD">Выйти</caption>

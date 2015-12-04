@@ -14,7 +14,7 @@
 
     <xsl:template name="layout">
         <xsl:param name="w_title" select="concat(//captions/viewnamecaption/@caption, ' - ', $APP_NAME)"/>
-        <xsl:param name="active_aside_id" select="//app_menu//current/entry/@id"/>
+        <xsl:param name="active_aside_id" select="//app_menu//current/@id"/>
         <xsl:param name="aside_collapse" select="''"/>
         <xsl:param name="include" select="''"/>
         <xsl:param name="body_class" select="''"/>
@@ -92,7 +92,6 @@
                     <img alt="logo" src="{$APP_LOGO_IMG_SRC}" class="brand-logo" height="50px"/>
                     <span class="brand-title">
                         <xsl:value-of select="$APP_NAME"/>
-                        <small>Учет сведений о ЧС</small>
                     </span>
                 </div>
                 <nav id="nb-navbar" class="collapse navbar-collapse">

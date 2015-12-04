@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-    <xsl:variable name="outline-current-entry" select="//app_menu//current/entry"/>
+    <xsl:variable name="outline-current-entry" select="//app_menu//current"/>
 
     <xsl:template match="app_menu" mode="outline">
-        <xsl:param name="active-entry-id"/>
+        <xsl:param name="active-entry-id" select="//app_menu//current/@id"/>
 
         <aside class="layout_aside nav-app">
             <div class="side">

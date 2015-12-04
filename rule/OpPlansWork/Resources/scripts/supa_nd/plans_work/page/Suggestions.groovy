@@ -16,12 +16,11 @@ class Suggestions extends _DoScript {
     public void doProcess(_Session session, _WebFormData formData, String lang) {
 
         def actionBar = new _ActionBar(session);
-        def newDocAction = new _Action(getLocalizedWord("Новое предложение", lang), "", "new_document")
+        def newDocAction = new _Action(getLocalizedWord("Добавить предложение", lang), "", "new_document")
         newDocAction.setURL("Provider?type=edit&element=document&id=suggestion&docid=")
         actionBar.addAction(newDocAction);
         actionBar.addAction(new _Action(getLocalizedWord("Удалить", lang), "", _ActionType.DELETE_DOCUMENT));
 
-        //
         def viewParam = session.createViewEntryCollectionParam()
         viewParam.setQuery("form = 'suggestion'")
                 .setPageNum(formData.getNumberValueSilently("page", 1))
@@ -29,7 +28,6 @@ class Suggestions extends _DoScript {
                 .setDateFormat(new SimpleDateFormat("dd.MM.yyyy"))
         def col = session.getCurrentDatabase().getCollectionOfDocuments(viewParam)
 
-        //
         setContent(actionBar)
         setContent(col)
     }

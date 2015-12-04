@@ -14,18 +14,14 @@ class AppMenu extends _DoScript {
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
 
-        def list = []
-        def rootTag = new _Tag("current")
-        def entryTag = new _Tag("entry", formData.getEncodedValueSilently("title"))
-        entryTag.setAttr("entryid", formData.getValueSilently("entryid"))
-        entryTag.setAttr("id", formData.getValueSilently("id"))
-        rootTag.addTag(entryTag)
+        def currentTag = new _Tag("current")
+        currentTag.setAttr("entryid", formData.getValueSilently("entryid"))
+        currentTag.setAttr("id", formData.getValueSilently("id"))
 
         def outline = new _Outline("", "", "outline")
-        outline.addEntry(new _OutlineEntry(getLocalizedWord("Журнал для сбора предложений", lang), "", "suggestions", "Provider?type=page&id=suggestions"))
-        list.add(outline)
+        outline.addEntry(new _OutlineEntry(getLocalizedWord("Журнал предложений", lang), "", "suggestions", "Provider?type=page&id=suggestions"))
 
-        setContent(new _XMLDocument(rootTag))
-        setContent(list)
+        setContent(new _XMLDocument(currentTag))
+        setContent(outline)
     }
 }

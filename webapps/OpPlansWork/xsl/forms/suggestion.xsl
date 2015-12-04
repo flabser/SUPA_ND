@@ -5,7 +5,6 @@
     <xsl:output method="html" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
 
-    <xsl:variable name="doctype" select="request/document/fields/title"/>
     <xsl:variable name="userid" select="/request/@userid"/>
 
     <xsl:template match="/request">
@@ -21,16 +20,15 @@
             <h1 class="header-title">
                 <xsl:value-of select="//captions/title/@caption"/>
             </h1>
-            <xsl:apply-templates select="//actionbar">
-                <xsl:with-param name="fixed_top" select="''"/>
-            </xsl:apply-templates>
+            <xsl:apply-templates select="//actionbar"/>
         </header>
-        <section class="form-content suggestion">
-            <form action="Provider" name="frm" method="post" id="frm" enctype="application/x-www-form-urlencoded">
-                <div class="tab-content">
+        <section class="form-content">
+            <form action="Provider" name="suggestion" class="suggestion" method="post"
+                  enctype="application/x-www-form-urlencoded">
+                <fieldset class="fieldset">
                     <div class="control-group">
                         <div class="control-label">
-                            Мероприятия, пути и средства достижения цели
+                            <xsl:value-of select="//captions/description/@caption"/>
                         </div>
                         <div class="controls">
                             <textarea name="description">
@@ -40,7 +38,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            Ответственный исполнитель
+                            <xsl:value-of select="//captions/assignee/@caption"/>
                         </div>
                         <div class="controls">
                             <span data-input="assignee" id="assigneetbl">
@@ -53,14 +51,24 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <div class="control-label">Срок исполнения</div>
+                        <div class="control-label">
+                            <xsl:value-of select="//captions/due_date/@caption"/>
+                        </div>
                         <div class="controls">
                             <div class="due-date">
                                 <select name="_dueDateType">
-                                    <option value="month">Месяц</option>
-                                    <option value="quarter">Квартал</option>
-                                    <option value="half-year">Полугодие</option>
-                                    <option value="plan-link">По плановому документу</option>
+                                    <option value="month">
+                                        <xsl:value-of select="//captions/month/@caption"/>
+                                    </option>
+                                    <option value="quarter">
+                                        <xsl:value-of select="//captions/quarter/@caption"/>
+                                    </option>
+                                    <option value="half-year">
+                                        <xsl:value-of select="//captions/half_year/@caption"/>
+                                    </option>
+                                    <option value="plan-link">
+                                        <xsl:value-of select="//captions/plan_link/@caption"/>
+                                    </option>
                                 </select>
                                 <select name="_dueDate"></select>
                                 <div class="js-due-date-link">
@@ -74,7 +82,7 @@
                     </div>
                     <div class="control-group">
                         <div class="control-label">
-                            Отметка об отправке
+                            <xsl:value-of select="//captions/send_mark/@caption"/>
                         </div>
                         <div class="controls">
                             <select name="sendMark">
@@ -85,7 +93,7 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </fieldset>
 
                 <input type="hidden" name="dueDateType" value="{//fields/dueDateType}"/>
                 <input type="hidden" name="dueDate" value="{//fields/dueDate}"/>
