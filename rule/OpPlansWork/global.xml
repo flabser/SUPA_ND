@@ -20,7 +20,7 @@
         <entry id="ENG">English</entry>
     </langs>
     <skins>
-        <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/OpPlansWork/classic/xsl">Classic</entry>
+        <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/OpPlansWork/xsl">Classic</entry>
     </skins>
     <roles>
         <entry id="administrator">Разрешает ввод и редактирование значений справочников</entry>
