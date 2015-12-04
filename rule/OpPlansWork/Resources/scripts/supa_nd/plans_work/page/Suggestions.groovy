@@ -30,9 +30,7 @@ class Suggestions extends _DoScript {
         def col = session.getCurrentDatabase().getCollectionOfDocuments(viewParam)
 
         //
-        def content = []
-        content << actionBar
-        content << col
-        setContent(content)
+        setContent(actionBar)
+        setContent(col)
     }
 }

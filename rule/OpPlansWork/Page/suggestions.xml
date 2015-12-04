@@ -2,7 +2,7 @@
 <rule type="page" id="suggestions" mode="on" history="on">
     <description>suggestions</description>
     <caching>NO_CACHING</caching>
-    <xsltfile>operational_plans_work/pages/suggestions.xsl</xsltfile>
+    <xsltfile>pages/suggestions.xsl</xsltfile>
 
     <element mode="ON" type="INCLUDED_PAGE">
         <name>outline</name>

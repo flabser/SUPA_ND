@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="form" id="suggestion" mode="on" history="on">
     <description>Suggestion</description>
-    <xsltfile>operational_plans_work/forms/suggestion.xsl</xsltfile>
+    <xsltfile>forms/suggestion.xsl</xsltfile>
     <doctype>main</doctype>
 
     <events>
@@ -10,13 +10,9 @@
     </events>
 
     <caption name="title" source="KEYWORD">Предложение</caption>
-
     <caption name="fio" source="KEYWORD">ФИО</caption>
     <caption name="sex" source="KEYWORD">Пол</caption>
     <caption name="age" source="KEYWORD">Возраст</caption>
-
     <caption name="saveclose" source="KEYWORD">Сохранить и закрыть</caption>
     <caption name="close" source="KEYWORD">Закрыть</caption>
-
-    <caption name="logout" source="KEYWORD">Завершить работу</caption>
 </rule>

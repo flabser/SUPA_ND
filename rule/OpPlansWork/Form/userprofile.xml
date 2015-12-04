@@ -19,7 +19,6 @@
     <caption name="editing" source="KEYWORD">Редактирование</caption>
     <caption name="readonly" source="KEYWORD">Только для чтения</caption>
     <caption name="modenotdefined" source="KEYWORD">Режим не определен</caption>
-    <caption name="logout" source="KEYWORD">Завершить работу</caption>
     <caption name="lang" source="KEYWORD">Язык интерфейса</caption>
     <caption name="interface" source="KEYWORD">Интерфейс</caption>
     <caption name="password" source="KEYWORD">Пароль</caption>

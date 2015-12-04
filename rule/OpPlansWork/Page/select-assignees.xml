@@ -2,7 +2,7 @@
 <rule type="page" id="select-assignees" mode="on" history="off">
     <description>select-assignees</description>
     <caching>NO_CACHING</caching>
-    <xsltfile>operational_plans_work/pages/select-assignees.xsl</xsltfile>
+    <xsltfile>pages/select-assignees.xsl</xsltfile>
 
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>

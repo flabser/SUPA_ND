@@ -2,7 +2,7 @@
 <rule type="page" id="suggestions" mode="on" history="off">
     <description>suggestions</description>
     <caching>NO_CACHING</caching>
-    <xsltfile>operational_plans_work/pages/suggestions-list.xsl</xsltfile>
+    <xsltfile>pages/suggestions-list.xsl</xsltfile>
 
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
