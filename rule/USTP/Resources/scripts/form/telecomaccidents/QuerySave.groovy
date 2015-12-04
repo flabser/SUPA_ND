@@ -81,6 +81,7 @@ class QuerySave extends _FormQuerySave {
 		doc.addStringField("f1n65", webFormData.getValueSilently("f1n65"))
 		doc.addStringField("f2n36", webFormData.getValueSilently("f2n36"))
 		doc.addStringField("f2n37", webFormData.getValueSilently("f2n37"))
+		doc.addStringField("f2n37_2", webFormData.getValueSilently("f2n37_2"))
 		doc.addStringField("f2n38_2", webFormData.getValueSilently("f2n38_2"))
 		doc.addStringField("f2n38_3", webFormData.getValueSilently("f2n38_3"))
 		doc.addStringField("f2n38_4", webFormData.getValueSilently("f2n38_4"))
