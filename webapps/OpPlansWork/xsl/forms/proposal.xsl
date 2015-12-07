@@ -10,23 +10,25 @@
     <xsl:template match="/request">
         <xsl:call-template name="layout">
             <xsl:with-param name="include">
-                <script type="text/javascript" src="js/suggestion-controller.js"></script>
+                <script type="text/javascript" src="js/proposal-controller.js"></script>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="_content">
-        <header class="form-header">
+        <header class="content-header">
             <h1 class="header-title">
                 <xsl:value-of select="//captions/title/@caption"/>
             </h1>
-            <xsl:apply-templates select="//actionbar"/>
+            <div class="content-actions">
+                <xsl:apply-templates select="//actionbar"/>
+            </div>
         </header>
-        <section class="form-content">
-            <form action="Provider" name="suggestion" class="suggestion" method="post"
+        <section class="content-body">
+            <form action="Provider" name="proposal" class="proposal" method="post"
                   enctype="application/x-www-form-urlencoded">
                 <fieldset class="fieldset">
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="control-label">
                             <xsl:value-of select="//captions/description/@caption"/>
                         </div>
@@ -36,7 +38,7 @@
                             </textarea>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="control-label">
                             <xsl:value-of select="//captions/assignee/@caption"/>
                         </div>
@@ -50,7 +52,7 @@
                             <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="control-label">
                             <xsl:value-of select="//captions/due_date/@caption"/>
                         </div>
@@ -80,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="control-label">
                             <xsl:value-of select="//captions/send_mark/@caption"/>
                         </div>

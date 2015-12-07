@@ -6,14 +6,10 @@
     <xsl:template match="app_menu" mode="outline">
         <xsl:param name="active-entry-id" select="//app_menu//current/@id"/>
 
-        <aside class="layout_aside nav-app">
-            <div class="side">
-                <div class="side-container">
-                    <xsl:apply-templates select="response/content/outline" mode="outline">
-                        <xsl:with-param name="active-entry-id" select="$active-entry-id"/>
-                    </xsl:apply-templates>
-                </div>
-            </div>
+        <aside class="aside nav-app">
+            <xsl:apply-templates select="response/content/outline" mode="outline">
+                <xsl:with-param name="active-entry-id" select="$active-entry-id"/>
+            </xsl:apply-templates>
         </aside>
     </xsl:template>
 

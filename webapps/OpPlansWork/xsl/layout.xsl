@@ -13,7 +13,7 @@
     <xsl:decimal-format name="df" grouping-separator=" "/>
 
     <xsl:template name="layout">
-        <xsl:param name="w_title" select="concat(//captions/viewnamecaption/@caption, ' - ', $APP_NAME)"/>
+        <xsl:param name="w_title" select="concat(//captions/title/@caption, ' - ', $APP_NAME)"/>
         <xsl:param name="active_aside_id" select="//app_menu//current/@id"/>
         <xsl:param name="aside_collapse" select="''"/>
         <xsl:param name="include" select="''"/>
@@ -25,15 +25,15 @@
                 <xsl:with-param name="w_title" select="$w_title"/>
                 <xsl:with-param name="include" select="$include"/>
             </xsl:call-template>
-            <body class="layout_fullscreen {$body_class}">
+            <body class="{$body_class}">
                 <div class="main-load" id="main-load" style="display:none"></div>
-                <div class="layout layout_header-fixed {$aside_collapse}">
+                <div class="layout {$aside_collapse}">
                     <div class="content-overlay" id="content-overlay"></div>
                     <xsl:call-template name="main-header"/>
                     <xsl:apply-templates select="//app_menu" mode="outline">
                         <xsl:with-param name="active-entry-id" select="$active_aside_id"/>
                     </xsl:apply-templates>
-                    <section class="layout_content">
+                    <section class="content">
                         <xsl:call-template name="_content"/>
                     </section>
                     <xsl:call-template name="main-footer"/>
@@ -57,28 +57,26 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
             <link rel="stylesheet" href="/SharedResources/vendor/bootstrap/css/bootstrap.min.css"/>
-            <link type="text/css" rel="stylesheet"
-                  href="/SharedResources/vendor/font-awesome/css/font-awesome.min.css"/>
-            <link type="text/css" rel="stylesheet"
-                  href="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
-            <link type="text/css" rel="stylesheet" href="css/all.min.css"/>
+            <link rel="stylesheet" href="/SharedResources/vendor/font-awesome/css/font-awesome.min.css"/>
+            <link rel="stylesheet" href="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
+            <link rel="stylesheet" href="/SharedResources/nb/css/nb.min.css"/>
+            <link rel="stylesheet" href="css/all.min.css"/>
 
             <xsl:call-template name="STYLE_FIX_FIELDSET"/>
 
-            <script type="text/javascript" src="/SharedResources/vendor/jquery/jquery-2.1.4.min.js"></script>
+            <script src="/SharedResources/vendor/jquery/jquery-2.1.4.min.js"></script>
             <script src="/SharedResources/vendor/bootstrap/js/bootstrap.min.js"></script>
-            <script type="text/javascript"
-                    src="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-            <script type="text/javascript" src="/SharedResources/vendor/jquery/jquery.cookie.min.js"></script>
-            <script type="text/javascript" src="js/form-ui-init.js"></script>
-            <script type="text/javascript" src="/SharedResources/nb/js/nb.build.js"></script>
+            <script src="/SharedResources/vendor/jquery/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+            <script src="/SharedResources/vendor/jquery/jquery.cookie.min.js"></script>
+            <script src="js/form-ui-init.js"></script>
+            <script src="/SharedResources/nb/js/nb.build.js"></script>
 
             <xsl:copy-of select="$include"/>
         </head>
     </xsl:template>
 
     <xsl:template name="main-header">
-        <header class="layout_header navbar navbar-fixed-top">
+        <header class="header navbar navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
@@ -89,7 +87,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img alt="logo" src="{$APP_LOGO_IMG_SRC}" class="brand-logo" height="50px"/>
+                    <img alt="logo" src="{$APP_LOGO_IMG_SRC}" class="brand-logo"/>
                     <span class="brand-title">
                         <xsl:value-of select="$APP_NAME"/>
                     </span>
@@ -108,6 +106,7 @@
                                         <xsl:value-of select="@username"/>
                                     </a>
                                 </li>
+                                <li class="divider"></li>
                                 <li>
                                     <a id="logout" href="Logout" title="{document/captions/logout/@caption}">
                                         <xsl:value-of select="//captions/logout/@caption"/>

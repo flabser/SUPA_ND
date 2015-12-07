@@ -122,7 +122,7 @@ app.oper_plans_work = {
 
 app.oper_plans_work.actions.save = function(el, msg) {
     $('[name=_action]').val(msg);
-    var form = $('#frm');
+    var form = $('form[name=proposal]')[0];
     var data = $(form).serialize();
 
     var noty = nb.utils.notify({

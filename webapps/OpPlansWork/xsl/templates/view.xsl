@@ -54,14 +54,14 @@
                 </sup>
             </xsl:if>
         </h1>
-        <nav class="nav-action-bar">
+        <div class="content-actions">
             <div class="pull-right">
                 <xsl:apply-templates select="//view_content" mode="page-navigator"/>
             </div>
             <div class="on-desktop">
                 <xsl:apply-templates select="//actionbar"/>
             </div>
-        </nav>
+        </div>
     </xsl:template>
 
     <!-- attach-icon -->

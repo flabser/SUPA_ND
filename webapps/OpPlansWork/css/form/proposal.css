@@ -1,6 +1,6 @@
-.suggestion {}
+.proposal {}
 
-.suggestion .due-date select {
+.proposal .due-date select {
     display: inline-block;
     vertical-align: top;
 }

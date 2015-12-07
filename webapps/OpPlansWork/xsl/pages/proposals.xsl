@@ -8,15 +8,15 @@
     </xsl:template>
 
     <xsl:template name="_content">
-        <div class="view view_accounts">
-            <div class="view-header">
-                <xsl:call-template name="page-info"/>
-            </div>
-            <div class="view-content">
+        <div class="content-header">
+            <xsl:call-template name="page-info"/>
+        </div>
+        <div class="content-body">
+            <div class="view view_accounts">
                 <xsl:call-template name="view-table"/>
             </div>
-            <input type="hidden" name="page_id" id="page_id" value="{@id}"/>
         </div>
+        <input type="hidden" name="page_id" id="page_id" value="{@id}"/>
     </xsl:template>
 
     <xsl:template name="view-table">
