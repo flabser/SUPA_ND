@@ -13,7 +13,7 @@ class QueryOpen extends _FormQueryOpen{
 
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Вид ЧС", lang))
+		publishValue("title",getLocalizedWord("Класс ЧС", lang))
 
 		def nav = session.getPage("outline", webFormData)
 		publishElement(nav)
@@ -24,7 +24,7 @@ class QueryOpen extends _FormQueryOpen{
 	@Override
 	public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 		def glos = (_Glossary)doc
-		publishValue("title",getLocalizedWord("Вид ЧС", lang) + ":" + glos.getViewText())
+		publishValue("title",getLocalizedWord("Класс ЧС", lang) + ":" + glos.getViewText())
 		publishEmployer("author",glos.getAuthorID())
 		publishValue("name",glos.getName())
 		publishValue("code", glos.getCode())

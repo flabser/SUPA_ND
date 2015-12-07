@@ -20,6 +20,7 @@ class QuerySave extends _FormQuerySave {
 
 		doc.setForm("transportaccident")
 		doc.addStringField("author", webFormData.getValueSilently("author"))
+		doc.addStringField("esgroup", webFormData.getValueSilently("esgroup"))
 		doc.addStringField("carddate", webFormData.getValueSilently("carddate"))
 		doc.addStringField("cardnumber", webFormData.getValueSilently("cardnumber"))
 		doc.addStringField("escode", webFormData.getValueSilently("escode"))
