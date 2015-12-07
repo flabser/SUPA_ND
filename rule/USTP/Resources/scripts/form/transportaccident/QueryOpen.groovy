@@ -80,6 +80,7 @@ class QueryOpen extends _FormQueryOpen {
 		publishGlossaryValue("respcity", doc.getValueNumber("respcity"))
 		publishGlossaryValue("city",doc.getValueNumber("city"))
 
+		publishValue("esgroup", doc.getValueString("esgroup"))
 		publishValue("esbriefcontent", doc.getValueString("esbriefcontent"))
 		publishValue("esdate", doc.getValueString("esdate"))
 		publishValue("district", doc.getValueString("district"))

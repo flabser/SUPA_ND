@@ -20,6 +20,7 @@ class QuerySave extends _FormQuerySave {
 
 		doc.setForm("telecomaccidents")
 		doc.addStringField("author", webFormData.getValueSilently("author"))
+		doc.addStringField("esgroup", webFormData.getValueSilently("esgroup"))
 		doc.addStringField("carddate", webFormData.getValueSilently("carddate"))
 		doc.addStringField("cardnumber", webFormData.getValueSilently("cardnumber"))
 		doc.addStringField("escode", webFormData.getValueSilently("escode"))
@@ -89,6 +90,8 @@ class QuerySave extends _FormQuerySave {
 		doc.addStringField("f2n39", webFormData.getValueSilently("f2n39"))
 		doc.addStringField("f2n40", webFormData.getValueSilently("f2n40"))
 		doc.addStringField("f2n41", webFormData.getValueSilently("f2n41"))
+		doc.addStringField("f1n42_2", webFormData.getValueSilently("f1n42_2"))
+		doc.addStringField("f1n43_2", webFormData.getValueSilently("f1n43_2"))
 		doc.addStringField("f1n43", webFormData.getValueSilently("f1n43"))
 		doc.addStringField("f1n44", webFormData.getValueSilently("f1n44"))
 		doc.addStringField("f1n45", webFormData.getValueSilently("f1n45"))

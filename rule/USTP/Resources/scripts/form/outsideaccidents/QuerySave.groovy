@@ -18,7 +18,7 @@ class QuerySave extends _FormQuerySave {
 			return;
 		}
 
-		doc.setForm("transportaccident")
+		doc.setForm("outsideaccidents")
 		doc.addStringField("author", webFormData.getValueSilently("author"))
 		doc.addStringField("carddate", webFormData.getValueSilently("carddate"))
 		doc.addStringField("cardnumber", webFormData.getValueSilently("cardnumber"))
@@ -30,6 +30,7 @@ class QuerySave extends _FormQuerySave {
 		doc.addNumberField("city", webFormData.getNumberValueSilently("city",-1))
 		//doc.addFile("rtfcontent", webFormData)
 		doc.addStringField("esbriefcontent", webFormData.getValueSilently("esbriefcontent"))
+		doc.addStringField("esgroup", webFormData.getValueSilently("esgroup"))
 		doc.addStringField("esdate", webFormData.getValueSilently("esdate"))
 		doc.addStringField("district", webFormData.getValueSilently("district"))
 		doc.addStringField("villagedistrict", webFormData.getValueSilently("villagedistrict"))
@@ -57,6 +58,9 @@ class QuerySave extends _FormQuerySave {
 		doc.addStringField("departtime", webFormData.getValueSilently("departtime"))
 		doc.addStringField("arrivaldate", webFormData.getValueSilently("arrivaldate"))
 		doc.addStringField("arrivaltime", webFormData.getValueSilently("arrivaltime"))
+		doc.addStringField("esland", webFormData.getValueSilently("esland"))
+		doc.addStringField("esregion", webFormData.getValueSilently("esregion"))
+		doc.addStringField("escity", webFormData.getValueSilently("escity"))
 		doc.addStringField("f1n20", webFormData.getValueSilently("f1n20"))
 		doc.addStringField("f1n21", webFormData.getValueSilently("f1n21"))
 		doc.addStringField("f1n21_2", webFormData.getValueSilently("f1n21_2"))
@@ -123,7 +127,9 @@ class QuerySave extends _FormQuerySave {
 		doc.addStringField("f1n40", webFormData.getValueSilently("f1n40"))
 		doc.addStringField("f1n41", webFormData.getValueSilently("f1n41"))
 		doc.addStringField("f1n42", webFormData.getValueSilently("f1n42"))
+		doc.addStringField("f1n42_2", webFormData.getValueSilently("f1n42_2"))
 		doc.addStringField("f1n43", webFormData.getValueSilently("f1n43"))
+		doc.addStringField("f1n43_2", webFormData.getValueSilently("f1n43_2"))
 		doc.addStringField("f1n44", webFormData.getValueSilently("f1n44"))
 		doc.addStringField("f1n45", webFormData.getValueSilently("f1n45"))
 		doc.addStringField("f1n46", webFormData.getValueSilently("f1n46"))
@@ -199,7 +205,7 @@ class QuerySave extends _FormQuerySave {
 		if (doc.isNewDoc){
 			returnURL.changeParameter("page", "0")
 			def db = session.getCurrentDatabase()
-			int num = db.getRegNumber('transportaccident')
+			int num = db.getRegNumber('outsideaccidents')
 			String vnAsText = Integer.toString(num)
 			doc.replaceStringField("cardnumber", vnAsText)
 			localizedMsgBox(getLocalizedWord("Документ зарегистрирован под № ",lang) + vnAsText)

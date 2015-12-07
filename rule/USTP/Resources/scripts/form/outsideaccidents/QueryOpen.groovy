@@ -13,7 +13,7 @@ class QueryOpen extends _FormQueryOpen {
 
 	@Override
 	public void doQueryOpen(_Session session, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Транспортные аварии (катастрофы)", lang))
+		publishValue("title",getLocalizedWord("ЧС за пределами государства", lang))
 		def user = session.getCurrentAppUser()
 
 		def nav = session.getPage("outline", webFormData)
@@ -45,7 +45,7 @@ class QueryOpen extends _FormQueryOpen {
 	 
 	@Override
 	public void doQueryOpen(_Session session, _Document doc, _WebFormData webFormData, String lang) {
-		publishValue("title",getLocalizedWord("Транспортные аварии (катастрофы)", lang) + ": " + doc.getValueString("briefcontent"))
+		publishValue("title",getLocalizedWord("ЧС за пределами государства", lang) + ": " + doc.getValueString("briefcontent"))
 		def user = session.getCurrentAppUser()
 
 		def nav = session.getPage("outline", webFormData)
@@ -80,6 +80,10 @@ class QueryOpen extends _FormQueryOpen {
 		publishGlossaryValue("respcity", doc.getValueNumber("respcity"))
 		publishGlossaryValue("city",doc.getValueNumber("city"))
 
+		publishValue("esgroup", doc.getValueString("esgroup"))
+		publishValue("esland", doc.getValueString("esland"))
+		publishValue("esregion", doc.getValueString("esregion"))
+		publishValue("escity", doc.getValueString("escity"))
 		publishValue("esbriefcontent", doc.getValueString("esbriefcontent"))
 		publishValue("esdate", doc.getValueString("esdate"))
 		publishValue("district", doc.getValueString("district"))
@@ -174,7 +178,9 @@ class QueryOpen extends _FormQueryOpen {
 		publishValue("f1n40", doc.getValueString("f1n40"))
 		publishValue("f1n41", doc.getValueString("f1n41"))
 		publishValue("f1n42", doc.getValueString("f1n42"))
+		publishValue("f1n42_2", doc.getValueString("f1n42_2"))
 		publishValue("f1n43", doc.getValueString("f1n43"))
+		publishValue("f1n43_2", doc.getValueString("f1n43_2"))
 		publishValue("f1n44", doc.getValueString("f1n44"))
 		publishValue("f1n45", doc.getValueString("f1n45"))
 		publishValue("f1n46", doc.getValueString("f1n46"))
