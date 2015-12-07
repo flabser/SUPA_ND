@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="suggestion" mode="on" history="on">
-    <description>Suggestion</description>
-    <xsltfile>forms/suggestion.xsl</xsltfile>
+<rule type="form" id="proposal" mode="on" history="on">
+    <description>Proposal</description>
+    <xsltfile>forms/proposal.xsl</xsltfile>
     <doctype>main</doctype>
 
     <events>
-        <queryopen source="file">supa_nd.plans_work.form.suggestion.QueryOpen</queryopen>
-        <querysave source="file">supa_nd.plans_work.form.suggestion.QuerySave</querysave>
+        <queryopen source="file">supa_nd.plans_work.form.proposal.QueryOpen</queryopen>
+        <querysave source="file">supa_nd.plans_work.form.proposal.QuerySave</querysave>
     </events>
 
     <caption name="title" source="KEYWORD">Формуляр предложения</caption>

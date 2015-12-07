@@ -12,8 +12,7 @@
         <password>1</password>
     </database>
     <externalmodule type="STRUCTURE">Structure</externalmodule>
-    <entrypoint>Provider?type=static&amp;id=start</entrypoint>
-    <defaultredirecturl>Provider?type=page&amp;id=suggestions&amp;page=0</defaultredirecturl>
+    <defaultredirecturl>Provider?type=page&amp;id=journal-proposals&amp;page=0</defaultredirecturl>
     <langs>
         <entry id="RUS" isprimary="1">Русский</entry>
         <entry id="KAZ">Казакша</entry>

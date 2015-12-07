@@ -10,19 +10,19 @@ import kz.nextbase.script.events._DoScript
 import java.text.SimpleDateFormat
 
 
-class Suggestions extends _DoScript {
+class ListProposals extends _DoScript {
 
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
 
         def actionBar = new _ActionBar(session);
         def newDocAction = new _Action(getLocalizedWord("Добавить предложение", lang), "", "new_document")
-        newDocAction.setURL("Provider?type=edit&element=document&id=suggestion&docid=")
+        newDocAction.setURL("Provider?type=edit&element=document&id=proposal&docid=")
         actionBar.addAction(newDocAction);
         actionBar.addAction(new _Action(getLocalizedWord("Удалить", lang), "", _ActionType.DELETE_DOCUMENT));
 
         def viewParam = session.createViewEntryCollectionParam()
-        viewParam.setQuery("form = 'suggestion'")
+        viewParam.setQuery("form = 'proposal'")
                 .setPageNum(formData.getNumberValueSilently("page", 1))
                 .setCheckResponse(false)
                 .setDateFormat(new SimpleDateFormat("dd.MM.yyyy"))

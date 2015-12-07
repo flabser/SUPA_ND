@@ -1,4 +1,4 @@
-package supa_nd.plans_work.form.suggestion
+package supa_nd.plans_work.form.proposal
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
@@ -11,7 +11,7 @@ class QuerySave extends _FormQuerySave {
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 
-        doc.setForm("suggestion")
+        doc.setForm("proposal")
 
         doc.addStringField("description", webFormData.getValue("description"))
         doc.addStringField("assignee", webFormData.getValue("assignee"))

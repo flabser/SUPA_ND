@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="suggestions" mode="on" history="on">
-    <description>suggestions</description>
+<rule type="page" id="list-proposals" mode="on" history="on">
+    <description>list-proposals</description>
     <caching>NO_CACHING</caching>
-    <xsltfile>pages/suggestions.xsl</xsltfile>
+    <xsltfile>pages/proposals.xsl</xsltfile>
 
     <element mode="ON" type="INCLUDED_PAGE">
         <name>outline</name>
@@ -11,7 +11,7 @@
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">supa_nd.plans_work.page.Suggestions</doscript>
+            <doscript source="file">supa_nd.plans_work.page.ListProposals</doscript>
         </events>
     </element>
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="journal-proposals" mode="on" history="on">
+    <description>journal-proposals</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>pages/proposals.xsl</xsltfile>
+
+    <element mode="ON" type="INCLUDED_PAGE">
+        <name>outline</name>
+        <value>outline</value>
+    </element>
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">supa_nd.plans_work.page.JournalProposals</doscript>
+        </events>
+    </element>
+
+    <caption name="title" source="KEYWORD">Журнал для сбора предложений</caption>
+    <caption name="viewtext1" source="KEYWORD">Мероприятия, пути и средства достижения цели</caption>
+    <caption name="viewtext2" source="KEYWORD">Ответственный исполнитель</caption>
+    <caption name="viewtext4" source="KEYWORD">Срок исполнения</caption>
+</rule>

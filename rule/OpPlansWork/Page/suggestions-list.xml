@@ -7,7 +7,7 @@
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">supa_nd.plans_work.page.Suggestions</doscript>
+            <doscript source="file">supa_nd.plans_work.page.JournalProposals</doscript>
         </events>
     </element>
 

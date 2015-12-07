@@ -1,4 +1,4 @@
-package supa_nd.plans_work.form.suggestion
+package supa_nd.plans_work.form.proposals
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
@@ -32,11 +32,6 @@ class QueryOpen extends _FormQueryOpen {
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
 
-        publishValue("description", doc.getValueString("description"))
-        publishEmployer("assignee", doc.getValueString("assignee"))
-        // publishValue("assignee", doc.getValueString("assignee"))
-        publishValue("dueDateType", doc.getValueString("dueDateType"))
-        publishValue("dueDate", doc.getValueString("dueDate"))
-        publishValue("sendMark", doc.getValueString("sendMark"))
+        publishValue("title", doc.getValueString("title"))
     }
 }
