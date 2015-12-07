@@ -17,9 +17,20 @@
             <xsl:with-param name="include">
                 <script type="text/javascript" src="classic/scripts/form.js"></script>
                 <script type="text/javascript" src="classic/scripts/dialogs.js"></script>
+                <script type="text/javascript" src="/SharedResources/jquery/js/TimePicki/TimePicki-master/js/timepicki.js"></script>
+                <link type="text/css" rel="stylesheet" href="/SharedResources/jquery/js/TimePicki/TimePicki-master/css/timepicki.css"/>
                 <script>
                     $(function(){
-                    $("#tabs").tabs();
+                        $("#tabs").tabs();
+                        $('.timepicker').timepicki({
+                            show_meridian:false,
+                            min_hour_value:0,
+                            max_hour_value:23,
+                            step_size_minutes:1,
+                            overflow_minutes:true,
+                            increase_direction:'up',
+                            disable_keyboard_mobile: false
+                        });
                     });
                 </script>
                 <xsl:if test="$editmode = 'edit'">
@@ -133,6 +144,137 @@
                                 </td>
                                 <td>
                                     <input type="text" name="escode" maxlength="10" class="td_editable" style="width:90px;" value="{document/fields/escode}"/>
+                                </td>
+                            </tr>
+                            <!-- Группа  ЧС -->
+                            <tr>
+                                <td class="fc">
+                                    Группа ЧС :
+                                </td>
+                                <td>
+                                    <select size="1" name="esgroup" style="width:612px;" class="select_editable" autocomplete="off">
+                                        <xsl:variable name="esgroup" select="document/fields/esgroup"/>
+                                        <xsl:if test="$editmode ='edit'">
+                                            <option value=" ">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                                &#xA0;
+                                            </option>
+                                        </xsl:if>
+                                        <option value="01">
+                                            <xsl:if test="$esgroup = '01'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 01
+                                        </option>
+                                        <option value="02">
+                                            <xsl:if test="$esgroup = '02'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 02
+                                        </option>
+                                        <option value="03">
+                                            <xsl:if test="$esgroup = '03'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 03
+                                        </option>
+                                        <option value="04">
+                                            <xsl:if test="$esgroup = '04'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 04
+                                        </option>
+                                        <option value="05">
+                                            <xsl:if test="$esgroup = '05'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 05
+                                        </option>
+                                        <option value="06">
+                                            <xsl:if test="$esgroup = '06'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 06
+                                        </option>
+                                        <option value="07">
+                                            <xsl:if test="$esgroup = '07'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 07
+                                        </option>
+                                        <option value="08">
+                                            <xsl:if test="$esgroup = '08'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 08
+                                        </option>
+                                        <option value="09">
+                                            <xsl:if test="$esgroup = '09'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 09
+                                        </option>
+                                        <option value="10">
+                                            <xsl:if test="$esgroup = '10'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 10
+                                        </option>
+                                        <option value="11">
+                                            <xsl:if test="$esgroup = '11'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 11
+                                        </option>
+                                        <option value="12">
+                                            <xsl:if test="$esgroup = '12'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 12
+                                        </option>
+                                        <option value="13">
+                                            <xsl:if test="$esgroup = '13'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 13
+                                        </option>
+                                        <option value="14">
+                                            <xsl:if test="$esgroup = '14'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 14
+                                        </option>
+                                        <option value="15">
+                                            <xsl:if test="$esgroup = '15'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 15
+                                        </option>
+                                        <option value="16">
+                                            <xsl:if test="$esgroup = '16'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 16
+                                        </option>
+                                        <option value="17">
+                                            <xsl:if test="$esgroup = '17'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 17
+                                        </option>
+                                        <option value="18">
+                                            <xsl:if test="$esgroup = '18'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 18
+                                        </option>
+                                        <option value="19">
+                                            <xsl:if test="$esgroup = '19'">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            Группа 19
+                                        </option>
+                                    </select>
                                 </td>
                             </tr>
                             <!-- Вид  ЧС -->
@@ -572,7 +714,7 @@
                                     Возникновения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_2" id="f1n37_2" class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_2" id="f1n37_2" class="td_editable timepicker" style="width:120px;"
                                            value="{document/fields/f1n37_2}"/>
                                 </td>
                             </tr>
@@ -582,7 +724,7 @@
                                     обнаружения ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_3" id="f1n37_3" class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_3" id="f1n37_3" class="td_editable timepicker" style="width:120px;"
                                            value="{document/fields/f1n37_3}"/>
                                 </td>
                             </tr>
@@ -592,7 +734,7 @@
                                     сообщения о ЧС :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_4" id="f1n37_4" class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_4" id="f1n37_4" class="td_editable timepicker" style="width:120px;"
                                            value="{document/fields/f1n37_4}"/>
                                 </td>
                             </tr>
@@ -602,7 +744,7 @@
                                     Выезда подразделений :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_5" id="f1n37_5" class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_5" id="f1n37_5" class="td_editable timepicker" style="width:120px;"
                                            value="{document/fields/f1n37_5}"/>
                                 </td>
                             </tr>
@@ -612,7 +754,7 @@
                                     Время прибытия первых подразделений :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n37_6" id="f1n37_6" class="td_editable" style="width:120px;"
+                                    <input type="text" name="f1n37_6" id="f1n37_6" class="td_editable timepicker" style="width:120px;"
                                            value="{document/fields/f1n37_6}"/>
                                 </td>
                             </tr>
@@ -631,7 +773,7 @@
                                     Время отключения связи :
                                 </td>
                                 <td>
-                                    <input type="text" name="f1n39" class="td_editable"  style="width:120px;" value="{document/fields/f1n39}"/>
+                                    <input type="text" name="f1n39" class="td_editable timepicker"  style="width:120px;" value="{document/fields/f1n39}"/>
                                 </td>
                             </tr>
                             <!--Время оповещения -->
@@ -648,7 +790,7 @@
                     <div id="tabs-3">
                         <br/>
                         <table width="100%" border="0">
-                            <!-- Время -->
+                            <!-- Линии связи -->
                             <tr>
                                 <td class="fc">
                                     Линии связи (каналы) :
@@ -1494,7 +1636,7 @@
                     <div id="tabs-5">
                         <br/>
                         <table width="100%" border="0">
-                            <!--Дата и время ликвидации ЧС-->
+                            <!--Общее количество людей находившихся в зоне ЧС -->
                             <tr>
                                 <td class="fc">
                                     Общее количество людей находившихся в зоне ЧС :
@@ -1592,11 +1734,20 @@
                             <!--Дата и время ликвидации ЧС-->
                             <tr>
                                 <td class="fc">
-                                    Дата и время ликвидации ЧС :
+                                    Дата ликвидации ЧС :
                                 </td>
                                 <td>
                                     <input type="text" name="f1n43" class="td_editable"
                                            style="width:120px;" value="{document/fields/f1n43}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="fc">
+                                    Время ликвидации ЧС :
+                                </td>
+                                <td>
+                                    <input type="text" name="f1n43_2 timepicker" class="td_editable"
+                                           style="width:120px;" value="{document/fields/f1n43_2}"/>
                                 </td>
                             </tr>
                             <tr>
