@@ -14,7 +14,7 @@ class QuerySave extends _FormQuerySave {
     // esli nuzhna sviaznost' predlozhenii, budem sviazyvat' logicheski
     // po avtoru, departamentu avtora
     //
-    // vse deistvija proishodjashie s predlozheniem hranit' v vide timeline
+    // vse deistvija proishodjashie s predlozheniem otobrazhat' v vide timeline po regDate
 
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
@@ -25,7 +25,6 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("assignee", webFormData.getValue("assignee"))
         doc.addStringField("dueDateType", webFormData.getValue("dueDateType"))
         doc.addStringField("dueDate", webFormData.getValueSilently("dueDate"))
-        doc.addStringField("sendMark", webFormData.getValueSilently("sendMark"))
 
         doc.addStringField("status", webFormData.getValueSilently("status"))
 
@@ -34,6 +33,7 @@ class QuerySave extends _FormQuerySave {
 
         doc.addStringField("department", assignee.getDepartmentID());
 
+        // WARNING. Pomni porjadok viewtext[n] kriti4en
         def vt = """${doc.getValueString("description")} > ${doc.getValueString("assignee")}, ${
             doc.getValueString("dueDateType")
         } : ${doc.getValueString("dueDate")}"""
@@ -43,7 +43,7 @@ class QuerySave extends _FormQuerySave {
         doc.addViewText(assignee.getUserID())
         doc.addViewText(doc.getValueString("dueDateType"))
         doc.addViewText(doc.getValueString("dueDate"))
-        doc.addViewText(doc.getValueString("sendMark"))
+        doc.addViewText("")
         doc.addViewText(doc.getValueString("status")) // viewtext7 = status
         //
         doc.addEditor(session.getUser().getUserID())

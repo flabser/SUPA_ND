@@ -20,7 +20,6 @@ class ListProposals extends _DoScript {
         actionBar.addAction(newDocAction);
 
         def viewParam = session.createViewEntryCollectionParam()
-        // viewtext2 = status
         viewParam.setQuery("form = 'proposal' & viewtext7 != 'coordinated'")
                 .setPageNum(formData.getNumberValueSilently("page", 1))
                 .setCheckResponse(false)
