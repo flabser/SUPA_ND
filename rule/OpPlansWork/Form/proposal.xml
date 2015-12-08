@@ -20,4 +20,7 @@
     <caption name="quarter" source="KEYWORD">Квартал</caption>
     <caption name="half_year" source="KEYWORD">Полугодие</caption>
     <caption name="plan_link" source="KEYWORD">По плановому документу</caption>
+
+    <caption name="comments" source="KEYWORD">Комментарии</caption>
+    <caption name="comment" source="KEYWORD">Комментарий</caption>
 </rule>

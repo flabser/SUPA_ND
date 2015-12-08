@@ -9,6 +9,12 @@ import kz.nextbase.script.events._FormQuerySave
 class QuerySave extends _FormQuerySave {
 
     // status: draft, revision, excluded, coordinated
+    //
+    // izmenilos' mnenie, ne budet roditel'skogo documenta.
+    // esli nuzhna sviaznost' predlozhenii, budem sviazyvat' logicheski
+    // po avtoru, departamentu avtora
+    //
+    // vse deistvija proishodjashie s predlozheniem hranit' v vide timeline
 
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
@@ -25,6 +31,8 @@ class QuerySave extends _FormQuerySave {
 
         def struct = session.getStructure();
         def assignee = struct.getEmployer(webFormData.getValue("assignee"));
+
+        doc.addStringField("department", assignee.getDepartmentID());
 
         def vt = """${doc.getValueString("description")} > ${doc.getValueString("assignee")}, ${
             doc.getValueString("dueDateType")

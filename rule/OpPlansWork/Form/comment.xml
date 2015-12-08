@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="comment" mode="on" history="off">
+    <description>Comment</description>
+    <xsltfile>forms/comment.xsl</xsltfile>
+    <doctype>main</doctype>
+
+    <events>
+        <queryopen source="file">supa_nd.plans_work.form.comment.QueryOpen</queryopen>
+        <querysave source="file">supa_nd.plans_work.form.comment.QuerySave</querysave>
+    </events>
+</rule>

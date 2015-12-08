@@ -68,7 +68,7 @@ app.oper_plans_work = {
         selectDueDateLink: function() {
             var dlg = nb.dialog.show({
                 title: 'selectDueDateLink',
-                href: 'Provider?type=page&id=suggestions-list',
+                href: 'Provider?type=page&id=proposals-list',
                 buttons: {
                     'cancel': {
                         text: nb.getText('cancel'),

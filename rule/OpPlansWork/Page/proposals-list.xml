@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="suggestions" mode="on" history="off">
-    <description>suggestions</description>
+<rule type="page" id="proposals-list" mode="on" history="off">
+    <description>proposals-list</description>
     <caching>NO_CACHING</caching>
-    <xsltfile>pages/suggestions-list.xsl</xsltfile>
+    <xsltfile>pages/proposals-list.xsl</xsltfile>
 
     <element mode="ON" type="SCRIPT">
         <name>view_content</name>
         <events>
-            <doscript source="file">supa_nd.plans_work.page.JournalProposals</doscript>
+            <doscript source="file">supa_nd.plans_work.page.ListProposals</doscript>
         </events>
     </element>
 
