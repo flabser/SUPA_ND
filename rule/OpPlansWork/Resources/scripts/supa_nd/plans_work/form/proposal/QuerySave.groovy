@@ -8,6 +8,8 @@ import kz.nextbase.script.events._FormQuerySave
 
 class QuerySave extends _FormQuerySave {
 
+    // status: draft, revision, excluded, coordinated
+
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 
@@ -18,6 +20,8 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("dueDateType", webFormData.getValue("dueDateType"))
         doc.addStringField("dueDate", webFormData.getValueSilently("dueDate"))
         doc.addStringField("sendMark", webFormData.getValueSilently("sendMark"))
+
+        doc.addStringField("status", webFormData.getValueSilently("status"))
 
         def struct = session.getStructure();
         def assignee = struct.getEmployer(webFormData.getValue("assignee"));
@@ -32,6 +36,7 @@ class QuerySave extends _FormQuerySave {
         doc.addViewText(doc.getValueString("dueDateType"))
         doc.addViewText(doc.getValueString("dueDate"))
         doc.addViewText(doc.getValueString("sendMark"))
+        doc.addViewText(doc.getValueString("status")) // viewtext7 = status
         //
         doc.addEditor(session.getUser().getUserID())
         doc.addReader(assignee.getUserID())

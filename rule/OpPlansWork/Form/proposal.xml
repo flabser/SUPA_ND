@@ -9,7 +9,7 @@
         <querysave source="file">supa_nd.plans_work.form.proposal.QuerySave</querysave>
     </events>
 
-    <caption name="title" source="KEYWORD">Формуляр предложения</caption>
+    <caption name="title" source="KEYWORD">Предложение</caption>
 
     <caption name="description" source="KEYWORD">Мероприятия, пути и средства достижения цели</caption>
     <caption name="assignee" source="KEYWORD">Ответственный исполнитель</caption>
