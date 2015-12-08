@@ -28,7 +28,7 @@ gulp.task('minify_css', function() {
 });
 
 gulp.task('default', function() {
-    gulp.run('lint', 'minify_js', 'minify_css');
+    gulp.run('minify_css', 'lint', 'minify_js');
 
     gulp.watch(js_files, function(event) {
         gulp.run('minify_js');
