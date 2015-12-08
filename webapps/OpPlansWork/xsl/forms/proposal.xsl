@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group hidden">
                         <div class="control-label">
                             <xsl:value-of select="//captions/send_mark/@caption"/>
                         </div>
