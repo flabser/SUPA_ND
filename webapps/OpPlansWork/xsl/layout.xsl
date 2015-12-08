@@ -17,6 +17,7 @@
         <xsl:param name="active_aside_id" select="//app_menu//current/@id"/>
         <xsl:param name="aside_collapse" select="''"/>
         <xsl:param name="include" select="''"/>
+        <xsl:param name="include_body" select="''"/>
         <xsl:param name="body_class" select="''"/>
 
         <xsl:call-template name="HTML-DOCTYPE"/>
@@ -39,6 +40,7 @@
                     <xsl:call-template name="main-footer"/>
                 </div>
                 <xsl:call-template name="util-js-mark-as-read"/>
+                <xsl:copy-of select="$include_body"/>
             </body>
         </html>
     </xsl:template>

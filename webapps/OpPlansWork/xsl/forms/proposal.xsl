@@ -90,7 +90,7 @@
                             <select name="sendMark">
                                 <option value=""></option>
                                 <option value="revision">Отправка на доработку</option>
-                                <option value="exclusion">Исключение</option>
+                                <option value="excluded">Исключение</option>
                                 <option value="coordinated">Согласовано</option>
                             </select>
                         </div>
