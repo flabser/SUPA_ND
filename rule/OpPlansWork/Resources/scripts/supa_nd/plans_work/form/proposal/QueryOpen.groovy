@@ -27,10 +27,17 @@ class QueryOpen extends _FormQueryOpen {
         def nav = session.getPage("outline", webFormData)
         publishElement(nav)
 
+        def status = doc.getValueString("status")
+
         def actionBar = session.createActionBar()
-        actionBar.addAction(new _Action(getLocalizedWord("Согласен", lang), "", "agree"))
-        actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "revision"))
-        actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "reject"))
+        if (status == "coordination") {
+            actionBar.addAction(new _Action(getLocalizedWord("Согласен", lang), "", "agree"))
+            actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "revision"))
+            actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "reject"))
+        } else {
+            actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
+            actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coordination"))
+        }
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
 
@@ -38,6 +45,6 @@ class QueryOpen extends _FormQueryOpen {
         publishEmployer("assignee", doc.getValueString("assignee"))
         publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))
-        publishValue("status", doc.getValueString("status"))
+        publishValue("status", status)
     }
 }

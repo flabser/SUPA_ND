@@ -144,20 +144,20 @@ app.oper_plans_work.actions.save = function(el, msg) {
     });
 };
 
-app.oper_plans_work.actions.send = function(el) {
-    app.oper_plans_work.actions.save(el, 'send');
+app.oper_plans_work.actions.coordination = function(el) {
+    app.oper_plans_work.actions.save(el, 'coordination');
 };
 
 app.oper_plans_work.actions.agree = function(el) {
-    app.oper_plans_work.actions.save(el, 'agree');
+    app.oper_plans_work.actions.save(el, 'coord_agree');
 };
 
 app.oper_plans_work.actions.exclusion = function(el) {
-    app.oper_plans_work.actions.save(el, 'exclusion');
+    app.oper_plans_work.actions.save(el, 'coord_reject');
 };
 
 app.oper_plans_work.actions.revision = function(el) {
-    app.oper_plans_work.actions.save(el, 'revision');
+    app.oper_plans_work.actions.save(el, 'coord_revision');
 };
 
 app.oper_plans_work.actions.reject = function(el) {
@@ -200,8 +200,11 @@ app.oper_plans_work.actions.reject = function(el) {
 $(function() {
     app.oper_plans_work.init();
 
-    $('[data-action=send]').click(function() {
-        app.oper_plans_work.actions.send(this);
+    $('[data-action=save]').click(function() {
+        app.oper_plans_work.actions.save(this);
+    });
+    $('[data-action=coordination]').click(function() {
+        app.oper_plans_work.actions.coordination(this);
     });
     $('[data-action=agree]').click(function() {
         app.oper_plans_work.actions.agree(this);

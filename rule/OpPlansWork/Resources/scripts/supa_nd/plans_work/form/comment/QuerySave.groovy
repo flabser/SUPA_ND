@@ -28,6 +28,7 @@ class QuerySave extends _FormQuerySave {
         def comment = doc.getValueString("text")
         doc.addStringField("text", webFormData.getValue("text"))
 
+        //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
         doc.setViewDate(new Date()) // update time
         doc.setViewText(doc.getValueString("text"))
@@ -47,5 +48,6 @@ class QuerySave extends _FormQuerySave {
                 doc.setViewNumber(doc.getViewNumber() + 1) // comment is changed
             }
         }
+        //---------------------------------------------
     }
 }
