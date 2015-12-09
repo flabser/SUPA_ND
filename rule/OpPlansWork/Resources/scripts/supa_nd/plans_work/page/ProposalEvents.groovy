@@ -7,7 +7,7 @@ import kz.nextbase.script.events._DoScript
 import java.text.SimpleDateFormat
 
 
-class ProposalComments extends _DoScript {
+class ProposalEvents extends _DoScript {
 
     @Override
     public void doProcess(_Session session, _WebFormData formData, String lang) {
@@ -18,7 +18,7 @@ class ProposalComments extends _DoScript {
         }
 
         def viewParam = session.createViewEntryCollectionParam()
-        viewParam.setQuery("form = 'comment' & viewtext3 = '$proposalId'")
+        viewParam.setQuery("parentdocddbid = '$proposalId'")
                 .setPageNum(0)
                 .setPageSize(0)
                 .setCheckResponse(false)

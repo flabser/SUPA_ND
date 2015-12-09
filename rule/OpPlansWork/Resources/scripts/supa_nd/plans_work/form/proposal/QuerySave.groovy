@@ -9,7 +9,7 @@ import kz.nextbase.script.events._FormQuerySave
 
 class QuerySave extends _FormQuerySave {
 
-    // status: draft, coordination, revision, excluded, coordinated
+    // status (viewtext7): draft, coordination, revision, excluded, coordinated
     // action: (save:''), coordination, coord_agree, coord_revision, coord_reject
     //
     // izmenilos' mnenie, ne budet roditel'skogo documenta.
@@ -47,7 +47,7 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("dueDateType", webFormData.getValue("dueDateType"))
         doc.addStringField("dueDate", webFormData.getValueSilently("dueDate"))
         doc.addStringField("status", "draft")
-        doc.addStringField("assignee", webFormData.getValue("assignee"))
+        doc.addStringField("assignee", assigneeUser.getUserID())
         doc.addStringField("department", "" + assigneeUser.getDepartmentID())
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
@@ -60,8 +60,7 @@ class QuerySave extends _FormQuerySave {
         doc.addViewText(assigneeUser.getUserID())
         doc.addViewText(doc.getValueString("dueDateType"))
         doc.addViewText(doc.getValueString("dueDate"))
-        // TODO need call addComment
-        doc.addViewText(webFormData.getValueSilently("comment")) // viewtext6 = last comment
+        doc.addViewText("") // viewtext6
         doc.addViewText(doc.getValueString("status")) // viewtext7 = status
         //---------------------------------------------
         doc.addEditor(session.getUser().getUserID())
@@ -92,7 +91,7 @@ class QuerySave extends _FormQuerySave {
             def currentAssignee = doc.getValueString("assignee")
             if (currentAssignee != webFormData.getValue("assignee")) {
                 assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
-                doc.addStringField("assignee", webFormData.getValue("assignee"))
+                doc.addStringField("assignee", assigneeUser.getUserID())
                 doc.addStringField("department", "" + assigneeUser.getDepartmentID())
             } else {
                 assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
@@ -111,20 +110,16 @@ class QuerySave extends _FormQuerySave {
         doc.setViewText(assigneeUser.getUserID(), 3)
         doc.setViewText(doc.getValueString("dueDateType"), 4)
         doc.setViewText(doc.getValueString("dueDate"), 5)
-        // viewtext6 = last comment; see addComment
+        // viewtext6
         doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
         //---------------------------------------------
-        // TODO need call addComment or addComment on PostSave
-        if (webFormData.getValueSilently("comment")) {
-            addComment(session, doc, session.getUser(), webFormData.getValue("comment"))
-        }
     }
 
-    // TODO addComment on PostSave
     private void addComment(_Session session, _Document doc, User author, String commentText) {
         def commentDoc = new _Document(session.getCurrentDatabase())
         commentDoc.setForm("comment")
         commentDoc.setParentDoc(doc)
+        //
         commentDoc.addStringField("text", commentText)
         //
         commentDoc.setViewNumber(0)
@@ -132,18 +127,30 @@ class QuerySave extends _FormQuerySave {
         commentDoc.setViewText(commentText)
         commentDoc.addViewText(commentText)
         commentDoc.addViewText(author.getFullName())
-        commentDoc.addViewText(doc.getID()) // viewtext3 = proposal_id
         //
         commentDoc.addEditor(author.getUserID())
         commentDoc.addEditor("[supervisor]")
         commentDoc.save("[supervisor]")
+    }
+
+    private void addEvent(_Session session, _Document doc, String eventType, String text) {
+        def commentDoc = new _Document(session.getCurrentDatabase())
+        commentDoc.setForm("event")
+        commentDoc.setParentDoc(doc)
         //
-        doc.setViewText(commentText, 6) // need save doc
+        commentDoc.addStringField("eventType", eventType)
+        commentDoc.addStringField("text", text)
+        //
+        commentDoc.setViewDate(new Date())
+        commentDoc.setViewText("$eventType###$text")
+        commentDoc.addViewText(eventType)
+        commentDoc.addViewText(text)
+        commentDoc.addViewText(session.getUser().getFullName())
+        //
+        commentDoc.save("[supervisor]")
     }
 
     private void doCoordination(_Session session, _Document doc, _WebFormData webFormData, String action) {
-
-        def coordinator = session.createCoordinator()
 
         switch (action) {
             case "coordination":

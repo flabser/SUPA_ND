@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="comment" mode="on" history="off">
+<rule type="form" id="event" mode="on" history="off">
     <description>
-        Comment.
+        Event.
         Save as response to target document.
         Sort by creation time.
     </description>
     <doctype>main</doctype>
-
-    <events>
-        <querysave source="file">supa_nd.plans_work.form.comment.QuerySave</querysave>
-    </events>
 </rule>

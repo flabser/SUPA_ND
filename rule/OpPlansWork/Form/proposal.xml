@@ -7,6 +7,7 @@
     <events>
         <queryopen source="file">supa_nd.plans_work.form.proposal.QueryOpen</queryopen>
         <querysave source="file">supa_nd.plans_work.form.proposal.QuerySave</querysave>
+        <postsave source="file">supa_nd.plans_work.form.proposal.PostSave</postsave>
     </events>
 
     <caption name="title" source="KEYWORD">Предложение</caption>

@@ -14,38 +14,40 @@ class QuerySave extends _FormQuerySave {
         // TODO : доступ на редактирование
         // редактирует автор, посмотреть нет ли ответа, таймаут на изменение
 
-        def currentUser = session.getUser();
+        def currentUser = session.getUser()
 
         if (doc.isNewDoc) {
             doc.setForm("comment")
-            doc.addStringField("proposal_id", webFormData.getValue("proposal_id"))
+            def proposalDoc = session.getCurrentDatabase().getDocumentByID(webFormData.getValue("parent_id"))
+            doc.setParentDoc(proposalDoc)
         } else {
             if (currentUser.getUserID() != doc.getAuthorID()) {
                 return
             }
         }
 
-        def comment = doc.getValueString("text")
-        doc.addStringField("text", webFormData.getValue("text"))
-
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
-        doc.setViewDate(new Date()) // update time
-        doc.setViewText(doc.getValueString("text"))
         if (doc.isNewDoc) {
+            doc.addStringField("text", webFormData.getValue("text"))
+            //
+            doc.setViewText(doc.getValueString("text"))
             doc.addViewText(doc.getValueString("text"))
             doc.addViewText(currentUser.getFullName())
-            doc.addViewText(doc.getValueString("proposal_id")) // viewtext3 = proposal_id
             doc.setViewNumber(0)
+            doc.setViewDate(new Date()) // update time
             //
             doc.addEditor(currentUser.getUserID())
             doc.addReader(currentUser.getUserID())
             doc.addEditor("[supervisor]")
         } else {
-            doc.setViewText(doc.getValueString("text"), 1)
-            //
-            if (comment != doc.getValueString("text")) {
+            if (webFormData.getValue("text") != doc.getValueString("text")) {
+                doc.addStringField("text", webFormData.getValue("text"))
+                //
+                doc.setViewText(doc.getValueString("text"), 0)
+                doc.setViewText(doc.getValueString("text"), 1)
                 doc.setViewNumber(doc.getViewNumber() + 1) // comment is changed
+                doc.setViewDate(new Date()) // update time
             }
         }
         //---------------------------------------------
