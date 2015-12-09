@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="proposal-event" mode="on" history="off">
+    <description>proposal-event</description>
+    <doctype>main</doctype>
+
+    <events>
+        <queryopen source="file">supa_nd.plans_work.form.proposal_event.QueryOpen</queryopen>
+        <querysave source="file">supa_nd.plans_work.form.proposal_event.QuerySave</querysave>
+    </events>
+</rule>

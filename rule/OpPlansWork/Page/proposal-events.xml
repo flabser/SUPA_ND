@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="proposal-events" mode="on" history="off">
+    <description>proposal-events</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>pages/proposal-events.xsl</xsltfile>
+
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">supa_nd.plans_work.page.ProposalEvents</doscript>
+        </events>
+    </element>
+</rule>
