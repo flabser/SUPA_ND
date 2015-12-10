@@ -3,4 +3,16 @@
 .proposal .due-date select {
     display: inline-block;
     vertical-align: top;
+    width: auto;
+}
+
+.proposal textarea[name=description] {
+    min-height: 100px;
+}
+
+.proposal .btn-select-assignees {
+    border: none;
+    padding: 3px;
+    position: absolute;
+    right: 14px;
 }

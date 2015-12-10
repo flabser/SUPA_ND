@@ -87,8 +87,9 @@ app.oper_plans_work = {
         },
 
         selectAssignees: function(el, fieldName, isMulti) {
+            var form = $('form[name=proposal]');
             var dlg = nb.dialog.show({
-                targetForm: el.form.name,
+                targetForm: form,
                 fieldName: fieldName,
                 dialogFilterListItem: '.tree-entry',
                 title: el.title,

@@ -1,0 +1,15 @@
+.view_proposals {}
+
+.proposal-description {
+    min-width: 110px;
+    width: 22%;
+}
+
+.proposal-assignee {
+    color: #666;
+    width: 22%;
+}
+
+.proposal-due-date {
+    width: 22%;
+}

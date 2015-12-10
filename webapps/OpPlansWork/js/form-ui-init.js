@@ -8,6 +8,18 @@ $(function() {
         $(this).parent().toggleClass('side-tree-collapse');
     });
 
+    $(window).resize(function() {
+        if (window.innerWidth <= 800) {
+            $('body').addClass('phone');
+        } else {
+            $('body').removeClass('phone');
+        }
+    });
+
+    if (window.innerWidth <= 800) {
+        $('body').addClass('phone');
+    }
+
     try {
         var uiLang = $.cookie('lang') || 'RUS';
         $('input[type=date]').datepicker({

@@ -12,7 +12,7 @@
             <xsl:call-template name="page-info"/>
         </div>
         <div class="content-body">
-            <div class="view view_accounts">
+            <div class="view view_proposals">
                 <xsl:call-template name="view-table"/>
             </div>
         </div>
@@ -26,17 +26,14 @@
                     <input type="checkbox" data-toggle="docid" class="all"/>
                 </label>
                 <div class="entry-captions">
-                    <span class="vaccount-name">
+                    <span class="proposal-description">
                         <xsl:value-of select="//captions/viewtext1/@caption"/>
                     </span>
-                    <span class="vaccount-user">
+                    <span class="proposal-assignee">
                         <xsl:value-of select="//captions/viewtext2/@caption"/>
                     </span>
-                    <span class="vaccount-observers">
+                    <span class="proposal-due-date">
                         <xsl:value-of select="//captions/viewtext4/@caption"/>
-                    </span>
-                    <span class="vaccount-amount-control">
-                        <xsl:value-of select="//captions/viewtext6/@caption"/>
                     </span>
                 </div>
             </div>
@@ -48,31 +45,23 @@
 
     <xsl:template match="entry" mode="view-table-body">
         <div class="entry-wrap">
-            <div class="entry-actions">
-                <a class="entry-action action-delete" data-ddbid="{@id}" href="#">
-                    <i class="fa fa-trash"/>
-                </a>
-            </div>
-            <div data-ddbid="{@id}" class="entry document js-swipe-entry">
+            <div data-ddbid="{@id}" class="entry">
                 <label class="entry-select">
                     <input type="checkbox" name="docid" id="{@id}" value="{@doctype}"/>
                 </label>
                 <a href="{@url}" class="entry-link">
                     <div class="entry-fields">
-                        <span class="entry-field vaccount-name">
+                        <span class="proposal-description">
                             <xsl:value-of select="viewcontent/viewtext1"/>
                         </span>
-                        <span class="entry-field vaccount-user">
+                        <span class="proposal-assignee">
                             <xsl:value-of select="viewcontent/viewtext2"/>
                         </span>
-                        <span class="entry-field vaccount-observers">
+                        <span class="proposal-due-date">
                             <xsl:value-of select="viewcontent/viewtext4"/>
                             <div>
                                 <xsl:value-of select="viewcontent/viewtext5"/>
                             </div>
-                        </span>
-                        <span class="entry-field vaccount-observers">
-                            <xsl:value-of select="viewcontent/viewtext6"/>
                         </span>
                     </div>
                 </a>
