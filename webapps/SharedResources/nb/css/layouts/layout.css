@@ -28,7 +28,7 @@
     position: fixed;
     top: 50px;
     transition: all .15s;
-    width: 230px;
+    width: 260px;
     z-index: 4;
 }
 
@@ -43,7 +43,7 @@
     background: #FFF;
     border: none;
     height: auto;
-    margin: 0 0 10px 230px;
+    margin: 0 0 10px 260px;
     padding: 0 0 20px 0;
     padding-top: 50px;
     position: relative;

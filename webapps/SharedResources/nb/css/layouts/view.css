@@ -23,7 +23,7 @@
     display: block;
     height: 40px;
     overflow: hidden;
-    padding: 0 16px;
+    padding: 0;
     position: relative;
     vertical-align: top;
     white-space: nowrap;
@@ -38,13 +38,13 @@
 
 .entry-captions {
     display: inline-block;
-    padding: 9px 0;
+    padding: 9px 11px;
     vertical-align: top;
     white-space: nowrap;
     width: 100%;
 }
 
-.entry-captions>span {
+.entry-captions > span {
     display: inline-block;
     overflow: hidden;
     padding: 0 3px;
@@ -124,7 +124,7 @@
 .entry-select {
     display: inline-block;
     line-height: inherit;
-    /* text-align: center; */
+    text-align: center;
     padding: 6px 0;
     width: 36px;
     vertical-align: top;
@@ -144,7 +144,6 @@
 
 .entry-link {
     display: inline-block;
-    line-height: 1.4;
     padding: 11px;
     position: relative;
     vertical-align: top;
@@ -165,7 +164,7 @@
     position: relative;
 }
 
-.entry-fields>span {
+.entry-fields > span {
     display: inline-block;
     overflow: hidden;
     padding: 0 3px;

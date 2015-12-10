@@ -25,9 +25,11 @@
     display: block;
     margin: 0;
     max-width: 100%;
-    min-height: 28px;
-    padding: 8px 0;
+    min-height: 34px;
+    padding: 8px;
 }
+
+.form-group.has-controls-label {}
 
 .form-group:after {
     content: ' ';
@@ -38,7 +40,7 @@
     visibility: hidden;
 }
 
-.form-group:last-child {
+.form-group-last {
     border-bottom: none;
 }
 
@@ -69,13 +71,49 @@
     width: 200px;
 }
 
+.form-group .control-label-icon {
+    color: #666;
+    display: block;
+    float: left;
+    font-size: 18px;
+    margin: 0;
+    margin-left: -4px;
+    min-height: inherit;
+    overflow: hidden;
+    padding: 6px 2px 2px;
+    text-align: center;
+    width: 48px;
+}
+
+.form-group.has-controls-label > .control-label-icon {
+    padding-top: 28px;
+}
+
 .form-group .controls {
     color: #000;
     display: block;
-    margin: 0 0 0 210px;
+    margin: 0;
     max-width: 100%;
     min-height: inherit;
     padding: 0px;
+}
+
+.form-group .control-label-icon + .controls {
+    margin: 0 0 0 48px;
+}
+
+.form-group .control-label + .controls {
+    margin: 0 0 0 210px;
+}
+
+.form-group .controls-label {
+    background: none;
+    display: block;
+    font-weight: normal;
+    height: 18px;
+    overflow: hidden;
+    padding: 0;
+    white-space: nowrap;
 }
 
 .form-group.vertical {
@@ -105,7 +143,6 @@
 @media ( max-width: 768px) {
     .form-group {
         border-bottom-color: #F2F2F4;
-        width: auto;
     }
     .form-group .control-label {
         text-align: left;
@@ -113,9 +150,6 @@
     }
     .form-group .controls {
         margin-left: 140px;
-    }
-    .form-group.form-group-no-label .controls {
-        margin-left: 0px;
     }
 }
 
@@ -125,8 +159,5 @@
     }
     .form-group .controls {
         margin-left: 95px;
-    }
-    .form-group.form-group-no-label .controls {
-        margin-left: 0px;
     }
 }

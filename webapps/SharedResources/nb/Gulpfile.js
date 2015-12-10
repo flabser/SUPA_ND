@@ -6,7 +6,7 @@ var uglify = require('gulp-uglify');
 var csso = require('gulp-csso');
 
 var js_files = ['js/src/nb.js', 'js/src/*.js'];
-var css_files = ['./css/**/*.css'];
+var css_files = ['./css/**/*.css', '!./css/nb.min.css'];
 
 gulp.task('lint', function() {
     gulp.src(js_files)

@@ -43,14 +43,23 @@
 }
 
 .brand-title {
+    display: inline-block;
     font-size: 16px;
     text-transform: uppercase;
     font-weight: normal;
+    overflow: hidden;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
-@media ( max-width: 360px) {
-    .navbar-brand .brand-title {
+@media ( max-width: 768px) {
+    .navbar-header .brand-title {
+        max-width: 200px;
+    }
+}
+
+@media ( max-width: 540px) {
+    .navbar-header .brand-title {
         display: none;
     }
 }

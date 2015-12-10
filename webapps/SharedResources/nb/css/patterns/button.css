@@ -19,6 +19,10 @@
     white-space: nowrap;
 }
 
+.btn-xs {
+    padding: 2px;
+}
+
 .btn-sm {
     padding: 6px;
 }
