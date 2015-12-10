@@ -152,22 +152,35 @@ class QuerySave extends _FormQuerySave {
 
     private void doCoordination(_Session session, _Document doc, _WebFormData webFormData, String action) {
 
+        // def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        // doc.addCoordinationField('coordination', "new`pos`0`-")
+
+        addComment(session, doc, session.getUser(), action)
+
         switch (action) {
             case "coordination":
                 doc.addStringField("status", "coordination")
                 doc.setViewText("coordination", 7)
+                //
+                addEvent(session, doc, "coordination", "start")
                 break
             case "coord_agree":
                 doc.addStringField("status", "agree")
                 doc.setViewText("agree", 7)
+                //
+                addEvent(session, doc, "coordination", "agree")
                 break
             case "coord_revision":
                 doc.addStringField("status", "revision")
                 doc.setViewText("revision", 7)
+                //
+                addEvent(session, doc, "coordination", "revision")
                 break
             case "coord_reject":
                 doc.addStringField("status", "reject")
                 doc.setViewText("reject", 7)
+                //
+                addEvent(session, doc, "coordination", "reject")
                 break
         }
     }

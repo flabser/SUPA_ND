@@ -14,6 +14,12 @@ class ProposalEvents extends _DoScript {
 
         def proposalId = formData.getValueSilently("proposal_id")
         if (!proposalId) {
+            if (formData.getValueSilently("id") == "proposal") {
+                proposalId = formData.getValueSilently("docid")
+            }
+        }
+
+        if (!proposalId) {
             return
         }
 

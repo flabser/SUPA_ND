@@ -46,5 +46,11 @@ class QueryOpen extends _FormQueryOpen {
         publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))
         publishValue("status", status)
+        //
+        publishEmployer("author", doc.getAuthorID())
+        publishValue("created_at", doc.getRegDate())
+        //
+        def history = session.getPage("proposal-events", webFormData)
+        publishElement(history)
     }
 }
