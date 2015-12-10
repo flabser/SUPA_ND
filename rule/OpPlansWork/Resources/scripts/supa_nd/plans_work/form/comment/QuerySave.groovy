@@ -32,7 +32,6 @@ class QuerySave extends _FormQuerySave {
             doc.addStringField("text", webFormData.getValue("text"))
             //
             doc.setViewText(doc.getValueString("text"))
-            doc.addViewText(doc.getValueString("text"))
             doc.addViewText(currentUser.getFullName())
             doc.setViewNumber(0)
             doc.setViewDate(new Date()) // update time
@@ -45,7 +44,6 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("text", webFormData.getValue("text"))
                 //
                 doc.setViewText(doc.getValueString("text"), 0)
-                doc.setViewText(doc.getValueString("text"), 1)
                 doc.setViewNumber(doc.getViewNumber() + 1) // comment is changed
                 doc.setViewDate(new Date()) // update time
             }

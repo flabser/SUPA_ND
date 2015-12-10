@@ -124,8 +124,8 @@ class QuerySave extends _FormQuerySave {
         //
         commentDoc.setViewNumber(0)
         commentDoc.setViewDate(new Date()) // update time
+        // WARNING. Pomni porjadok viewtext[n] kriti4en
         commentDoc.setViewText(commentText)
-        commentDoc.addViewText(commentText)
         commentDoc.addViewText(author.getFullName())
         //
         commentDoc.addEditor(author.getUserID())
@@ -142,8 +142,8 @@ class QuerySave extends _FormQuerySave {
         commentDoc.addStringField("text", text)
         //
         commentDoc.setViewDate(new Date())
-        commentDoc.setViewText("$eventType###$text")
-        commentDoc.addViewText(eventType)
+        // WARNING. Pomni porjadok viewtext[n] kriti4en
+        commentDoc.setViewText(eventType)
         commentDoc.addViewText(text)
         commentDoc.addViewText(session.getUser().getFullName())
         //
