@@ -25,8 +25,8 @@
             </div>
         </header>
         <section class="content-body">
-            <form name="proposal" class="proposal">
-                <div class="container-fluid">
+            <div class="container-fluid">
+                <form name="proposal" class="proposal">
                     <div class="row">
                         <div class="form-group has-controls-label col-md-5">
                             <div class="control-label-icon">
@@ -41,8 +41,12 @@
                                             data-action="select-assignees">
                                         <i class="fa fa-edit"></i>
                                     </button>
-                                    <div data-input="assignee" id="assigneetbl"></div>
-                                    <div data-input="department_name" id="department_nametbl"></div>
+                                    <div data-input="assignee" id="assigneetbl">
+                                        <xsl:value-of select="//fields/assignee"/>
+                                    </div>
+                                    <div data-input="department_name" id="department_nametbl">
+                                        <xsl:value-of select="//fields/department"/>
+                                    </div>
                                 </div>
                                 <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
                                 <input type="hidden" name="department" value="{//fields/department/@attrval}"/>
@@ -98,18 +102,32 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <input type="hidden" name="dueDateType" value="{//fields/dueDateType}"/>
-                <input type="hidden" name="dueDate" value="{//fields/dueDate}"/>
+                    <input type="hidden" name="dueDateType" value="{//fields/dueDateType}"/>
+                    <input type="hidden" name="dueDate" value="{//fields/dueDate}"/>
 
-                <input type="hidden" name="type" value="save"/>
-                <input type="hidden" name="id" value="{/request/@id}"/>
-                <input type="hidden" name="doctype" value="{document/@doctype}"/>
-                <input type="hidden" name="key" value="{document/@docid}"/>
-                <input type="hidden" name="ddbid" value="{document/@id}"/>
-                <input type="hidden" name="_action" value=""/>
-            </form>
+                    <input type="hidden" name="type" value="save"/>
+                    <input type="hidden" name="id" value="{/request/@id}"/>
+                    <input type="hidden" name="doctype" value="{document/@doctype}"/>
+                    <input type="hidden" name="key" value="{document/@docid}"/>
+                    <input type="hidden" name="ddbid" value="{document/@id}"/>
+                    <input type="hidden" name="_action" value=""/>
+                </form>
+                <xsl:if test="//document/@status != 'new'">
+                    <ul class="timeline">
+                        <li>
+                            <i class="timeline-icon"></i>
+                            <div class="timeline-event">
+                                <xsl:value-of select="//fields/author"/>
+                                <span class="timeline-user"></span>
+                                <time pubdate="pubdate" class="timeline-time">
+                                    <xsl:value-of select="//fields/created_at"/>
+                                </time>
+                            </div>
+                        </li>
+                    </ul>
+                </xsl:if>
+            </div>
         </section>
     </xsl:template>
 

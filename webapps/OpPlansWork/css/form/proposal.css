@@ -1,4 +1,6 @@
-.proposal {}
+.proposal {
+    padding: 10px 0;
+}
 
 .proposal .due-date select {
     display: inline-block;
