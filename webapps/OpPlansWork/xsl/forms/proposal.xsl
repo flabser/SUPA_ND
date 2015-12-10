@@ -115,6 +115,8 @@
                 </form>
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="timeline">
+                        <xsl:apply-templates select="//page[@id='proposal-events']/view_content/response/content/query"
+                                             mode="proposal-events"/>
                         <li>
                             <i class="timeline-icon"></i>
                             <div class="timeline-event">
@@ -129,6 +131,43 @@
                 </xsl:if>
             </div>
         </section>
+    </xsl:template>
+
+    <xsl:template match="query" mode="proposal-events">
+        <xsl:for-each select="entry">
+            <li>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext1"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext2"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext3"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext4"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext5"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext6"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewtext7"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewnumber"/>
+                </span>
+                <span>
+                    <xsl:value-of select="viewcontent/viewdate"/>
+                </span>
+            </li>
+        </xsl:for-each>
     </xsl:template>
 
 </xsl:stylesheet>
