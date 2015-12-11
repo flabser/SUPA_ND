@@ -6,6 +6,7 @@
                 doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
 
     <xsl:variable name="userid" select="/request/@userid"/>
+    <xsl:variable name="hasCoordBlock" select="//fields/coordination/blocks"/>
 
     <xsl:template match="/request">
         <xsl:call-template name="layout">
@@ -116,11 +117,13 @@
 
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
-                            <a href="#tab-coordination" role="tab" data-toggle="tab">
-                                <xsl:value-of select="//captions/coordination/@caption"/>
-                            </a>
-                        </li>
+                        <xsl:if test="$hasCoordBlock">
+                            <li class="active">
+                                <a href="#tab-coordination" role="tab" data-toggle="tab">
+                                    <xsl:value-of select="//captions/coordination/@caption"/>
+                                </a>
+                            </li>
+                        </xsl:if>
                         <li>
                             <a href="#tab-history" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/history/@caption"/>
@@ -129,28 +132,53 @@
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="tab-coordination">
-
+                            <xsl:call-template name="coordination"/>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="tab-history">
-                            <ul class="timeline">
-                                <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query"
-                                                     mode="proposal-events"/>
-                                <li>
-                                    <i class="timeline-icon"></i>
-                                    <div class="timeline-event">
-                                        <xsl:value-of select="//fields/author"/>
-                                        <span class="timeline-user"></span>
-                                        <time pubdate="pubdate" class="timeline-time">
-                                            <xsl:value-of select="//fields/created_at"/>
-                                        </time>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <xsl:if test="$hasCoordBlock">
+                            <div role="tabpanel" class="tab-pane" id="tab-history">
+                                <xsl:call-template name="history"/>
+                            </div>
+                        </xsl:if>
                     </div>
                 </xsl:if>
             </div>
         </section>
+    </xsl:template>
+
+    <xsl:template name="coordination">
+        <ul class="timeline timeline-coordination">
+            <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
+                <li>
+                    <span>
+                        <xsl:value-of select="employer/userid"/>
+                    </span>
+                    <span>iscurrent:<xsl:value-of select="iscurrent"/>
+                    </span>
+                    <span>decision:<xsl:value-of select="decision"/>
+                    </span>
+                    <span>comment:<xsl:value-of select="comment"/>
+                    </span>
+                    <span>decision_date:<xsl:value-of select="decisiondate"/>
+                    </span>
+                </li>
+            </xsl:for-each>
+        </ul>
+    </xsl:template>
+
+    <xsl:template name="history">
+        <ul class="timeline">
+            <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query" mode="proposal-events"/>
+            <li>
+                <i class="timeline-icon"></i>
+                <div class="timeline-event">
+                    <xsl:value-of select="//fields/author"/>
+                    <span class="timeline-user"></span>
+                    <time pubdate="pubdate" class="timeline-time">
+                        <xsl:value-of select="//fields/created_at"/>
+                    </time>
+                </div>
+            </li>
+        </ul>
     </xsl:template>
 
     <xsl:template match="query" mode="proposal-events">
