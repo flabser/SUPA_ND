@@ -24,4 +24,6 @@
 
     <caption name="comments" source="KEYWORD">Комментарии</caption>
     <caption name="comment" source="KEYWORD">Комментарий</caption>
+    <caption name="coordination" source="KEYWORD">Согласование</caption>
+    <caption name="history" source="KEYWORD">История</caption>
 </rule>

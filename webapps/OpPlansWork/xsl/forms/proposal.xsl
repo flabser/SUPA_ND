@@ -113,21 +113,41 @@
                     <input type="hidden" name="ddbid" value="{document/@id}"/>
                     <input type="hidden" name="_action" value=""/>
                 </form>
+
                 <xsl:if test="//document/@status != 'new'">
-                    <ul class="timeline">
-                        <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query"
-                                             mode="proposal-events"/>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active">
+                            <a href="#tab-coordination" role="tab" data-toggle="tab">
+                                <xsl:value-of select="//captions/coordination/@caption"/>
+                            </a>
+                        </li>
                         <li>
-                            <i class="timeline-icon"></i>
-                            <div class="timeline-event">
-                                <xsl:value-of select="//fields/author"/>
-                                <span class="timeline-user"></span>
-                                <time pubdate="pubdate" class="timeline-time">
-                                    <xsl:value-of select="//fields/created_at"/>
-                                </time>
-                            </div>
+                            <a href="#tab-history" role="tab" data-toggle="tab">
+                                <xsl:value-of select="//captions/history/@caption"/>
+                            </a>
                         </li>
                     </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab-coordination">
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab-history">
+                            <ul class="timeline">
+                                <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query"
+                                                     mode="proposal-events"/>
+                                <li>
+                                    <i class="timeline-icon"></i>
+                                    <div class="timeline-event">
+                                        <xsl:value-of select="//fields/author"/>
+                                        <span class="timeline-user"></span>
+                                        <time pubdate="pubdate" class="timeline-time">
+                                            <xsl:value-of select="//fields/created_at"/>
+                                        </time>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </xsl:if>
             </div>
         </section>

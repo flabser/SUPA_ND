@@ -182,8 +182,7 @@ class QuerySave extends _FormQuerySave {
 
     private void doCoordination(_Session session, _Document doc, _WebFormData webFormData, String action) {
 
-        // addComment(session, doc, session.getUser(), action)
-        def blocksCollection = (_BlockCollection) doc.getValueObject("coordination")
+        def coordinationBlock = (_BlockCollection) doc.getValueObject("coordination")
 
         switch (action) {
             case "coordination":
@@ -191,13 +190,15 @@ class QuerySave extends _FormQuerySave {
                 doc.setViewText("coordination", 7)
                 //
                 def block = new _Block(session)
+                block.setBlockStatus(_BlockStatusType.COORDINATING)
+                coordinationBlock.setBlocks([block])
+                coordinationBlock.setCoordStatus(_CoordStatusType.COORDINATING)
+
+                // TODO move to PostSave
                 def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
                 coordinator.setUserID(session.getUser().getUserID())
                 coordinator.setCurrent(true)
                 block.addCoordinator(coordinator)
-                block.setBlockStatus(_BlockStatusType.COORDINATING)
-                blocksCollection.setBlocks([block])
-                blocksCollection.setCoordStatus(_CoordStatusType.COORDINATING)
                 //
                 addEvent(session, doc, "coordination", "start")
                 break
@@ -205,7 +206,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("status", "agree")
                 doc.setViewText("agree", 7)
                 //
-                def coorder = blocksCollection.getCurrentBlock().getFirstCoordinator()
+                def coorder = coordinationBlock.getCurrentBlock().getFirstCoordinator()
                 coorder.setDecision(_DecisionType.AGREE, "my comment")
                 //
                 addEvent(session, doc, "coordination", "agree")
