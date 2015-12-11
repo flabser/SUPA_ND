@@ -4,6 +4,7 @@ import kz.nextbase.script._Document
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
 import kz.nextbase.script.constants._BlockStatusType
+import kz.nextbase.script.constants._BlockType
 import kz.nextbase.script.constants._CoordStatusType
 import kz.nextbase.script.constants._DecisionType
 import kz.nextbase.script.coordination._Block
@@ -14,7 +15,8 @@ import kz.nextbase.script.events._FormQuerySave
 class QuerySave extends _FormQuerySave {
 
     // status (viewtext7): draft, coordination, revision, excluded, coordinated
-    // action: (save:''), coordination, coord_agree, coord_revision, coord_reject
+    // coordination_direction: up, down
+    // action: (save:''), coord_start, coord_agree, coord_revision, coord_reject
     //
     // izmenilos' mnenie, ne budet roditel'skogo documenta.
     // esli nuzhna sviaznost' predlozhenii, budem sviazyvat' logicheski
@@ -51,6 +53,7 @@ class QuerySave extends _FormQuerySave {
 
         // Coordination block
         doc.addField("coordination", new _BlockCollection(session))
+        doc.addStringField("coordination_direction", "up")
         //
 
         def assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
@@ -163,29 +166,43 @@ class QuerySave extends _FormQuerySave {
 
         switch (action) {
             case "coord_start":
-                doc.addStringField("status", "coordination")
-                doc.setViewText("coordination", 7)
-                //
                 def block = new _Block(session)
                 block.setBlockStatus(_BlockStatusType.COORDINATING)
+                block.setBlockType(_BlockType.SERIAL_COORDINATION)
                 blockCollection.setBlocks([block])
                 blockCollection.setCoordStatus(_CoordStatusType.COORDINATING)
+                //
+                doc.addStringField("coordination_direction", "up")
+                doc.addStringField("status", "coordination")
+                doc.setViewText("coordination", 7)
                 break
 
             case "coord_agree":
+                def block = blockCollection.getCurrentBlock()
+                def coordinator = block.getCurrentCoordinators().get(0)
+                coordinator.setDecision(_DecisionType.AGREE, "my comment agree")
+                //
+                doc.addStringField("coordination_direction", "up")
                 doc.addStringField("status", "agree")
                 doc.setViewText("agree", 7)
-                //
-                def coordinator = blockCollection.getCurrentBlock().getFirstCoordinator()
-                coordinator.setDecision(_DecisionType.AGREE, "my comment")
                 break
 
             case "coord_revision":
+                def block = blockCollection.getCurrentBlock()
+                def coordinator = block.getCurrentCoordinators().get(0)
+                coordinator.setDecision(_DecisionType.DISAGREE, "my comment revision")
+                //
+                doc.addStringField("coordination_direction", "down")
                 doc.addStringField("status", "revision")
                 doc.setViewText("revision", 7)
                 break
 
             case "coord_reject":
+                def block = blockCollection.getCurrentBlock()
+                def coordinator = block.getCurrentCoordinators().get(0)
+                coordinator.setDecision(_DecisionType.AGREE, "my comment reject")
+                //
+                doc.addStringField("coordination_direction", "down")
                 doc.addStringField("status", "reject")
                 doc.setViewText("reject", 7)
                 break

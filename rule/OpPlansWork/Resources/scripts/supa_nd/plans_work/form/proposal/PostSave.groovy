@@ -37,10 +37,15 @@ class PostSave extends _FormPostSave {
         // block soglasovanija dolzhen byt' 1
         // spisok sobrat' soglasno ierarhii posledovatel'nosti
         //
-        def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
-        coordinator.setUserID(session.getUser().getUserID())
-        coordinator.setCurrent(true)
-        block.addCoordinator(coordinator)
+        def isCurrent = true
+        session.getStructure().getAllEmployers().each {
+            def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
+            coordinator.setUserID(it.getUserID())
+            coordinator.setCurrent(isCurrent)
+            block.addCoordinator(coordinator)
+            isCurrent = false
+        }
+
         doc.save()
         //
         ProposalService.addEvent(session, doc, "coordination", "start")
