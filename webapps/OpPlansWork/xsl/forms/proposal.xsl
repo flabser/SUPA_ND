@@ -117,13 +117,11 @@
 
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="nav nav-tabs" role="tablist">
-                        <xsl:if test="$hasCoordBlock">
-                            <li class="active">
-                                <a href="#tab-coordination" role="tab" data-toggle="tab">
-                                    <xsl:value-of select="//captions/coordination/@caption"/>
-                                </a>
-                            </li>
-                        </xsl:if>
+                        <li class="active">
+                            <a href="#tab-coordination" role="tab" data-toggle="tab">
+                                <xsl:value-of select="//captions/coordination/@caption"/>
+                            </a>
+                        </li>
                         <li>
                             <a href="#tab-history" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/history/@caption"/>
@@ -134,11 +132,9 @@
                         <div role="tabpanel" class="tab-pane active" id="tab-coordination">
                             <xsl:call-template name="coordination"/>
                         </div>
-                        <xsl:if test="$hasCoordBlock">
-                            <div role="tabpanel" class="tab-pane" id="tab-history">
-                                <xsl:call-template name="history"/>
-                            </div>
-                        </xsl:if>
+                        <div role="tabpanel" class="tab-pane" id="tab-history">
+                            <xsl:call-template name="history"/>
+                        </div>
                     </div>
                 </xsl:if>
             </div>
@@ -146,23 +142,30 @@
     </xsl:template>
 
     <xsl:template name="coordination">
-        <ul class="timeline timeline-coordination">
-            <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
-                <li>
-                    <span>
-                        <xsl:value-of select="employer/userid"/>
-                    </span>
-                    <span>iscurrent:<xsl:value-of select="iscurrent"/>
-                    </span>
-                    <span>decision:<xsl:value-of select="decision"/>
-                    </span>
-                    <span>comment:<xsl:value-of select="comment"/>
-                    </span>
-                    <span>decision_date:<xsl:value-of select="decisiondate"/>
-                    </span>
-                </li>
-            </xsl:for-each>
-        </ul>
+        <xsl:choose>
+            <xsl:when test="$hasCoordBlock">
+                <ul class="timeline timeline-coordination">
+                    <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
+                        <li>
+                            <span>
+                                <xsl:value-of select="employer/userid"/>
+                            </span>
+                            <span>iscurrent:<xsl:value-of select="iscurrent"/>
+                            </span>
+                            <span>decision:<xsl:value-of select="decision"/>
+                            </span>
+                            <span>comment:<xsl:value-of select="comment"/>
+                            </span>
+                            <span>decision_date:<xsl:value-of select="decisiondate"/>
+                            </span>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </xsl:when>
+            <xsl:otherwise>
+                no coordination block
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template name="history">
