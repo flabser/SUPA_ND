@@ -7,6 +7,7 @@
 
     <xsl:template match="/request">
         <xsl:call-template name="layout">
+            <xsl:with-param name="body_class" select="'proposal'"/>
             <xsl:with-param name="include">
                 <script type="text/javascript" src="js/proposal-controller.js"></script>
             </xsl:with-param>
@@ -17,9 +18,9 @@
         <header class="content-header">
             <h1 class="header-title">
                 <xsl:value-of select="//captions/title/@caption"/>
-                <small class="label label-primary">
+                <span class="coord-status-label label label-primary">
                     <xsl:value-of select="//fields/status"/>
-                </small>
+                </span>
             </h1>
             <div class="content-actions">
                 <xsl:apply-templates select="//actionbar"/>
@@ -27,7 +28,7 @@
         </header>
         <section class="content-body">
             <div class="container-fluid">
-                <form name="proposal" class="proposal">
+                <form name="proposal">
                     <div class="row">
                         <div class="form-group has-controls-label col-md-5">
                             <div class="control-label-icon">

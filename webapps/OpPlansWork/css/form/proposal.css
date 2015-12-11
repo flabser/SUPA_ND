@@ -1,4 +1,4 @@
-.proposal {
+.proposal .content-body form {
     padding: 10px 0;
 }
 
@@ -17,4 +17,12 @@
     padding: 3px;
     position: absolute;
     right: 14px;
+}
+
+.proposal .coord-status-label {
+    display: inline-block;
+    font-weight: normal;
+    left: 10px;
+    position: relative;
+    top: -2px;
 }
