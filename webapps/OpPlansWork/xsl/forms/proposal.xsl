@@ -115,7 +115,7 @@
                 </form>
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="timeline">
-                        <xsl:apply-templates select="//page[@id='proposal-events']/view_content/response/content/query"
+                        <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query"
                                              mode="proposal-events"/>
                         <li>
                             <i class="timeline-icon"></i>
@@ -135,6 +135,7 @@
 
     <xsl:template match="query" mode="proposal-events">
         <xsl:for-each select="entry">
+            <xsl:sort select="position()" data-type="number" order="descending"/>
             <li>
                 <span>
                     <xsl:value-of select="viewcontent/viewtext"/>

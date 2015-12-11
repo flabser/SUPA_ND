@@ -27,13 +27,13 @@
                 </label>
                 <div class="entry-captions">
                     <span class="proposal-description">
-                        <xsl:value-of select="//captions/viewtext1/@caption"/>
+                        <xsl:value-of select="//captions/viewtext/@caption"/>
                     </span>
                     <span class="proposal-assignee">
-                        <xsl:value-of select="//captions/viewtext2/@caption"/>
+                        <xsl:value-of select="//captions/viewtext1/@caption"/>
                     </span>
                     <span class="proposal-due-date">
-                        <xsl:value-of select="//captions/viewtext4/@caption"/>
+                        <xsl:value-of select="//captions/viewtext3/@caption"/>
                     </span>
                 </div>
             </div>
@@ -52,15 +52,15 @@
                 <a href="{@url}" class="entry-link">
                     <div class="entry-fields">
                         <span class="proposal-description">
-                            <xsl:value-of select="viewcontent/viewtext1"/>
+                            <xsl:value-of select="viewcontent/viewtext"/>
                         </span>
                         <span class="proposal-assignee">
-                            <xsl:value-of select="viewcontent/viewtext2"/>
+                            <xsl:value-of select="viewcontent/viewtext1"/>
                         </span>
                         <span class="proposal-due-date">
-                            <xsl:value-of select="viewcontent/viewtext4"/>
+                            <xsl:value-of select="viewcontent/viewtext3"/>
                             <div>
-                                <xsl:value-of select="viewcontent/viewtext5"/>
+                                <xsl:value-of select="viewcontent/viewtext4"/>
                             </div>
                         </span>
                     </div>

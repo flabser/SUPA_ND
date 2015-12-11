@@ -4,6 +4,12 @@ import kz.flabs.users.User
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
+import kz.nextbase.script.constants._BlockStatusType
+import kz.nextbase.script.constants._CoordStatusType
+import kz.nextbase.script.constants._DecisionType
+import kz.nextbase.script.coordination._Block
+import kz.nextbase.script.coordination._BlockCollection
+import kz.nextbase.script.coordination._Coordinator
 import kz.nextbase.script.events._FormQuerySave
 
 
@@ -20,6 +26,8 @@ class QuerySave extends _FormQuerySave {
 
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
+
+        // TODO validate
 
         if (doc.isNewDoc) {
             doSaveNew(session, doc, webFormData)
@@ -41,6 +49,14 @@ class QuerySave extends _FormQuerySave {
     private void doSaveNew(_Session session, _Document doc, _WebFormData webFormData) {
         doc.setForm("proposal")
 
+        // Coordination block
+        def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        if (blockCollection == null) {
+            blockCollection = new _BlockCollection(session)
+        }
+        doc.addField("coordination", blockCollection)
+        //
+
         def assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
 
         doc.addStringField("description", webFormData.getValue("description"))
@@ -51,15 +67,12 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("department", "" + assigneeUser.getDepartmentID())
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
-        def vt = """${doc.getValueString("description")} > ${assigneeUser.getFullName()}, ${
-            doc.getValueString("dueDateType")
-        } : ${doc.getValueString("dueDate")}"""
-        doc.setViewText(vt)
-        doc.addViewText(doc.getValueString("description"))
+        doc.setViewText(doc.getValueString("description"))
         doc.addViewText(assigneeUser.getFullName())
         doc.addViewText(assigneeUser.getUserID())
         doc.addViewText(doc.getValueString("dueDateType"))
         doc.addViewText(doc.getValueString("dueDate"))
+        doc.addViewText("") // viewtext5
         doc.addViewText("") // viewtext6
         doc.addViewText(doc.getValueString("status")) // viewtext7 = status
         //---------------------------------------------
@@ -70,20 +83,40 @@ class QuerySave extends _FormQuerySave {
 
     private void doSave(_Session session, _Document doc, _WebFormData webFormData) {
         if (webFormData.containsField("description")) {
-            doc.addStringField("description", webFormData.getValue("description"))
-            // add event: change: description
+            def desc = doc.getValueString("description")
+            def newDesc = webFormData.getValue("description")
+            if (desc != newDesc) {
+                doc.addStringField("description", newDesc)
+                //
+                addEvent(session, doc, "change", "description [:] $desc [>] $newDesc")
+            }
         }
         if (webFormData.containsField("dueDateType")) {
-            doc.addStringField("dueDateType", webFormData.getValue("dueDateType"))
-            // add event: change: dueDateType
+            def dueDateType = doc.getValueString("dueDateType")
+            def newDueDateType = webFormData.getValue("dueDateType")
+            if (dueDateType != newDueDateType) {
+                doc.addStringField("dueDateType", newDueDateType)
+                //
+                addEvent(session, doc, "change", "dueDateType [:] $dueDateType [>] $newDueDateType")
+            }
         }
         if (webFormData.containsField("dueDate")) {
-            doc.addStringField("dueDate", webFormData.getValue("dueDate"))
-            // add event: change: dueDate
+            def dueDate = doc.getValueString("dueDate")
+            def newDueDate = webFormData.getValue("dueDate")
+            if (dueDate != newDueDate) {
+                doc.addStringField("dueDate", newDueDate)
+                //
+                addEvent(session, doc, "change", "dueDate [:] $dueDate [>] $newDueDate")
+            }
         }
         if (webFormData.containsField("status")) {
-            doc.addStringField("status", webFormData.getValue("status"))
-            // add event: change: status
+            def status = doc.getValueString("status")
+            def newStatus = webFormData.getValue("newStatus")
+            if (status != newStatus) {
+                doc.addStringField("status", status)
+                //
+                addEvent(session, doc, "change", "status [:] $status [>] $newStatus")
+            }
         }
 
         def assigneeUser
@@ -101,15 +134,12 @@ class QuerySave extends _FormQuerySave {
         }
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
-        def vt = """${doc.getValueString("description")} > ${assigneeUser.getFullName()}, ${
-            doc.getValueString("dueDateType")
-        } : ${doc.getValueString("dueDate")}"""
-        doc.setViewText(vt, 0)
-        doc.setViewText(doc.getValueString("description"), 1)
-        doc.setViewText(assigneeUser.getFullName(), 2)
-        doc.setViewText(assigneeUser.getUserID(), 3)
-        doc.setViewText(doc.getValueString("dueDateType"), 4)
-        doc.setViewText(doc.getValueString("dueDate"), 5)
+        doc.setViewText(doc.getValueString("description"), 0)
+        doc.setViewText(assigneeUser.getFullName(), 1)
+        doc.setViewText(assigneeUser.getUserID(), 2)
+        doc.setViewText(doc.getValueString("dueDateType"), 3)
+        doc.setViewText(doc.getValueString("dueDate"), 4)
+        // viewtext5
         // viewtext6
         doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
         //---------------------------------------------
@@ -152,21 +182,31 @@ class QuerySave extends _FormQuerySave {
 
     private void doCoordination(_Session session, _Document doc, _WebFormData webFormData, String action) {
 
-        // def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
-        // doc.addCoordinationField('coordination', "new`pos`0`-")
-
-        addComment(session, doc, session.getUser(), action)
+        // addComment(session, doc, session.getUser(), action)
+        def blocksCollection = (_BlockCollection) doc.getValueObject("coordination")
 
         switch (action) {
             case "coordination":
                 doc.addStringField("status", "coordination")
                 doc.setViewText("coordination", 7)
                 //
+                def block = new _Block(session)
+                def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
+                coordinator.setUserID(session.getUser().getUserID())
+                coordinator.setCurrent(true)
+                block.addCoordinator(coordinator)
+                block.setBlockStatus(_BlockStatusType.COORDINATING)
+                blocksCollection.setBlocks([block])
+                blocksCollection.setCoordStatus(_CoordStatusType.COORDINATING)
+                //
                 addEvent(session, doc, "coordination", "start")
                 break
             case "coord_agree":
                 doc.addStringField("status", "agree")
                 doc.setViewText("agree", 7)
+                //
+                def coorder = blocksCollection.getCurrentBlock().getFirstCoordinator()
+                coorder.setDecision(_DecisionType.AGREE, "my comment")
                 //
                 addEvent(session, doc, "coordination", "agree")
                 break

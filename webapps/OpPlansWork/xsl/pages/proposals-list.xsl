@@ -25,13 +25,13 @@
                 <span class="entry-link">
                     <div class="entry-fields">
                         <span class="entry-field vaccount-name">
-                            <xsl:value-of select="viewcontent/viewtext1"/>
+                            <xsl:value-of select="viewcontent/viewtext"/>
                         </span>
                         <span class="entry-field vaccount-user">
-                            <xsl:value-of select="viewcontent/viewtext2"/>
+                            <xsl:value-of select="viewcontent/viewtext1"/>
                         </span>
                         <span class="entry-field vaccount-observers">
-                            <xsl:value-of select="viewcontent/viewtext3"/>
+                            <xsl:value-of select="viewcontent/viewtext2"/>
                         </span>
                     </div>
                 </span>

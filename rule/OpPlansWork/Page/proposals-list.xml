@@ -10,11 +10,4 @@
             <doscript source="file">supa_nd.plans_work.page.ListProposals</doscript>
         </events>
     </element>
-
-    <caption name="viewtext1" source="KEYWORD">-</caption>
-    <caption name="viewtext2" source="KEYWORD">-</caption>
-    <caption name="viewtext3" source="KEYWORD">-</caption>
-    <caption name="viewtext4" source="KEYWORD">-</caption>
-    <caption name="viewnumber">-</caption>
-    <caption name="viewdate" source="KEYWORD">-</caption>
 </rule>

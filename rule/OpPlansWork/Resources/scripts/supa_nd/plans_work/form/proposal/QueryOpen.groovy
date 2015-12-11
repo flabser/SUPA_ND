@@ -5,6 +5,7 @@ import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
 import kz.nextbase.script.actions._Action
 import kz.nextbase.script.actions._ActionType
+import kz.nextbase.script.coordination._BlockCollection
 import kz.nextbase.script.events._FormQueryOpen
 
 
@@ -49,6 +50,9 @@ class QueryOpen extends _FormQueryOpen {
         //
         publishEmployer("author", doc.getAuthorID())
         publishValue("created_at", doc.getRegDate())
+        //
+        def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        publishValue("coordination", blockCollection)
         //
         def history = session.getPage("proposal-events", webFormData)
         publishElement(history)
