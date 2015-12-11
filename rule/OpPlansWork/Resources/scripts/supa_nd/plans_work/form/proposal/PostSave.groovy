@@ -32,7 +32,11 @@ class PostSave extends _FormPostSave {
     private void doCoordinationStart(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         def block = blockCollection.getBlocks().get(0)
-        // find coordinator by structure
+        //
+        // sostavit' posledovatel'nyi spisok soglasovanija
+        // block soglasovanija dolzhen byt' 1
+        // spisok sobrat' soglasno ierarhii posledovatel'nosti
+        //
         def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
         coordinator.setUserID(session.getUser().getUserID())
         coordinator.setCurrent(true)

@@ -2,9 +2,6 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:import href="../layout.xsl"/>
 
-    <xsl:output method="html" encoding="utf-8" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
-                doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" indent="yes"/>
-
     <xsl:variable name="userid" select="/request/@userid"/>
     <xsl:variable name="hasCoordBlock" select="//fields/coordination/blocks"/>
 
@@ -170,7 +167,41 @@
 
     <xsl:template name="history">
         <ul class="timeline">
-            <xsl:apply-templates select="//page[@id='proposal-events']/view_content//query" mode="proposal-events"/>
+            <xsl:for-each select="//page[@id='proposal-events']/view_content//query/entry">
+                <xsl:sort select="position()" data-type="number" order="descending"/>
+                <li>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext1"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext2"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext3"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext4"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext5"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext6"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewtext7"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewnumber"/>
+                    </span>
+                    <span>
+                        <xsl:value-of select="viewcontent/viewdate"/>
+                    </span>
+                </li>
+            </xsl:for-each>
             <li>
                 <i class="timeline-icon"></i>
                 <div class="timeline-event">
@@ -182,44 +213,6 @@
                 </div>
             </li>
         </ul>
-    </xsl:template>
-
-    <xsl:template match="query" mode="proposal-events">
-        <xsl:for-each select="entry">
-            <xsl:sort select="position()" data-type="number" order="descending"/>
-            <li>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext1"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext2"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext3"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext4"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext5"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext6"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewtext7"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewnumber"/>
-                </span>
-                <span>
-                    <xsl:value-of select="viewcontent/viewdate"/>
-                </span>
-            </li>
-        </xsl:for-each>
     </xsl:template>
 
 </xsl:stylesheet>
