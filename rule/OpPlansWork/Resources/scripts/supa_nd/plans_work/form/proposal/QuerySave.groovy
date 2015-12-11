@@ -1,6 +1,5 @@
 package supa_nd.plans_work.form.proposal
 
-import kz.flabs.users.User
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
@@ -9,7 +8,6 @@ import kz.nextbase.script.constants._CoordStatusType
 import kz.nextbase.script.constants._DecisionType
 import kz.nextbase.script.coordination._Block
 import kz.nextbase.script.coordination._BlockCollection
-import kz.nextbase.script.coordination._Coordinator
 import kz.nextbase.script.events._FormQuerySave
 
 
@@ -37,24 +35,22 @@ class QuerySave extends _FormQuerySave {
 
         def action = webFormData.getValueSilently("_action")
         switch (action) {
-            case "coordination":
+            case "coord_start":
             case "coord_agree":
             case "coord_revision":
             case "coord_reject":
                 doCoordination(session, doc, webFormData, action)
                 break
         }
+
+        doc.addStringField("_action", action)
     }
 
     private void doSaveNew(_Session session, _Document doc, _WebFormData webFormData) {
         doc.setForm("proposal")
 
         // Coordination block
-        def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
-        if (blockCollection == null) {
-            blockCollection = new _BlockCollection(session)
-        }
-        doc.addField("coordination", blockCollection)
+        doc.addField("coordination", new _BlockCollection(session))
         //
 
         def assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
@@ -77,45 +73,55 @@ class QuerySave extends _FormQuerySave {
         doc.addViewText(doc.getValueString("status")) // viewtext7 = status
         //---------------------------------------------
         doc.addEditor(session.getUser().getUserID())
-        doc.addReader(assigneeUser.getUserID())
+        doc.addEditor(assigneeUser.getUserID())
         doc.addEditor("[supervisor]")
     }
 
     private void doSave(_Session session, _Document doc, _WebFormData webFormData) {
+        def hasChanges = false
+
         if (webFormData.containsField("description")) {
             def desc = doc.getValueString("description")
             def newDesc = webFormData.getValue("description")
             if (desc != newDesc) {
+                hasChanges = true
                 doc.addStringField("description", newDesc)
                 //
-                addEvent(session, doc, "change", "description [:] $desc [>] $newDesc")
+                String hs = "description [:] $desc [>] $newDesc"
+                ProposalService.addEvent(session, doc, "change", hs)
             }
         }
         if (webFormData.containsField("dueDateType")) {
             def dueDateType = doc.getValueString("dueDateType")
             def newDueDateType = webFormData.getValue("dueDateType")
             if (dueDateType != newDueDateType) {
+                hasChanges = true
                 doc.addStringField("dueDateType", newDueDateType)
                 //
-                addEvent(session, doc, "change", "dueDateType [:] $dueDateType [>] $newDueDateType")
+                String hs = "dueDateType [:] $dueDateType [>] $newDueDateType"
+                ProposalService.addEvent(session, doc, "change", hs)
             }
         }
         if (webFormData.containsField("dueDate")) {
             def dueDate = doc.getValueString("dueDate")
             def newDueDate = webFormData.getValue("dueDate")
             if (dueDate != newDueDate) {
+                hasChanges = true
                 doc.addStringField("dueDate", newDueDate)
                 //
-                addEvent(session, doc, "change", "dueDate [:] $dueDate [>] $newDueDate")
+                String hs = "dueDate [:] $dueDate [>] $newDueDate"
+                ProposalService.addEvent(session, doc, "change", hs)
             }
         }
         if (webFormData.containsField("status")) {
             def status = doc.getValueString("status")
             def newStatus = webFormData.getValue("newStatus")
             if (status != newStatus) {
+                hasChanges = true
                 doc.addStringField("status", status)
                 //
-                addEvent(session, doc, "change", "status [:] $status [>] $newStatus")
+                String hs = "status [:] $status [>] $newStatus"
+                ProposalService.addEvent(session, doc, "change", hs)
             }
         }
 
@@ -123,9 +129,13 @@ class QuerySave extends _FormQuerySave {
         if (webFormData.containsField("assignee")) {
             def currentAssignee = doc.getValueString("assignee")
             if (currentAssignee != webFormData.getValue("assignee")) {
+                hasChanges = true
                 assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
                 doc.addStringField("assignee", assigneeUser.getUserID())
                 doc.addStringField("department", "" + assigneeUser.getDepartmentID())
+                //
+                String hs = "assignee [:] $currentAssignee [>] $assigneeUser.userID"
+                ProposalService.addEvent(session, doc, "change", hs)
             } else {
                 assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
             }
@@ -133,95 +143,51 @@ class QuerySave extends _FormQuerySave {
             assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
         }
         //---------------------------------------------
-        // WARNING. Pomni porjadok viewtext[n] kriti4en
-        doc.setViewText(doc.getValueString("description"), 0)
-        doc.setViewText(assigneeUser.getFullName(), 1)
-        doc.setViewText(assigneeUser.getUserID(), 2)
-        doc.setViewText(doc.getValueString("dueDateType"), 3)
-        doc.setViewText(doc.getValueString("dueDate"), 4)
-        // viewtext5
-        // viewtext6
-        doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
+        if (hasChanges) {
+            // WARNING. Pomni porjadok viewtext[n] kriti4en
+            doc.setViewText(doc.getValueString("description"), 0)
+            doc.setViewText(assigneeUser.getFullName(), 1)
+            doc.setViewText(assigneeUser.getUserID(), 2)
+            doc.setViewText(doc.getValueString("dueDateType"), 3)
+            doc.setViewText(doc.getValueString("dueDate"), 4)
+            // viewtext5
+            // viewtext6
+            doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
+        }
         //---------------------------------------------
-    }
-
-    private void addComment(_Session session, _Document doc, User author, String commentText) {
-        def commentDoc = new _Document(session.getCurrentDatabase())
-        commentDoc.setForm("comment")
-        commentDoc.setParentDoc(doc)
-        //
-        commentDoc.addStringField("text", commentText)
-        //
-        commentDoc.setViewNumber(0)
-        commentDoc.setViewDate(new Date()) // update time
-        // WARNING. Pomni porjadok viewtext[n] kriti4en
-        commentDoc.setViewText(commentText)
-        commentDoc.addViewText(author.getFullName())
-        //
-        commentDoc.addEditor(author.getUserID())
-        commentDoc.addEditor("[supervisor]")
-        commentDoc.save("[supervisor]")
-    }
-
-    private void addEvent(_Session session, _Document doc, String eventType, String text) {
-        def commentDoc = new _Document(session.getCurrentDatabase())
-        commentDoc.setForm("event")
-        commentDoc.setParentDoc(doc)
-        //
-        commentDoc.addStringField("eventType", eventType)
-        commentDoc.addStringField("text", text)
-        //
-        commentDoc.setViewDate(new Date())
-        // WARNING. Pomni porjadok viewtext[n] kriti4en
-        commentDoc.setViewText(eventType)
-        commentDoc.addViewText(text)
-        commentDoc.addViewText(session.getUser().getFullName())
-        //
-        commentDoc.save("[supervisor]")
     }
 
     private void doCoordination(_Session session, _Document doc, _WebFormData webFormData, String action) {
 
-        def coordinationBlock = (_BlockCollection) doc.getValueObject("coordination")
+        def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
 
         switch (action) {
-            case "coordination":
+            case "coord_start":
                 doc.addStringField("status", "coordination")
                 doc.setViewText("coordination", 7)
                 //
                 def block = new _Block(session)
                 block.setBlockStatus(_BlockStatusType.COORDINATING)
-                coordinationBlock.setBlocks([block])
-                coordinationBlock.setCoordStatus(_CoordStatusType.COORDINATING)
-
-                // TODO move to PostSave
-                def coordinator = new _Coordinator(session.getCurrentDatabase().getBaseObject())
-                coordinator.setUserID(session.getUser().getUserID())
-                coordinator.setCurrent(true)
-                block.addCoordinator(coordinator)
-                //
-                addEvent(session, doc, "coordination", "start")
+                blockCollection.setBlocks([block])
+                blockCollection.setCoordStatus(_CoordStatusType.COORDINATING)
                 break
+
             case "coord_agree":
                 doc.addStringField("status", "agree")
                 doc.setViewText("agree", 7)
                 //
-                def coorder = coordinationBlock.getCurrentBlock().getFirstCoordinator()
-                coorder.setDecision(_DecisionType.AGREE, "my comment")
-                //
-                addEvent(session, doc, "coordination", "agree")
+                def coordinator = blockCollection.getCurrentBlock().getFirstCoordinator()
+                coordinator.setDecision(_DecisionType.AGREE, "my comment")
                 break
+
             case "coord_revision":
                 doc.addStringField("status", "revision")
                 doc.setViewText("revision", 7)
-                //
-                addEvent(session, doc, "coordination", "revision")
                 break
+
             case "coord_reject":
                 doc.addStringField("status", "reject")
                 doc.setViewText("reject", 7)
-                //
-                addEvent(session, doc, "coordination", "reject")
                 break
         }
     }

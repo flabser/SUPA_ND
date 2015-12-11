@@ -146,7 +146,7 @@ app.oper_plans_work.actions.save = function(el, msg) {
 };
 
 app.oper_plans_work.actions.coordination = function(el) {
-    app.oper_plans_work.actions.save(el, 'coordination');
+    app.oper_plans_work.actions.save(el, 'coord_start');
 };
 
 app.oper_plans_work.actions.agree = function(el) {
