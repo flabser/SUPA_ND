@@ -942,7 +942,7 @@ $(function() {
 
 var app = app || {};
 
-app.oper_plans_work = {
+app.plansWork = {
     init: function() {
         $('[name=_dueDateType]').val($('[name=dueDateType]').val());
         this.dueDateTypeToggle();
@@ -1063,7 +1063,7 @@ app.oper_plans_work = {
     }
 };
 
-app.oper_plans_work.actions.save = function(el, msg) {
+app.plansWork.actions.save = function(el, msg) {
     $('[name=_action]').val(msg);
     var form = $('form[name=proposal]')[0];
     var data = $(form).serialize();
@@ -1087,23 +1087,23 @@ app.oper_plans_work.actions.save = function(el, msg) {
     });
 };
 
-app.oper_plans_work.actions.coordination = function(el) {
-    app.oper_plans_work.actions.save(el, 'coord_start');
+app.plansWork.actions.coordStart = function(el) {
+    app.plansWork.actions.save(el, 'coord_start');
 };
 
-app.oper_plans_work.actions.agree = function(el) {
-    app.oper_plans_work.actions.save(el, 'coord_agree');
+app.plansWork.actions.coordAgree = function(el) {
+    app.plansWork.actions.save(el, 'coord_agree');
 };
 
-app.oper_plans_work.actions.exclusion = function(el) {
-    app.oper_plans_work.actions.save(el, 'coord_reject');
+app.plansWork.actions.coordRevision = function(el) {
+    app.plansWork.actions.save(el, 'coord_revision');
 };
 
-app.oper_plans_work.actions.revision = function(el) {
-    app.oper_plans_work.actions.save(el, 'coord_revision');
+app.plansWork.actions.coordReject = function(el) {
+    app.plansWork.actions.save(el, 'coord_reject');
 };
 
-app.oper_plans_work.actions.reject = function(el) {
+app.plansWork.actions.reject = function(el) {
     var dlg = nb.dialog.show({
         title: el.title,
         message: '',
@@ -1116,18 +1116,7 @@ app.oper_plans_work.actions.reject = function(el) {
                     }).show().remove(2000);
                     dlg.dialog('close');
 
-                    app.oper_plans_work.actions.revision(el);
-                }
-            },
-            'revision': {
-                text: 'Отправка на доработку',
-                click: function() {
-                    nb.utils.notify({
-                        message: 'action Отправка на доработку'
-                    }).show().remove(2000);
-                    dlg.dialog('close');
-
-                    app.oper_plans_work.actions.revision(el);
+                    app.plansWork.actions.revision(el);
                 }
             },
             'cancel': {
@@ -1141,31 +1130,34 @@ app.oper_plans_work.actions.reject = function(el) {
 };
 
 $(function() {
-    app.oper_plans_work.init();
+    app.plansWork.init();
 
     $('[data-action=save]').click(function() {
-        app.oper_plans_work.actions.save(this);
+        app.plansWork.actions.save(this);
     });
-    $('[data-action=coordination]').click(function() {
-        app.oper_plans_work.actions.coordination(this);
+    $('[data-action=coord_start]').click(function() {
+        app.plansWork.actions.coordStart(this);
     });
-    $('[data-action=agree]').click(function() {
-        app.oper_plans_work.actions.agree(this);
+    $('[data-action=coord_agree]').click(function() {
+        app.plansWork.actions.coordAgree(this);
     });
-    $('[data-action=reject]').click(function() {
-        app.oper_plans_work.actions.reject(this);
+    $('[data-action=coord_revision]').click(function() {
+        app.plansWork.actions.coordRevision(this);
+    });
+    $('[data-action=coord_reject]').click(function() {
+        app.plansWork.actions.coordReject(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
-        app.oper_plans_work.dialog.selectAssignees(this, 'assignee');
+        app.plansWork.dialog.selectAssignees(this, 'assignee');
     });
 
     $('[data-action=due-date-link]').click(function() {
-        app.oper_plans_work.dialog.selectDueDateLink();
+        app.plansWork.dialog.selectDueDateLink();
     });
 
     $('body').on('change', '[name=_dueDateType]', function(e) {
-        app.oper_plans_work.dueDateTypeToggle();
+        app.plansWork.dueDateTypeToggle();
     });
     $('body').on('change', '[name=_dueDate]', function(e) {
         $('[name=dueDate]').val($('[name=_dueDate]').val());

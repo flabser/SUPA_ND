@@ -17,6 +17,9 @@
         <header class="content-header">
             <h1 class="header-title">
                 <xsl:value-of select="//captions/title/@caption"/>
+                <small class="label label-primary">
+                    <xsl:value-of select="//fields/status"/>
+                </small>
             </h1>
             <div class="content-actions">
                 <xsl:apply-templates select="//actionbar"/>
