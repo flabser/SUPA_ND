@@ -11,6 +11,16 @@
             <xsl:with-param name="include">
                 <script type="text/javascript" src="js/proposal-controller.js"></script>
                 <script type="text/javascript" src="js/components/due-date.js"></script>
+                <script>
+                    <![CDATA[
+                        $(function(){
+                            new app.DueDate({
+                                el: document.querySelector('.due-date'),
+                                dueDateType: document.querySelector('[name=dueDateType]'),
+                                dueDate: document.querySelector('[name=dueDate]')
+                            });
+                        });]]>
+                </script>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
@@ -40,14 +50,14 @@
                                     <xsl:value-of select="//captions/assignee/@caption"/>
                                 </label>
                                 <div class="form-control">
-                                    <button type="button" class="btn btn-select-assignees pull-right"
+                                    <button type="button" class="btn btn-select-assignees"
                                             data-action="select-assignees">
                                         <i class="fa fa-edit"></i>
                                     </button>
-                                    <div data-input="assignee" id="assigneetbl">
+                                    <div data-input="assignee">
                                         <xsl:value-of select="//fields/assignee"/>
                                     </div>
-                                    <div data-input="department_name" id="department_nametbl">
+                                    <div data-input="department_name">
                                         <xsl:value-of select="//fields/department"/>
                                     </div>
                                 </div>
@@ -63,33 +73,7 @@
                                 <label class="controls-label">
                                     <xsl:value-of select="//captions/due_date/@caption"/>
                                 </label>
-                                <div class="form-control" data-toggle="due-date-selector">
-
-                                </div>
-                                <div class="due-date">
-                                    <select name="_dueDateType" class="form-control">
-                                        <option value="month">
-                                            <xsl:value-of select="//captions/month/@caption"/>
-                                        </option>
-                                        <option value="quarter">
-                                            <xsl:value-of select="//captions/quarter/@caption"/>
-                                        </option>
-                                        <option value="half-year">
-                                            <xsl:value-of select="//captions/half_year/@caption"/>
-                                        </option>
-                                        <option value="plan-link">
-                                            <xsl:value-of select="//captions/plan_link/@caption"/>
-                                        </option>
-                                    </select>
-                                    <select name="_dueDate" class="form-control"></select>
-                                    <div class="js-due-date-link">
-                                        <span data-link="due-date-link"></span>
-                                        <button type="button" class="btn due-date-link"
-                                                data-action="due-date-link">
-                                            выбрать
-                                        </button>
-                                    </div>
-                                </div>
+                                <xsl:call-template name="due-date-template"/>
                             </div>
                         </div>
                     </div>
@@ -145,6 +129,37 @@
                 </xsl:if>
             </div>
         </section>
+    </xsl:template>
+
+    <xsl:template name="due-date-template">
+        <div class="due-date">
+            <div class="due-date-text form-control"></div>
+            <section class="due-date-edit">
+                <select class="due-date-type">
+                    <option value="month">
+                        <xsl:value-of select="//captions/month/@caption"/>
+                    </option>
+                    <option value="quarter">
+                        <xsl:value-of select="//captions/quarter/@caption"/>
+                    </option>
+                    <option value="half-year">
+                        <xsl:value-of select="//captions/half_year/@caption"/>
+                    </option>
+                    <option value="plan-doc">
+                        <xsl:value-of select="//captions/plan_doc/@caption"/>
+                    </option>
+                </select>
+                <ul class="due-date-part"></ul>
+                <div class="due-date-actions">
+                    <button type="button" class="btn btn-sm btn-cancel">
+                        <xsl:value-of select="//captions/cancel/@caption"/>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-apply">
+                        <xsl:value-of select="//captions/apply/@caption"/>
+                    </button>
+                </div>
+            </section>
+        </div>
     </xsl:template>
 
     <xsl:template name="coordination">

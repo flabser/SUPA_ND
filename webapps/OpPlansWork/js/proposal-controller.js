@@ -1,75 +1,18 @@
 var app = app || {};
 
 app.plansWork = {
-    init: function() {
-        $('[name=_dueDateType]').val($('[name=dueDateType]').val());
-        this.dueDateTypeToggle();
-    },
-
-    dueDateTypeToggle: function() {
-        var $dueDateType = $('[name=_dueDateType]');
-        $('[name=dueDateType]').val($dueDateType.val());
-
-        var selectData = {};
-        var multi = false;
-        switch ($dueDateType.val()) {
-            case 'month':
-                multi = true;
-                selectData = {
-                    '1': 'январь',
-                    '2': 'февраль',
-                    '3': 'март',
-                    '4': 'апрель',
-                    '5': 'май',
-                    '6': 'июнь',
-                    '7': 'июль',
-                    '8': 'август',
-                    '9': 'сентябрь',
-                    '10': 'октябрь',
-                    '11': 'ноябрь',
-                    '12': 'декабрь',
-                };
-                break;
-            case 'quarter':
-                selectData = {
-                    '1': '1',
-                    '2': '2',
-                    '3': '3',
-                    '4': '4'
-                };
-                break;
-            case 'half-year':
-                selectData = {
-                    '1': '1',
-                    '2': '2'
-                };
-                break;
-            case 'link':
-                break;
-        }
-
-        var html = [];
-        for (var key in selectData) {
-            html.push('<option value=' + key + '>' + selectData[key] + '</option>');
-        }
-        if (html.length) {
-            $('select[name=_dueDate]').html(html.join('')).attr('multiple', multi).show();
-            $('[name=_dueDate]').val($('[name=dueDate]').val());
-            $('.js-due-date-link').hide();
-        } else {
-            $('select[name=_dueDate]').hide();
-            $('.js-due-date-link').show();
-        }
-    },
+    init: function() {},
 
     actions: {
-        save: function(el, msg) {
-            $('[name=_action]').val(msg);
+        save: function(el, action) {
+            $('[name=_action]').val(action);
             var form = $('form[name=proposal]')[0];
             var data = $(form).serialize();
 
+            nb.utils.blockUI();
+
             var noty = nb.utils.notify({
-                message: 'action ' + msg
+                message: nb.getText('action_' + action)
             }).show();
 
             return $.ajax({
@@ -78,10 +21,11 @@ app.plansWork = {
                 url: 'Provider',
                 data: data,
                 success: function(result) {
+                    nb.utils.unblockUI
                     noty.remove(3000);
                     nb.utils.notify({
                         message: 'saved'
-                    }).show().remove(2000);
+                    }).show(2000);
                     // close
                     $('[data-action=close]')[0].click();
                     //

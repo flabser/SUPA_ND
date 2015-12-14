@@ -2,12 +2,6 @@
     padding: 10px 0;
 }
 
-.proposal .due-date select {
-    display: inline-block;
-    vertical-align: top;
-    width: auto;
-}
-
 .proposal textarea[name=description] {
     min-height: 100px;
 }
