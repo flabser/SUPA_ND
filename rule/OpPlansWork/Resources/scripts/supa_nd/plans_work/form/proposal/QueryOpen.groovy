@@ -46,7 +46,7 @@ class QueryOpen extends _FormQueryOpen {
         def status = doc.getValueString("status")
         if (status == "coordination") {
             if (coordinator && coordinator.userID == session.user.userID) {
-                actionBar.addAction(new _Action(getLocalizedWord("Отправить", lang), "", "coord_agree"))
+                actionBar.addAction(new _Action(getLocalizedWord("Согласен", lang), "", "coord_agree"))
                 actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "coord_revision"))
                 actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
             }

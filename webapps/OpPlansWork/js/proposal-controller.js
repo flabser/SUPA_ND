@@ -6,8 +6,6 @@ app.plansWork = {
         this.dueDateTypeToggle();
     },
 
-    actions: {},
-
     dueDateTypeToggle: function() {
         var $dueDateType = $('[name=_dueDateType]');
         $('[name=dueDateType]').val($dueDateType.val());
@@ -64,8 +62,51 @@ app.plansWork = {
         }
     },
 
-    dialog: {
-        selectDueDateLink: function() {
+    actions: {
+        save: function(el, msg) {
+            $('[name=_action]').val(msg);
+            var form = $('form[name=proposal]')[0];
+            var data = $(form).serialize();
+
+            var noty = nb.utils.notify({
+                message: 'action ' + msg
+            }).show();
+
+            return $.ajax({
+                method: 'POST',
+                datatype: 'html',
+                url: 'Provider',
+                data: data,
+                success: function(result) {
+                    noty.remove(3000);
+                    nb.utils.notify({
+                        message: 'saved'
+                    }).show().remove(2000);
+                    // close
+                    $('[data-action=close]')[0].click();
+                    //
+                    return result;
+                }
+            });
+        },
+
+        coordStart: function(el) {
+            return this.save(el, 'coord_start');
+        },
+
+        coordAgree: function(el) {
+            return this.save(el, 'coord_agree');
+        },
+
+        coordRevision: function(el) {
+            return this.save(el, 'coord_revision');
+        },
+
+        coordReject: function(el) {
+            return this.save(el, 'coord_reject');
+        },
+
+        dialogSelectDueDateLink: function() {
             var dlg = nb.dialog.show({
                 title: 'selectDueDateLink',
                 href: 'Provider?type=page&id=proposals-list',
@@ -86,7 +127,7 @@ app.plansWork = {
             });
         },
 
-        selectAssignees: function(el, fieldName, isMulti) {
+        dialogSelectAssignees: function(el, fieldName, isMulti) {
             var form = $('form[name=proposal]');
             var dlg = nb.dialog.show({
                 targetForm: form,
@@ -121,97 +162,79 @@ app.plansWork = {
     }
 };
 
-app.plansWork.actions.save = function(el, msg) {
-    $('[name=_action]').val(msg);
-    var form = $('form[name=proposal]')[0];
-    var data = $(form).serialize();
-
-    var noty = nb.utils.notify({
-        message: 'action ' + msg
-    }).show();
-
-    return $.ajax({
-        method: 'POST',
-        datatype: 'html',
-        url: 'Provider',
-        data: data,
-        success: function() {
-            noty.remove(3000);
-            nb.utils.notify({
-                message: 'saved'
-            }).show().remove(2000);
-            $('[data-action=close]')[0].click();
-        }
-    });
-};
-
-app.plansWork.actions.coordStart = function(el) {
-    app.plansWork.actions.save(el, 'coord_start');
-};
-
-app.plansWork.actions.coordAgree = function(el) {
-    app.plansWork.actions.save(el, 'coord_agree');
-};
-
-app.plansWork.actions.coordRevision = function(el) {
-    app.plansWork.actions.save(el, 'coord_revision');
-};
-
-app.plansWork.actions.coordReject = function(el) {
-    app.plansWork.actions.save(el, 'coord_reject');
-};
-
-app.plansWork.actions.reject = function(el) {
-    var dlg = nb.dialog.show({
-        title: el.title,
-        message: '',
-        buttons: {
-            'exclusion': {
-                text: 'Исключить',
-                click: function() {
-                    nb.utils.notify({
-                        message: 'action Исключить'
-                    }).show().remove(2000);
-                    dlg.dialog('close');
-
-                    app.plansWork.actions.revision(el);
-                }
-            },
-            'cancel': {
-                text: nb.getText('cancel'),
-                click: function() {
-                    dlg.dialog('close');
-                }
-            }
-        }
-    });
-};
-
 $(function() {
     app.plansWork.init();
 
     $('[data-action=save]').click(function() {
         app.plansWork.actions.save(this);
     });
+
     $('[data-action=coord_start]').click(function() {
-        app.plansWork.actions.coordStart(this);
+        var _this = this;
+        var dlg = nb.dialog.show({
+            title: _this.title,
+            message: nb.getText('send_to_coordination', 'Отправить на согласование?'),
+            buttons: {
+                'reject': {
+                    text: 'Отправить',
+                    click: function() {
+                        dlg.dialog('close');
+                        app.plansWork.actions.coordStart(_this);
+                    }
+                },
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                }
+            }
+        });
     });
+
     $('[data-action=coord_agree]').click(function() {
         app.plansWork.actions.coordAgree(this);
     });
+
     $('[data-action=coord_revision]').click(function() {
-        app.plansWork.actions.coordRevision(this);
+        var _this = this;
+        var html = '<h4>Отправить на доработку?</h4><div>Комментарий</div><textarea></textarea>';
+        var dlg = nb.dialog.show({
+            title: _this.title,
+            message: html,
+            buttons: {
+                'revision': {
+                    text: 'Отправить',
+                    click: function() {
+                        var comment = dlg.find('textarea').val();
+                        if (comment) {
+                            dlg.dialog('close');
+                            var form = $('form[name=proposal]')[0];
+                            form.coordination_comment.value = comment;
+                            app.plansWork.actions.coordRevision(_this);
+                        }
+                    }
+                },
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                }
+            }
+        });
     });
+
     $('[data-action=coord_reject]').click(function() {
         app.plansWork.actions.coordReject(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
-        app.plansWork.dialog.selectAssignees(this, 'assignee');
+        app.plansWork.actions.dialogSelectAssignees(this, 'assignee', false);
     });
 
     $('[data-action=due-date-link]').click(function() {
-        app.plansWork.dialog.selectDueDateLink();
+        app.plansWork.actions.dialogSelectDueDateLink();
     });
 
     $('body').on('change', '[name=_dueDateType]', function(e) {

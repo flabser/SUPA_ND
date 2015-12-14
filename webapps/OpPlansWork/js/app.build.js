@@ -1108,7 +1108,7 @@ app.plansWork.actions.reject = function(el) {
         title: el.title,
         message: '',
         buttons: {
-            'exclusion': {
+            'reject': {
                 text: 'Исключить',
                 click: function() {
                     nb.utils.notify({
@@ -1116,7 +1116,7 @@ app.plansWork.actions.reject = function(el) {
                     }).show().remove(2000);
                     dlg.dialog('close');
 
-                    app.plansWork.actions.revision(el);
+                    app.plansWork.actions.coordRevision(el);
                 }
             },
             'cancel': {

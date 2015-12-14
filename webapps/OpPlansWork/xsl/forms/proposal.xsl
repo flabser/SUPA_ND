@@ -10,6 +10,7 @@
             <xsl:with-param name="body_class" select="'proposal'"/>
             <xsl:with-param name="include">
                 <script type="text/javascript" src="js/proposal-controller.js"></script>
+                <script type="text/javascript" src="js/components/due-date.js"></script>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
@@ -62,6 +63,9 @@
                                 <label class="controls-label">
                                     <xsl:value-of select="//captions/due_date/@caption"/>
                                 </label>
+                                <div class="form-control" data-toggle="due-date-selector">
+
+                                </div>
                                 <div class="due-date">
                                     <select name="_dueDateType" class="form-control">
                                         <option value="month">
@@ -105,6 +109,7 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="coordination_comment"/>
                     <input type="hidden" name="dueDateType" value="{//fields/dueDateType}"/>
                     <input type="hidden" name="dueDate" value="{//fields/dueDate}"/>
 
