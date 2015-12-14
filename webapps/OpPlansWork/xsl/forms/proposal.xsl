@@ -34,7 +34,7 @@
                 </span>
             </h1>
             <div class="content-actions">
-                <xsl:apply-templates select="//actionbar"/>
+                <xsl:call-template name="actions"/>
             </div>
         </header>
         <section class="content-body">
@@ -160,6 +160,24 @@
                 </div>
             </section>
         </div>
+    </xsl:template>
+
+    <xsl:template name="actions">
+        <xsl:apply-templates select="//action[@id = 'close']"/>
+        <xsl:if test="//action/@id = 'save'">
+            <xsl:apply-templates select="//action[@id = 'save']"/>
+        </xsl:if>
+        <xsl:if test="//action/@id = 'coord_start'
+                or //action/@id = 'coord_revision'
+                or //action/@id = 'coord_reject'
+                or //action/@id = 'coord_agree'">
+            <div class="btn-group" role="group">
+                <xsl:apply-templates select="//action[@id = 'coord_start']"/>
+                <xsl:apply-templates select="//action[@id = 'coord_revision']"/>
+                <xsl:apply-templates select="//action[@id = 'coord_reject']"/>
+                <xsl:apply-templates select="//action[@id = 'coord_agree']"/>
+            </div>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="coordination">
