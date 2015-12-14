@@ -119,17 +119,17 @@ $(function() {
             title: _this.title,
             message: nb.getText('send_to_coordination', 'Отправить на согласование?'),
             buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
                 'reject': {
                     text: 'Отправить',
                     click: function() {
                         dlg.dialog('close');
                         app.plansWork.actions.coordStart(_this);
-                    }
-                },
-                'cancel': {
-                    text: nb.getText('cancel'),
-                    click: function() {
-                        dlg.dialog('close');
                     }
                 }
             }
@@ -147,6 +147,12 @@ $(function() {
             title: _this.title,
             message: html,
             buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
                 'revision': {
                     text: 'Отправить',
                     click: function() {
@@ -157,12 +163,6 @@ $(function() {
                             form.coordination_comment.value = comment;
                             app.plansWork.actions.coordRevision(_this);
                         }
-                    }
-                },
-                'cancel': {
-                    text: nb.getText('cancel'),
-                    click: function() {
-                        dlg.dialog('close');
                     }
                 }
             }
@@ -179,12 +179,5 @@ $(function() {
 
     $('[data-action=due-date-link]').click(function() {
         app.plansWork.actions.dialogSelectDueDateLink();
-    });
-
-    $('body').on('change', '[name=_dueDateType]', function(e) {
-        app.plansWork.dueDateTypeToggle();
-    });
-    $('body').on('change', '[name=_dueDate]', function(e) {
-        $('[name=dueDate]').val($('[name=_dueDate]').val());
     });
 });

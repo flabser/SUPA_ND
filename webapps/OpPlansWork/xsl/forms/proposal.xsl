@@ -165,6 +165,10 @@
     <xsl:template name="coordination">
         <xsl:choose>
             <xsl:when test="$hasCoordBlock">
+                <strong>
+                    coordination_direction:
+                    <xsl:value-of select="//fields/coordination_direction"/>
+                </strong>
                 <ul class="timeline timeline-coordination">
                     <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
                         <li>

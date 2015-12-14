@@ -18,9 +18,9 @@ class QueryOpen extends _FormQueryOpen {
         publishElement(nav)
 
         def actionBar = session.createActionBar()
+        actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
         actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
-        actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
         publishElement(actionBar)
     }
 
@@ -35,20 +35,23 @@ class QueryOpen extends _FormQueryOpen {
             def block = blockCollection.currentBlock
             coordinator = (_Coordinator) block.currentCoordinators[0]
         }
-
+        //
+        boolean hasEditAccess = doc.editors.contains(session.user.userID)
+        boolean isCurrentCoordinator = coordinator && coordinator.userID == session.user.userID
+        //
         def actionBar = session.createActionBar()
-        if (doc.editors.contains(session.user.userID)) {
+        actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
+
+        if (isCurrentCoordinator || hasEditAccess) {
             actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
         }
 
-        actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
-
         def status = doc.getValueString("status")
         if (status == "coordination") {
-            if (coordinator && coordinator.userID == session.user.userID) {
-                actionBar.addAction(new _Action(getLocalizedWord("Согласен", lang), "", "coord_agree"))
+            if (isCurrentCoordinator) {
                 actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "coord_revision"))
                 actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
+                actionBar.addAction(new _Action(getLocalizedWord("Отправить", lang), "", "coord_agree"))
             }
         } else {
             actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
@@ -63,6 +66,7 @@ class QueryOpen extends _FormQueryOpen {
         publishValue("dueDate", doc.getValueString("dueDate"))
         publishValue("status", status)
         publishValue("coordination", blockCollection)
+        publishValue("coordination_direction", doc.getValueString("coordination_direction"))
         publishEmployer("author", doc.authorID)
         publishValue("created_at", doc.regDate)
         //

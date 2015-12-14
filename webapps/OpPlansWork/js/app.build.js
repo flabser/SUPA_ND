@@ -1061,17 +1061,17 @@ $(function() {
             title: _this.title,
             message: nb.getText('send_to_coordination', 'Отправить на согласование?'),
             buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
                 'reject': {
                     text: 'Отправить',
                     click: function() {
                         dlg.dialog('close');
                         app.plansWork.actions.coordStart(_this);
-                    }
-                },
-                'cancel': {
-                    text: nb.getText('cancel'),
-                    click: function() {
-                        dlg.dialog('close');
                     }
                 }
             }
@@ -1089,6 +1089,12 @@ $(function() {
             title: _this.title,
             message: html,
             buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
                 'revision': {
                     text: 'Отправить',
                     click: function() {
@@ -1099,12 +1105,6 @@ $(function() {
                             form.coordination_comment.value = comment;
                             app.plansWork.actions.coordRevision(_this);
                         }
-                    }
-                },
-                'cancel': {
-                    text: nb.getText('cancel'),
-                    click: function() {
-                        dlg.dialog('close');
                     }
                 }
             }
@@ -1122,13 +1122,6 @@ $(function() {
     $('[data-action=due-date-link]').click(function() {
         app.plansWork.actions.dialogSelectDueDateLink();
     });
-
-    $('body').on('change', '[name=_dueDateType]', function(e) {
-        app.plansWork.dueDateTypeToggle();
-    });
-    $('body').on('change', '[name=_dueDate]', function(e) {
-        $('[name=dueDate]').val($('[name=_dueDate]').val());
-    });
 });
 
 window.app = window.app || {};
@@ -1140,8 +1133,14 @@ app.DueDate = function(params) {
     this.$dueDatePlanId = params.dueDatePlanId;
 
     this.type = this.$dueDateType.value || 'month';
-    this.year = (new Date()).getFullYear();
-    this.part = (new Date()).getMonth();
+
+    var pv = [(new Date()).getFullYear(), (new Date()).getMonth()];
+    if ((this.type !== 'plan-doc') && this.$dueDate.value) {
+        pv = this.$dueDate.value.split('-');
+    }
+
+    this.year = +pv[0];
+    this.part = +pv[1];
     this.monthCount = 1;
 
     var self = this;
@@ -1160,6 +1159,7 @@ app.DueDate = function(params) {
 
     $('.due-date-type', this.$el).on('change', function() {
         self.type = this.value;
+        self.part = 1;
         self.render();
     });
 
@@ -1221,16 +1221,19 @@ app.DueDate.prototype.write = function() {
 };
 
 app.DueDate.prototype.renderText = function() {
+    var dt = this.$el.querySelector('.due-date-text');
     switch (this.type) {
         case 'month':
-            this.$el.querySelector('.due-date-text').innerText = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
+            dt.innerText = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
             break;
         case 'quarter':
+            dt.innerText = this.part + ' квартал ' + this.year + 'г.';
+            break;
         case 'half-year':
-            this.$el.querySelector('.due-date-text').innerText = this.type + ':' + this.year + '-' + this.part;
+            dt.innerText = this.part + ' полугодие ' + this.year + 'г.';
             break;
         case 'plan-doc':
-            this.$el.querySelector('.due-date-text').innerText = 'plan-doc';
+            dt.innerText = 'plan-doc';
             break;
     }
 };
@@ -1243,7 +1246,7 @@ app.DueDate.prototype.render = function() {
     switch (this.type) {
         case 'month':
             var $row;
-            for (var m = 0; m < this.monthCount; m++) {
+            for (var m = 1; m <= this.monthCount; m++) {
                 $row = document.createElement('li');
                 var $input = document.createElement('input');
                 $input.type = 'number';
@@ -1259,14 +1262,13 @@ app.DueDate.prototype.render = function() {
                 for (var i = 1; i <= this.types[this.type]; i++) {
                     var op = document.createElement('option');
                     op.value = i;
-                    op.innerText = i + '-' + this.monthNames[i - 1];
+                    op.innerText = i + ') ' + this.monthNames[i - 1];
                     $partSelect.appendChild(op);
                 }
                 $partSelect.onchange = function() {
                     self.part = this.value;
                 };
-                this.part = 1;
-                $partSelect.value = this.part;
+                $partSelect.value = m;
                 $row.appendChild($partSelect);
                 $part.appendChild($row);
             }
@@ -1305,7 +1307,6 @@ app.DueDate.prototype.render = function() {
             $partSelect.onchange = function() {
                 self.part = this.value;
             };
-            this.part = 1;
             $partSelect.value = this.part;
             $row.appendChild($partSelect);
             $part.appendChild($row);
