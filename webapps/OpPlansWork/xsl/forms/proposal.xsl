@@ -206,7 +206,7 @@
                                     <xsl:when test="decision eq 'AGREE'">
                                         <i class="coord-icon coord-agree fa fa-thumbs-o-up"></i>
                                     </xsl:when>
-                                    <xsl:when test="viewtext3 eq 'DISAGREE'">
+                                    <xsl:when test="decision eq 'DISAGREE'">
                                         <i class="coord-icon coord-disagree fa fa-thumbs-o-down"></i>
                                     </xsl:when>
                                 </xsl:choose>
