@@ -31,6 +31,9 @@
     margin: 0 3px;
 }
 
+
+/* coord-list */
+
 .coord-list {
     border: none;
     list-style: none;
@@ -40,18 +43,29 @@
 }
 
 .coord-list > li {
-    border: 1px solid transparent;
-    border-radius: 2px;
-    margin: 4px 0;
-    padding: 2px;
+    border-left: 2px solid transparent;
+    padding: 6px 0;
+}
+
+.coord-list > li + li {
+    border-top: 1px solid #eee;
 }
 
 .coord-list > .coord-iscurrent-true {
-    border-left: 2px solid #EEE;
+    border-left-color: #EEE;
 }
 
-.coord-list p i {
-    width: 26px;
+.coord-list header,
+.coord-list header + p {
+    color: #444;
+    display: inline-block;
+    margin: 0;
+    padding: 8px;
+}
+
+.coord-list i {
+    font-size: 14px;
+    width: 22px;
 }
 
 .coord-list.coordination-direction:before {
@@ -86,4 +100,12 @@
 
 .coordination-direction.down:after {
     content: "\f063";
+}
+
+.coord-agree.coord-icon {
+    color: green;
+}
+
+.coord-disagree.coord-icon {
+    color: red;
 }

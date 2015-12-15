@@ -106,22 +106,22 @@
 
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li>
+                        <li class="active">
                             <a href="#tab-coordination" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/coordination/@caption"/>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="#tab-history" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/history/@caption"/>
                             </a>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="tab-coordination">
+                        <div role="tabpanel" class="tab-pane active" id="tab-coordination">
                             <xsl:call-template name="coordination"/>
                         </div>
-                        <div role="tabpanel" class="tab-pane active" id="tab-history">
+                        <div role="tabpanel" class="tab-pane" id="tab-history">
                             <div id="history"></div>
                         </div>
                     </div>

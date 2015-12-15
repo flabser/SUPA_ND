@@ -90,6 +90,9 @@
                 </time>
             </header>
             <p>
+                <span class="changed_label">
+                    <xsl:value-of select="//captions/changed/@caption"/>:
+                </span>
                 <xsl:value-of select="viewtext2"/>
             </p>
         </div>

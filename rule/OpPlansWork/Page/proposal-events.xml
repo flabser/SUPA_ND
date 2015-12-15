@@ -15,4 +15,10 @@
     <caption name="coord_agree" source="KEYWORD">Согласен</caption>
     <caption name="coord_revision" source="KEYWORD">Возврат на доработку</caption>
     <caption name="coord_reject" source="KEYWORD">Исключение</caption>
+
+    <caption name="changed" source="KEYWORD">Изменено</caption>
+
+    <caption name="description" source="KEYWORD">Описание</caption>
+    <caption name="assignee" source="KEYWORD">Исполнитель</caption>
+    <caption name="due_date" source="KEYWORD">Срок исполнения</caption>
 </rule>

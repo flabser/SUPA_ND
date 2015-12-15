@@ -60,6 +60,11 @@
     float: left;
 }
 
+.changed_label {
+    display: inline-block;
+    margin-right: 3px;
+}
+
 .timeline-coord p i {
     width: 26px;
 }
