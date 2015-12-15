@@ -86,6 +86,14 @@ html body.phone .hidden-mobile {
 }
 
 
+/* fa */
+
+.fa {
+    color: #666;
+    font-size: 14px;
+}
+
+
 /* floating */
 
 .pull-left {
