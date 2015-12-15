@@ -59,8 +59,10 @@ class PostSave extends _FormPostSave {
 
     private void doCoordinationRevision(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        def block = blockCollection.getCurrentBlock()
+        def coordinator = block.getCurrentCoordinators()
         //
-        ProposalService.addCoordEvent(session, doc, "revision", "")
+
     }
 
     private void doCoordinationReject(_Session session, _Document doc) {

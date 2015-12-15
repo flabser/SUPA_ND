@@ -10,4 +10,9 @@
             <doscript source="file">supa_nd.plans_work.page.ProposalEvents</doscript>
         </events>
     </element>
+
+    <caption name="coord_start" source="KEYWORD">Отправлено на согласование</caption>
+    <caption name="coord_agree" source="KEYWORD">Согласен</caption>
+    <caption name="coord_revision" source="KEYWORD">Возврат на доработку</caption>
+    <caption name="coord_reject" source="KEYWORD">Исключение</caption>
 </rule>

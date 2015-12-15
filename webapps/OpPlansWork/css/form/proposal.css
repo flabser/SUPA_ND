@@ -30,3 +30,60 @@
     display: inline-block;
     margin: 0 3px;
 }
+
+.coord-list {
+    border: none;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0 0 0 30px;
+    position: relative;
+}
+
+.coord-list > li {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin: 4px 0;
+    padding: 2px;
+}
+
+.coord-list > .coord-iscurrent-true {
+    border-left: 2px solid #EEE;
+}
+
+.coord-list p i {
+    width: 26px;
+}
+
+.coord-list.coordination-direction:before {
+    background: #ccc;
+    content: '';
+    display: block;
+    font-size: 0;
+    height: 100%;
+    left: 12px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+}
+
+.coordination-direction.up:after,
+.coordination-direction.down:after {
+    color: #999;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    left: 6px;
+    margin-top: -4px;
+    position: absolute;
+    text-rendering: auto;
+    top: 50%;
+}
+
+.coordination-direction.up:after {
+    content: "\f062";
+}
+
+.coordination-direction.down:after {
+    content: "\f063";
+}

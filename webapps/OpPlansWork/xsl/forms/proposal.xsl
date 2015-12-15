@@ -198,24 +198,31 @@
     <xsl:template name="coordination">
         <xsl:choose>
             <xsl:when test="$hasCoordBlock">
-                <strong>
-                    coordination_direction:
-                    <xsl:value-of select="//fields/coordination_direction"/>
-                </strong>
-                <ul class="timeline timeline-coordination">
+                <ul class="coord-list coordination-direction {//fields/coordination_direction}">
                     <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
-                        <li>
-                            <span>
-                                <xsl:value-of select="employer/userid"/>
-                            </span>
-                            <span>iscurrent:<xsl:value-of select="iscurrent"/>
-                            </span>
-                            <span>decision:<xsl:value-of select="decision"/>
-                            </span>
-                            <span>comment:<xsl:value-of select="comment"/>
-                            </span>
-                            <span>decision_date:<xsl:value-of select="decisiondate"/>
-                            </span>
+                        <li class="coord-iscurrent-{iscurrent}">
+                            <header>
+                                <xsl:choose>
+                                    <xsl:when test="decision eq 'AGREE'">
+                                        <i class="coord-icon coord-agree fa fa-thumbs-o-up"></i>
+                                    </xsl:when>
+                                    <xsl:when test="viewtext3 eq 'DISAGREE'">
+                                        <i class="coord-icon coord-disagree fa fa-thumbs-o-down"></i>
+                                    </xsl:when>
+                                </xsl:choose>
+                                <span class="timeline-user">
+                                    <xsl:value-of select="employer/userid"/>
+                                </span>
+                                <time>
+                                    <xsl:value-of select="decisiondate"/>
+                                </time>
+                            </header>
+                            <xsl:if test="comment ne ''">
+                                <p>
+                                    <i class="fa fa-comment-o"></i>
+                                    <xsl:value-of select="comment"/>
+                                </p>
+                            </xsl:if>
                         </li>
                     </xsl:for-each>
                 </ul>

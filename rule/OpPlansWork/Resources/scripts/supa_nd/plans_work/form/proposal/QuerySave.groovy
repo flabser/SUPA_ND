@@ -180,7 +180,8 @@ class QuerySave extends _FormQuerySave {
             case "coord_agree":
                 def block = blockCollection.getCurrentBlock()
                 def coordinator = block.getCurrentCoordinators().get(0)
-                coordinator.setDecision(_DecisionType.AGREE, "")
+                def comment = webFormData.getValueSilently("coordination_comment")
+                coordinator.setDecision(_DecisionType.AGREE, comment)
                 //
                 doc.addStringField("coordination_direction", "up")
                 doc.addStringField("status", "agree")
@@ -196,12 +197,15 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("coordination_direction", "down")
                 doc.addStringField("status", "revision")
                 doc.setViewText("revision", 7)
+                //
+                ProposalService.addCoordEvent(session, doc, "revision", comment)
                 break
 
             case "coord_reject":
                 def block = blockCollection.getCurrentBlock()
                 def coordinator = block.getCurrentCoordinators().get(0)
-                coordinator.setDecision(_DecisionType.DISAGREE, "")
+                def comment = webFormData.getValueSilently("coordination_comment")
+                coordinator.setDecision(_DecisionType.DISAGREE, comment)
                 //
                 doc.addStringField("coordination_direction", "down")
                 doc.addStringField("status", "reject")

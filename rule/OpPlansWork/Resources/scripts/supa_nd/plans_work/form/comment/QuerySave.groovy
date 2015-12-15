@@ -26,26 +26,30 @@ class QuerySave extends _FormQuerySave {
             }
         }
 
+        def commentText = webFormData.getValue("text")
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
         if (doc.isNewDoc) {
-            doc.addStringField("text", webFormData.getValue("text"))
+            doc.addStringField("text", commentText)
             //
-            doc.setViewText(doc.getValueString("text"))
-            doc.addViewText(currentUser.getFullName())
-            doc.setViewNumber(0)
             doc.setViewDate(new Date()) // update time
+            doc.setViewNumber(0)
+            //
+            doc.setViewText("comment")
+            doc.addViewText(currentUser.getFullName())
+            doc.addViewText(doc.getValueString("text"))
             //
             doc.addEditor(currentUser.getUserID())
             doc.addReader(currentUser.getUserID())
             doc.addEditor("[supervisor]")
         } else {
-            if (webFormData.getValue("text") != doc.getValueString("text")) {
-                doc.addStringField("text", webFormData.getValue("text"))
+            if (commentText != doc.getValueString("text")) {
+                doc.addStringField("text", commentText)
                 //
-                doc.setViewText(doc.getValueString("text"), 0)
                 doc.setViewNumber(doc.getViewNumber() + 1) // comment is changed
                 doc.setViewDate(new Date()) // update time
+                //
+                doc.setViewText(doc.getValueString("text"), 0)
             }
         }
         //---------------------------------------------
