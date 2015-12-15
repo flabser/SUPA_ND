@@ -25,8 +25,10 @@
     <caption name="apply" source="KEYWORD">Принять</caption>
     <caption name="cancel" source="KEYWORD">Отмена</caption>
 
+    <caption name="author" source="KEYWORD">Автор</caption>
     <caption name="comments" source="KEYWORD">Комментарии</caption>
     <caption name="comment" source="KEYWORD">Комментарий</caption>
     <caption name="coordination" source="KEYWORD">Согласование</caption>
+    <caption name="coordination_not_started" source="KEYWORD">Согласование не запущено</caption>
     <caption name="history" source="KEYWORD">История</caption>
 </rule>

@@ -50,8 +50,7 @@
                                     <xsl:value-of select="//captions/assignee/@caption"/>
                                 </label>
                                 <div class="form-control">
-                                    <button type="button" class="btn btn-select-assignees"
-                                            data-action="select-assignees">
+                                    <button type="button" class="btn btn-assignees" data-action="select-assignees">
                                         <i class="fa fa-edit"></i>
                                     </button>
                                     <div data-input="assignee">
@@ -107,27 +106,43 @@
 
                 <xsl:if test="//document/@status != 'new'">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
+                        <li>
                             <a href="#tab-coordination" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/coordination/@caption"/>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="#tab-history" role="tab" data-toggle="tab">
                                 <xsl:value-of select="//captions/history/@caption"/>
                             </a>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="tab-coordination">
+                        <div role="tabpanel" class="tab-pane" id="tab-coordination">
                             <xsl:call-template name="coordination"/>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="tab-history">
-                            <xsl:call-template name="history"/>
+                        <div role="tabpanel" class="tab-pane active" id="tab-history">
+                            <div id="history"></div>
                         </div>
                     </div>
                 </xsl:if>
             </div>
+            <xsl:if test="//document/@status != 'new'">
+                <footer class="about_created">
+                    <span>
+                        <xsl:value-of select="//captions/author/@caption"/>:
+                    </span>
+                    <span>
+                        <xsl:value-of select="//fields/author"/>
+                    </span>
+                    <span>
+                        <i class="fa fa-clock-o"></i>
+                    </span>
+                    <time pubdate="pubdate">
+                        <xsl:value-of select="//fields/created_at"/>
+                    </time>
+                </footer>
+            </xsl:if>
         </section>
     </xsl:template>
 
@@ -206,59 +221,13 @@
                 </ul>
             </xsl:when>
             <xsl:otherwise>
-                no coordination block
+                <ul class="timeline timeline-coordination">
+                    <li>
+                        <xsl:value-of select="//captions/coordination_not_started/@caption"/>
+                    </li>
+                </ul>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
-
-    <xsl:template name="history">
-        <ul class="timeline">
-            <xsl:for-each select="//page[@id='proposal-events']/view_content//query/entry">
-                <xsl:sort select="position()" data-type="number" order="descending"/>
-                <li>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext1"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext2"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext3"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext4"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext5"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext6"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewtext7"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewnumber"/>
-                    </span>
-                    <span>
-                        <xsl:value-of select="viewcontent/viewdate"/>
-                    </span>
-                </li>
-            </xsl:for-each>
-            <li>
-                <i class="timeline-icon"></i>
-                <div class="timeline-event">
-                    <xsl:value-of select="//fields/author"/>
-                    <span class="timeline-user"></span>
-                    <time pubdate="pubdate" class="timeline-time">
-                        <xsl:value-of select="//fields/created_at"/>
-                    </time>
-                </div>
-            </li>
-        </ul>
     </xsl:template>
 
 </xsl:stylesheet>

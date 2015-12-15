@@ -180,4 +180,10 @@ $(function() {
     $('[data-action=due-date-link]').click(function() {
         app.plansWork.actions.dialogSelectDueDateLink();
     });
+
+    // load history
+    var ddbid = $('[name=ddbid]').val();
+    if (ddbid) {
+        $('#history').load('Provider?type=page&id=proposal-events&proposal_id=' + ddbid);
+    }
 });

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="event" mode="on" history="off">
-    <description>
-        Event.
-        Save as response to target document.
-        Sort by creation time.
-    </description>
-    <doctype>main</doctype>
-</rule>

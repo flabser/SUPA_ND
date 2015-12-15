@@ -70,7 +70,7 @@ class QueryOpen extends _FormQueryOpen {
         publishEmployer("author", doc.authorID)
         publishValue("created_at", doc.regDate)
         //
-        def history = session.getPage("proposal-events", webFormData)
-        publishElement(history)
+        // def history = session.getPage("proposal-events", webFormData)
+        // publishElement(history)
     }
 }

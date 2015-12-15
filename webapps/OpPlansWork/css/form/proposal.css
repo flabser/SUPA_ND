@@ -6,7 +6,7 @@
     min-height: 100px;
 }
 
-.proposal .btn-select-assignees {
+.proposal .btn-assignees {
     border: none;
     padding: 3px;
     position: absolute;
@@ -19,4 +19,14 @@
     left: 10px;
     position: relative;
     top: -2px;
+}
+
+.proposal .about_created {
+    border-top: 1px solid #eee;
+    padding: 15px;
+}
+
+.proposal .about_created span {
+    display: inline-block;
+    margin: 0 3px;
 }

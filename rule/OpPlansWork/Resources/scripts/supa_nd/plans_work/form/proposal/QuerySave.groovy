@@ -91,7 +91,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("description", newDesc)
                 //
                 String hs = "description [:] $desc [>] $newDesc"
-                ProposalService.addEvent(session, doc, "change", hs)
+                ProposalService.addChangeEvent(session, doc, hs)
             }
         }
         if (webFormData.containsField("dueDateType")) {
@@ -102,7 +102,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("dueDateType", newDueDateType)
                 //
                 String hs = "dueDateType [:] $dueDateType [>] $newDueDateType"
-                ProposalService.addEvent(session, doc, "change", hs)
+                ProposalService.addChangeEvent(session, doc, hs)
             }
         }
         if (webFormData.containsField("dueDate")) {
@@ -113,7 +113,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("dueDate", newDueDate)
                 //
                 String hs = "dueDate [:] $dueDate [>] $newDueDate"
-                ProposalService.addEvent(session, doc, "change", hs)
+                ProposalService.addChangeEvent(session, doc, hs)
             }
         }
         if (webFormData.containsField("status")) {
@@ -124,7 +124,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("status", status)
                 //
                 String hs = "status [:] $status [>] $newStatus"
-                ProposalService.addEvent(session, doc, "change", hs)
+                ProposalService.addChangeEvent(session, doc, hs)
             }
         }
 
@@ -138,7 +138,7 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("department", "" + assigneeUser.getDepartmentID())
                 //
                 String hs = "assignee [:] $currentAssignee [>] $assigneeUser.userID"
-                ProposalService.addEvent(session, doc, "change", hs)
+                ProposalService.addChangeEvent(session, doc, hs)
             } else {
                 assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
             }

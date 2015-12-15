@@ -48,24 +48,24 @@ class PostSave extends _FormPostSave {
 
         doc.save()
         //
-        ProposalService.addEvent(session, doc, "coordination", "start")
+        ProposalService.addCoordEvent(session, doc, "start", "")
     }
 
     private void doCoordinationAgree(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         //
-        ProposalService.addEvent(session, doc, "coordination", "agree")
+        ProposalService.addCoordEvent(session, doc, "agree", "")
     }
 
     private void doCoordinationRevision(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         //
-        ProposalService.addEvent(session, doc, "coordination", "revision")
+        ProposalService.addCoordEvent(session, doc, "revision", "")
     }
 
     private void doCoordinationReject(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         //
-        ProposalService.addEvent(session, doc, "coordination", "reject")
+        ProposalService.addCoordEvent(session, doc, "reject", "")
     }
 }

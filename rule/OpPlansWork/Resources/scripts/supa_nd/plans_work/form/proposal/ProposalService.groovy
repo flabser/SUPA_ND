@@ -1,44 +1,50 @@
 package supa_nd.plans_work.form.proposal
 
-import kz.flabs.users.User
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
 
 
 class ProposalService {
 
-    public static void addComment(_Session session, _Document doc, User author, String commentText) {
-        def commentDoc = new _Document(session.getCurrentDatabase())
-        commentDoc.setForm("comment")
-        commentDoc.setParentDoc(doc)
+    public static void addChangeEvent(_Session session, _Document parentDoc, String text) {
+        def doc = new _Document(session.currentDatabase)
+        doc.setForm("event")
+        doc.setParentDoc(parentDoc)
         //
-        commentDoc.addStringField("text", commentText)
+        doc.addStringField("event", "change")
+        doc.addStringField("text", text)
         //
-        commentDoc.setViewNumber(0)
-        commentDoc.setViewDate(new Date()) // update time
+        doc.setViewDate(new Date())
         // WARNING. Pomni porjadok viewtext[n] kriti4en
-        commentDoc.setViewText(commentText)
-        commentDoc.addViewText(author.getFullName())
+        doc.setViewText(doc.getValueString("event"))
+        doc.addViewText(session.user.fullName)
+        doc.addViewText(text)
         //
-        commentDoc.addEditor(author.getUserID())
-        commentDoc.addEditor("[supervisor]")
-        commentDoc.save("[supervisor]")
+        parentDoc.readers.each { doc.addReader(it.userID) }
+        doc.addEditor(session.user.userID)
+        doc.addEditor("[supervisor]")
+        doc.save(session.user.userID)
     }
 
-    public static void addEvent(_Session session, _Document doc, String eventType, String text) {
-        def commentDoc = new _Document(session.getCurrentDatabase())
-        commentDoc.setForm("event")
-        commentDoc.setParentDoc(doc)
+    public static void addCoordEvent(_Session session, _Document parentDoc, String decision, String text) {
+        def doc = new _Document(session.currentDatabase)
+        doc.setForm("event")
+        doc.setParentDoc(parentDoc)
         //
-        commentDoc.addStringField("eventType", eventType)
-        commentDoc.addStringField("text", text)
+        doc.addStringField("event", "coordination")
+        doc.addStringField("text", text)
+        doc.addStringField("decision", decision)
         //
-        commentDoc.setViewDate(new Date())
+        doc.setViewDate(new Date())
         // WARNING. Pomni porjadok viewtext[n] kriti4en
-        commentDoc.setViewText(eventType)
-        commentDoc.addViewText(text)
-        commentDoc.addViewText(session.getUser().getFullName())
+        doc.setViewText(doc.getValueString("event"))
+        doc.addViewText(session.user.fullName)
+        doc.addViewText(text)
+        doc.addViewText(decision)
         //
-        commentDoc.save("[supervisor]")
+        parentDoc.readers.each { doc.addReader(it.userID) }
+        doc.addEditor(session.user.userID)
+        doc.addEditor("[supervisor]")
+        doc.save(session.user.userID)
     }
 }
