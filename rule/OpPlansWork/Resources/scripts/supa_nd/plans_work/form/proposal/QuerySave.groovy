@@ -81,64 +81,54 @@ class QuerySave extends _FormQuerySave {
     }
 
     private void doSave(_Session session, _Document doc, _WebFormData webFormData) {
-        def hasChanges = false
+        def changes = []
 
         if (webFormData.containsField("description")) {
             def desc = doc.getValueString("description")
             def newDesc = webFormData.getValue("description")
             if (desc != newDesc) {
-                hasChanges = true
                 doc.addStringField("description", newDesc)
                 //
-                String hs = "description [:] $desc [>] $newDesc"
-                ProposalService.addChangeEvent(session, doc, hs)
+                changes << ["description", desc, newDesc]
             }
         }
         if (webFormData.containsField("dueDateType")) {
             def dueDateType = doc.getValueString("dueDateType")
             def newDueDateType = webFormData.getValue("dueDateType")
             if (dueDateType != newDueDateType) {
-                hasChanges = true
                 doc.addStringField("dueDateType", newDueDateType)
                 //
-                String hs = "dueDateType [:] $dueDateType [>] $newDueDateType"
-                ProposalService.addChangeEvent(session, doc, hs)
+                changes << ["dueDateType", dueDateType, newDueDateType]
             }
         }
         if (webFormData.containsField("dueDate")) {
             def dueDate = doc.getValueString("dueDate")
             def newDueDate = webFormData.getValue("dueDate")
             if (dueDate != newDueDate) {
-                hasChanges = true
                 doc.addStringField("dueDate", newDueDate)
                 //
-                String hs = "dueDate [:] $dueDate [>] $newDueDate"
-                ProposalService.addChangeEvent(session, doc, hs)
+                changes << ["dueDate", dueDate, newDueDate]
             }
         }
         if (webFormData.containsField("status")) {
             def status = doc.getValueString("status")
             def newStatus = webFormData.getValue("newStatus")
             if (status != newStatus) {
-                hasChanges = true
                 doc.addStringField("status", status)
                 //
-                String hs = "status [:] $status [>] $newStatus"
-                ProposalService.addChangeEvent(session, doc, hs)
+                changes << ["status", status, newStatus]
             }
         }
 
         def assigneeUser
         if (webFormData.containsField("assignee")) {
-            def currentAssignee = doc.getValueString("assignee")
-            if (currentAssignee != webFormData.getValue("assignee")) {
-                hasChanges = true
+            def currentAssigneeId = doc.getValueString("assignee")
+            if (currentAssigneeId != webFormData.getValue("assignee")) {
                 assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
                 doc.addStringField("assignee", assigneeUser.getUserID())
                 doc.addStringField("department", "" + assigneeUser.getDepartmentID())
                 //
-                String hs = "assignee [:] $currentAssignee [>] $assigneeUser.userID"
-                ProposalService.addChangeEvent(session, doc, hs)
+                changes << ["assignee", currentAssigneeId, assigneeUser.userID]
             } else {
                 assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
             }
@@ -146,7 +136,7 @@ class QuerySave extends _FormQuerySave {
             assigneeUser = session.getStructure().getEmployer(doc.getValueString("assignee"))
         }
         //---------------------------------------------
-        if (hasChanges) {
+        if (!changes.empty) {
             // WARNING. Pomni porjadok viewtext[n] kriti4en
             doc.setViewText(doc.getValueString("description"), 0)
             doc.setViewText(assigneeUser.getFullName(), 1)
@@ -156,6 +146,8 @@ class QuerySave extends _FormQuerySave {
             // viewtext5
             // viewtext6
             doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
+            //
+            ProposalService.addChangeEvent(session, doc, changes.join(","))
         }
         //---------------------------------------------
     }
