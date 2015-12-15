@@ -1,9 +1,3 @@
-.nextbase-dialog-container {
-    max-height: 440px;
-    overflow: auto;
-    position: relative;
-}
-
 .loading-state {
     background: url(/SharedResources/img/classic/ajax-loader-small.gif) no-repeat left top;
     display: block;
@@ -80,12 +74,10 @@ ul.dialog-list {
     position: relative;
 }
 
-html body .nb-dialog {
-    max-width: 98%;
-    left: 50%;
-    margin-left: -250px;
-    max-width: 98%;
-    position: fixed !important;
-    top: 50px;
-    width: 500px;
+
+/* jq rewrtie */
+
+.ui-dialog .ui-dialog-buttonpane {
+    margin-top: 0;
+    padding: 0;
 }

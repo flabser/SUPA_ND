@@ -1,0 +1,22 @@
+.nb-dialog {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 8px #aaa;
+    margin: auto;
+    max-width: 100%;
+    position: fixed;
+    top: 10%;
+    transition: top .15s;
+    width: 500px !important;
+}
+
+.nb-dialog .nb-dialog-container {
+    min-height: 80px;
+    padding: 16px 8px;
+}
+
+@media ( min-width: 768px) {
+    .nb-dialog {
+        left: 50%;
+        margin-left: -250px;
+    }
+}

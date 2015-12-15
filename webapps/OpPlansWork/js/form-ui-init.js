@@ -4,7 +4,7 @@ $(function() {
         SaveFormJquery();
     });
 
-    $('[data-role="side-tree-toggle"]').click(function() {
+    $('[data-role=side-tree-toggle]').click(function() {
         $(this).parent().toggleClass('side-tree-collapse');
     });
 

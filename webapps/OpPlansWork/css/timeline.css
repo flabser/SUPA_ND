@@ -29,6 +29,13 @@
     padding: 4px;
 }
 
+.timeline > li > div:after {
+    clear: both;
+    content: '';
+    display: table;
+    font-size: 0;
+}
+
 .timeline-coord,
 .timeline-change {
     border: 1px solid #EEE;

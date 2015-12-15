@@ -77,6 +77,8 @@ nb.dialog = {
         options.width = options.width || '360';
         // options.height = options.height || '420';
         options.position = options.position || 'center';
+        options.resizable = options.resizable || false;
+        options.draggable = options.draggable || false;
 
         if (options.id === null && options.href) {
             options.id = 'dlg_' + options.href.replace(/[^a-z0-9]/gi, '');

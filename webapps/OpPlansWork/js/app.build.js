@@ -350,6 +350,8 @@ nb.dialog = {
         options.width = options.width || '360';
         // options.height = options.height || '420';
         options.position = options.position || 'center';
+        options.resizable = options.resizable || false;
+        options.draggable = options.draggable || false;
 
         if (options.id === null && options.href) {
             options.id = 'dlg_' + options.href.replace(/[^a-z0-9]/gi, '');
@@ -902,7 +904,7 @@ $(function() {
         SaveFormJquery();
     });
 
-    $('[data-role="side-tree-toggle"]').click(function() {
+    $('[data-role=side-tree-toggle]').click(function() {
         $(this).parent().toggleClass('side-tree-collapse');
     });
 
@@ -942,7 +944,7 @@ $(function() {
 
 var app = app || {};
 
-app.plansWork = {
+app.proposal = {
     init: function() {},
 
     actions: {
@@ -1030,16 +1032,16 @@ app.plansWork = {
                     }
                 },
                 buttons: {
-                    'select': {
-                        text: nb.getText('select'),
-                        click: function() {
-                            dlg[0].dialogOptions.onExecute();
-                        }
-                    },
                     'cancel': {
                         text: nb.getText('cancel'),
                         click: function() {
                             dlg.dialog('close');
+                        }
+                    },
+                    'select': {
+                        text: nb.getText('select'),
+                        click: function() {
+                            dlg[0].dialogOptions.onExecute();
                         }
                     }
                 }
@@ -1049,10 +1051,10 @@ app.plansWork = {
 };
 
 $(function() {
-    app.plansWork.init();
+    app.proposal.init();
 
     $('[data-action=save]').click(function() {
-        app.plansWork.actions.save(this);
+        app.proposal.actions.save(this);
     });
 
     $('[data-action=coord_start]').click(function() {
@@ -1071,7 +1073,7 @@ $(function() {
                     text: 'Отправить',
                     click: function() {
                         dlg.dialog('close');
-                        app.plansWork.actions.coordStart(_this);
+                        app.proposal.actions.coordStart(_this);
                     }
                 }
             }
@@ -1079,7 +1081,7 @@ $(function() {
     });
 
     $('[data-action=coord_agree]').click(function() {
-        app.plansWork.actions.coordAgree(this);
+        app.proposal.actions.coordAgree(this);
     });
 
     $('[data-action=coord_revision]').click(function() {
@@ -1103,7 +1105,7 @@ $(function() {
                             dlg.dialog('close');
                             var form = $('form[name=proposal]')[0];
                             form.coordination_comment.value = comment;
-                            app.plansWork.actions.coordRevision(_this);
+                            app.proposal.actions.coordRevision(_this);
                         }
                     }
                 }
@@ -1112,15 +1114,15 @@ $(function() {
     });
 
     $('[data-action=coord_reject]').click(function() {
-        app.plansWork.actions.coordReject(this);
+        app.proposal.actions.coordReject(this);
     });
 
     $('[data-action=select-assignees]').click(function() {
-        app.plansWork.actions.dialogSelectAssignees(this, 'assignee', false);
+        app.proposal.actions.dialogSelectAssignees(this, 'assignee', false);
     });
 
     $('[data-action=due-date-link]').click(function() {
-        app.plansWork.actions.dialogSelectDueDateLink();
+        app.proposal.actions.dialogSelectDueDateLink();
     });
 
     // load history
