@@ -128,7 +128,9 @@ nb.dialog = {
                 if (status === 'error') {
                     $dlgContainer.html('<div class="alert alert-danger">' + status + '</div>');
 
-                    console.log('nb.dialog : load callback', xhr);
+                    if (nb.debug === true) {
+                        console.log('nb.dialog : load callback', xhr);
+                    }
                 } else {
                     try {
                         if (options.onLoad !== null) {
@@ -176,7 +178,7 @@ nb.dialog = {
  */
 nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen) {
 
-    var inputEl = null;
+    var $inputEl = null;
     var initCount = _initCount || 13;
     var triggerLen = _triggerLen || 2;
     var timeout = 300;
@@ -200,14 +202,13 @@ nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen
         }
 
         if ($('.dialog-filter', $dlgw).length === 0) {
-            $containerNode.before('<div class="dialog-filter"></div>');
+            $containerNode.before('<div class=dialog-filter></div>');
         }
 
-        $('.dialog-filter', $dlgw).append(
-            '<label>Фильтр: <label><input type="text" name="keyword" data-role="search" />');
+        $('.dialog-filter', $dlgw).append('<input type=text name=keyword data-role=search placeholder="' + nb.getText('filter', 'Фильтр') + '" />');
 
-        inputEl = $('.dialog-filter input[data-role=search]', $dlgw);
-        inputEl.on('keyup', function(e) {
+        $inputEl = $('.dialog-filter input[data-role=search]', $dlgw);
+        $inputEl.on('keyup', function(e) {
             try {
                 clearTimeout(to);
                 if (e.keyCode === 13) {
@@ -228,27 +229,26 @@ nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen
         try {
             if (value.length >= triggerLen) {
                 var hiddenCount = 0;
+                var re = new RegExp(value, 'gim');
                 $collection.attr('style', '');
 
-                var re = new RegExp(value, 'gim');
-
                 $collection.each(function(index, node) {
-                    if (!re.test(node.textContent)) {
+                    if (!re.test(node.textContent) && node.textContent.indexOf(value) == -1) {
                         if ($(':checked', node).length === 0) {
-                            $(node).attr('style', 'display:none;');
+                            node.style.display = 'none';
                             hiddenCount++;
                         }
                     }
                 });
 
                 if ($collection.length > hiddenCount) {
-                    inputEl.attr('title', 'By keyword [' + value + '] filtered ' + ($collection.length - hiddenCount));
+                    $inputEl.attr('title', 'By keyword [' + value + '] filtered ' + ($collection.length - hiddenCount));
                 } else {
-                    inputEl.attr('title', 'filter_no_results');
+                    $inputEl.attr('title', nb.getText('filter_no_results', 'Не найдено'));
                 }
             } else {
                 $collection.attr('style', '');
-                inputEl.attr('title', '');
+                $inputEl.attr('title', '');
             }
         } catch (e) {
             console.log(e);
