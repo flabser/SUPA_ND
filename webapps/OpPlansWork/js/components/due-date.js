@@ -130,6 +130,9 @@ app.DueDate.prototype.render = function() {
                 $input.onblur = function() {
                     self.year = this.value;
                 };
+                $input.onchange = function() {
+                    self.year = this.value;
+                };
                 $row.appendChild($input);
                 //
                 var $partSelect = document.createElement('select');
@@ -167,6 +170,9 @@ app.DueDate.prototype.render = function() {
             $input.max = (new Date()).getFullYear() + 5;
             $input.value = this.year;
             $input.onblur = function() {
+                self.year = this.value;
+            };
+            $input.onchange = function() {
                 self.year = this.value;
             };
             $row.appendChild($input);
