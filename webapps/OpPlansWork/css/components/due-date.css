@@ -51,6 +51,10 @@
     padding: 4px;
 }
 
+.due-date-part input {
+    width: 90px;
+}
+
 .due-date-part select {
     width: 120px;
 }

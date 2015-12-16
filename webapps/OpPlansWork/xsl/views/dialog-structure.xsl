@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:output method="html" encoding="utf-8" indent="no"/>
-    <xsl:variable name="checkbox-name" select="//query/@ruleid"/>
+    <xsl:variable name="input-name" select="//query/@ruleid"/>
 
     <xsl:template match="/request">
         <xsl:apply-templates select="query/entry" mode="org"/>
@@ -10,9 +10,9 @@
 
     <xsl:template match="entry" mode="org">
         <xsl:if test="responses/entry">
-            <ul class="tree org-tree tree-highlight">
+            <ul class="tree org-tree">
                 <li>
-                    <header style="border-bottom:1px solid #D9D9D9;">
+                    <header>
                         <xsl:value-of select="viewtext"/>
                     </header>
                     <ul>
@@ -27,8 +27,8 @@
         <li>
             <xsl:choose>
                 <xsl:when test="userid != ''">
-                    <label class="dialog-list-item" ondblclick="nb.dialog.execute(this)">
-                        <input type="radio" name="{$checkbox-name}" value="{userid}" data-type="select"
+                    <label ondblclick="nb.dialog.execute(this)">
+                        <input type="radio" name="{$input-name}" value="{userid}" data-type="select"
                                data-text="{@viewtext}"/>
                         <span class="input-label">
                             <xsl:value-of select="@viewtext"/>
@@ -36,7 +36,7 @@
                     </label>
                 </xsl:when>
                 <xsl:otherwise>
-                    <header style="border-bottom:1px solid #D9D9D9;">
+                    <header>
                         <xsl:value-of select="viewtext"/>
                     </header>
                 </xsl:otherwise>

@@ -1,7 +1,12 @@
 var app = app || {};
 
 app.proposal = {
-    init: function() {},
+    init: function() {
+        nbStrings.RUS.action_coord_start = 'Отправлено на согласование';
+        nbStrings.RUS.action_coord_agree = 'Согласен';
+        nbStrings.RUS.action_coord_revision = 'Возврат на доработку';
+        nbStrings.RUS.action_coord_reject = 'На исключение';
+    },
 
     actions: {
         save: function(el, action) {
@@ -21,10 +26,10 @@ app.proposal = {
                 url: 'Provider',
                 data: data,
                 success: function(result) {
-                    nb.utils.unblockUI
+                    nb.utils.unblockUI();
                     noty.remove(3000);
                     nb.utils.notify({
-                        message: 'saved'
+                        message: nb.getText('saved', 'Сохранен')
                     }).show(2000);
                     // close
                     $('[data-action=close]')[0].click();
@@ -76,11 +81,8 @@ app.proposal = {
             var dlg = nb.dialog.show({
                 targetForm: form,
                 fieldName: fieldName,
-                dialogFilterListItem: '.tree-entry',
+                dialogFilterListItem: 'li',
                 title: el.title,
-                maxHeight: 500,
-                minHeight: 440,
-                width: 500,
                 href: 'Provider?type=view&id=dialog-structure&page=1&fieldName=' + fieldName + '&isMulti=' + isMulti,
                 onLoad: function() {
                     if (isMulti === false) {

@@ -98,16 +98,16 @@ app.DueDate.prototype.renderText = function() {
     var dt = this.$el.querySelector('.due-date-text');
     switch (this.type) {
         case 'month':
-            dt.innerText = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
+            dt.innerHTML = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
             break;
         case 'quarter':
-            dt.innerText = this.part + ' квартал ' + this.year + 'г.';
+            dt.innerHTML = this.part + ' квартал ' + this.year + 'г.';
             break;
         case 'half-year':
-            dt.innerText = this.part + ' полугодие ' + this.year + 'г.';
+            dt.innerHTML = this.part + ' полугодие ' + this.year + 'г.';
             break;
         case 'plan-doc':
-            dt.innerText = 'plan-doc';
+            dt.innerHTML = 'plan-doc';
             break;
     }
 };
@@ -136,7 +136,7 @@ app.DueDate.prototype.render = function() {
                 for (var i = 1; i <= this.types[this.type]; i++) {
                     var op = document.createElement('option');
                     op.value = i;
-                    op.innerText = i + ') ' + this.monthNames[i - 1];
+                    op.textContent = i + ') ' + this.monthNames[i - 1];
                     $partSelect.appendChild(op);
                 }
                 $partSelect.onchange = function() {
@@ -151,7 +151,7 @@ app.DueDate.prototype.render = function() {
             var plusMonthBtn = document.createElement('button');
             plusMonthBtn.className = 'btn btn-sm';
             plusMonthBtn.type = 'button';
-            plusMonthBtn.innerText = '+';
+            plusMonthBtn.innerHTML = '+';
             plusMonthBtn.onclick = function() {
                 self.plusMonth();
             };
@@ -175,7 +175,7 @@ app.DueDate.prototype.render = function() {
             for (var i = 1; i <= this.types[this.type]; i++) {
                 var op = document.createElement('option');
                 op.value = i;
-                op.innerText = i;
+                op.textContent = i;
                 $partSelect.appendChild(op);
             }
             $partSelect.onchange = function() {

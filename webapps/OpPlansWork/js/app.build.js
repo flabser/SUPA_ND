@@ -401,7 +401,9 @@ nb.dialog = {
                 if (status === 'error') {
                     $dlgContainer.html('<div class="alert alert-danger">' + status + '</div>');
 
-                    console.log('nb.dialog : load callback', xhr);
+                    if (nb.debug === true) {
+                        console.log('nb.dialog : load callback', xhr);
+                    }
                 } else {
                     try {
                         if (options.onLoad !== null) {
@@ -449,7 +451,7 @@ nb.dialog = {
  */
 nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen) {
 
-    var inputEl = null;
+    var $inputEl = null;
     var initCount = _initCount || 13;
     var triggerLen = _triggerLen || 2;
     var timeout = 300;
@@ -473,14 +475,13 @@ nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen
         }
 
         if ($('.dialog-filter', $dlgw).length === 0) {
-            $containerNode.before('<div class="dialog-filter"></div>');
+            $containerNode.before('<div class=dialog-filter></div>');
         }
 
-        $('.dialog-filter', $dlgw).append(
-            '<label>Фильтр: <label><input type="text" name="keyword" data-role="search" />');
+        $('.dialog-filter', $dlgw).append('<input type=text name=keyword data-role=search placeholder="' + nb.getText('filter', 'Фильтр') + '" />');
 
-        inputEl = $('.dialog-filter input[data-role=search]', $dlgw);
-        inputEl.on('keyup', function(e) {
+        $inputEl = $('.dialog-filter input[data-role=search]', $dlgw);
+        $inputEl.on('keyup', function(e) {
             try {
                 clearTimeout(to);
                 if (e.keyCode === 13) {
@@ -501,27 +502,26 @@ nb.dialog.Filter = function(_containerNode, _filterNode, _initCount, _triggerLen
         try {
             if (value.length >= triggerLen) {
                 var hiddenCount = 0;
+                var re = new RegExp(value, 'gim');
                 $collection.attr('style', '');
 
-                var re = new RegExp(value, 'gim');
-
                 $collection.each(function(index, node) {
-                    if (!re.test(node.textContent)) {
+                    if (!re.test(node.textContent) && node.textContent.indexOf(value) == -1) {
                         if ($(':checked', node).length === 0) {
-                            $(node).attr('style', 'display:none;');
+                            node.style.display = 'none';
                             hiddenCount++;
                         }
                     }
                 });
 
                 if ($collection.length > hiddenCount) {
-                    inputEl.attr('title', 'By keyword [' + value + '] filtered ' + ($collection.length - hiddenCount));
+                    $inputEl.attr('title', 'By keyword [' + value + '] filtered ' + ($collection.length - hiddenCount));
                 } else {
-                    inputEl.attr('title', 'filter_no_results');
+                    $inputEl.attr('title', nb.getText('filter_no_results', 'Не найдено'));
                 }
             } else {
                 $collection.attr('style', '');
-                inputEl.attr('title', '');
+                $inputEl.attr('title', '');
             }
         } catch (e) {
             console.log(e);
@@ -945,7 +945,12 @@ $(function() {
 var app = app || {};
 
 app.proposal = {
-    init: function() {},
+    init: function() {
+        nbStrings.RUS.action_coord_start = 'Отправлено на согласование';
+        nbStrings.RUS.action_coord_agree = 'Согласен';
+        nbStrings.RUS.action_coord_revision = 'Возврат на доработку';
+        nbStrings.RUS.action_coord_reject = 'На исключение';
+    },
 
     actions: {
         save: function(el, action) {
@@ -965,10 +970,10 @@ app.proposal = {
                 url: 'Provider',
                 data: data,
                 success: function(result) {
-                    nb.utils.unblockUI
+                    nb.utils.unblockUI();
                     noty.remove(3000);
                     nb.utils.notify({
-                        message: 'saved'
+                        message: nb.getText('saved', 'Сохранен')
                     }).show(2000);
                     // close
                     $('[data-action=close]')[0].click();
@@ -1020,11 +1025,8 @@ app.proposal = {
             var dlg = nb.dialog.show({
                 targetForm: form,
                 fieldName: fieldName,
-                dialogFilterListItem: '.tree-entry',
+                dialogFilterListItem: 'li',
                 title: el.title,
-                maxHeight: 500,
-                minHeight: 440,
-                width: 500,
                 href: 'Provider?type=view&id=dialog-structure&page=1&fieldName=' + fieldName + '&isMulti=' + isMulti,
                 onLoad: function() {
                     if (isMulti === false) {
@@ -1232,16 +1234,16 @@ app.DueDate.prototype.renderText = function() {
     var dt = this.$el.querySelector('.due-date-text');
     switch (this.type) {
         case 'month':
-            dt.innerText = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
+            dt.innerHTML = this.type + ':' + this.year + '-' + this.monthNames[this.part - 1];
             break;
         case 'quarter':
-            dt.innerText = this.part + ' квартал ' + this.year + 'г.';
+            dt.innerHTML = this.part + ' квартал ' + this.year + 'г.';
             break;
         case 'half-year':
-            dt.innerText = this.part + ' полугодие ' + this.year + 'г.';
+            dt.innerHTML = this.part + ' полугодие ' + this.year + 'г.';
             break;
         case 'plan-doc':
-            dt.innerText = 'plan-doc';
+            dt.innerHTML = 'plan-doc';
             break;
     }
 };
@@ -1270,7 +1272,7 @@ app.DueDate.prototype.render = function() {
                 for (var i = 1; i <= this.types[this.type]; i++) {
                     var op = document.createElement('option');
                     op.value = i;
-                    op.innerText = i + ') ' + this.monthNames[i - 1];
+                    op.textContent = i + ') ' + this.monthNames[i - 1];
                     $partSelect.appendChild(op);
                 }
                 $partSelect.onchange = function() {
@@ -1285,7 +1287,7 @@ app.DueDate.prototype.render = function() {
             var plusMonthBtn = document.createElement('button');
             plusMonthBtn.className = 'btn btn-sm';
             plusMonthBtn.type = 'button';
-            plusMonthBtn.innerText = '+';
+            plusMonthBtn.innerHTML = '+';
             plusMonthBtn.onclick = function() {
                 self.plusMonth();
             };
@@ -1309,7 +1311,7 @@ app.DueDate.prototype.render = function() {
             for (var i = 1; i <= this.types[this.type]; i++) {
                 var op = document.createElement('option');
                 op.value = i;
-                op.innerText = i;
+                op.textContent = i;
                 $partSelect.appendChild(op);
             }
             $partSelect.onchange = function() {
