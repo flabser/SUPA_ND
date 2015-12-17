@@ -78,13 +78,8 @@
 .content-actions {
     border-top: 1px solid #E6E6E6;
     margin: 0;
-    padding: 8px;
-    vertical-align: middle;
-}
-
-.tablet .content-actions,
-.phone .content-actions {
     padding: 6px;
+    vertical-align: middle;
 }
 
 .content-header.content-horizontal .content-actions {
@@ -113,6 +108,9 @@ footer.content-actions {
 }
 
 @media ( max-width: 768px) {
+    .content-actions {
+        padding: 4px;
+    }
     footer.content-actions {
         padding-left: 8px;
         text-align: center;
