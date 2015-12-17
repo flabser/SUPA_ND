@@ -2,6 +2,11 @@
     padding: 10px 0;
 }
 
+.proposal .content-body form fieldset {
+    margin: 0;
+    padding: 0;
+}
+
 .proposal textarea[name=description] {
     min-height: 100px;
 }
@@ -45,7 +50,7 @@
 }
 
 .coord-list > li {
-    padding: 4px 6px;
+    padding: 4px 6px 4px 8px;
     position: relative;
 }
 
