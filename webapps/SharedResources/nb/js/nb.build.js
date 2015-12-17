@@ -108,7 +108,7 @@ nb.form.setValues = function(currentNode) {
 
         if ($('.js-no-selected-value', $dlgw[0]).length === 0) {
             (function() {
-                var $_html = $('<div class="alert alert-danger js-no-selected-value" style="border-radius:2px;top:50%;left:4%;right:4%;position:absolute;">' + $dlgWgt[0].dialogOptions.errorMessage + '</div>');
+                var $_html = $('<div class="alert alert-danger js-no-selected-value" style="border-radius:2px;bottom:80px;left:4%;right:4%;position:absolute;">' + $dlgWgt[0].dialogOptions.errorMessage + '</div>');
                 $dlgWgt.after($_html);
                 setTimeout(function() {
                     $_html.fadeOut({
