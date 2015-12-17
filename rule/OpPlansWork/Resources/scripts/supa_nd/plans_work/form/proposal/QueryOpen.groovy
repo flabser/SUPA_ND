@@ -29,32 +29,35 @@ class QueryOpen extends _FormQueryOpen {
         def nav = session.getPage("outline", webFormData)
         publishElement(nav)
 
-        def coordinator
+        def currentCoordinator
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         if (blockCollection.hasCoordination()) {
             def block = blockCollection.currentBlock
-            coordinator = (_Coordinator) block.currentCoordinators[0]
+            currentCoordinator = (_Coordinator) block.currentCoordinators[0]
         }
         //
         boolean hasEditAccess = doc.editors.contains(session.user.userID)
-        boolean isCurrentCoordinator = coordinator && coordinator.userID == session.user.userID
+        boolean isCurrentCoordinator = currentCoordinator?.userID == session.user.userID
         //
         def actionBar = session.createActionBar()
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
 
-        if (isCurrentCoordinator || hasEditAccess) {
-            actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
-        }
-
         def status = doc.getValueString("status")
-        if (status == "coordination") {
+        if (status == "draft") {
+            if (hasEditAccess) {
+                actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
+            }
+            actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
+        } else if (status == "coordination") {
             if (isCurrentCoordinator) {
+                actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
                 actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "coord_revision"))
                 actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
                 actionBar.addAction(new _Action(getLocalizedWord("Отправить", lang), "", "coord_agree"))
             }
-        } else {
-            actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
+        } else if (status == "revision") {
+        } else if (status == "reject") {
+        } else if (status == "coordinated") {
         }
 
         publishElement(actionBar)
@@ -69,8 +72,5 @@ class QueryOpen extends _FormQueryOpen {
         publishValue("coordination_direction", doc.getValueString("coordination_direction"))
         publishEmployer("author", doc.authorID)
         publishValue("created_at", doc.regDate)
-        //
-        // def history = session.getPage("proposal-events", webFormData)
-        // publishElement(history)
     }
 }

@@ -4,6 +4,7 @@
 
     <xsl:variable name="userid" select="/request/@userid"/>
     <xsl:variable name="hasCoordBlock" select="//fields/coordination/blocks"/>
+    <xsl:variable name="canEdit" select="//action[@id = 'save']"/>
 
     <xsl:template match="/request">
         <xsl:call-template name="layout">
@@ -29,9 +30,27 @@
         <header class="content-header">
             <h1 class="header-title">
                 <xsl:value-of select="//captions/title/@caption"/>
-                <span class="coord-status-label label label-primary">
-                    <xsl:value-of select="//fields/status"/>
-                </span>
+                <xsl:if test="//fields/status ne ''">
+                    <span class="coord-status-label label label-primary">
+                        <xsl:choose>
+                            <xsl:when test="//fields/status eq 'draft'">
+                                <xsl:value-of select="//captions/draft/@caption"/>
+                            </xsl:when>
+                            <xsl:when test="//fields/status eq 'coordination'">
+                                <xsl:value-of select="//captions/coordination/@caption"/>
+                            </xsl:when>
+                            <xsl:when test="//fields/status eq 'revision'">
+                                <xsl:value-of select="//captions/revision/@caption"/>
+                            </xsl:when>
+                            <xsl:when test="//fields/status eq 'reject'">
+                                <xsl:value-of select="//captions/rejected/@caption"/>
+                            </xsl:when>
+                            <xsl:when test="//fields/status eq 'coordinated'">
+                                <xsl:value-of select="//captions/coordinated/@caption"/>
+                            </xsl:when>
+                        </xsl:choose>
+                    </span>
+                </xsl:if>
             </h1>
             <div class="content-actions">
                 <xsl:call-template name="actions"/>
@@ -40,57 +59,62 @@
         <section class="content-body">
             <div class="container-fluid">
                 <form name="proposal">
-                    <div class="row">
-                        <div class="form-group has-controls-label col-md-5">
-                            <div class="control-label-icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="controls">
-                                <label class="controls-label">
-                                    <xsl:value-of select="//captions/assignee/@caption"/>
-                                </label>
-                                <div class="form-control">
-                                    <button type="button" class="btn btn-assignees" data-action="select-assignees">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                    <div data-input="assignee">
-                                        <xsl:value-of select="//fields/assignee"/>
-                                    </div>
-                                    <div data-input="department_name">
-                                        <xsl:value-of select="//fields/department"/>
-                                    </div>
+                    <fieldset class="fieldset">
+                        <xsl:if test="not($canEdit)">
+                            <xsl:attribute name="disabled" select="'disabled'"/>
+                        </xsl:if>
+                        <div class="row">
+                            <div class="form-group has-controls-label col-md-5">
+                                <div class="control-label-icon">
+                                    <i class="fa fa-user"></i>
                                 </div>
-                                <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
-                                <input type="hidden" name="department" value="{//fields/department/@attrval}"/>
+                                <div class="controls">
+                                    <label class="controls-label">
+                                        <xsl:value-of select="//captions/assignee/@caption"/>
+                                    </label>
+                                    <div class="form-control">
+                                        <button type="button" class="btn btn-assignees" data-action="select-assignees">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                        <div data-input="assignee">
+                                            <xsl:value-of select="//fields/assignee"/>
+                                        </div>
+                                        <div data-input="department_name">
+                                            <xsl:value-of select="//fields/department"/>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
+                                    <input type="hidden" name="department" value="{//fields/department/@attrval}"/>
+                                </div>
+                            </div>
+                            <div class="form-group has-controls-label col-md-7">
+                                <div class="control-label-icon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div class="controls">
+                                    <label class="controls-label">
+                                        <xsl:value-of select="//captions/due_date/@caption"/>
+                                    </label>
+                                    <xsl:call-template name="due-date-template"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group has-controls-label col-md-7">
-                            <div class="control-label-icon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <div class="controls">
-                                <label class="controls-label">
-                                    <xsl:value-of select="//captions/due_date/@caption"/>
-                                </label>
-                                <xsl:call-template name="due-date-template"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group form-group-last has-controls-label">
-                            <div class="control-label-icon">
-                                <i class="fa fa-file-text-o"></i>
-                            </div>
-                            <div class="controls">
-                                <label class="controls-label">
-                                    <xsl:value-of select="//captions/description/@caption"/>
-                                </label>
-                                <textarea name="description" class="form-control">
-                                    <xsl:value-of select="//fields/description"/>
-                                </textarea>
+                        <div class="row">
+                            <div class="form-group form-group-last has-controls-label">
+                                <div class="control-label-icon">
+                                    <i class="fa fa-file-text-o"></i>
+                                </div>
+                                <div class="controls">
+                                    <label class="controls-label">
+                                        <xsl:value-of select="//captions/description/@caption"/>
+                                    </label>
+                                    <textarea name="description" class="form-control">
+                                        <xsl:value-of select="//fields/description"/>
+                                    </textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </fieldset>
 
                     <input type="hidden" name="coordination_comment"/>
                     <input type="hidden" name="dueDateType" value="{//fields/dueDateType}"/>
@@ -216,14 +240,15 @@
             <xsl:when test="$hasCoordBlock">
                 <ul class="coord-list coordination-direction {//fields/coordination_direction}">
                     <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
+                        <xsl:sort select="position()" data-type="number" order="descending"/>
                         <li class="coord-iscurrent-{iscurrent}">
                             <header>
                                 <xsl:choose>
                                     <xsl:when test="decision eq 'AGREE'">
-                                        <i class="coord-icon coord-agree fa fa-thumbs-o-up"></i>
+                                        <i class="coord-icon coord-agree fa fa-check"></i>
                                     </xsl:when>
                                     <xsl:when test="decision eq 'DISAGREE'">
-                                        <i class="coord-icon coord-disagree fa fa-thumbs-o-down"></i>
+                                        <i class="coord-icon coord-disagree fa fa-close"></i>
                                     </xsl:when>
                                 </xsl:choose>
                                 <span class="timeline-user">

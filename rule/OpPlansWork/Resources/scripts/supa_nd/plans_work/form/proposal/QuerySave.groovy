@@ -14,7 +14,7 @@ import kz.nextbase.script.events._FormQuerySave
 
 class QuerySave extends _FormQuerySave {
 
-    // status (viewtext7): draft, coordination, revision, excluded, coordinated
+    // status (viewtext7): draft, coordination, revision, reject, coordinated
     // coordination_direction: up, down
     // action: (save:''), coord_start, coord_agree, coord_revision, coord_reject
     //
@@ -178,9 +178,10 @@ class QuerySave extends _FormQuerySave {
                 def comment = webFormData.getValueSilently("coordination_comment")
                 coordinator.setDecision(_DecisionType.AGREE, comment)
                 //
+                def nextCoordinator = block.getNextCoordinator(coordinator)
+                nextCoordinator.setCurrent(true)
+                //
                 doc.addStringField("coordination_direction", "up")
-                doc.addStringField("status", "agree")
-                doc.setViewText("agree", 7)
                 break
 
             case "coord_revision":
@@ -189,9 +190,18 @@ class QuerySave extends _FormQuerySave {
                 def comment = webFormData.getValue("coordination_comment")
                 coordinator.setDecision(_DecisionType.DISAGREE, comment)
                 //
+                def buff
+                def prevCoordinator
+                block.coordinators.each {
+                    if (coordinator.userID == it.userID) {
+                        prevCoordinator = buff
+                        return
+                    }
+                    buff = it
+                }
+                prevCoordinator?.setCurrent(true)
+                //
                 doc.addStringField("coordination_direction", "down")
-                doc.addStringField("status", "revision")
-                doc.setViewText("revision", 7)
                 //
                 ProposalService.addCoordEvent(session, doc, "revision", comment)
                 break
@@ -202,9 +212,18 @@ class QuerySave extends _FormQuerySave {
                 def comment = webFormData.getValueSilently("coordination_comment")
                 coordinator.setDecision(_DecisionType.DISAGREE, comment)
                 //
+                def buff
+                def prevCoordinator
+                block.coordinators.each {
+                    if (coordinator.userID == it.userID) {
+                        prevCoordinator = buff
+                        return
+                    }
+                    buff = it
+                }
+                prevCoordinator?.setCurrent(true)
+                //
                 doc.addStringField("coordination_direction", "down")
-                doc.addStringField("status", "reject")
-                doc.setViewText("reject", 7)
                 break
         }
     }

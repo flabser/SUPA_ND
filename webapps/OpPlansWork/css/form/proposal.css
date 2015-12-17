@@ -16,6 +16,7 @@
 
 .proposal .coord-status-label {
     display: inline-block;
+    font-size: 13px;
     font-weight: normal;
     left: 10px;
     position: relative;
@@ -39,21 +40,32 @@
     border: none;
     list-style: none;
     margin: 10px 0;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 20px;
     position: relative;
 }
 
 .coord-list > li {
-    border-left: 2px solid transparent;
-    padding: 6px 0;
+    padding: 4px 6px;
+    position: relative;
 }
 
 .coord-list > li + li {
     border-top: 1px solid #eee;
 }
 
-.coord-list > .coord-iscurrent-true {
-    border-left-color: #EEE;
+.coord-list > .coord-iscurrent-true {}
+
+li.coord-iscurrent-true::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: #666;
+    top: 50%;
+    left: 0px;
+    margin-top: -3px;
 }
 
 .coord-list header,
@@ -61,7 +73,7 @@
     color: #444;
     display: inline-block;
     margin: 0;
-    padding: 8px;
+    padding: 4px;
 }
 
 .coord-list i {
@@ -70,12 +82,12 @@
 }
 
 .coord-list.coordination-direction:before {
-    background: #ccc;
+    background: #ddd;
     content: '';
     display: block;
     font-size: 0;
     height: 100%;
-    left: 12px;
+    left: 8px;
     position: absolute;
     top: 0;
     width: 1px;
@@ -88,7 +100,7 @@
     font: normal normal normal 14px/1 FontAwesome;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
-    left: 6px;
+    left: 2px;
     margin-top: -4px;
     position: absolute;
     text-rendering: auto;
