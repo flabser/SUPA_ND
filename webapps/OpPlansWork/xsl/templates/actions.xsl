@@ -10,6 +10,7 @@
     </xsl:template>
 
     <xsl:template match="action">
+        <xsl:param name="icon" select="''"/>
         <a class="btn action_{@id}" title="{@hint}" href="#" data-action="{@id}">
             <xsl:if test="js">
                 <xsl:attribute name="href" select="concat('javascript:', js)"/>
@@ -17,6 +18,7 @@
             <xsl:if test="@url != ''">
                 <xsl:attribute name="href" select="@url"/>
             </xsl:if>
+            <xsl:copy-of select="$icon"/>
             <span>
                 <xsl:value-of select="@caption"/>
             </span>

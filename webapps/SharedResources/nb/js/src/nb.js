@@ -198,9 +198,9 @@ nb.utils.notify = function(opt) {
 
     var $nwrap = $('#nb-notify-wrapper');
     if (!$nwrap.length) {
-        $nwrap = $('<div id="nb-notify-wrapper" class="nb-notify"></div>').appendTo('body');
+        $nwrap = $('<div id=nb-notify-wrapper class=nb-notify></div>').appendTo('body');
     }
-    var $el = $('<div class="nb-notify-entry-' + (opt.type || 'info') + '">' + opt.message + '</div>').appendTo($nwrap);
+    var $el = $('<div class=nb-notify-entry-' + (opt.type || 'info') + '>' + opt.message + '</div>').appendTo($nwrap);
 
     return {
         show: function(timeout) {

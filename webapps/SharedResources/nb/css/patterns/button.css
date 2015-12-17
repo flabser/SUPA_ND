@@ -8,7 +8,7 @@
     display: inline-block;
     font-size: 1em;
     font-weight: normal;
-    line-height: 1;
+    line-height: normal;
     margin: 0 1px 1px 1px;
     outline: 0;
     padding: 9px 12px;
@@ -108,6 +108,7 @@
 
 .btn i {
     color: #666666;
+    vertical-align: baseline;
 }
 
 .btn i+span {

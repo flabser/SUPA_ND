@@ -16,9 +16,12 @@ app.proposal = {
 
             nb.utils.blockUI();
 
-            var noty = nb.utils.notify({
-                message: nb.getText('action_' + action)
-            }).show();
+            var noty;
+            if (action) {
+                noty = nb.utils.notify({
+                    message: nb.getText('action_' + action)
+                }).show();
+            }
 
             return $.ajax({
                 method: 'POST',
@@ -27,7 +30,9 @@ app.proposal = {
                 data: data,
                 success: function(result) {
                     nb.utils.unblockUI();
-                    noty.remove(3000);
+                    if (noty) {
+                        noty.remove(3000);
+                    }
                     nb.utils.notify({
                         message: nb.getText('saved', 'Сохранен')
                     }).show(2000);
@@ -128,7 +133,7 @@ $(function() {
                     }
                 },
                 'reject': {
-                    text: 'Отправить',
+                    text: nb.getText('send', 'Отправить'),
                     click: function() {
                         dlg.dialog('close');
                         app.proposal.actions.coordStart(_this);
@@ -139,7 +144,26 @@ $(function() {
     });
 
     $('[data-action=coord_agree]').click(function() {
-        app.proposal.actions.coordAgree(this);
+        var _this = this;
+        var dlg = nb.dialog.show({
+            title: _this.title,
+            message: nb.getText('confirm_action', 'Подтвердите действие') + ' "' + nb.getText('agree', 'Отправить') + '"',
+            buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
+                'reject': {
+                    text: nb.getText('agree', 'Отправить'),
+                    click: function() {
+                        dlg.dialog('close');
+                        app.proposal.actions.coordAgree(this);
+                    }
+                }
+            }
+        });
     });
 
     $('[data-action=coord_revision]').click(function() {
@@ -172,7 +196,26 @@ $(function() {
     });
 
     $('[data-action=coord_reject]').click(function() {
-        app.proposal.actions.coordReject(this);
+        var _this = this;
+        var dlg = nb.dialog.show({
+            title: _this.title,
+            message: nb.getText('confirm_action', 'Подтвердите действие') + ' "' + nb.getText('coord_reject', 'Исключить') + '"',
+            buttons: {
+                'cancel': {
+                    text: nb.getText('cancel'),
+                    click: function() {
+                        dlg.dialog('close');
+                    }
+                },
+                'reject': {
+                    text: nb.getText('coord_reject', 'Исключить'),
+                    click: function() {
+                        dlg.dialog('close');
+                        app.proposal.actions.coordReject(this);
+                    }
+                }
+            }
+        });
     });
 
     $('[data-action=select-assignees]').click(function() {

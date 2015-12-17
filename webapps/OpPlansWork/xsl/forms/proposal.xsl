@@ -187,10 +187,26 @@
                 or //action/@id = 'coord_reject'
                 or //action/@id = 'coord_agree'">
             <div class="btn-group" role="group">
-                <xsl:apply-templates select="//action[@id = 'coord_start']"/>
-                <xsl:apply-templates select="//action[@id = 'coord_revision']"/>
-                <xsl:apply-templates select="//action[@id = 'coord_reject']"/>
-                <xsl:apply-templates select="//action[@id = 'coord_agree']"/>
+                <xsl:apply-templates select="//action[@id = 'coord_start']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-play-circle-o"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_revision']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-reply"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_reject']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-ban"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_agree']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-check-circle-o"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
             </div>
         </xsl:if>
     </xsl:template>
