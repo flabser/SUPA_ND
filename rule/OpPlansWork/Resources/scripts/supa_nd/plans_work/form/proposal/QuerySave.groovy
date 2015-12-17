@@ -147,7 +147,10 @@ class QuerySave extends _FormQuerySave {
             // viewtext6
             doc.setViewText(doc.getValueString("status"), 7) // viewtext7 = status
             //
-            ProposalService.addChangeEvent(session, doc, changes.join(","))
+            def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+            if (blockCollection.hasCoordination()) {
+                ProposalService.addChangeEvent(session, doc, changes.join(","))
+            }
         }
         //---------------------------------------------
     }

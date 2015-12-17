@@ -3,6 +3,7 @@
     height: auto;
     min-height: 34px;
     padding: 7px;
+    position: relative;
 }
 
 .form-control:focus,

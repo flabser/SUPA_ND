@@ -34,7 +34,7 @@
 .head-wrap .entry-select {
     height: 40px;
     margin: 0;
-    padding: 5px 0;
+    padding: 9px 0;
 }
 
 .entry-captions {
@@ -58,10 +58,10 @@
 
 .entries {
     display: block;
-    padding: 0;
-    position: relative;
     list-style: none;
     margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .entry-wrap {
@@ -127,10 +127,17 @@
 .entry-select {
     display: inline-block;
     line-height: inherit;
+    margin: 0;
+    padding: 11px 0;
     text-align: center;
-    padding: 6px 0;
-    width: 36px;
     vertical-align: top;
+    width: 36px;
+}
+
+.entry-select > input {
+    height: auto;
+    min-height: auto;
+    vertical-align: baseline;
 }
 
 .entry-action-open .entry-select {

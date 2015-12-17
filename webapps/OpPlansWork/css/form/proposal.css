@@ -10,7 +10,8 @@
     border: none;
     padding: 3px;
     position: absolute;
-    right: 14px;
+    right: 4px;
+    top: 4px;
 }
 
 .proposal .coord-status-label {
