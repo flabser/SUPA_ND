@@ -45,6 +45,10 @@ app.proposal = {
             var form = $('form[name=proposal]')[0];
 
             if (!app.proposal.validate(form)) {
+                nb.utils.notify({
+                    type: 'error',
+                    message: nb.getText('invalid', 'Не валидный')
+                }).show(2000);
                 return;
             }
 
