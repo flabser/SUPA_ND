@@ -952,10 +952,50 @@ app.proposal = {
         nbStrings.RUS.action_coord_reject = 'На исключение';
     },
 
+    validate: function() {
+        var result = true;
+        var form = $('form[name=proposal]')[0];
+        var description = form.querySelector('[name=description]');
+        var dueDate = form.querySelector('[name=dueDate]');
+        var assignee = form.querySelector('[name=assignee]');
+
+        if (!description.value) {
+            result = false;
+            $('[data-form-control=description]', form).addClass('form-control-error');
+        } else {
+            $('[data-form-control=description]', form).removeClass('form-control-error');
+        }
+        //
+        if (!dueDate.value) {
+            result = false;
+            $('[data-form-control=dueDate]', form).addClass('form-control-error');
+        } else {
+            $('[data-form-control=dueDate]', form).removeClass('form-control-error');
+        }
+        //
+        if (!assignee.value) {
+            result = false;
+            $('[data-form-control=assignee]', form).addClass('form-control-error');
+        } else {
+            $('[data-form-control=assignee]', form).removeClass('form-control-error');
+        }
+
+        return result;
+    },
+
     actions: {
         save: function(el, action) {
             $('[name=_action]').val(action);
             var form = $('form[name=proposal]')[0];
+
+            if (!app.proposal.validate(form)) {
+                nb.utils.notify({
+                    type: 'error',
+                    message: nb.getText('invalid', 'Не валидный')
+                }).show(2000);
+                return;
+            }
+
             var data = $(form).serialize();
 
             nb.utils.blockUI();
@@ -973,6 +1013,8 @@ app.proposal = {
                 url: 'Provider',
                 data: data,
                 success: function(result) {
+                    console.log(result);
+                    //
                     nb.utils.unblockUI();
                     if (noty) {
                         noty.remove(3000);
@@ -1049,6 +1091,7 @@ app.proposal = {
                         text: nb.getText('select'),
                         click: function() {
                             dlg[0].dialogOptions.onExecute();
+                            app.proposal.validate();
                         }
                     }
                 }
@@ -1060,8 +1103,16 @@ app.proposal = {
 $(function() {
     app.proposal.init();
 
+    $('form[name=proposal]').submit(function(e) {
+        e.preventDefault();
+    });
+
     $('[data-action=save]').click(function() {
         app.proposal.actions.save(this);
+    });
+
+    $('form[name=proposal]').change(function() {
+        app.proposal.validate();
     });
 
     $('[data-action=coord_start]').click(function() {
@@ -1230,7 +1281,7 @@ app.DueDate = function(params) {
     });
 
     this.render();
-    this.renderText();
+    this.write();
 };
 
 app.DueDate.prototype.types = {
