@@ -4,7 +4,12 @@
     <xsl:import href="../layout.xsl"/>
 
     <xsl:template match="/request">
-        <xsl:call-template name="layout"/>
+        <xsl:call-template name="layout">
+            <xsl:with-param name="body_class" select="'proposals'"/>
+            <xsl:with-param name="include">
+                <script type="text/javascript" src="js/proposal-controller.js"></script>
+            </xsl:with-param>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template name="_content">
@@ -67,6 +72,61 @@
                 </a>
             </div>
         </div>
+    </xsl:template>
+
+    <xsl:template name="page-info">
+        <h1 class="header-title">
+            <xsl:value-of select="//captions/title/@caption"/>
+
+            <xsl:if test="//view_content//query/@count">
+                <sup class="entry-count">
+                    <small>
+                        <xsl:value-of select="concat('(', //view_content//query/@count, ')')"/>
+                    </small>
+                </sup>
+            </xsl:if>
+        </h1>
+        <div class="content-actions">
+            <div class="pull-right">
+                <xsl:apply-templates select="//view_content" mode="page-navigator"/>
+            </div>
+            <div class="on-desktop">
+                <xsl:call-template name="actions"/>
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template name="actions">
+        <xsl:if test="//action/@id = 'add_proposal'">
+            <xsl:apply-templates select="//action[@id = 'add_proposal']"/>
+        </xsl:if>
+        <xsl:if test="//action/@id = 'coord_start'
+                or //action/@id = 'coord_revision'
+                or //action/@id = 'coord_reject'
+                or //action/@id = 'coord_agree'">
+            <div class="btn-group" role="group">
+                <xsl:apply-templates select="//action[@id = 'coord_start']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-play-circle-o"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_revision']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-reply"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_reject']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-ban"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="//action[@id = 'coord_agree']">
+                    <xsl:with-param name="icon">
+                        <i class="fa fa-check-circle-o"></i>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </div>
+        </xsl:if>
     </xsl:template>
 
 </xsl:stylesheet>

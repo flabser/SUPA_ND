@@ -947,7 +947,7 @@ var app = app || {};
 app.proposal = {
     init: function() {
         nbStrings.RUS.action_coord_start = 'Отправлено на согласование';
-        nbStrings.RUS.action_coord_agree = 'Согласен';
+        nbStrings.RUS.action_coord_agree = 'Согласовать';
         nbStrings.RUS.action_coord_revision = 'Возврат на доработку';
         nbStrings.RUS.action_coord_reject = 'На исключение';
     },
@@ -1091,7 +1091,7 @@ $(function() {
         var _this = this;
         var dlg = nb.dialog.show({
             title: _this.title,
-            message: nb.getText('confirm_action', 'Подтвердите действие') + ' "' + nb.getText('agree', 'Отправить') + '"',
+            message: nb.getText('confirm_action', 'Подтвердите действие') + ' "' + nb.getText('agree', 'Согласовать') + '"',
             buttons: {
                 'cancel': {
                     text: nb.getText('cancel'),
@@ -1100,7 +1100,7 @@ $(function() {
                     }
                 },
                 'reject': {
-                    text: nb.getText('agree', 'Отправить'),
+                    text: nb.getText('agree', 'Согласовать'),
                     click: function() {
                         dlg.dialog('close');
                         app.proposal.actions.coordAgree(this);
@@ -1174,6 +1174,11 @@ $(function() {
     var ddbid = $('[name=ddbid]').val();
     if (ddbid) {
         $('#history').load('Provider?type=page&id=proposal-events&proposal_id=' + ddbid);
+    }
+
+    //
+    if ($('.view_proposals').length) {
+        $('.action_coord_start,.action_coord_agree,.action_coord_revision,.action_coord_reject').addClass('disabled');
     }
 });
 

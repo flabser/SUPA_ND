@@ -43,21 +43,20 @@ class QueryOpen extends _FormQueryOpen {
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
 
         def status = doc.getValueString("status")
-        if (status == "draft") {
+        if (status == "draft" || status == "revision" || status == "reject") {
             if (hasEditAccess) {
                 actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
+                actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
             }
-            actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
         } else if (status == "coordination") {
             if (isCurrentCoordinator) {
                 actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
                 actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "coord_revision"))
                 actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
-                actionBar.addAction(new _Action(getLocalizedWord("Отправить", lang), "", "coord_agree"))
+                actionBar.addAction(new _Action(getLocalizedWord("Согласовать", lang), "", "coord_agree"))
             }
-        } else if (status == "revision") {
-        } else if (status == "reject") {
         } else if (status == "coordinated") {
+            //
         }
 
         publishElement(actionBar)

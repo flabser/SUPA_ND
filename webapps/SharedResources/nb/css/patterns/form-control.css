@@ -14,3 +14,14 @@
 .form-control:hover {
     border-color: #888;
 }
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: #F9F9F9;
+}
+
+.form-control.form-control-error {
+    border: 1px solid red;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}

@@ -17,7 +17,10 @@ class JournalProposals extends _DoScript {
         def actionBar = new _ActionBar(session);
         def newDocAction = new _Action(getLocalizedWord("Добавить", lang), "", "add_proposal")
         newDocAction.setURL("Provider?type=edit&element=document&id=proposal&docid=")
-        actionBar.addAction(newDocAction);
+        actionBar.addAction(newDocAction)
+        actionBar.addAction(new _Action(getLocalizedWord("На доработку", lang), "", "coord_revision"))
+        actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
+        actionBar.addAction(new _Action(getLocalizedWord("Согласовать", lang), "", "coord_agree"))
 
         def viewParam = session.createViewEntryCollectionParam()
         viewParam.setQuery("form = 'proposal' & viewtext7 = 'coordinated'")

@@ -27,7 +27,10 @@ class QuerySave extends _FormQuerySave {
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 
-        // TODO validate
+        if (!validate(doc, webFormData)) {
+            stopSave()
+            return
+        }
 
         if (doc.isNewDoc) {
             doSaveNew(session, doc, webFormData)
@@ -48,6 +51,38 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("_action", action)
     }
 
+    private boolean validate(_Document doc, _WebFormData formData) {
+        if (doc.isNewDoc) {
+            if (formData.getValueSilently("description").isEmpty()) {
+                return false
+            }
+            if (formData.getValueSilently("dueDateType").isEmpty()) {
+                return false
+            }
+            if (formData.getValueSilently("dueDate").isEmpty()) {
+                return false
+            }
+            if (formData.getValueSilently("assignee").isEmpty()) {
+                return false
+            }
+        } else {
+            if (formData.containsField("description") && formData.getValueSilently("description").isEmpty()) {
+                return false
+            }
+            if (formData.containsField("dueDateType") && formData.getValueSilently("dueDateType").isEmpty()) {
+                return false
+            }
+            if (formData.containsField("dueDate") && formData.getValueSilently("dueDate").isEmpty()) {
+                return false
+            }
+            if (formData.containsField("assignee") && formData.getValueSilently("assignee").isEmpty()) {
+                return false
+            }
+        }
+
+        return true
+    }
+
     private void doSaveNew(_Session session, _Document doc, _WebFormData webFormData) {
         doc.setForm("proposal")
 
@@ -64,6 +99,8 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("status", "draft")
         doc.addStringField("assignee", assigneeUser.getUserID())
         doc.addStringField("department", "" + assigneeUser.getDepartmentID())
+        //
+        doc.addStringField("author_department", "" + session.getCurrentAppUser().getDepartmentID())
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
         doc.setViewText(doc.getValueString("description"))
@@ -108,15 +145,6 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("dueDate", newDueDate)
                 //
                 changes << ["dueDate", dueDate, newDueDate]
-            }
-        }
-        if (webFormData.containsField("status")) {
-            def status = doc.getValueString("status")
-            def newStatus = webFormData.getValue("newStatus")
-            if (status != newStatus) {
-                doc.addStringField("status", status)
-                //
-                changes << ["status", status, newStatus]
             }
         }
 

@@ -46,7 +46,7 @@ app.DueDate = function(params) {
     });
 
     this.render();
-    this.renderText();
+    this.write();
 };
 
 app.DueDate.prototype.types = {

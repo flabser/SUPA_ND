@@ -55,17 +55,24 @@ class PostSave extends _FormPostSave {
         //
         ProposalService.addCoordEvent(session, doc, "start", "")
         //
-        // TODO send notify to current coordinator
+        // TODO notify coordinator
+        def coordinator = block.getCurrentCoordinators().get(0)
+        System.out.println("--- send notify to first ---")
+        System.out.println(coordinator.userID)
+        System.out.println("--- /send notify to first ---")
     }
 
     private void doCoordinationAgree(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        def block = blockCollection.getCurrentBlock()
+        def coordinator = block.getCurrentCoordinators().get(0)
         //
         ProposalService.addCoordEvent(session, doc, "agree", "")
         //
-        // TODO notify current
-        def block = blockCollection.getCurrentBlock()
-        def coordinator = block.getCurrentCoordinators().get(0)
+        // TODO notify coordinator
+        System.out.println("--- send notify to next : agree ---")
+        System.out.println(coordinator.userID)
+        System.out.println("--- /send notify to next ---")
     }
 
     private void doCoordinationRevision(_Session session, _Document doc) {
@@ -73,14 +80,22 @@ class PostSave extends _FormPostSave {
         def block = blockCollection.getCurrentBlock()
         def coordinator = block.getCurrentCoordinators()
         //
-        // TODO set prev coordinator & notify
+        // TODO notify coordinator
+        System.out.println("--- send notify to prev : revision ---")
+        System.out.println(coordinator.userID)
+        System.out.println("--- /send notify to prev ---")
     }
 
     private void doCoordinationReject(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
+        def block = blockCollection.getCurrentBlock()
+        def coordinator = block.getCurrentCoordinators().get(0)
         //
         ProposalService.addCoordEvent(session, doc, "reject", "")
         //
-        // TODO set prev coordinator & notify
+        // TODO notify coordinator
+        System.out.println("--- send notify to prev : reject ---")
+        System.out.println(coordinator.userID)
+        System.out.println("--- /send notify to prev ---")
     }
 }

@@ -72,7 +72,7 @@
                                     <label class="controls-label">
                                         <xsl:value-of select="//captions/assignee/@caption"/>
                                     </label>
-                                    <div class="form-control">
+                                    <div class="form-control" data-form-control="assignee">
                                         <button type="button" class="btn btn-assignees" data-action="select-assignees">
                                             <i class="fa fa-edit"></i>
                                         </button>
@@ -108,7 +108,7 @@
                                     <label class="controls-label">
                                         <xsl:value-of select="//captions/description/@caption"/>
                                     </label>
-                                    <textarea name="description" class="form-control">
+                                    <textarea name="description" class="form-control" data-form-control="description">
                                         <xsl:value-of select="//fields/description"/>
                                     </textarea>
                                 </div>
@@ -172,7 +172,7 @@
 
     <xsl:template name="due-date-template">
         <div class="due-date">
-            <div class="due-date-text form-control"></div>
+            <div class="due-date-text form-control" data-form-control="dueDate"></div>
             <section class="due-date-edit">
                 <select class="due-date-type">
                     <option value="month">

@@ -11,7 +11,7 @@
     line-height: normal;
     margin: 1px;
     outline: 0;
-    padding: 9px 12px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     text-shadow: 0px 1px rgba(255, 255, 255, 0.196);
@@ -20,11 +20,11 @@
 }
 
 .btn-xs {
-    padding: 2px;
+    padding: 2px 4px;
 }
 
 .btn-sm {
-    padding: 6px;
+    padding: 4px 6px;
 }
 
 .btn-lg {
