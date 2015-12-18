@@ -64,11 +64,6 @@ class DoScript extends _DoScript {
         list.add(social_outline)
         outline.addOutline(social_outline)
 
-        def opPlansWorkOutline = new _Outline(getLocalizedWord("Операционные планы и планы работы подразделений", lang), "", "op_plans_work")
-        opPlansWorkOutline.addEntry(new _OutlineEntry(getLocalizedWord("Журнал для сбора предложений", lang), "", "suggestions", "Provider?type=page&id=suggestions"))
-        list.add(opPlansWorkOutline)
-        outline.addOutline(opPlansWorkOutline)
-
         if (true || user.hasRole("administrator")) {
             def glossary_outline = new _Outline(getLocalizedWord("Справочники", lang), getLocalizedWord("Справочники", lang), "glossary")
             glossary_outline.addEntry(new _OutlineEntry(getLocalizedWord("Класс ЧС", lang), getLocalizedWord("Класс ЧС", lang), "estype", "Provider?type=page&id=estype"))
