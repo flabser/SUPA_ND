@@ -1,0 +1,38 @@
+.main-header {
+	background: #fff59d url(../img/yellow_background.jpg) 0 0 no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #494949;
+	height: inherit;
+	line-height: inherit;
+	position: relative;
+}
+
+.main-header .fa {
+	color: #646464;
+	font-size: 18px;
+	vertical-align: middle;
+}
+
+.brand-logo {
+	margin: 0 4px;
+	max-height: 50px;
+	vertical-align: middle;
+}
+
+.brand-title {
+	font-size: 1.4em;
+	margin-left: 10px;
+	vertical-align: middle;
+}
+
+.brand-title small {
+    font-size: .8em;
+    margin-left: 1em;
+}
+
+.navbar {
+    margin: 0;
+}
