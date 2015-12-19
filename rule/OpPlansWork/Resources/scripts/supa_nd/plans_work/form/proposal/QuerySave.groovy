@@ -101,7 +101,7 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("status", "draft")
         doc.addStringField("assignee", assigneeUser.getUserID())
         doc.addNumberField("assigneeDepartment", assigneeUser.getDepartmentID())
-        doc.addStringField("structurePlanSection", webFormData.getValueSilently("structurePlanSection"))
+        doc.addStringField("workPlan", webFormData.getValueSilently("workPlan"))
         //
         doc.addNumberField("authorDepartment", session.getCurrentAppUser().getDepartmentID())
         //---------------------------------------------
@@ -148,6 +148,17 @@ class QuerySave extends _FormQuerySave {
                 doc.addStringField("dueDate", newDueDate)
                 //
                 changes << ["dueDate", dueDate, newDueDate]
+            }
+        }
+        if (webFormData.containsField("workPlan")) {
+            def workPlan = doc.getValueString("workPlan")
+            def newWorkPlan = webFormData.getValue("workPlan")
+            if (workPlan != newWorkPlan) {
+                doc.addStringField("workPlan", newWorkPlan)
+                //
+                if (workPlan) {
+                    changes << ["workPlan", workPlan, newWorkPlan]
+                }
             }
         }
 

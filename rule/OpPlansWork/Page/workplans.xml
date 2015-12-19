@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="page" id="workplans" mode="on" history="on">
+    <description>Workplans</description>
+    <caching>NO_CACHING</caching>
+    <xsltfile>pages/workplans.xsl</xsltfile>
+
+    <element mode="ON" type="INCLUDED_PAGE">
+        <name>outline</name>
+        <value>outline</value>
+    </element>
+    <element mode="ON" type="SCRIPT">
+        <name>view_content</name>
+        <events>
+            <doscript source="file">supa_nd.plans_work.page.Workplans</doscript>
+        </events>
+    </element>
+
+    <caption name="title" source="KEYWORD">Структура плана работ</caption>
+    <caption name="viewtext" source="KEYWORD">Наименование</caption>
+    <caption name="viewnumber" source="KEYWORD">Код</caption>
+</rule>

@@ -55,11 +55,8 @@ class PostSave extends _FormPostSave {
         //
         ProposalService.addCoordEvent(session, doc, "start", "")
         //
-        // TODO notify coordinator
         def coordinator = block.getCurrentCoordinators().get(0)
-        System.out.println("--- send notify to first ---")
-        System.out.println(coordinator.userID)
-        System.out.println("--- /send notify to first ---")
+        ProposalService.notifyCoordinator(session, doc, coordinator, "start")
     }
 
     private void doCoordinationAgree(_Session session, _Document doc) {
@@ -71,10 +68,7 @@ class PostSave extends _FormPostSave {
         //
         if (!coordinators.isEmpty()) {
             def coordinator = coordinators[0]
-            // TODO notify coordinator
-            System.out.println("--- send notify to next : agree ---")
-            System.out.println(coordinator.userID)
-            System.out.println("--- /send notify to next ---")
+            ProposalService.notifyCoordinator(session, doc, coordinator, "agree")
         }
     }
 
@@ -85,15 +79,10 @@ class PostSave extends _FormPostSave {
         //
         if (!coordinators.isEmpty()) {
             def coordinator = coordinators[0]
-            // TODO notify coordinator
-            System.out.println("--- send notify to prev : revision ---")
-            System.out.println(coordinator.userID)
-            System.out.println("--- /send notify to prev ---")
+            ProposalService.notifyCoordinator(session, doc, coordinator, "revision")
         } else {
-            // TODO notify author
-            System.out.println("--- send notify to author : revision ---")
-            System.out.println(doc.getAuthorID())
-            System.out.println("--- /send notify to author ---")
+            def coordinator = block.getFirstCoordinator()
+            ProposalService.notifyAuthorCoordStop(session, doc, coordinator, "revision")
         }
     }
 
@@ -106,15 +95,10 @@ class PostSave extends _FormPostSave {
         //
         if (!coordinators.isEmpty()) {
             def coordinator = coordinators[0]
-            // TODO notify coordinator
-            System.out.println("--- send notify to prev : reject ---")
-            System.out.println(coordinator.userID)
-            System.out.println("--- /send notify to prev ---")
+            ProposalService.notifyCoordinator(session, doc, coordinator, "reject")
         } else {
-            // TODO notify author
-            System.out.println("--- send notify to author : reject ---")
-            System.out.println(doc.getAuthorID())
-            System.out.println("--- /send notify to author ---")
+            def coordinator = block.getFirstCoordinator()
+            ProposalService.notifyAuthorCoordStop(session, doc, coordinator, "reject")
         }
     }
 }

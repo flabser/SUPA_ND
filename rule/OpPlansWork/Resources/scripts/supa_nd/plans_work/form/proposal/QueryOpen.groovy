@@ -43,7 +43,7 @@ class QueryOpen extends _FormQueryOpen {
         actionBar.addAction(new _Action(getLocalizedWord("Закрыть", lang), "", _ActionType.CLOSE))
 
         def status = doc.getValueString("status")
-        if (status == "draft" || status == "revision" || status == "reject") {
+        if (status == "draft") {
             if (hasEditAccess) {
                 actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
                 actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
@@ -56,9 +56,15 @@ class QueryOpen extends _FormQueryOpen {
                 actionBar.addAction(new _Action(getLocalizedWord("Согласовать", lang), "", "coord_agree"))
             }
         } else if (status == "revision") {
-            //
+            if (hasEditAccess) {
+                actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
+                actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
+            }
         } else if (status == "reject") {
-            //
+            if (hasEditAccess) {
+                actionBar.addAction(new _Action(getLocalizedWord("Сохранить", lang), "", "save"))
+                actionBar.addAction(new _Action(getLocalizedWord("Отправить на согласование", lang), "", "coord_start"))
+            }
         } else if (status == "coordinated") {
             //
         }
@@ -73,6 +79,8 @@ class QueryOpen extends _FormQueryOpen {
         publishValue("status", status)
         publishValue("coordination", blockCollection)
         publishValue("coordinationDirection", doc.getValueString("coordinationDirection"))
+        publishGlossaryValue("workPlan", doc.getValueString("workPlan"))
+        //
         publishEmployer("author", doc.authorID)
         publishDepartment("authorDepartment", doc.getValueNumber("authorDepartment"))
         publishValue("createdAt", doc.regDate)

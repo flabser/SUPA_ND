@@ -139,8 +139,8 @@
     .form-group .control-label {
         width: 170px;
     }
-    .form-group .controls {
-        margin-left: 180px;
+    .form-group .control-label + .controls {
+        margin: 0 0 0 180px;
     }
 }
 
@@ -152,7 +152,7 @@
         text-align: left;
         width: 135px;
     }
-    .form-group .controls {
+    .form-group .control-label + .controls {
         margin-left: 140px;
     }
 }
@@ -161,7 +161,7 @@
     .form-group .control-label {
         width: 90px;
     }
-    .form-group .controls {
+    .form-group .control-label + .controls {
         margin-left: 95px;
     }
 }

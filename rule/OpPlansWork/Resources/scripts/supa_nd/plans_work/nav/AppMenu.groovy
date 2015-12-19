@@ -21,6 +21,8 @@ class AppMenu extends _DoScript {
         def outline = new _Outline("", "", "outline")
         outline.addEntry(new _OutlineEntry(getLocalizedWord("Перечень мероприятий", lang), "", "list-proposals", "Provider?type=page&id=list-proposals"))
         outline.addEntry(new _OutlineEntry(getLocalizedWord("Журнал предложений", lang), "", "journal-proposals", "Provider?type=page&id=journal-proposals"))
+        //
+        outline.addEntry(new _OutlineEntry(getLocalizedWord("Структура плана работ", lang), "", "workplans", "Provider?type=page&id=workplans"))
 
         setContent(new _XMLDocument(currentTag))
         setContent(outline)

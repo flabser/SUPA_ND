@@ -901,7 +901,9 @@ nb.xhr.sendSortRequest = function(pageId, column, direction) {
 $(function() {
 
     $('[data-action=save_and_close]').click(function() {
-        SaveFormJquery();
+        nb.xhr.saveDocument().then(function() {
+            $('[data-action=close]')[0].click();
+        });
     });
 
     $('[data-role=side-tree-toggle]').click(function() {

@@ -2,6 +2,7 @@ package supa_nd.plans_work.form.proposal
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
+import kz.nextbase.script.coordination._Coordinator
 
 
 class ProposalService {
@@ -46,5 +47,19 @@ class ProposalService {
         doc.addEditor(session.user.userID)
         doc.addEditor("[supervisor]")
         doc.save(session.user.userID)
+    }
+
+    public static notifyCoordinator(_Session session, _Document doc, _Coordinator coordinator, String action) {
+        // TODO notify coordinator
+        System.out.println("--- send notify to coordinator $action ---")
+        System.out.println(coordinator.userID)
+        System.out.println("--- /send notify to coordinator ---")
+    }
+
+    public static notifyAuthorCoordStop(_Session session, _Document doc, _Coordinator coordinator, String action) {
+        // TODO notify author
+        System.out.println("--- send notify to author : $action ---")
+        System.out.println(doc.getAuthorID())
+        System.out.println("--- /send notify to author ---")
     }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rule type="form" id="workplan" mode="on" history="on">
+    <description>Workplan</description>
+    <xsltfile>forms/workplan.xsl</xsltfile>
+    <doctype>glossary</doctype>
+
+    <events>
+        <queryopen source="file">supa_nd.plans_work.form.workplan.QueryOpen</queryopen>
+        <querysave source="file">supa_nd.plans_work.form.workplan.QuerySave</querysave>
+    </events>
+
+    <caption name="title" source="KEYWORD">Раздел плана работ</caption>
+
+    <caption name="name" source="KEYWORD">Наименование</caption>
+    <caption name="code" source="KEYWORD">Код</caption>
+
+    <caption name="author" source="KEYWORD">Автор</caption>
+</rule>
