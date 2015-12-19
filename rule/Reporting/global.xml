@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rule id="Reporting" mode="on" type="global">
+    <description>Выдача прогноза ЧС и формирование отчетности</description>
+    <orgname>ТОО "Lab of the Future"</orgname>
+    <liccount>100</liccount>
+    <logo>workflow_small.png</logo>
+    <database autodeploy="ON">
+        <name>USTP</name>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://localhost:5432/USTP</url>
+        <username></username>
+        <password></password>
+    </database>
+    <externalmodule type="STRUCTURE">Structure</externalmodule>
+    <daemons>
+        <daemon>
+            <class>kz.flabs.appdaemon.CycleControl</class>
+            <scheduler mode="ON">
+                <mininterval daysofweek="WORKWEEK,">360</mininterval>
+            </scheduler>
+        </daemon>
+        <daemon>
+            <class>kz.flabs.appdaemon.Recalculator</class>
+            <scheduler mode="ON">
+                <mininterval daysofweek="WORKWEEK,">360</mininterval>
+            </scheduler>
+        </daemon>
+        <daemon>
+            <class>kz.flabs.appdaemon.TimeWaiting</class>
+            <scheduler mode="ON">
+                <mininterval daysofweek="WORKWEEK,">360</mininterval>
+            </scheduler>
+        </daemon>
+    </daemons>
+    <entrypoint>Provider?type=static&amp;id=start</entrypoint>
+    <defaultredirecturl>Provider?type=page&amp;id=transportaccident&amp;page=0</defaultredirecturl>
+    <langs>
+        <entry id="RUS" isprimary="1">Русский</entry>
+        <entry id="KAZ">Казакша</entry>
+        <entry id="ENG">English</entry>
+    </langs>
+    <skins>
+        <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/Reporting/classic/xsl">Classic</entry>
+    </skins>
+    <roles>
+        <entry id="administrator">Разрешает ввод и редактирование значении справочников </entry>
+    </roles>
+    <markdelaysec>5</markdelaysec>
+    <eds mode="OFF">
+        <keypass/>
+        <keystore/>
+        <ocsp>http://ocsp.pki.kz:80</ocsp>
+    </eds>
+    <ocsp>http://ocsp.pki.kz:80</ocsp>
+</rule>
