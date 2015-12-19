@@ -15,7 +15,6 @@
         </events>
     </element>
 
-    <caption name="title" source="KEYWORD">Структура плана работ</caption>
+    <caption name="title" source="KEYWORD">Структура плана работы</caption>
     <caption name="viewtext" source="KEYWORD">Наименование</caption>
-    <caption name="viewnumber" source="KEYWORD">Код</caption>
 </rule>

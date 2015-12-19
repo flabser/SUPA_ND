@@ -32,5 +32,6 @@ class QueryOpen extends _FormQueryOpen {
         publishElement(actionBar)
         //
         publishValue("name", doc.getValueString("name"))
+        publishValue("index", doc.getValueNumber("index"))
     }
 }
