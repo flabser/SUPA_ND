@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rule id="Forecast" mode="on" type="global">
+<rule id="Reporting" mode="on" type="global">
     <description>Выдача прогноза ЧС и формирование отчетности</description>
     <orgname>ТОО "Lab of the Future"</orgname>
     <liccount>100</liccount>
@@ -40,7 +40,7 @@
         <entry id="ENG">English</entry>
     </langs>
     <skins>
-        <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/Forecast/classic/xsl">Classic</entry>
+        <entry default="on" errorpage="error.xsl" id="classic" path="./webapps/Reporting/classic/xsl">Classic</entry>
     </skins>
     <roles>
         <entry id="administrator">Разрешает ввод и редактирование значении справочников </entry>
