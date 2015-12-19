@@ -27,7 +27,9 @@ class QuerySave extends _FormQuerySave {
     @Override
     public void doQuerySave(_Session session, _Document doc, _WebFormData webFormData, String lang) {
 
-        if (!validate(doc, webFormData)) {
+        boolean hasEditAccess = doc.editors.contains(session.user.userID)
+
+        if (!hasEditAccess || !validate(doc, webFormData)) {
             stopSave()
             return
         }
@@ -66,16 +68,16 @@ class QuerySave extends _FormQuerySave {
                 return false
             }
         } else {
-            if (formData.containsField("description") && formData.getValueSilently("description").isEmpty()) {
+            if (formData.containsField("description") && formData.getValue("description").isEmpty()) {
                 return false
             }
-            if (formData.containsField("dueDateType") && formData.getValueSilently("dueDateType").isEmpty()) {
+            if (formData.containsField("dueDateType") && formData.getValue("dueDateType").isEmpty()) {
                 return false
             }
-            if (formData.containsField("dueDate") && formData.getValueSilently("dueDate").isEmpty()) {
+            if (formData.containsField("dueDate") && formData.getValue("dueDate").isEmpty()) {
                 return false
             }
-            if (formData.containsField("assignee") && formData.getValueSilently("assignee").isEmpty()) {
+            if (formData.containsField("assignee") && formData.getValue("assignee").isEmpty()) {
                 return false
             }
         }
@@ -228,7 +230,12 @@ class QuerySave extends _FormQuerySave {
                     }
                     buff = it
                 }
-                prevCoordinator?.setCurrent(true)
+                if (prevCoordinator) {
+                    prevCoordinator.setCurrent(true)
+                } else {
+                    doc.addStringField("status", "revision")
+                    doc.setViewText("revision", 7)
+                }
                 //
                 doc.addStringField("coordinationDirection", "down")
                 //
@@ -250,7 +257,12 @@ class QuerySave extends _FormQuerySave {
                     }
                     buff = it
                 }
-                prevCoordinator?.setCurrent(true)
+                if (prevCoordinator) {
+                    prevCoordinator.setCurrent(true)
+                } else {
+                    doc.addStringField("status", "reject")
+                    doc.setViewText("reject", 7)
+                }
                 //
                 doc.addStringField("coordinationDirection", "down")
                 break

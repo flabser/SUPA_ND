@@ -55,6 +55,10 @@ class QueryOpen extends _FormQueryOpen {
                 actionBar.addAction(new _Action(getLocalizedWord("Исключить", lang), "", "coord_reject"))
                 actionBar.addAction(new _Action(getLocalizedWord("Согласовать", lang), "", "coord_agree"))
             }
+        } else if (status == "revision") {
+            //
+        } else if (status == "reject") {
+            //
         } else if (status == "coordinated") {
             //
         }

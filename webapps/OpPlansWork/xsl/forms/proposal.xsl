@@ -158,6 +158,9 @@
                     <span>
                         <xsl:value-of select="//fields/author"/>
                     </span>
+                    <span class="text-muted">
+                        <xsl:value-of select="//fields/authorDepartment"/>
+                    </span>
                     <span>
                         <i class="fa fa-clock-o"></i>
                     </span>

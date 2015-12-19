@@ -15,7 +15,7 @@
         </events>
     </element>
 
-    <caption name="title" source="KEYWORD">Перечень предложений</caption>
+    <caption name="title" source="KEYWORD">Перечень мероприятий</caption>
     <caption name="viewtext" source="KEYWORD">Мероприятия, пути и средства достижения цели</caption>
     <caption name="viewtext1" source="KEYWORD">Ответственный исполнитель</caption>
     <caption name="viewtext3" source="KEYWORD">Срок исполнения</caption>

@@ -65,37 +65,56 @@ class PostSave extends _FormPostSave {
     private void doCoordinationAgree(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         def block = blockCollection.getCurrentBlock()
-        def coordinator = block.getCurrentCoordinators().get(0)
+        def coordinators = block.getCurrentCoordinators()
         //
         ProposalService.addCoordEvent(session, doc, "agree", "")
         //
-        // TODO notify coordinator
-        System.out.println("--- send notify to next : agree ---")
-        System.out.println(coordinator.userID)
-        System.out.println("--- /send notify to next ---")
+        if (!coordinators.isEmpty()) {
+            def coordinator = coordinators[0]
+            // TODO notify coordinator
+            System.out.println("--- send notify to next : agree ---")
+            System.out.println(coordinator.userID)
+            System.out.println("--- /send notify to next ---")
+        }
     }
 
     private void doCoordinationRevision(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         def block = blockCollection.getCurrentBlock()
-        def coordinator = block.getCurrentCoordinators()
+        def coordinators = block.getCurrentCoordinators()
         //
-        // TODO notify coordinator
-        System.out.println("--- send notify to prev : revision ---")
-        System.out.println(coordinator.userID)
-        System.out.println("--- /send notify to prev ---")
+        if (!coordinators.isEmpty()) {
+            def coordinator = coordinators[0]
+            // TODO notify coordinator
+            System.out.println("--- send notify to prev : revision ---")
+            System.out.println(coordinator.userID)
+            System.out.println("--- /send notify to prev ---")
+        } else {
+            // TODO notify author
+            System.out.println("--- send notify to author : revision ---")
+            System.out.println(doc.getAuthorID())
+            System.out.println("--- /send notify to author ---")
+        }
     }
 
     private void doCoordinationReject(_Session session, _Document doc) {
         def blockCollection = (_BlockCollection) doc.getValueObject("coordination")
         def block = blockCollection.getCurrentBlock()
-        def coordinator = block.getCurrentCoordinators().get(0)
+        def coordinators = block.getCurrentCoordinators()
         //
         ProposalService.addCoordEvent(session, doc, "reject", "")
         //
-        // TODO notify coordinator
-        System.out.println("--- send notify to prev : reject ---")
-        System.out.println(coordinator.userID)
-        System.out.println("--- /send notify to prev ---")
+        if (!coordinators.isEmpty()) {
+            def coordinator = coordinators[0]
+            // TODO notify coordinator
+            System.out.println("--- send notify to prev : reject ---")
+            System.out.println(coordinator.userID)
+            System.out.println("--- /send notify to prev ---")
+        } else {
+            // TODO notify author
+            System.out.println("--- send notify to author : reject ---")
+            System.out.println(doc.getAuthorID())
+            System.out.println("--- /send notify to author ---")
+        }
     }
 }

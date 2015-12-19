@@ -9,6 +9,12 @@
     width: 100% !important;
 }
 
+@media ( min-height: 800px) {
+    .nb-dialog {
+        position: fixed;
+    }
+}
+
 @media ( min-width: 768px) {
     .nb-dialog {
         left: 50%;

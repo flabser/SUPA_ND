@@ -19,7 +19,7 @@ class AppMenu extends _DoScript {
         currentTag.setAttr("id", formData.getValueSilently("id"))
 
         def outline = new _Outline("", "", "outline")
-        outline.addEntry(new _OutlineEntry(getLocalizedWord("Перечень предложений", lang), "", "list-proposals", "Provider?type=page&id=list-proposals"))
+        outline.addEntry(new _OutlineEntry(getLocalizedWord("Перечень мероприятий", lang), "", "list-proposals", "Provider?type=page&id=list-proposals"))
         outline.addEntry(new _OutlineEntry(getLocalizedWord("Журнал предложений", lang), "", "journal-proposals", "Provider?type=page&id=journal-proposals"))
 
         setContent(new _XMLDocument(currentTag))
