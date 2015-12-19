@@ -33,13 +33,13 @@
             <header>
                 <xsl:choose>
                     <xsl:when test="viewtext3 eq 'start'">
-                        <i class="coord-icon coord-start fa fa-play-circle-o"></i>
+                        <i class="coord-icon coord-start fa fa-play"></i>
                         <span class="coord-text">
                             <xsl:value-of select="//captions/coord_start/@caption"/>
                         </span>
                     </xsl:when>
                     <xsl:when test="viewtext3 eq 'agree'">
-                        <i class="coord-icon coord-agree fa fa-check-circle-o"></i>
+                        <i class="coord-icon coord-agree fa fa-check"></i>
                         <span class="coord-text">
                             <xsl:value-of select="//captions/coord_agree/@caption"/>
                         </span>
@@ -51,7 +51,7 @@
                         </span>
                     </xsl:when>
                     <xsl:when test="viewtext3 eq 'reject'">
-                        <i class="coord-icon coord-reject fa fa-ban"></i>
+                        <i class="coord-icon coord-reject fa fa-close"></i>
                         <span class="coord-text">
                             <xsl:value-of select="//captions/coord_reject/@caption"/>
                         </span>

@@ -63,13 +63,14 @@ class QueryOpen extends _FormQueryOpen {
         //
         publishValue("description", doc.getValueString("description"))
         publishEmployer("assignee", doc.getValueString("assignee"))
-        publishDepartment("department", Integer.valueOf(doc.getValueString("department")))
+        publishDepartment("assigneeDepartment", doc.getValueNumber("assigneeDepartment"))
         publishValue("dueDateType", doc.getValueString("dueDateType"))
         publishValue("dueDate", doc.getValueString("dueDate"))
         publishValue("status", status)
         publishValue("coordination", blockCollection)
-        publishValue("coordination_direction", doc.getValueString("coordination_direction"))
+        publishValue("coordinationDirection", doc.getValueString("coordinationDirection"))
         publishEmployer("author", doc.authorID)
-        publishValue("created_at", doc.regDate)
+        publishDepartment("authorDepartment", doc.getValueNumber("authorDepartment"))
+        publishValue("createdAt", doc.regDate)
     }
 }

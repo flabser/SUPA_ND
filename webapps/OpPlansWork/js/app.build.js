@@ -1067,7 +1067,7 @@ app.proposal = {
             });
         },
 
-        dialogSelectAssignees: function(el, fieldName, isMulti) {
+        dialogSelectAssignee: function(el, fieldName, isMulti) {
             var form = $('form[name=proposal]');
             var dlg = nb.dialog.show({
                 targetForm: form,
@@ -1213,8 +1213,8 @@ $(function() {
         });
     });
 
-    $('[data-action=select-assignees]').click(function() {
-        app.proposal.actions.dialogSelectAssignees(this, 'assignee', false);
+    $('[data-action=select-assignee]').click(function() {
+        app.proposal.actions.dialogSelectAssignee(this, 'assignee', false);
     });
 
     $('[data-action=due-date-link]').click(function() {

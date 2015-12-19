@@ -88,7 +88,7 @@ class QuerySave extends _FormQuerySave {
 
         // Coordination block
         doc.addField("coordination", new _BlockCollection(session))
-        doc.addStringField("coordination_direction", "up")
+        doc.addStringField("coordinationDirection", "up")
         //
 
         def assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
@@ -98,9 +98,10 @@ class QuerySave extends _FormQuerySave {
         doc.addStringField("dueDate", webFormData.getValueSilently("dueDate"))
         doc.addStringField("status", "draft")
         doc.addStringField("assignee", assigneeUser.getUserID())
-        doc.addStringField("department", "" + assigneeUser.getDepartmentID())
+        doc.addNumberField("assigneeDepartment", assigneeUser.getDepartmentID())
+        doc.addStringField("structurePlanSection", webFormData.getValueSilently("structurePlanSection"))
         //
-        doc.addStringField("author_department", "" + session.getCurrentAppUser().getDepartmentID())
+        doc.addNumberField("authorDepartment", session.getCurrentAppUser().getDepartmentID())
         //---------------------------------------------
         // WARNING. Pomni porjadok viewtext[n] kriti4en
         doc.setViewText(doc.getValueString("description"))
@@ -154,7 +155,7 @@ class QuerySave extends _FormQuerySave {
             if (currentAssigneeId != webFormData.getValue("assignee")) {
                 assigneeUser = session.getStructure().getEmployer(webFormData.getValue("assignee"))
                 doc.addStringField("assignee", assigneeUser.getUserID())
-                doc.addStringField("department", "" + assigneeUser.getDepartmentID())
+                doc.addNumberField("assigneeDepartment", assigneeUser.getDepartmentID())
                 //
                 changes << ["assignee", currentAssigneeId, assigneeUser.userID]
             } else {
@@ -195,7 +196,7 @@ class QuerySave extends _FormQuerySave {
                 blockCollection.setBlocks([block])
                 blockCollection.setCoordStatus(_CoordStatusType.COORDINATING)
                 //
-                doc.addStringField("coordination_direction", "up")
+                doc.addStringField("coordinationDirection", "up")
                 doc.addStringField("status", "coordination")
                 doc.setViewText("coordination", 7)
                 break
@@ -209,7 +210,7 @@ class QuerySave extends _FormQuerySave {
                 def nextCoordinator = block.getNextCoordinator(coordinator)
                 nextCoordinator.setCurrent(true)
                 //
-                doc.addStringField("coordination_direction", "up")
+                doc.addStringField("coordinationDirection", "up")
                 break
 
             case "coord_revision":
@@ -229,7 +230,7 @@ class QuerySave extends _FormQuerySave {
                 }
                 prevCoordinator?.setCurrent(true)
                 //
-                doc.addStringField("coordination_direction", "down")
+                doc.addStringField("coordinationDirection", "down")
                 //
                 ProposalService.addCoordEvent(session, doc, "revision", comment)
                 break
@@ -251,7 +252,7 @@ class QuerySave extends _FormQuerySave {
                 }
                 prevCoordinator?.setCurrent(true)
                 //
-                doc.addStringField("coordination_direction", "down")
+                doc.addStringField("coordinationDirection", "down")
                 break
         }
     }

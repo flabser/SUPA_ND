@@ -73,18 +73,17 @@
                                         <xsl:value-of select="//captions/assignee/@caption"/>
                                     </label>
                                     <div class="form-control" data-form-control="assignee">
-                                        <button type="button" class="btn btn-assignees" data-action="select-assignees">
+                                        <button type="button" class="btn btn-assignee" data-action="select-assignee">
                                             <i class="fa fa-edit"></i>
                                         </button>
                                         <div data-input="assignee">
                                             <xsl:value-of select="//fields/assignee"/>
                                         </div>
-                                        <div data-input="department_name">
-                                            <xsl:value-of select="//fields/department"/>
+                                        <div data-input="assigneeDepartment">
+                                            <xsl:value-of select="//fields/assigneeDepartment"/>
                                         </div>
                                     </div>
                                     <input type="hidden" name="assignee" value="{//fields/assignee/@attrval}"/>
-                                    <input type="hidden" name="department" value="{//fields/department/@attrval}"/>
                                 </div>
                             </div>
                             <div class="form-group has-controls-label col-md-7">
@@ -163,7 +162,7 @@
                         <i class="fa fa-clock-o"></i>
                     </span>
                     <time pubdate="pubdate">
-                        <xsl:value-of select="//fields/created_at"/>
+                        <xsl:value-of select="//fields/createdAt"/>
                     </time>
                 </footer>
             </xsl:if>
@@ -213,7 +212,7 @@
             <div class="btn-group" role="group">
                 <xsl:apply-templates select="//action[@id = 'coord_start']">
                     <xsl:with-param name="icon">
-                        <i class="fa fa-play-circle-o"></i>
+                        <i class="fa fa-play"></i>
                     </xsl:with-param>
                 </xsl:apply-templates>
                 <xsl:apply-templates select="//action[@id = 'coord_revision']">
@@ -223,12 +222,12 @@
                 </xsl:apply-templates>
                 <xsl:apply-templates select="//action[@id = 'coord_reject']">
                     <xsl:with-param name="icon">
-                        <i class="fa fa-ban"></i>
+                        <i class="fa fa-close"></i>
                     </xsl:with-param>
                 </xsl:apply-templates>
                 <xsl:apply-templates select="//action[@id = 'coord_agree']">
                     <xsl:with-param name="icon">
-                        <i class="fa fa-check-circle-o"></i>
+                        <i class="fa fa-check"></i>
                     </xsl:with-param>
                 </xsl:apply-templates>
             </div>
@@ -238,7 +237,7 @@
     <xsl:template name="coordination">
         <xsl:choose>
             <xsl:when test="$hasCoordBlock">
-                <ul class="coord-list coordination-direction {//fields/coordination_direction}">
+                <ul class="coord-list coordination-direction {//fields/coordinationDirection}">
                     <xsl:for-each select="//fields/coordination/blocks//coordinators/entry">
                         <xsl:sort select="position()" data-type="number" order="descending"/>
                         <li class="coord-iscurrent-{iscurrent}">
@@ -252,7 +251,12 @@
                                     </xsl:when>
                                 </xsl:choose>
                                 <span class="timeline-user">
-                                    <xsl:value-of select="employer/userid"/>
+                                    <span>
+                                        <xsl:value-of select="employer/fullname"/>
+                                    </span>
+                                    <span class="text-muted" style="margin-left:.5em">
+                                        <xsl:value-of select="employer/userid"/>
+                                    </span>
                                 </span>
                                 <time>
                                     <xsl:value-of select="decisiondate"/>
