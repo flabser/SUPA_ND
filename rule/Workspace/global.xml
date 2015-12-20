@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rule type="global" id="Workspace" mode="on">
 	<description>Рабочая область</description>
-	<orgname>Надзорная деятельность</orgname>
+	<orgname>КИКС ГСЧС</orgname>
 	<liccount>100</liccount>
 	<logo>4ms_enterprise.png</logo>
 	<appname>Рабочая область</appname>
