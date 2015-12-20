@@ -1,4 +1,4 @@
-package page.actionbar
+package reporting.page.actionbar
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData

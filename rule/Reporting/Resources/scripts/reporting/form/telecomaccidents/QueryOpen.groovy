@@ -1,4 +1,4 @@
-package form.telecomaccidents
+package reporting.form.telecomaccidents
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Exception

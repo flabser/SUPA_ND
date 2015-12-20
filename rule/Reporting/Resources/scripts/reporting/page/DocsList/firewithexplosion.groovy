@@ -1,4 +1,4 @@
-package page.DocsList
+package reporting.page.DocsList
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData

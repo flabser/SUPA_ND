@@ -1,4 +1,4 @@
-package form.firewithexplosion
+package reporting.form.firewithexplosion
 import kz.flabs.webrule.constants.RunMode
 import kz.nextbase.script.*
 import kz.nextbase.script.actions._Action

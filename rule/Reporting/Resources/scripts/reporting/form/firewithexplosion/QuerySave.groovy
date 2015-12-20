@@ -1,4 +1,4 @@
-package form.firewithexplosion
+package reporting.form.firewithexplosion
 import kz.nextbase.script.*
 import kz.nextbase.script.constants._AllControlType
 import kz.nextbase.script.events._FormQuerySave

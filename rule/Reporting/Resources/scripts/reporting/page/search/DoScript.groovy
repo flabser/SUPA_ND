@@ -1,4 +1,4 @@
-package page.search
+package reporting.page.search
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
 import kz.nextbase.script.events._DoScript

@@ -1,4 +1,4 @@
-package page.DocsList
+package reporting.page.DocsList
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData
@@ -6,9 +6,7 @@ import kz.nextbase.script.events._DoScript
 
 import java.text.SimpleDateFormat
 
-/**
- * Created by Bekzat on 2/12/14.
- */
+
 class outsideaccidents extends _DoScript {
 
     @Override

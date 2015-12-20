@@ -1,4 +1,4 @@
-package form.transportaccident
+package reporting.form.transportaccident
 import kz.flabs.webrule.constants.RunMode
 import kz.nextbase.script.*
 import kz.nextbase.script.actions._Action

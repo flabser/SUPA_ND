@@ -1,4 +1,4 @@
-package page.undelete_document
+package reporting.page.undelete_document
 import kz.nextbase.script.*
 import kz.nextbase.script.events._DoScript
 

@@ -1,4 +1,4 @@
-package form.region
+package reporting.form.region
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Glossary

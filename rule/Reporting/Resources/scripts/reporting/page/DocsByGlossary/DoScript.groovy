@@ -1,4 +1,4 @@
-package page.DocsByGlossary
+package reporting.page.DocsByGlossary
 
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData

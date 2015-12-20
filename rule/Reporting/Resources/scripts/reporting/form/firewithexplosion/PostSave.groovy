@@ -1,4 +1,4 @@
-package form.firewithexplosion
+package reporting.form.firewithexplosion
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session

@@ -1,4 +1,4 @@
-package page.delete_document
+package reporting.page.delete_document
 
 import kz.nextbase.script.*
 import kz.nextbase.script.events._DoScript

@@ -1,4 +1,4 @@
-package page.actionbar
+package reporting.page.actionbar
 
 import java.util.ArrayList;
 import java.util.Map;

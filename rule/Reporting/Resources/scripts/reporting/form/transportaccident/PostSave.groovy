@@ -1,4 +1,4 @@
-package form.transportaccident
+package reporting.form.transportaccident
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session

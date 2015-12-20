@@ -1,4 +1,4 @@
-package page.responses
+package reporting.page.responses
 import java.text.SimpleDateFormat
 import kz.nextbase.script._Session
 import kz.nextbase.script._WebFormData

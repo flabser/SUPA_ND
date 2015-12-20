@@ -1,4 +1,4 @@
-package form.city
+package reporting.form.city
 
 import java.text.SimpleDateFormat
 import java.util.Map

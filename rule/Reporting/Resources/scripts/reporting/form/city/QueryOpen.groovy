@@ -1,4 +1,4 @@
-package form.city
+package reporting.form.city
 
 import java.util.Map
 import kz.nextbase.script.*

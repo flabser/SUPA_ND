@@ -1,4 +1,4 @@
-package form.userprofile
+package reporting.form.userprofile
 
 import java.util.Map
 import kz.nextbase.script.*

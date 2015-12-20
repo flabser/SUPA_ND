@@ -1,4 +1,4 @@
-package page.current_entry
+package reporting.page.current_entry
 
 import java.util.ArrayList;
 import java.util.Map;

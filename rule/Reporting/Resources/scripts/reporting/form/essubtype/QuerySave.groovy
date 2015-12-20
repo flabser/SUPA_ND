@@ -1,4 +1,4 @@
-package form.essubtype
+package reporting.form.essubtype
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Glossary

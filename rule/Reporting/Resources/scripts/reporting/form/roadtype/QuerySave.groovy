@@ -1,4 +1,4 @@
-package form.roadtype
+package reporting.form.roadtype
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Glossary

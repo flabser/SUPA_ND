@@ -1,4 +1,4 @@
-package page.getdiffctrldate
+package reporting.page.getdiffctrldate
 
 import java.util.Map;
 import kz.nextbase.script.*;
