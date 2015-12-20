@@ -7,7 +7,7 @@ import kz.nextbase.script.actions._ActionBar
 import kz.nextbase.script.actions._ActionType
 import kz.nextbase.script.events._DoScript
 
-class firewithexplosion extends _DoScript {
+class forecast extends _DoScript {
 
 	@Override
 	public void doProcess(_Session session, _WebFormData formData, String lang) {
@@ -15,7 +15,7 @@ class firewithexplosion extends _DoScript {
 		def user = session.getCurrentAppUser();
 		if (user.hasRole(["administrator"])){
 			def newDocAction = new _Action(getLocalizedWord("Добавить", lang),getLocalizedWord("Добавить", lang),"new_document")
-			newDocAction.setURL("Provider?type=edit&element=document&id=firewithexplosion&docid=")
+			newDocAction.setURL("Provider?type=edit&element=document&id=forecast&docid=")
 			actionBar.addAction(newDocAction);
 		}
 		if (user.hasRole(["supervisor","administrator","chancellery"])){

@@ -1,4 +1,4 @@
-package reporting.form.city
+package reporting.form.meteostation
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Glossary

@@ -6,7 +6,7 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.DoScript</doscript>
+			<doscript source="file">reporting.page.actionbar.DoScript</doscript>
 		</events>
 	</element>
 </rule>

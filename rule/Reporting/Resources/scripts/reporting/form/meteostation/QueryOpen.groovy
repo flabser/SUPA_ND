@@ -1,11 +1,13 @@
-package reporting.form.city
+package reporting.form.meteostation
 
-import java.util.Map
-import kz.nextbase.script.*
-import kz.nextbase.script.actions.*
-import kz.nextbase.script.events.*;
-import kz.nextbase.script.task._Control
-import kz.nextbase.script.task._Task
+import kz.nextbase.script._Document
+import kz.nextbase.script._Glossary
+import kz.nextbase.script._Session
+import kz.nextbase.script._WebFormData
+import kz.nextbase.script.actions._Action
+import kz.nextbase.script.actions._ActionBar
+import kz.nextbase.script.actions._ActionType
+import kz.nextbase.script.events._FormQueryOpen
 
 class QueryOpen extends _FormQueryOpen{
 

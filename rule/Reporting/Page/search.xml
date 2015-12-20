@@ -10,13 +10,13 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.search</doscript>
+			<doscript source="file">reporting.page.actionbar.search</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="SCRIPT">
 		<name>view_content</name>
 		<events>
-			<doscript source="file">page.search.DoScript</doscript>
+			<doscript source="file">reporting.page.search.DoScript</doscript>
 		</events>
 	</element> 	
 	<caption name="page" source="KEYWORD">Страница</caption>

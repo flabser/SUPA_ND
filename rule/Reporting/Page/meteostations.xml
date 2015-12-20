@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="page" id="city" mode="on" history="on">
+<rule type="page" id="meteostations" mode="on" history="on">
 	<description></description>
 	<caching>NO_CACHING</caching>
 	<xsltfile>pages/page-glossary.xsl</xsltfile>
@@ -10,17 +10,17 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.city</doscript>
+			<doscript source="file">reporting.page.actionbar.meteostations</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="QUERY">
 		<name>view_content</name>
 		<doctype>glossary</doctype>
-		<query source="static">form = 'city'</query>
+		<query source="static">form = 'meteostation'</query>
 		<sortby source="static">VIEWTEXT1#asc</sortby>
 	</element>
 	<caption name="category" source="KEYWORD">Справочники</caption>
-	<caption name="viewnamecaption" source="KEYWORD">Город</caption>
+	<caption name="viewnamecaption" source="KEYWORD">Метеостанции</caption>
 	<caption name="viewtext1" source="KEYWORD">Название</caption>
 	<caption name="page" source="KEYWORD">Страница</caption>
 	<caption name="documents" source="KEYWORD">Документов</caption>

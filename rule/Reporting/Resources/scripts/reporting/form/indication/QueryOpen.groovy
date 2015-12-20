@@ -1,13 +1,13 @@
-package reporting.form.transportaccident
-import kz.flabs.webrule.constants.RunMode
-import kz.nextbase.script.*
+package reporting.form.indication
+
+import kz.nextbase.script._Document
+import kz.nextbase.script._Exception
+import kz.nextbase.script._Session
+import kz.nextbase.script._WebFormData
 import kz.nextbase.script.actions._Action
 import kz.nextbase.script.actions._ActionType
 import kz.nextbase.script.constants._DocumentModeType
 import kz.nextbase.script.events._FormQueryOpen
-import kz.nextbase.script.task._Control
-import kz.nextbase.script.task._ExecsBlocks
-import kz.pchelka.env.Environment
 
 class QueryOpen extends _FormQueryOpen {
 

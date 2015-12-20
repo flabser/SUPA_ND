@@ -1,4 +1,4 @@
-package reporting.form.outsideaccidents
+package reporting.form.indication
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session

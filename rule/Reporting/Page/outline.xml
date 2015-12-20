@@ -5,7 +5,7 @@
 	<element mode="ON" type="SCRIPT">
 		<name>current_outline_entry</name>
 		<events>
-			<doscript source="file">page.current_entry.DoScript</doscript>
+			<doscript source="file">reporting.page.current_entry.DoScript</doscript>
 		</events>
 	</element>	
 	<element mode="OFF" type="SCRIPT">

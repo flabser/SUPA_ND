@@ -10,7 +10,7 @@
 	<element mode="ON" type="SCRIPT">
 		<name>action_bar</name>
 		<events>
-			<doscript source="file">page.actionbar.estype</doscript>
+			<doscript source="file">reporting.page.actionbar.estype</doscript>
 		</events>
 	</element>
 	<element mode="ON" type="QUERY">

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rule type="form" id="transportaccident" mode="on">
-	<description>Транспортные аварии (катастрофы)</description>
-	<xsltfile>forms/transportaccident.xsl</xsltfile>
+<rule type="form" id="forecast" mode="on">
+	<description>Прогноз</description>
+	<xsltfile>forms/forecast.xsl</xsltfile>
 	<doctype>main</doctype>
 	<events>
-		<queryopen source="file">form.transportaccident.QueryOpen</queryopen>
-		<querysave source="file">form.transportaccident.QuerySave</querysave>
-		<!--<postsave source="file">form.transportaccident.PostSave</postsave>-->
+		<queryopen source="file">reporting.form.forecast.QueryOpen</queryopen>
+		<querysave source="file">reporting.form.forecast.QuerySave</querysave>
+		<!--<postsave source="file">PostSave</postsave>-->
 	</events> 
 	<caption name="close" source="KEYWORD">Закрыть</caption>
 	<caption name="properties" source="KEYWORD">Свойства</caption>

@@ -1,4 +1,4 @@
-package reporting.form.telecomaccidents
+package reporting.form.forecast
 
 import kz.nextbase.script._Document
 import kz.nextbase.script._Session
