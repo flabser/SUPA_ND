@@ -29,7 +29,7 @@ class QuerySave extends _FormQuerySave {
 
         boolean hasEditAccess = doc.editors.contains(session.user.userID)
 
-        if (!hasEditAccess || !validate(doc, webFormData)) {
+        if ((!doc.isNewDoc && !hasEditAccess) || !validate(doc, webFormData)) {
             stopSave()
             return
         }
